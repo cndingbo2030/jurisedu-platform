@@ -499,6 +499,108 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
 .qs-star .off{color:var(--line)}
 @media(max-width:700px){.focusring{width:112px;height:112px}}
 
+
+/* ---------- v6: fit radar, cmdk, notif, tour, motion ---------- */
+.fitwrap{display:flex;gap:18px;align-items:center;margin-top:10px}
+.fitradar{flex:0 0 148px}
+.fitlegend{flex:1;display:flex;flex-direction:column;gap:9px;min-width:0}
+.fl-row{display:flex;align-items:center;gap:8px;font-size:12px}
+.fl-row .fl-n{flex:0 0 auto;width:94px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fl-row .fl-track{flex:1;height:5px;border-radius:5px;background:var(--panel);overflow:hidden}
+.fl-row .fl-track i{display:block;height:100%;border-radius:5px}
+.fl-row b{flex:0 0 26px;text-align:right;font-size:12.5px}
+/* command palette */
+.cmdk-bg{position:fixed;inset:0;background:rgba(36,30,23,.45);backdrop-filter:blur(4px);z-index:80;display:none;align-items:flex-start;justify-content:center;padding:11vh 16px 16px}
+.cmdk-bg.show{display:flex;animation:fade .15s}
+.cmdk{width:100%;max-width:560px;background:var(--paper);border:1px solid var(--line);border-radius:16px;box-shadow:var(--sh-lg);overflow:hidden;animation:pop .18s}
+.cmdk .ci{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--line);color:var(--faint)}
+.cmdk .ci svg{width:17px;height:17px}
+.cmdk .ci input{flex:1;border:none;background:none;outline:none;font-family:inherit;font-size:15px;color:var(--ink)}
+.cmdk .ci kbd{font-family:var(--ui);font-size:10.5px;font-weight:600;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:3px 7px;color:var(--muted)}
+.cmdk-list{max-height:46vh;overflow-y:auto;padding:8px}
+.ck-sec{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);padding:8px 10px 4px}
+.ck-item{display:flex;align-items:center;gap:11px;padding:10px 11px;border-radius:10px;cursor:pointer;font-size:13.5px;font-weight:500}
+.ck-item .ic2{width:28px;height:28px;border-radius:8px;background:var(--panel);display:flex;align-items:center;justify-content:center;color:var(--muted);flex:0 0 28px}
+.ck-item .ic2 svg{width:15px;height:15px}
+.ck-item.sel{background:var(--brand-tint);color:var(--brand-d)}
+.ck-item.sel .ic2{background:#fff;color:var(--brand-d)}
+.ck-item .ck-sub{margin-left:auto;font-size:11px;color:var(--faint);white-space:nowrap}
+.ck-empty{padding:26px;text-align:center;color:var(--muted);font-size:13px}
+/* notifications */
+.notif-panel{position:fixed;top:64px;right:96px;z-index:48;width:344px;max-width:calc(100vw - 20px);background:var(--paper);border:1px solid var(--line);border-radius:14px;box-shadow:var(--sh-lg);display:none;overflow:hidden}
+.notif-panel.show{display:block;animation:pop .18s}
+.np-h{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-bottom:1px solid var(--line)}
+.np-h b{font-size:13.5px}
+.np-h button{font-size:11.5px;color:var(--brand-d);font-weight:600;cursor:pointer}
+.np-list{max-height:380px;overflow:auto}
+.np-item{display:flex;gap:10px;padding:11px 14px;border-bottom:1px solid var(--line2);cursor:pointer;align-items:flex-start}
+.np-item:hover{background:var(--card2)}
+.np-item:last-child{border-bottom:none}
+.np-item .nd{width:8px;height:8px;border-radius:50%;margin-top:5px;flex:0 0 8px}
+.np-item .nt{font-size:10.5px;color:var(--faint);margin-top:2px}
+@media(max-width:700px){.notif-panel{right:10px}}
+/* pitch tour */
+.tour-card{position:fixed;left:50%;transform:translateX(-50%);bottom:26px;z-index:85;width:min(530px,calc(100vw - 24px));background:var(--sidebar);color:#F3E9DA;border-radius:16px;box-shadow:var(--sh-lg);padding:16px 18px;display:none}
+.tour-card.show{display:block;animation:pop .25s}
+.tour-card .tt{font-family:var(--disp);font-size:17px;color:#FBF4EA;margin-bottom:4px}
+.tour-card .td{font-size:12.5px;line-height:1.6;color:#D8C8B4}
+.tour-card .tf{display:flex;align-items:center;gap:8px;margin-top:12px}
+.tour-card .dots{display:flex;gap:5px;margin-right:auto}
+.tour-card .dots i{width:6px;height:6px;border-radius:50%;background:rgba(247,239,228,.25)}
+.tour-card .dots i.on{background:#E8894F}
+.tour-btnp{background:#E8894F;color:#2A2219;font-weight:700;border-radius:9px;padding:8px 14px;font-size:12.5px;cursor:pointer;border:none}
+.tour-btng{color:#D8C8B4;font-weight:600;border-radius:9px;padding:8px 12px;font-size:12.5px;cursor:pointer;border:1px solid rgba(247,239,228,.25);background:none}
+@media(max-width:700px){.tour-card{bottom:calc(96px + env(safe-area-inset-bottom))}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+
+/* ---------- v7: schedule + AI brief ---------- */
+.sched-scroll{overflow-x:auto;padding-bottom:6px}
+.sched-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;min-width:980px}
+.sd-col{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px;min-height:300px}
+.sd-col.today{background:var(--brand-tint);border-color:var(--brand-soft)}
+.sd-h{text-align:center;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--line2)}
+.sd-h .dw{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.sd-h .dd{font-family:var(--disp);font-size:20px;font-weight:600;line-height:1.2}
+.sd-col.today .sd-h .dd{color:var(--brand-d)}
+.sd-h .tdy{display:inline-block;font-size:9px;font-weight:700;background:var(--brand);color:#fff;border-radius:100px;padding:1px 7px;margin-top:2px}
+.sd-ev{background:#fff;border:1px solid var(--line2);border-left:3px solid var(--brand);border-radius:9px;padding:8px 9px;margin-bottom:8px;font-size:11.5px;cursor:pointer;transition:.14s}
+.sd-ev:hover{transform:translateY(-1px);box-shadow:var(--sh)}
+.sd-ev .et{font-weight:700;font-size:10px;color:var(--muted);display:flex;justify-content:space-between;gap:6px}
+.sd-ev .en3{font-weight:600;margin:3px 0 2px;line-height:1.35}
+.sd-ev .el{font-size:10.5px;color:var(--faint)}
+.sd-ev.c-good{border-left-color:var(--good)}
+.sd-ev.c-info{border-left-color:var(--info)}
+.sd-ev.c-warn{border-left-color:var(--warn)}
+.sd-ev.c-n{border-left-color:#B9AD99}
+.ai-tag{display:inline-flex;align-items:center;gap:3px;font-size:9px;font-weight:700;color:var(--brand-d);background:var(--brand-tint);border-radius:100px;padding:1.5px 6px}
+.sd-empty{font-size:10.5px;color:var(--faint);text-align:center;padding:14px 0}
+.sched-chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+/* brief */
+.brief-paper{max-width:880px;background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--sh);padding:36px 40px}
+.bp-kicker{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--brand-d);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.bp-kicker .badge{text-transform:none;letter-spacing:0}
+.bp-title{font-family:var(--disp);font-size:27px;font-weight:600;margin:10px 0 2px}
+.bp-date{font-size:12.5px;color:var(--muted)}
+.bp-lead{font-family:var(--disp);font-size:19px;line-height:1.55;color:#3A342B;margin:18px 0 4px;border-left:3px solid var(--brand);padding-left:16px}
+.bp-sec{margin-top:24px}
+.bp-sec>h4{font-family:var(--disp);font-size:16px;margin-bottom:11px;display:flex;align-items:center;gap:8px}
+.bp-sec>h4 .bn2{width:22px;height:22px;border-radius:7px;background:var(--brand-tint);color:var(--brand-d);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;font-family:var(--ui)}
+.bp-stats{display:flex;gap:26px;flex-wrap:wrap;padding:14px 16px;background:var(--card2);border:1px solid var(--line2);border-radius:12px}
+.bp-stat{min-width:96px}
+.bp-stat b{display:block;font-family:var(--disp);font-size:21px;font-weight:600}
+.bp-stat span{font-size:11px;color:var(--muted)}
+.bp-stat .up2{font-size:10.5px;color:var(--good);font-weight:600}
+.bp-ins{border:1px solid var(--line2);border-radius:11px;padding:11px 13px;margin-bottom:9px;background:#fff}
+.bp-ins .small{line-height:1.55}
+.bp-foot{margin-top:26px;padding-top:14px;border-top:1px dashed var(--line);font-size:11px;color:var(--faint);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+@media(max-width:700px){
+  .brief-paper{padding:22px 18px}
+  .bp-lead{font-size:16.5px}
+  .sched-grid{display:flex;flex-direction:column;min-width:0}
+  .sd-col{min-height:auto}
+}
+
 </style>
 </head>
 <body>
@@ -553,6 +655,8 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
     <div class="sb-sec" data-en="Teach" data-zh="教学">Teach</div>
     <nav class="nav">
       <a data-mod="dashboard" class="on" onclick="go('dashboard')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span data-en="Dashboard" data-zh="总览">Dashboard</span></a>
+      <a data-mod="brief" onclick="go('brief')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="M9 13h6M9 17h4"/></svg><span data-en="AI Brief" data-zh="AI 简报">AI Brief</span><span class="badge-n" style="background:var(--good)">NEW</span></a>
+      <a data-mod="sched" onclick="go('sched')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="17" rx="2"/><path d="M8 2.5v4M16 2.5v4M3 10h18"/></svg><span data-en="Schedule" data-zh="日程">Schedule</span></a>
       <a data-mod="grading" onclick="go('grading')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h2a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg><span data-en="AI Grading" data-zh="AI 评分">AI Grading</span><span class="badge-n">18</span></a>
       <a data-mod="learn" onclick="go('learn')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span data-en="Learn · Tutoring" data-zh="Learn 辅导">Learn · Tutoring</span></a>
       <a data-mod="pinpoint" onclick="go('pinpoint')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4"/></svg><span data-en="Pinpoint · Diagnosis" data-zh="知点诊断">Pinpoint · Diagnosis</span></a>
@@ -569,18 +673,24 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
     <div class="sb-sec role-nav" data-role="parent" data-en="My child" data-zh="我的孩子">My child</div>
     <nav class="nav role-nav" data-role="parent">
       <a data-mod="p-home" onclick="go('p-home')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span data-en="Overview" data-zh="总览">Overview</span></a>
+      <a data-mod="brief" onclick="go('brief')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="M9 13h6M9 17h4"/></svg><span data-en="AI Brief" data-zh="AI 简报">AI Brief</span><span class="badge-n" style="background:var(--good)">NEW</span></a>
+      <a data-mod="sched" onclick="go('sched')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="17" rx="2"/><path d="M8 2.5v4M16 2.5v4M3 10h18"/></svg><span data-en="Schedule" data-zh="日程">Schedule</span></a>
       <a data-mod="p-book" onclick="go('p-book')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z"/></svg><span data-en="Bookings · Matching" data-zh="预约与撮合">Bookings · Matching</span><span class="badge-n">3</span></a>
       <a data-mod="p-pay" onclick="go('p-pay')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 7H6a2.5 2.5 0 0 1 0-5h11v5"/><path d="M19 7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2.5 2.5 0 0 1-2.5-2.5V4.5"/><circle cx="16.5" cy="13.8" r="1.3"/></svg><span data-en="Billing · Protection" data-zh="账单与保障">Billing · Protection</span></a>
     </nav>
     <div class="sb-sec role-nav" data-role="student" data-en="Learn" data-zh="学习">Learn</div>
     <nav class="nav role-nav" data-role="student">
       <a data-mod="s-home" onclick="go('s-home')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span data-en="Today" data-zh="今日学习">Today</span></a>
+      <a data-mod="brief" onclick="go('brief')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="M9 13h6M9 17h4"/></svg><span data-en="AI Brief" data-zh="AI 简报">AI Brief</span><span class="badge-n" style="background:var(--good)">NEW</span></a>
+      <a data-mod="sched" onclick="go('sched')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="17" rx="2"/><path d="M8 2.5v4M16 2.5v4M3 10h18"/></svg><span data-en="Schedule" data-zh="日程">Schedule</span></a>
       <a data-mod="s-tutor" onclick="go('s-tutor')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span data-en="AI Tutor" data-zh="AI 辅导">AI Tutor</span></a>
       <a data-mod="s-class" onclick="go('s-class')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4.5 20 12 7 19.5z"/></svg><span data-en="Live Class" data-zh="上课模式">Live Class</span><span class="badge-n" style="background:var(--danger)">•</span></a>
     </nav>
     <div class="sb-sec role-nav" data-role="admin" data-en="Institution" data-zh="机构管理">Institution</div>
     <nav class="nav role-nav" data-role="admin">
       <a data-mod="a-ops" onclick="go('a-ops')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span data-en="Command · AI ops" data-zh="指挥台 · AI 运营">Command · AI ops</span><span class="badge-n">12</span></a>
+      <a data-mod="brief" onclick="go('brief')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="M9 13h6M9 17h4"/></svg><span data-en="AI Brief" data-zh="AI 简报">AI Brief</span><span class="badge-n" style="background:var(--good)">NEW</span></a>
+      <a data-mod="sched" onclick="go('sched')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="17" rx="2"/><path d="M8 2.5v4M16 2.5v4M3 10h18"/></svg><span data-en="Schedule" data-zh="日程">Schedule</span></a>
       <a data-mod="a-students" onclick="go('a-students')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><circle cx="8.5" cy="11" r="2.2"/><path d="M5.5 16.5c.6-1.6 1.7-2.4 3-2.4s2.4.8 3 2.4"/><path d="M14.5 9.5H19M14.5 13h4.5M14.5 16.5h3"/></svg><span data-en="Student records" data-zh="学生档案 · 学籍">Student records</span></a>
       <a data-mod="a-academics" onclick="go('a-academics')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m2.5 9.5 9.5-5 9.5 5-9.5 5z"/><path d="M6.5 11.8V16c0 1.4 2.5 3 5.5 3s5.5-1.6 5.5-3v-4.2"/><path d="M21.5 9.5V15"/></svg><span data-en="Academics · Reports" data-zh="成绩 · 报告 · 证书">Academics · Reports</span></a>
       <a data-mod="a-members" onclick="go('a-members')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13A4 4 0 0 1 16 11"/></svg><span data-en="Members · Fees" data-zh="会员与会费">Members · Fees</span></a>
@@ -603,13 +713,14 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
   </aside>
 
   <header class="topbar">
-    <button class="icon-btn menu-btn" onclick="document.getElementById('sidebar').classList.toggle('open')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+    <button class="icon-btn menu-btn" aria-label="Menu" onclick="document.getElementById('sidebar').classList.toggle('open')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
     <div class="tb-crumb"><b data-en="Raffles Academy" data-zh="莱佛士书院">Raffles Academy</b> <span id="crumb" data-en="· Dashboard" data-zh="· 总览">· Dashboard</span></div>
-    <div class="search"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><input placeholder="Search students, assignments, tutors…" data-en-ph="Search students, assignments, tutors…" data-zh-ph="搜索学生、作业、师资…"></div>
+    <div class="search" onclick="openCmdk()" style="cursor:pointer"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><input readonly placeholder="Search students, assignments, tutors…" data-en-ph="Search students, assignments, tutors…" data-zh-ph="搜索学生、作业、师资…"></div>
     <div class="tb-right">
+      <button class="icon-btn" id="tourBtn" onclick="startTour()" aria-label="Pitch tour" title="Pitch tour · 演示导览"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4.5 20 12 7 19.5z"/></svg></button>
       <button class="role-chip" onclick="toggleRoleMenu()"><span class="rc-dot"></span><span class="rc-lab" id="roleLabel" data-en="Teacher · Ms Tan" data-zh="教师 · 陈老师">Teacher · Ms Tan</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
       <div class="lang-tog"><button data-lang="en" class="on">EN</button><button data-lang="zh">中</button></div>
-      <button class="icon-btn"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg><span class="dot"></span></button>
+      <button class="icon-btn" id="bellBtn" onclick="toggleNotif()" aria-label="Notifications"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg><span class="dot" id="bellDot"></span></button>
       <button class="icon-btn"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.2 9a3 3 0 0 1 5.6 1c0 2-3 2.5-3 4"/><path d="M12 17h.01"/></svg></button>
       <div class="avatar">MT</div>
     </div>
@@ -1764,6 +1875,40 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
     </div>
   </section>
 
+
+  <!-- ========== SCHEDULE (all roles) ========== -->
+  <section class="module" id="m-sched">
+    <div class="page-head">
+      <div>
+        <div class="eyebrow" data-en="This week" data-zh="本周">This week</div>
+        <h1 data-en="Schedule — arranged by the engine" data-zh="日程表 · 由引擎替你安排">Schedule — arranged by the engine</h1>
+        <p class="lead" data-en="Lessons, meetings, deadlines and events in one calm view. Items marked ✦ were scheduled automatically — matched to everyone’s preferred slots." data-zh="课程、会议、截止与活动，一屏从容掌握。带 ✦ 标记的事项由 AI 自动排期——已匹配所有人的偏好时段。">Lessons, meetings, deadlines and events in one calm view. Items marked ✦ were scheduled automatically — matched to everyone’s preferred slots.</p>
+      </div>
+      <div class="ph-actions">
+        <button class="btn ghost" onclick="toast('en:Calendar exported (ICS) · syncs with Google/Outlook','zh:日程已导出（ICS）· 可同步 Google/Outlook')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h12V21l-2-1.4L14 21l-2-1.4L10 21l-2-1.4L6 21z"/><path d="M9 7.5h6M9 11h6M9 14.5h4"/></svg><span data-en="Export ICS" data-zh="导出 ICS">Export ICS</span></button>
+        <button class="btn primary" onclick="toast('en:Tell me what to schedule — I will find the slot everyone can make','zh:告诉我要安排什么——我来找所有人都有空的时段')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg><span data-en="New · AI finds the slot" data-zh="新建 · AI 找时段">New · AI finds the slot</span></button>
+      </div>
+    </div>
+    <div class="sched-chips" id="schedChips"></div>
+    <div class="sched-scroll"><div class="sched-grid" id="schedGrid"></div></div>
+  </section>
+
+  <!-- ========== AI BRIEF (all roles) ========== -->
+  <section class="module" id="m-brief">
+    <div class="page-head">
+      <div>
+        <div class="eyebrow" data-en="Generated for you at 07:00" data-zh="今晨 07:00 为你生成">Generated for you at 07:00</div>
+        <h1 data-en="Your AI morning brief" data-zh="AI 晨间简报">Your AI morning brief</h1>
+        <p class="lead" data-en="A one-page report of what happened, what matters today and what the engine suggests — every claim cited to your own data." data-zh="一页读完：昨天发生了什么、今天什么最重要、引擎有何建议——每个结论都引用你自己的数据。">A one-page report of what happened, what matters today and what the engine suggests — every claim cited to your own data.</p>
+      </div>
+      <div class="ph-actions">
+        <button class="btn ghost" onclick="toast('en:Brief exported as PDF','zh:简报已导出 PDF')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h12V21l-2-1.4L14 21l-2-1.4L10 21l-2-1.4L6 21z"/><path d="M9 7.5h6M9 11h6M9 14.5h4"/></svg><span data-en="Export PDF" data-zh="导出 PDF">Export PDF</span></button>
+        <button class="btn ghost" onclick="toast('en:Will land in your inbox every day at 07:00','zh:已订阅 · 每天 07:00 发送到邮箱')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span data-en="Email me daily" data-zh="每日邮件">Email me daily</span></button>
+      </div>
+    </div>
+    <div class="brief-paper" id="briefWrap"></div>
+  </section>
+
   </main>
 </div>
 
@@ -1822,6 +1967,8 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
 <div class="sheet" id="moreSheet">
   <a onclick="go('learn')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span data-en="Learn · Tutoring" data-zh="Learn 辅导">Learn · Tutoring</span></a>
   <a onclick="go('pinpoint')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4"/></svg><span data-en="Pinpoint · Diagnosis" data-zh="知点诊断">Pinpoint · Diagnosis</span></a>
+  <a onclick="go('brief')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="M9 13h6M9 17h4"/></svg><span data-en="AI Brief" data-zh="AI 简报">AI Brief</span></a>
+  <a onclick="go('sched')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="17" rx="2"/><path d="M8 2.5v4M16 2.5v4M3 10h18"/></svg><span data-en="Schedule" data-zh="日程">Schedule</span></a>
   <a onclick="go('t-studio')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="m22 8-6 4 6 4z"/></svg><span data-en="AI Teaching Studio" data-zh="AI 教学工作室">AI Teaching Studio</span></a>
   <a onclick="go('t-qbank')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="2.8"/><path d="M4 5v14c0 1.6 3.6 2.8 8 2.8s8-1.2 8-2.8V5"/><path d="M4 12c0 1.6 3.6 2.8 8 2.8s8-1.2 8-2.8"/></svg><span data-en="Question Bank" data-zh="题库管理">Question Bank</span></a>
   <a onclick="go('events')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="17" rx="2"/><path d="M8 2.5v4M16 2.5v4M3 10h18"/></svg><span data-en="Live Events" data-zh="线上活动">Live Events</span><span class="badge-n" style="background:var(--danger);color:#fff;margin-left:auto;font-size:10.5px;border-radius:100px;padding:1px 7px">2</span></a>
@@ -1835,7 +1982,7 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
   <a data-role-opt="admin" onclick="setRole('admin')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg><span><span data-en="Admin" data-zh="管理">Admin</span><span class="rm-sub" data-en="Principal · records, fees & AI ops" data-zh="校长/机构负责人 · 档案会费 · AI 运营">Principal · records, fees & AI ops</span></span></a>
 </div>
 
-<button class="chat-fab" id="chatFab" onclick="openChat()"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/></svg><span class="cf-badge">AI</span></button>
+<button class="chat-fab" id="chatFab" onclick="openChat()" aria-label="AI support chat"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/></svg><span class="cf-badge">AI</span></button>
 <div class="chat-panel" id="chatPanel">
   <div class="cp-head">
     <button class="cp-x" onclick="closeChat()"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
@@ -1874,6 +2021,19 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
   <button class="bn-item" data-bn="a-members" onclick="go('a-members')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13A4 4 0 0 1 16 11"/></svg><span data-en="Members" data-zh="会员">Members</span><span class="bd"></span></button>
   <button class="bn-item" data-bn="a-risk" onclick="go('a-risk')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 4l9 5.5"/><path d="M5 10v7M9.5 10v7M14.5 10v7M19 10v7"/><path d="M3 20h18"/></svg><span data-en="Risk" data-zh="风控">Risk</span><span class="bd"></span></button>
 </nav>
+
+
+<div class="cmdk-bg" id="cmdkBg">
+  <div class="cmdk">
+    <div class="ci"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><input id="ckInput" placeholder="Type a page, person or action…"><kbd>esc</kbd></div>
+    <div class="cmdk-list" id="ckList"></div>
+  </div>
+</div>
+<div class="notif-panel" id="notifPanel">
+  <div class="np-h"><b data-en="Notifications" data-zh="通知">Notifications</b><button onclick="markAllRead()" data-en="Mark all read" data-zh="全部已读">Mark all read</button></div>
+  <div class="np-list" id="npList"></div>
+</div>
+<div class="tour-card" id="tourCard"></div>
 
 <div class="toast" id="toast"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.7 4.8L18.5 9l-4.8 1.2L12 15l-1.7-4.8L5.5 9l4.8-1.2z"/><path d="M19 13.5l.8 2.2 2.2.8-2.2.8L19 19.5l-.8-2.2-2.2-.8 2.2-.8z"/></svg><span id="toastMsg"></span></div>
 
@@ -1983,7 +2143,14 @@ applyLang('en');
   window.selectTutor=function(ix){
     document.querySelectorAll('.mpin').forEach(function(p){p.classList.toggle('sel',p.id==='pin'+ix);});
     var t=TUTORS[ix];
-    var bars=t.f.map(function(fb){return '<div class="fitbar"><span class="fl">'+tr2(fb[0],fb[1])+'</span><span class="track"><i style="width:'+fb[2]+'%"></i></span><b>'+fb[2]+'</b></div>';}).join('');
+    var C=80,Rr=56,ANG=[[0,-1],[1,0],[0,1],[-1,0]],CLR=['#C15A2E','#4C6E86','#C4872B','#4E7C59'];
+    function rpt(i,v){var k=Rr*v/100;return [(C+ANG[i][0]*k).toFixed(1),(C+ANG[i][1]*k).toFixed(1)];}
+    var poly=t.f.map(function(fb,i){return rpt(i,fb[2]).join(',');}).join(' ');
+    var grid=[100,66,33].map(function(g){return '<polygon points="'+t.f.map(function(_,i){return rpt(i,g).join(',');}).join(' ')+'" fill="none" stroke="#E8DFCE" stroke-width="1"/>';}).join('');
+    var axes=ANG.map(function(a){return '<line x1="'+C+'" y1="'+C+'" x2="'+(C+a[0]*Rr)+'" y2="'+(C+a[1]*Rr)+'" stroke="#EFE7D7" stroke-width="1"/>';}).join('');
+    var rdots=t.f.map(function(fb,i){var p=rpt(i,fb[2]);return '<circle cx="'+p[0]+'" cy="'+p[1]+'" r="3.4" fill="'+CLR[i]+'" stroke="#fff" stroke-width="1.6"/>';}).join('');
+    var legend='<div class="fitlegend">'+t.f.map(function(fb,i){return '<div class="fl-row"><span class="dotb" style="background:'+CLR[i]+'"></span><span class="fl-n">'+tr2(fb[0],fb[1])+'</span><span class="fl-track"><i style="width:'+fb[2]+'%;background:'+CLR[i]+'"></i></span><b>'+fb[2]+'</b></div>';}).join('')+'</div>';
+    var bars='<div class="fitwrap"><svg class="fitradar" viewBox="0 0 160 160" width="148" height="148">'+grid+axes+'<polygon points="'+poly+'" fill="rgba(193,90,46,.16)" stroke="#C15A2E" stroke-width="2" stroke-linejoin="round"/>'+rdots+'</svg>'+legend+'</div>';
     document.getElementById('tutorDetail').innerHTML=
       '<div class="list-row" style="border:none;padding:0 0 4px"><div class="mini-av" style="width:40px;height:40px;font-size:14px;border-radius:11px;background:'+t.c+'">'+t.i+'</div>'+
       '<div style="flex:1"><div class="fw6">'+t.n+' <span class="badge g" style="margin-left:5px">'+tr2('Verified','已认证')+'</span></div>'+
@@ -2214,6 +2381,356 @@ Object.assign(CRUMB,{
  't-qbank':['· Question Bank','· 题库管理'],
  's-class':['· Live Class','· 上课模式']
 });
+</script>
+
+
+<script>
+(function(){
+  function T(en,zh){return LANG==='zh'?zh:en;}
+  var MODS={brief:['AI Brief','AI 简报','*'],sched:['Schedule','日程','*'],
+    dashboard:['Dashboard','总览','teacher'],grading:['AI Grading','AI 评分','teacher'],learn:['Learn · Tutoring','Learn 辅导','teacher'],pinpoint:['Pinpoint · Diagnosis','知点诊断','teacher'],'t-studio':['AI Teaching Studio','AI 教学工作室','teacher'],'t-qbank':['Question Bank','题库管理','teacher'],market:['Marketplace','撮合市场','teacher'],events:['Live Events','线上活动','teacher'],payments:['Payments · Escrow','支付与担保','teacher'],
+    'p-home':['Overview','总览','parent'],'p-book':['Bookings · Matching','预约与撮合','parent'],'p-pay':['Billing · Protection','账单与保障','parent'],
+    's-home':['Today','今日学习','student'],'s-tutor':['AI Tutor','AI 辅导','student'],'s-class':['Live Class','上课模式','student'],
+    'a-ops':['Command · AI ops','指挥台 · AI 运营','admin'],'a-students':['Student records','学生档案','admin'],'a-academics':['Academics · Reports','成绩与证书','admin'],'a-members':['Members · Fees','会员与会费','admin'],'a-match':['Matching engine','自动撮合引擎','admin'],'a-risk':['Risk · Compliance','风控与合规','admin']
+  };
+  var RECENTS=[];
+
+  /* ---------- count-up ---------- */
+  function animateNums(scope){
+    if(!scope)return;
+    scope.querySelectorAll('.stat .num').forEach(function(n){
+      if(n.dataset.cu)return;
+      var tn=null;
+      for(var i=0;i<n.childNodes.length;i++){var c=n.childNodes[i];if(c.nodeType===3&&/\d/.test(c.textContent)){tn=c;break;}}
+      if(!tn)return;
+      var raw=tn.textContent,mm=raw.match(/([\d,]+(?:\.\d+)?)/);
+      if(!mm)return;
+      var numStr=mm[1],target=parseFloat(numStr.replace(/,/g,''));
+      if(!isFinite(target))return;
+      n.dataset.cu=1;
+      var dec=(numStr.split('.')[1]||'').length,hasComma=numStr.indexOf(',')>=0;
+      var pre=raw.slice(0,mm.index),post=raw.slice(mm.index+numStr.length),t0=null,D=650;
+      function fmt(v){var s=v.toFixed(dec);if(hasComma){var p=s.split('.');p[0]=p[0].replace(/\B(?=(\d{3})+(?!\d))/g,',');s=p.join('.');}return s;}
+      function stp(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/D),e=1-Math.pow(1-p,3);tn.textContent=pre+fmt(target*e)+post;if(p<1)requestAnimationFrame(stp);}
+      requestAnimationFrame(stp);
+    });
+  }
+  var _go5=window.go;
+  window.go=function(m){
+    _go5(m);
+    var el=document.getElementById('m-'+m);
+    if(el)animateNums(el);
+    if(MODS[m]){RECENTS=RECENTS.filter(function(x){return x!==m;});RECENTS.unshift(m);if(RECENTS.length>6)RECENTS.pop();}
+    closeCmdk();
+  };
+  var _en5=window.enterApp;
+  window.enterApp=function(){_en5();setTimeout(function(){animateNums(document.querySelector('.module.show'));},120);};
+
+  /* ---------- notifications ---------- */
+  var NOTIFS={
+    teacher:[['var(--warn)','7 essays abstained — confidence below your bar','7 篇作文存疑——置信低于阈值','2m','grading'],
+             ['var(--good)','11 essays graded · avg confidence 91%','已批改 11 篇 · 平均置信 91%','8m','grading'],
+             ['var(--info)','Escrow released: S$706.30 to Priya Raman','托管放款：S$706.30 → Priya Raman','1h','payments'],
+             ['var(--brand)','86 registered for “Exam Skills” · 40 seats left','「应试技巧」已报名 86 人 · 余 40 席','3h','events']],
+    parent:[['var(--warn)','Please confirm Wed’s lesson to release escrow','请确认周三课程以便放款','1h','p-book'],
+            ['var(--good)','Weekly report for Rui Feng is ready','睿峰的每周学习报告已生成','2h','p-home'],
+            ['var(--info)','Receipt issued: S$277.70 (GST e-receipt)','收据已开具：S$277.70（GST 电子收据）','1d','p-pay']],
+    student:[['var(--brand)','Streak alert: finish 2 tasks to keep day 7','连续纪录提醒：完成 2 项任务保住第 7 天','30m','s-home'],
+             ['var(--good)','New practice set on counter-arguments','「反方论证」新练习已发布','2h','s-home'],
+             ['var(--info)','Writing Clinic goes live Friday 17:00','写作诊室周五 17:00 开播','1d','s-class']],
+    admin:[['var(--warn)','3 payouts held for AML review','3 笔提现待 AML 人工复核','15m','a-risk'],
+           ['var(--good)','EOD reconciliation clean · diff S$0.00','日终对账一致 · 差异 S$0.00','1h','a-risk'],
+           ['var(--brand)','258 report comments awaiting approval','258 份评语待审批','2h','a-ops'],
+           ['var(--info)','Dues recovered this week: S$1,120','本周会费回收 S$1,120','1d','a-members']]
+  };
+  var seen={};
+  function updateDot(){var d=document.getElementById('bellDot');if(d)d.style.display=seen[ROLE]?'none':'block';}
+  function renderNotif(){
+    var list=document.getElementById('npList');
+    list.innerHTML=NOTIFS[ROLE].map(function(n,i){
+      return '<div class="np-item" onclick="notifGo('+i+')"><span class="nd" style="background:'+n[0]+'"></span><div style="flex:1"><div class="small" style="font-weight:600">'+T(n[1],n[2])+'</div><div class="nt">'+n[3]+' '+T('ago','前')+'</div></div></div>';
+    }).join('');
+  }
+  window.notifGo=function(i){var n=NOTIFS[ROLE][i];closeNotif();go(n[4]);};
+  window.toggleNotif=function(){
+    var p=document.getElementById('notifPanel');
+    var on=!p.classList.contains('show');
+    if(on){renderNotif();seen[ROLE]=true;updateDot();}
+    p.classList.toggle('show',on);
+  };
+  window.closeNotif=function(){document.getElementById('notifPanel').classList.remove('show');};
+  window.markAllRead=function(){seen[ROLE]=true;updateDot();closeNotif();toast('en:All caught up','zh:已全部标记为已读');};
+  var _sr5=window.setRole;
+  window.setRole=function(r){_sr5(r);updateDot();closeNotif();closeCmdk();};
+
+  /* ---------- command palette ---------- */
+  var ckSel=0;
+  var ENT=[
+    {en:'Rui Feng',zh:'睿峰',sub:['Student · S3B-012','学生 · S3B-012'],go:function(){go(ROLE==='admin'?'a-students':ROLE==='parent'?'p-home':ROLE==='student'?'s-home':'grading');},kw:'ruifeng student 学生 睿峰'},
+    {en:'Adeline Lim',zh:'Adeline Lim',sub:['Tutor · ★4.9','老师 · ★4.9'],go:function(){go(ROLE==='parent'?'p-book':ROLE==='admin'?'a-match':'market');},kw:'adeline tutor 老师 撮合'},
+    {en:'Mdm Lee',zh:'李女士',sub:['Parent · Family member','家长 · 家庭会员'],go:function(){go(ROLE==='admin'?'a-members':ROLE==='parent'?'p-pay':'payments');},kw:'lee parent 家长 李 会员'}
+  ];
+  function ACT(){return [
+    {en:'Start pitch tour',zh:'开始演示导览',fn:startTour,kw:'tour demo 导览 演示'},
+    {en:'Ask JE support',zh:'打开 JE 智能客服',fn:function(){openChat();},kw:'support chat 客服 帮助'},
+    {en:'Switch language · EN ⇄ 中文',zh:'切换语言 · EN ⇄ 中文',fn:function(){applyLang(LANG==='en'?'zh':'en');},kw:'language 语言 english chinese'},
+    {en:'View as Teacher',zh:'切换到教师视角',fn:function(){setRole('teacher');},kw:'teacher role 教师'},
+    {en:'View as Parent',zh:'切换到家长视角',fn:function(){setRole('parent');},kw:'parent role 家长'},
+    {en:'View as Student',zh:'切换到学生视角',fn:function(){setRole('student');},kw:'student role 学生'},
+    {en:'View as Admin',zh:'切换到机构管理视角',fn:function(){setRole('admin');},kw:'admin role 管理 机构'}
+  ];}
+  function buildItems(q){
+    var out=[];
+    function hit(strs){if(!q)return true;return strs.some(function(s){return s.toLowerCase().indexOf(q)>=0;});}
+    if(!q){
+      RECENTS.filter(function(k){return MODS[k][2]===ROLE||MODS[k][2]==='*';}).slice(0,4).forEach(function(k){
+        out.push({sec:T('Recent','最近访问'),l:T(MODS[k][0],MODS[k][1]),sub:'',icon:'clock',fn:(function(kk){return function(){go(kk);};})(k)});
+      });
+    }
+    Object.keys(MODS).forEach(function(k){
+      if(MODS[k][2]!==ROLE&&MODS[k][2]!=='*')return;
+      if(hit([MODS[k][0],MODS[k][1],k]))out.push({sec:T('Pages','页面'),l:T(MODS[k][0],MODS[k][1]),sub:'',icon:'grid',fn:(function(kk){return function(){go(kk);};})(k)});
+    });
+    if(q){ENT.forEach(function(e){if(hit([e.en,e.zh,e.kw]))out.push({sec:T('People','相关人'),l:T(e.en,e.zh),sub:T(e.sub[0],e.sub[1]),icon:'user',fn:e.go});});}
+    ACT().forEach(function(a2){if(hit([a2.en,a2.zh,a2.kw]))out.push({sec:T('Actions','操作'),l:T(a2.en,a2.zh),sub:'',icon:'bolt',fn:a2.fn});});
+    return out;
+  }
+  var ICONS={grid:'<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>',bolt:'<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z"/></svg>',user:'<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c.8-4 4-6 8-6s7.2 2 8 6"/></svg>',clock:'<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>'};
+  var ckItems=[];
+  window.renderCmdk=function(){
+    var q=(document.getElementById('ckInput').value||'').trim().toLowerCase();
+    ckItems=buildItems(q);
+    if(ckSel>=ckItems.length)ckSel=0;
+    var list=document.getElementById('ckList');
+    if(!ckItems.length){list.innerHTML='<div class="ck-empty">'+T('Nothing found — try “grading”, “会员” or “tour”.','没有找到——试试「评分」「members」或「导览」。')+'</div>';return;}
+    var h='',lastSec='';
+    ckItems.forEach(function(it,i){
+      if(it.sec!==lastSec){h+='<div class="ck-sec">'+it.sec+'</div>';lastSec=it.sec;}
+      h+='<div class="ck-item'+(i===ckSel?' sel':'')+'" onmouseenter="ckSel='+i+';renderCmdk()" onclick="ckRun('+i+')"><span class="ic2">'+ICONS[it.icon]+'</span><span>'+it.l+'</span>'+(it.sub?'<span class="ck-sub">'+it.sub+'</span>':'')+'</div>';
+    });
+    list.innerHTML=h;
+  };
+  window.ckRun=function(i){var it=ckItems[i];if(!it)return;closeCmdk();setTimeout(it.fn,10);};
+  window.openCmdk=function(){
+    var bg=document.getElementById('cmdkBg');bg.classList.add('show');
+    var inp=document.getElementById('ckInput');inp.value='';ckSel=0;
+    inp.placeholder=T('Type a page, person or action…','搜索页面、人或操作…');
+    renderCmdk();setTimeout(function(){inp.focus();},30);
+  };
+  window.closeCmdk=function(){var bg=document.getElementById('cmdkBg');if(bg)bg.classList.remove('show');};
+  document.getElementById('cmdkBg').addEventListener('click',function(e){if(e.target===this)closeCmdk();});
+  document.getElementById('ckInput').addEventListener('input',function(){ckSel=0;renderCmdk();});
+  document.addEventListener('keydown',function(e){
+    if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();var bg=document.getElementById('cmdkBg');bg.classList.contains('show')?closeCmdk():openCmdk();return;}
+    var open=document.getElementById('cmdkBg').classList.contains('show');
+    if(e.key==='Escape'){if(open){closeCmdk();}else{closeNotif();endTour(true);}return;}
+    if(!open)return;
+    if(e.key==='ArrowDown'){e.preventDefault();ckSel=Math.min(ckSel+1,ckItems.length-1);renderCmdk();}
+    if(e.key==='ArrowUp'){e.preventDefault();ckSel=Math.max(ckSel-1,0);renderCmdk();}
+    if(e.key==='Enter'){e.preventDefault();ckRun(ckSel);}
+  });
+
+  /* ---------- pitch tour ---------- */
+  var TOUR=[
+    {r:'teacher',m:'dashboard',t:['One engine, four surfaces','一套引擎 · 四端一体'],d:['This is the teacher’s day: everything the AI does here is cited, calibrated and reversible.','这是教师的一天：AI 做的每一步都有出处、经校准、可回退。']},
+    {r:'teacher',m:'grading',t:['Grading that abstains','会「存疑」的评分'],d:['Below the confidence bar, the AI hands the essay to the teacher instead of guessing — that discipline is the product.','置信不足时，AI 不猜测，直接转交教师——这份纪律就是产品本身。']},
+    {r:'teacher',m:'t-studio',t:['A lesson in 6 minutes','6 分钟做出一堂课'],d:['Cited scripts, bilingual presenter, checkpoints from the bank — S$4.20 per video, teacher signs off.','有据脚本、双语讲师、题库检查点——单条 S$4.20，教师签发才上线。']},
+    {r:'teacher',m:'market',t:['Matching, explained','说得清理由的撮合'],d:['The JE engine ranks tutors on a map with reasons — subject, distance, schedule, budget. No black box.','JE 引擎在地图上按科目、距离、时段、预算给出推荐理由——不是黑箱。']},
+    {r:'teacher',m:'payments',t:['Escrow-grade money flow','担保级的资金流'],d:['Parents pay into escrow; tutors are paid after confirmation; the platform never touches funds in transit.','家长先付入托管，确认后老师才收款，平台不触碰在途资金。']},
+    {r:'student',m:'s-class',t:['Guided, never given away','引导，而不代劳'],d:['Hints in steps, never answers; focus analytics run on-device with nothing recorded.','阶梯提示、绝不给答案；专注力分析在设备端完成，不录制任何画面。']},
+    {r:'parent',m:'p-home',t:['Trust converts to renewals','信任转化为续费'],d:['Parents see what teachers see — every claim cited, every dollar protected.','家长看到的与老师一致——每个结论有出处，每一分钱有保障。']},
+    {r:'admin',m:'a-ops',t:['2 people run 1,240 students','2 个人运营 1,240 名学生'],d:['Agents draft comments, schedules, reminders and invoices; humans approve a queue of 12, not a school of 1,240.','智能体起草评语、排期、提醒与账单；人只审 12 条队列，而不是 1,240 人的学校。']},
+    {r:'admin',m:'a-risk',t:['Financial-grade backbone','金融级底座'],d:['Segregated funds, daily reconciliation to the cent, dual approvals, hash-chained audit — regulator-ready.','资金隔离、逐分对账、双人复核、哈希链审计——随时面对监管。']}
+  ];
+  var ti=-1;
+  function renderTour(){
+    if(ti<0)return;
+    var s=TOUR[ti],c=document.getElementById('tourCard');
+    var dots=TOUR.map(function(_,i){return '<i class="'+(i===ti?'on':'')+'"></i>';}).join('');
+    c.innerHTML='<div class="tt">'+T(s.t[0],s.t[1])+'</div><div class="td">'+T(s.d[0],s.d[1])+'</div>'+
+      '<div class="tf"><span class="dots">'+dots+'</span>'+
+      (ti>0?'<button class="tour-btng" onclick="prevTour()">'+T('Back','上一步')+'</button>':'')+
+      '<button class="tour-btng" onclick="endTour()">'+T('End','结束')+'</button>'+
+      '<button class="tour-btnp" onclick="nextTour()">'+(ti===TOUR.length-1?T('Finish','完成'):T('Next','下一步'))+' →</button></div>';
+    c.classList.add('show');
+  }
+  function gotoStep(){
+    var s=TOUR[ti];
+    if(typeof closeChat==='function')closeChat();
+    closeNotif();closeCmdk();
+    if(ROLE!==s.r)setRole(s.r);
+    if(s.m)go(s.m);
+    renderTour();
+  }
+  window.startTour=function(){ti=0;gotoStep();toast('en:Pitch tour started · 9 stops','zh:演示导览开始 · 共 9 站');};
+  window.nextTour=function(){if(ti>=TOUR.length-1){endTour();toast('en:Tour complete — explore freely','zh:导览结束——欢迎自由探索');return;}ti++;gotoStep();};
+  window.prevTour=function(){if(ti>0){ti--;gotoStep();}};
+  window.endTour=function(silent){ti=-1;var c=document.getElementById('tourCard');if(c)c.classList.remove('show');};
+
+  var _ap5=window.applyLang;
+  window.applyLang=function(l){
+    _ap5(l);
+    if(document.getElementById('cmdkBg').classList.contains('show'))renderCmdk();
+    if(document.getElementById('notifPanel').classList.contains('show'))renderNotif();
+    if(ti>=0)renderTour();
+  };
+  updateDot();
+})();
+</script>
+
+
+<script>
+(function(){
+  function T(en,zh){return LANG==='zh'?zh:en;}
+  Object.assign(CRUMB,{brief:['· AI Brief','· AI 简报'],sched:['· Schedule','· 日程']});
+  var DAYS=[['Mon','周一'],['Tue','周二'],['Wed','周三'],['Thu','周四'],['Fri','周五'],['Sat','周六'],['Sun','周日']];
+  var DATES=[17,18,19,20,21,22,23];
+  var SCHED={
+    teacher:[
+      {d:0,t:'08:30',c:'good',ai:1,e:['Review 7 abstained essays','复核 7 篇存疑作文'],l:['45 min · queued by priority','45 分钟 · 已按优先级排序']},
+      {d:0,t:'14:00',c:'brand',e:['Sec 3B · Persuasive writing','中三 B 班 · 说服性写作'],l:['Room 2-4 · 32 students','2-4 教室 · 32 人']},
+      {d:1,t:'10:00',c:'brand',e:['Sec 3A · Comprehension','中三 A 班 · 阅读理解'],l:['Room 2-1','2-1 教室']},
+      {d:1,t:'16:00',c:'warn',ai:1,e:['Sign off “Counter-arguments 101”','签发《反方论证入门》'],l:['Studio · 6 min review','工作室 · 约 6 分钟']},
+      {d:2,t:'19:30',c:'info',ai:1,e:['PTM · Mdm Lee (Rui Feng)','家长会 · 李女士（睿峰）'],l:['Online · agenda drafted','线上 · 议程已代拟']},
+      {d:3,t:'15:30',c:'good',ai:1,e:['Pinpoint re-checks · 6 students','知点复检 · 6 名学生'],l:['Auto-graded on submit','提交即自动批改']},
+      {d:4,t:'17:00',c:'brand',e:['Weekly Writing Clinic · live','每周写作诊室 · 直播'],l:['52 registered','已报名 52 人']},
+      {d:5,t:'10:00',c:'n',e:['Marking window · Prelim drafts','预考草稿批改窗口'],l:['AI drafts ready by 09:00','AI 初稿 09:00 前就绪']},
+      {d:6,t:'—',c:'n',e:['Rest day · no gradings due','休息日 · 无批改截止'],l:['Protected by your workload rule','由工作量规则保护']}
+    ],
+    parent:[
+      {d:0,t:'19:00',c:'good',ai:1,e:['Rui Feng · practice check-in','睿峰 · 练习打卡'],l:['15 min · from weak points','15 分钟 · 针对弱点']},
+      {d:2,t:'19:30',c:'info',ai:1,e:['PTM with Ms Tan','与陈老师家长会'],l:['Online · matched your slot','线上 · 已匹配你的时段']},
+      {d:3,t:'19:30',c:'warn',ai:1,e:['Pinpoint re-check · tone','知点复检 · 语气与态度'],l:['Free · auto-scheduled','免费 · 自动排期']},
+      {d:5,t:'10:00',c:'brand',e:['Essay coaching · Adeline Lim','作文辅导 · Adeline Lim'],l:['Online · escrow-protected','线上 · 担保交易中']},
+      {d:5,t:'14:00',c:'n',e:['Confirm lesson → release escrow','确认上课 → 托管放款'],l:['1 tap in Billing','账单页一键确认']},
+      {d:6,t:'10:00',c:'brand',e:['Workshop · Argumentative Essays','付费工作坊 · 议论文'],l:['2 seats · S$56 paid','2 席 · 已支付 S$56']}
+    ],
+    student:[
+      {d:0,t:'19:00',c:'brand',ai:1,e:['Today’s 18-min plan','今日 18 分钟计划'],l:['3 tasks · keeps streak','3 项任务 · 保住连续纪录']},
+      {d:1,t:'19:00',c:'good',ai:1,e:['4 practice items · spaced','4 道间隔练习'],l:['From your Q7 mistake','来自你的第 7 题错误']},
+      {d:2,t:'20:00',c:'n',e:['Free evening — parents at PTM','自由晚间——家长开家长会'],l:['Play fair, sleep early','放松一下，早点休息']},
+      {d:3,t:'19:30',c:'warn',ai:1,e:['Re-check · tone vs topic','复检 · 语气 vs 主题'],l:['10 min · beat 92% to pass','10 分钟 · 达 92% 通过']},
+      {d:4,t:'17:00',c:'brand',e:['Writing Clinic · live class','写作诊室 · 直播课'],l:['With 52 classmates','52 位同学一起']},
+      {d:5,t:'10:00',c:'brand',e:['Lesson with Ms Adeline','Adeline 老师辅导课'],l:['Online · checkpoint quiz','线上 · 含检查点小测']},
+      {d:6,t:'—',c:'good',e:['Badge day — streak 7 unlocks','徽章日——解锁连续 7 天'],l:['If today’s tasks are done','完成今日任务即达成']}
+    ],
+    admin:[
+      {d:0,t:'09:00',c:'warn',ai:1,e:['Approve queue · 12 items','审批队列 · 12 项'],l:['Est. 18 min total','预计共 18 分钟']},
+      {d:0,t:'17:30',c:'info',ai:1,e:['EOD reconciliation · auto','日终对账 · 自动'],l:['3-way match · alert on diff','三方核对 · 有差即告警']},
+      {d:1,t:'11:00',c:'good',ai:1,e:['Payout run · S$1,120 · T+1','放款批处理 · S$1,120 · T+1'],l:['6 tutors · dual-approved','6 位老师 · 已双人复核']},
+      {d:2,t:'10:00',c:'warn',e:['AML review · 3 payouts','AML 复核 · 3 笔提现'],l:['SLA 24h · workspace ready','SLA 24 小时 · 工作台就绪']},
+      {d:2,t:'19:30',c:'info',ai:1,e:['PTM week peak · 14 meetings','家长会高峰 · 14 场'],l:['All rooms auto-assigned','会议房间已自动分配']},
+      {d:4,t:'15:00',c:'brand',ai:1,e:['Dues campaign review','会费催缴复盘'],l:['S$2,760 expected','预计回收 S$2,760']},
+      {d:5,t:'09:30',c:'n',e:['Board pack · monthly','理事会月报'],l:['Draft ready · you edit','草稿已就绪 · 待你修订']}
+    ]
+  };
+  var CATL={brand:['Lesson','课程'],good:['Learning','学习'],info:['Meeting','会议'],warn:['Action due','待办'],n:['Other','其它']};
+  window.renderSched=function(){
+    var evs=SCHED[ROLE]||[];
+    var ai=evs.filter(function(e){return e.ai;}).length;
+    document.getElementById('schedChips').innerHTML=
+      '<span class="badge b">'+evs.length+' '+T('items this week','项 · 本周')+'</span>'+
+      '<span class="badge g"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.7 4.8L18.5 9l-4.8 1.2L12 15l-1.7-4.8L5.5 9l4.8-1.2z"/><path d="M19 13.5l.8 2.2 2.2.8-2.2.8L19 19.5l-.8-2.2-2.2-.8 2.2-.8z"/></svg> '+ai+' '+T('auto-scheduled by AI','项由 AI 自动排期')+'</span>'+
+      '<span class="badge n">'+T('0 conflicts','冲突 0')+'</span>'+
+      '<span class="badge i">'+T('Synced with guardians’ slots','已匹配家长偏好时段')+'</span>';
+    var g=document.getElementById('schedGrid');
+    g.innerHTML=DAYS.map(function(dy,i){
+      var col=evs.filter(function(e){return e.d===i;}).map(function(e){
+        return '<div class="sd-ev c-'+e.c+'" onclick="toast(\'en:Opened: '+e.e[0].replace(/'/g,'')+'\',\'zh:已打开：'+e.e[1].replace(/'/g,'')+'\')">'+
+          '<div class="et"><span>'+e.t+'</span>'+(e.ai?'<span class="ai-tag">✦ AI</span>':'')+'</div>'+
+          '<div class="en3">'+T(e.e[0],e.e[1])+'</div><div class="el">'+T(e.l[0],e.l[1])+'</div></div>';
+      }).join('')||'<div class="sd-empty">'+T('Nothing planned','暂无安排')+'</div>';
+      return '<div class="sd-col'+(i===0?' today':'')+'"><div class="sd-h"><div class="dw">'+T(dy[0],dy[1])+'</div><div class="dd">'+DATES[i]+'</div>'+(i===0?'<span class="tdy">'+T('TODAY','今天')+'</span>':'')+'</div>'+col+'</div>';
+    }).join('');
+  };
+
+  var BRIEF={
+    teacher:{
+      lead:['Your classes are trending up — 3B gained 4.2 points this week, the best in the cohort. Seven essays wait where the AI abstained, and two lessons need your signature. Everything else ran itself.','班级整体向好——3B 本周提升 4.2 分，全年级最佳。有 7 篇 AI 存疑的作文等你裁决，2 件事项待你签发，其余一切已自动运转。'],
+      top3:[
+        ['Review 7 abstained essays (confidence < 85%)','复核 7 篇存疑作文（置信 < 85%）','grading'],
+        ['Sign off “Counter-arguments 101” lesson video','签发课程视频《反方论证入门》','t-studio'],
+        ['Confirm Wednesday’s PTM agenda with Mdm Lee','确认周三与李女士的家长会议程','sched']],
+      stats:[['73%',['Class mastery','班级掌握度'],'+6'],['11',['Essays AI-graded','AI 已批作文'],''],['142h',['Saved this term','本学期省时'],''],['45',['Bank items to verify','题库待审'],'']],
+      ins:[
+        ['Rui Feng’s counter-argument score rose after step 1 of his path — assign step 2 today to keep momentum.','睿峰完成路径第 1 步后，反方论证得分回升——建议今天布置第 2 步，乘胜追击。',['Pinpoint · mastery timeline','知点 · 掌握度曲线']],
+        ['3 imported items still have unverified answers; papers using them are on hold.','3 道导入题答案未验证，引用它们的试卷已自动挂起。',['Question bank · import log','题库 · 导入日志']]]
+    },
+    parent:{
+      lead:['Rui Feng had a strong week: mastery up 6 points, streak at 6 days. One thing needs you — confirm Wednesday’s lesson so escrow can release. Saturday’s class is booked and protected.','睿峰这周表现出色：掌握度提升 6 分，连续学习 6 天。只有一件事需要你——确认周三的课程以便托管放款。周六的课已预约并受保障。'],
+      top3:[
+        ['Confirm Wed lesson → releases S$89.20 from escrow','确认周三课程 → 放款 S$89.20','p-book'],
+        ['PTM with Ms Tan · Wed 19:30 (slot matched to you)','周三 19:30 与陈老师家长会（已匹配你的时段）','sched'],
+        ['Thursday re-check: 10 minutes, tone & attitude','周四复检：10 分钟，语气与态度','p-home']],
+      stats:[['73%',['Mastery','掌握度'],'+6'],['6',['Day streak','连续天数'],''],['S$277.70',['In escrow','托管中'],''],['100%',['Lessons insured','课程保险覆盖'],'']],
+      ins:[
+        ['His gap is “counter-arguments” (41%). The current path targets it; no extra tuition needed yet.','短板是「反方论证」（41%）。当前路径正针对此项，暂无需加课。',['Teacher’s weekly note','老师周报']],
+        ['Workshop on Saturday has your 2 seats confirmed; receipt is in Billing.','周六工作坊 2 个席位已确认，收据在「账单」页。',['GST e-receipt #2231','GST 电子收据 #2231']]]
+    },
+    student:{
+      lead:['Six days straight — one more and you unlock the 7-day badge. Today takes 18 minutes: one explainer is done, four practice items and one question left. Your focus yesterday was your best this month.','连续第 6 天——再坚持 1 天就解锁「连续 7 天」徽章。今天只需 18 分钟：讲解已看完，还剩 4 道练习和 1 个提问。昨天的专注度是你本月最佳。'],
+      top3:[
+        ['4 practice items on counter-arguments (8 min)','完成 4 道反方论证练习（8 分钟）','s-home'],
+        ['Ask the tutor one question about tone','向 AI 辅导问一个关于语气的问题','s-tutor'],
+        ['Friday 17:00 · Writing Clinic — tap to get a reminder','周五 17:00 写作诊室——点一下设提醒','sched']],
+      stats:[['6🔥',['Day streak','连续天数'],''],['73%',['Mastery','掌握度'],'+6'],['87%',['Focus yesterday','昨日专注度'],''],['8',['Badges','徽章'],'']],
+      ins:[
+        ['You answer best between 19:00–20:00 — that’s when today’s plan is scheduled.','你在 19:00–20:00 的正确率最高——今天的计划就排在这个时段。',['Your practice history','你的练习记录']],
+        ['Hint usage is down 40% this month. You’re needing less help — that’s real progress.','本月提示使用量下降 40%。你越来越不需要帮助——这是真正的进步。',['Tutor session log','辅导会话记录']]]
+    },
+    admin:{
+      lead:['A clean morning: reconciliation matched to the cent for the 92nd day, agents completed 214 items overnight, and only 12 need your judgment. Cash position is healthy; one dispute and three AML checks are the only open risks.','清爽的早晨：对账连续第 92 天逐分吻合，智能体昨夜完成 214 项事务，只有 12 项需要你判断。现金状况健康；未决风险仅 1 起争议与 3 笔 AML 复核。'],
+      top3:[
+        ['Approve queue: 258 comments + 26 certificates (18 min)','审批队列：258 份评语 + 26 张证书（约 18 分钟）','a-ops'],
+        ['AML: clear 3 held payouts before the 24h SLA','AML：在 24 小时 SLA 内处理 3 笔提现','a-risk'],
+        ['Send 23 dues reminders · S$2,760 expected','发送 23 封会费催缴 · 预计回收 S$2,760','a-members']],
+      stats:[['S$3,840',['In escrow','托管中'],''],['S$0.00',['Recon diff · day 92','对账差异 · 第 92 天'],''],['92%',['Automation','自动化率'],''],['1,240',['Students','在读学生'],'+38']],
+      ins:[
+        ['Trial student Marcus hits day 14 tomorrow — his convert offer is drafted and priced.','试读学生 Marcus 明天满 14 天——转正方案已拟好并完成定价。',['Enrolment pipeline','学籍转化管线']],
+        ['PTM week doubles evening room usage Wednesday; rooms auto-assigned, no clashes.','家长会周使周三晚间场地占用翻倍；房间已自动分配，零冲突。',['Facilities scheduler','场地排期系统']]]
+    }
+  };
+  window.renderBrief=function(){
+    var B=BRIEF[ROLE];if(!B)return;
+    var w=document.getElementById('briefWrap');
+    var roleName={teacher:['Ms Tan','陈老师'],parent:['Mdm Lee','李女士'],student:['Rui Feng','睿峰'],admin:['Raffles Academy','莱佛士书院']}[ROLE];
+    var h='<div class="bp-kicker">JE ENGINE · '+T('MORNING BRIEF','晨间简报')+'<span class="badge g" style="margin-left:4px"><span class="d"></span>'+T('Every claim cited','逐条有出处')+'</span></div>';
+    h+='<div class="bp-title">'+T('Good morning, ','早上好，')+T(roleName[0],roleName[1])+'</div>';
+    h+='<div class="bp-date">'+T('Monday, 17 August 2026 · generated 07:00 · 47 data points','2026 年 8 月 17 日 · 周一 · 07:00 生成 · 基于 47 条数据')+'</div>';
+    h+='<div class="bp-lead">'+T(B.lead[0],B.lead[1])+'</div>';
+    h+='<div class="bp-sec"><h4><span class="bn2">1</span>'+T('Top 3 for today','今日最重要的三件事')+'</h4>';
+    B.top3.forEach(function(x,i){
+      h+='<div class="list-row"><div class="mini-av" style="background:var(--brand)">'+(i+1)+'</div><div style="flex:1" class="small fw6">'+T(x[0],x[1])+'</div><button class="btn ghost" style="padding:5px 11px" onclick="go(\''+x[2]+'\')">'+T('Open','去处理')+'</button></div>';
+    });
+    h+='</div>';
+    h+='<div class="bp-sec"><h4><span class="bn2">2</span>'+T('Numbers that matter','关键数字')+'</h4><div class="bp-stats">';
+    B.stats.forEach(function(s){h+='<div class="bp-stat"><b>'+s[0]+(s[2]?' <span class="up2">'+s[2]+'</span>':'')+'</b><span>'+T(s[1][0],s[1][1])+'</span></div>';});
+    h+='</div></div>';
+    var tod=(SCHED[ROLE]||[]).filter(function(e){return e.d<=1;}).slice(0,3);
+    h+='<div class="bp-sec"><h4><span class="bn2">3</span>'+T('Coming up','即将到来')+'</h4>';
+    tod.forEach(function(e){h+='<div class="list-row"><span class="badge n" style="min-width:64px;justify-content:center">'+T(DAYS[e.d][0],DAYS[e.d][1])+' '+e.t+'</span><div style="flex:1" class="small fw6">'+T(e.e[0],e.e[1])+(e.ai?' <span class="ai-tag">✦ AI</span>':'')+'</div></div>';});
+    h+='<button class="btn subtle" style="margin-top:8px" onclick="go(\'sched\')">'+T('Open full schedule','查看完整日程')+'</button></div>';
+    h+='<div class="bp-sec"><h4><span class="bn2">4</span>'+T('What the engine noticed','引擎的观察与建议')+'</h4>';
+    B.ins.forEach(function(x){h+='<div class="bp-ins"><div class="small" style="color:#3A342B">'+T(x[0],x[1])+'</div><span class="src-chip" style="margin-top:7px">§ '+T(x[2][0],x[2][1])+'</span></div>';});
+    h+='</div>';
+    h+='<div class="bp-foot"><span>'+T('Drafted by the JE Engine from your own records — grounded, abstains when unsure, fully logged.','由 JE 引擎基于你自己的数据生成——有据、拿不准就存疑、全程留痕。')+'</span><span>#BR-0817 · '+T('audit trail','审计留痕')+'</span></div>';
+    w.innerHTML=h;
+  };
+
+  var _go7=window.go;
+  window.go=function(m){
+    if(m==='sched')renderSched();
+    if(m==='brief')renderBrief();
+    _go7(m);
+  };
+  var _ap7=window.applyLang;
+  window.applyLang=function(l){
+    _ap7(l);
+    var cur=document.querySelector('.module.show');
+    if(cur&&cur.id==='m-sched')renderSched();
+    if(cur&&cur.id==='m-brief')renderBrief();
+  };
+})();
 </script>
 
 </body>
