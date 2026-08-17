@@ -694,6 +694,7 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
       <a data-mod="a-students" onclick="go('a-students')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><circle cx="8.5" cy="11" r="2.2"/><path d="M5.5 16.5c.6-1.6 1.7-2.4 3-2.4s2.4.8 3 2.4"/><path d="M14.5 9.5H19M14.5 13h4.5M14.5 16.5h3"/></svg><span data-en="Student records" data-zh="学生档案 · 学籍">Student records</span></a>
       <a data-mod="a-academics" onclick="go('a-academics')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m2.5 9.5 9.5-5 9.5 5-9.5 5z"/><path d="M6.5 11.8V16c0 1.4 2.5 3 5.5 3s5.5-1.6 5.5-3v-4.2"/><path d="M21.5 9.5V15"/></svg><span data-en="Academics · Reports" data-zh="成绩 · 报告 · 证书">Academics · Reports</span></a>
       <a data-mod="a-members" onclick="go('a-members')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13A4 4 0 0 1 16 11"/></svg><span data-en="Members · Fees" data-zh="会员与会费">Members · Fees</span></a>
+      <a data-mod="a-plan" onclick="go('a-plan')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h12V21l-2-1.4L14 21l-2-1.4L10 21l-2-1.4L6 21z"/><path d="M9 7.5h6M9 11h6M9 14.5h4"/></svg><span data-en="Plan · Modules" data-zh="订阅与模块">Plan · Modules</span></a>
     </nav>
     <div class="sb-sec role-nav" data-role="admin" data-en="Platform" data-zh="平台">Platform</div>
     <nav class="nav role-nav" data-role="admin">
@@ -1039,7 +1040,7 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
       </div>
     </div>
 
-    <div class="tabs"><button class="on" data-en="Tutors" data-zh="师资">Tutors</button><button data-en="Resource packs" data-zh="资源包">Resource packs</button><button data-en="Group classes" data-zh="小组课">Group classes</button></div>
+    <div class="tabs"><button class="on" data-en="Tutors" data-zh="师资">Tutors</button><button data-en="Resource packs" data-zh="资源包" onclick="toast('en:Resource packs catalogue (demo preview)','zh:资源包目录（演示示意）')">Resource packs</button><button data-en="Group classes" data-zh="小组课" onclick="toast('en:Group classes catalogue (demo preview)','zh:小组课目录（演示示意）')">Group classes</button></div>
     <div class="grid g3">
       <div class="card mk-card"><div class="cover"><div class="av-lg" style="background:linear-gradient(145deg,#5B8A72,#3E6B54)">AL</div></div><div class="mk-body"><div style="display:flex;justify-content:space-between;align-items:start"><div><div class="fw6">Adeline Lim</div><div class="small muted" data-en="English & Literature · ex-MOE" data-zh="英文与文学 · 前教育部教师">English & Literature · ex-MOE</div></div><span class="badge g" data-en="Verified" data-zh="已认证">Verified</span></div><div class="mk-meta"><span class="stars"><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" stroke="none"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.2l1-5.8L3.5 9.2l5.9-.9z"/></svg><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" stroke="none"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.2l1-5.8L3.5 9.2l5.9-.9z"/></svg><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" stroke="none"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.2l1-5.8L3.5 9.2l5.9-.9z"/></svg><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" stroke="none"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.2l1-5.8L3.5 9.2l5.9-.9z"/></svg><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" stroke="none"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.2l1-5.8L3.5 9.2l5.9-.9z"/></svg></span> 4.9 · <span data-en="212 sessions" data-zh="212 次课">212 sessions</span> · <span style="display:inline-flex;align-items:center;gap:3px"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg><span>2.1 km</span></span></div><div class="mk-price"><div class="p">S$68<small>/hr</small></div><button class="btn subtle" style="padding:7px 12px" onclick="openBook(0)" data-en="Book" data-zh="预约">Book</button></div></div></div>
       <div class="card mk-card"><div class="cover v2"><div class="av-lg" style="background:linear-gradient(145deg,#C15A2E,#A2481F)">JW</div></div><div class="mk-body"><div style="display:flex;justify-content:space-between;align-items:start"><div><div class="fw6">Jonathan Wee</div><div class="small muted" data-en="Maths & Science · A-Level" data-zh="数理 · A-Level">Maths & Science · A-Level</div></div><span class="badge g" data-en="Verified" data-zh="已认证">Verified</span></div><div class="mk-meta"><span class="stars"><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" stroke="none"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.2l1-5.8L3.5 9.2l5.9-.9z"/></svg><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" stroke="none"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.2l1-5.8L3.5 9.2l5.9-.9z"/></svg><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" stroke="none"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.2l1-5.8L3.5 9.2l5.9-.9z"/></svg><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" stroke="none"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.2l1-5.8L3.5 9.2l5.9-.9z"/></svg><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" stroke="none"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.2l1-5.8L3.5 9.2l5.9-.9z"/></svg></span> 4.8 · <span data-en="189 sessions" data-zh="189 次课">189 sessions</span> · <span style="display:inline-flex;align-items:center;gap:3px"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg><span>8.4 km</span></span></div><div class="mk-price"><div class="p">S$75<small>/hr</small></div><button class="btn subtle" style="padding:7px 12px" onclick="openBook(1)" data-en="Book" data-zh="预约">Book</button></div></div></div>
@@ -1303,6 +1304,11 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
           <div class="trust-row"><div class="ti g"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h2a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg></div><div><div class="fw6 small" data-en="Lesson Protection · free" data-zh="课程保障 · 免费">Lesson Protection · free</div><div class="small muted" data-en="No lesson → auto refund + S$20 credit" data-zh="课程未发生 → 自动退款＋S$20 课程券">No lesson → auto refund + S$20 credit</div></div></div>
           <div class="trust-row"><div class="ti a"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 0 1 9 9H3a9 9 0 0 1 9-9z"/><path d="M12 12v6.5a2 2 0 0 0 4 0"/></svg></div><div><div class="fw6 small" data-en="Liability cover · in-person" data-zh="责任险 · 线下课">Liability cover · in-person</div><div class="small muted" data-en="Up to S$1,000,000 (demo)" data-zh="最高 S$1,000,000（演示）">Up to S$1,000,000 (demo)</div></div></div>
           <div class="trust-row"><div class="ti"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg></div><div><div class="fw6 small" data-en="First-lesson guarantee" data-zh="首课不满意全额退">First-lesson guarantee</div><div class="small muted" data-en="Full refund, no questions" data-zh="全额退款，无需理由">Full refund, no questions</div></div></div>
+        </div>
+        <div class="card pad" style="background:linear-gradient(135deg,var(--brand-tint),#FDF3E6);border-color:var(--brand-soft)">
+          <div class="fw6" style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-8"/><path d="M12 8v13"/><path d="M12 8s-1.5-4.5-4.5-4.5a2.25 2.25 0 0 0 0 4.5z"/><path d="M12 8s1.5-4.5 4.5-4.5a2.25 2.25 0 0 1 0 4.5z"/></svg><span data-en="Give S$20 · Get S$20" data-zh="推荐有礼 · 各得 S$20">Give S$20 · Get S$20</span></div>
+          <p class="small" style="color:#6B4E32;line-height:1.55" data-en="Invite another family — you both get S$20 lesson credit after their first escrow-protected booking." data-zh="邀请一个家庭加入——对方完成首笔担保预约后，你们双方各得 S$20 课程券。">Invite another family — you both get S$20 lesson credit after their first escrow-protected booking.</p>
+          <button class="btn primary" style="width:100%;justify-content:center;margin-top:10px" onclick="toast('en:Invite link copied · credits auto-apply','zh:邀请链接已复制 · 课程券自动到账')" data-en="Copy invite link" data-zh="复制邀请链接">Copy invite link</button>
         </div>
       </div>
     </div>
@@ -1649,7 +1655,7 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
     </div>
     <div class="grid g4" style="margin-bottom:16px">
       <div class="card stat"><div class="top"><div class="lab" data-en="EOD reconciliation" data-zh="日终对账">EOD reconciliation</div><div class="ico g"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h2a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg></div></div><div class="num">100<small>%</small></div><div class="delta up"><span data-en="Diff S$0.00 · 92 days straight" data-zh="差异 S$0.00 · 连续 92 天">Diff S$0.00 · 92 days straight</span></div></div>
-      <div class="card stat"><div class="top"><div class="lab" data-en="Escrow ledger" data-zh="托管账本核对">Escrow ledger</div><div class="ico i"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg></div></div><div class="num"><small>S$</small>3,840</div><div class="delta up"><span data-en="Bank = ledger = PSP ✓" data-zh="银行=账本=通道 ✓">Bank = ledger = PSP ✓</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Escrow ledger" data-zh="托管账本核对">Escrow ledger</div><div class="ico i"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg></div></div><div class="num" id="escrowKpi2"><small>S$</small>3,840</div><div class="delta up"><span data-en="Bank = ledger = PSP ✓" data-zh="银行=账本=通道 ✓">Bank = ledger = PSP ✓</span></div></div>
       <div class="card stat"><div class="top"><div class="lab" data-en="AML review queue" data-zh="AML 待人工复核">AML review queue</div><div class="ico a"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15V4h12l-2 3.5L16 11H4z"/><path d="M4 21v-6"/></svg></div></div><div class="num">3</div><div class="delta" style="color:var(--warn)"><span data-en="Auto-screened · SLA 24h" data-zh="已自动筛查 · SLA 24h">Auto-screened · SLA 24h</span></div></div>
       <div class="card stat"><div class="top"><div class="lab" data-en="Actions audit-logged" data-zh="操作审计覆盖">Actions audit-logged</div><div class="ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg></div></div><div class="num">100<small>%</small></div><div class="delta up"><span data-en="Hash-chained · tamper-evident" data-zh="哈希链 · 防篡改">Hash-chained · tamper-evident</span></div></div>
     </div>
@@ -1907,6 +1913,59 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
       </div>
     </div>
     <div class="brief-paper" id="briefWrap"></div>
+  </section>
+
+
+  <!-- ========== ADMIN: PLAN & MODULES ========== -->
+  <section class="module" id="m-a-plan">
+    <div class="page-head">
+      <div>
+        <div class="eyebrow" data-en="Institution · Subscription" data-zh="机构管理 · 订阅与模块">Institution · Subscription</div>
+        <h1 data-en="Your plan — pay for value, switch on modules" data-zh="订阅方案 · 为价值付费，模块随开随用">Your plan — pay for value, switch on modules</h1>
+        <p class="lead" data-en="Per-student pricing that scales with you. Every module is a switch, not a new system — and usage is metered transparently." data-zh="按学生数计价，随规模伸缩。每个能力都是一个开关，而不是另一套系统——用量透明计量。">Per-student pricing that scales with you. Every module is a switch, not a new system — and usage is metered transparently.</p>
+      </div>
+      <div class="ph-actions">
+        <button class="btn ghost" onclick="toast('en:Invoices emailed to finance@rafflesacademy.edu.sg','zh:发票已发送至财务邮箱')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h12V21l-2-1.4L14 21l-2-1.4L10 21l-2-1.4L6 21z"/><path d="M9 7.5h6M9 11h6M9 14.5h4"/></svg><span data-en="Email invoices" data-zh="发票发邮箱">Email invoices</span></button>
+        <button class="btn primary" onclick="toast('en:Switched to annual · you save S$2,678/yr','zh:已切换年付 · 每年节省 S$2,678')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="5.5"/><path d="M18.1 6.6a5.5 5.5 0 0 1 0 10.8M8 21a5.5 5.5 0 0 0 5.4-6.6"/></svg><span data-en="Go annual · save 15%" data-zh="切换年付 · 省 15%">Go annual · save 15%</span></button>
+      </div>
+    </div>
+    <div class="grid g4" style="margin-bottom:16px">
+      <div class="card stat"><div class="top"><div class="lab" data-en="Current plan" data-zh="当前方案">Current plan</div><div class="ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5-9 5-9-5z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/></svg></div></div><div class="num">Pro</div><div class="delta up"><span data-en="Institution edition" data-zh="机构版">Institution edition</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="This month’s bill" data-zh="本月账单">This month’s bill</div><div class="ico i"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h12V21l-2-1.4L14 21l-2-1.4L10 21l-2-1.4L6 21z"/><path d="M9 7.5h6M9 11h6M9 14.5h4"/></svg></div></div><div class="num"><small>S$</small>1,537</div><div class="delta" style="color:var(--muted)"><span data-en="Base S$1,488 + Studio S$49" data-zh="基础 S$1,488 + 工作室 S$49">Base S$1,488 + Studio S$49</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Seat price" data-zh="座席单价">Seat price</div><div class="ico g"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="5.5"/><path d="M18.1 6.6a5.5 5.5 0 0 1 0 10.8M8 21a5.5 5.5 0 0 0 5.4-6.6"/></svg></div></div><div class="num"><small>S$</small>1.20</div><div class="delta up"><span data-en="per student / month · 1,240 students" data-zh="每学生／月 · 1,240 人">per student / month · 1,240 students</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Marketplace take" data-zh="撮合抽成">Marketplace take</div><div class="ico a"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z"/></svg></div></div><div class="num">12<small>%</small></div><div class="delta up"><span data-en="S$2,480 this month · you keep 88%" data-zh="本月 S$2,480 · 机构留 88%">S$2,480 this month · you keep 88%</span></div></div>
+    </div>
+    <div class="split2">
+      <div class="card">
+        <div class="card-h"><h3 data-en="Modules · switch on what you need" data-zh="模块清单 · 按需开启">Modules · switch on what you need</h3><span class="badge g"><span class="d"></span><span data-en="One engine underneath" data-zh="底层同一套引擎">One engine underneath</span></span></div>
+        <div style="padding:6px 18px 10px">
+          <div class="list-row"><div style="flex:1"><div class="fw6 small" data-en="Core — grading · tutoring · diagnosis · question bank" data-zh="核心包——评分 · 辅导 · 知点 · 题库">Core — grading · tutoring · diagnosis · question bank</div><div class="small muted" data-en="Included in base" data-zh="基础版已含">Included in base</div></div><div class="tog" onclick="toast('en:Core cannot be disabled','zh:核心包不可关闭')"></div></div>
+          <div class="list-row"><div style="flex:1"><div class="fw6 small" data-en="AI Teaching Studio" data-zh="AI 教学工作室">AI Teaching Studio</div><div class="small muted" data-en="+S$49/mo or S$3–6 per video" data-zh="+S$49／月，或按条 S$3–6">+S$49/mo or S$3–6 per video</div></div><div class="tog" onclick="this.classList.toggle('off');toast('en:Studio module toggled (demo)','zh:工作室模块已切换（演示）')"></div></div>
+          <div class="list-row"><div style="flex:1"><div class="fw6 small" data-en="Marketplace & escrow payments" data-zh="撮合市场与担保支付">Marketplace & escrow payments</div><div class="small muted" data-en="No fixed fee · 12% take on matched GMV" data-zh="无固定费 · 按撮合成交额抽 12%">No fixed fee · 12% take on matched GMV</div></div><div class="tog" onclick="this.classList.toggle('off');toast('en:Marketplace toggled (demo)','zh:撮合模块已切换（演示）')"></div></div>
+          <div class="list-row"><div style="flex:1"><div class="fw6 small" data-en="Membership & dues (associations)" data-zh="会员与会费（协会）">Membership & dues (associations)</div><div class="small muted" data-en="Included · payment rails at cost" data-zh="已含 · 支付通道按成本价">Included · payment rails at cost</div></div><div class="tog" onclick="this.classList.toggle('off');toast('en:Membership toggled (demo)','zh:会员模块已切换（演示）')"></div></div>
+          <div class="list-row"><div style="flex:1"><div class="fw6 small" data-en="Live class · focus analytics (on-device)" data-zh="上课模式 · 端侧专注力分析">Live class · focus analytics (on-device)</div><div class="small muted" data-en="Included · requires student & parent opt-in" data-zh="已含 · 需学生与家长同意">Included · requires student & parent opt-in</div></div><div class="tog" onclick="this.classList.toggle('off');toast('en:Focus analytics toggled (demo)','zh:专注力模块已切换（演示）')"></div></div>
+          <div class="hr" style="margin:8px 0"></div>
+          <div class="fw6 small" style="margin:8px 0 6px" data-en="Usage this month" data-zh="本月用量">Usage this month</div>
+          <div style="display:flex;flex-direction:column;gap:10px;padding-bottom:8px">
+            <div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px"><span data-en="AI gradings" data-zh="AI 批改次数">AI gradings</span><b>4,120 / 5,000</b></div><div class="pbar"><i style="width:82%"></i></div></div>
+            <div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px"><span data-en="Studio videos" data-zh="工作室视频">Studio videos</span><b>48 · <span class="muted" data-en="pay-per-video after 50" data-zh="超 50 条按条计费">pay-per-video after 50</span></b></div><div class="pbar"><i class="a" style="width:96%"></i></div></div>
+            <div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px"><span data-en="Storage" data-zh="存储">Storage</span><b>62%</b></div><div class="pbar"><i class="g" style="width:62%"></i></div></div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div class="card">
+          <div class="card-h"><h3 data-en="Billing history" data-zh="账单记录">Billing history</h3><span class="badge n" data-en="GIRO · invoice monthly" data-zh="GIRO · 月结发票">GIRO · invoice monthly</span></div>
+          <div class="tbl-scroll"><table class="tbl"><thead><tr><th data-en="Period" data-zh="账期">Period</th><th data-en="Amount" data-zh="金额">Amount</th><th data-en="Status" data-zh="状态">Status</th><th></th></tr></thead><tbody>
+            <tr><td><span data-en="Aug 2026 (est.)" data-zh="2026年8月（预估）">Aug 2026 (est.)</span></td><td class="fw6">S$1,537</td><td><span class="badge b"><span class="d"></span><span data-en="Accruing" data-zh="计费中">Accruing</span></span></td><td></td></tr>
+            <tr><td><span data-en="Jul 2026" data-zh="2026年7月">Jul 2026</span></td><td class="fw6">S$1,447</td><td><span class="badge g"><span class="d"></span><span data-en="Paid" data-zh="已支付">Paid</span></span></td><td><button class="btn ghost" style="padding:5px 10px" onclick="toast('en:Invoice PDF downloaded','zh:发票 PDF 已下载')">PDF</button></td></tr>
+            <tr><td><span data-en="Jun 2026" data-zh="2026年6月">Jun 2026</span></td><td class="fw6">S$1,398</td><td><span class="badge g"><span class="d"></span><span data-en="Paid" data-zh="已支付">Paid</span></span></td><td><button class="btn ghost" style="padding:5px 10px" onclick="toast('en:Invoice PDF downloaded','zh:发票 PDF 已下载')">PDF</button></td></tr>
+          </tbody></table></div>
+        </div>
+        <div class="callout"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 4l9 5.5"/><path d="M5 10v7M9.5 10v7M14.5 10v7M19 10v7"/><path d="M3 20h18"/></svg></div><div><b class="small" data-en="Why schools say yes" data-zh="机构为什么愿意付">Why schools say yes</b><p data-en="S$1.20/student buys back ~142 staff-hours a term — that’s under 2% of one teacher’s cost for 20%+ of their time back. Modules only bill when they earn their keep." data-zh="每学生 S$1.20，换回每学期约 142 个教师小时——不到一位老师 2% 的成本，买回 20% 以上的时间。模块只有在创造价值时才计费。">S$1.20/student buys back ~142 staff-hours a term — that’s under 2% of one teacher’s cost for 20%+ of their time back. Modules only bill when they earn their keep.</p></div></div>
+        <div class="callout" style="background:var(--good-soft);border-color:#CFE1CF"><div class="ic" style="color:var(--good)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h2a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg></div><div><b class="small" data-en="Fair-billing promises" data-zh="计费三承诺">Fair-billing promises</b><p data-en="No lock-in — export everything, any time · unused seats auto-credit next month · price locked for 24 months." data-zh="不锁定——数据随时全量导出 · 未用座席次月自动抵扣 · 价格 24 个月锁定。">No lock-in — export everything, any time · unused seats auto-credit next month · price locked for 24 months.</p></div></div>
+      </div>
+    </div>
   </section>
 
   </main>
@@ -2224,7 +2283,7 @@ applyLang('en');
   window.confirmBook=function(){
     var c=calc(),t=c.t;
     escrowVal+=c.total;
-    document.getElementById('escrowKpi').innerHTML='<small>S$</small>'+Math.round(escrowVal).toLocaleString('en-SG');
+    document.getElementById('escrowKpi').innerHTML='<small>S$</small>'+Math.round(escrowVal).toLocaleString('en-SG');var k2=document.getElementById('escrowKpi2');if(k2)k2.innerHTML='<small>S$</small>'+Math.round(escrowVal).toLocaleString('en-SG');
     var payLab=PAYS[BK.pay][0];
     var row='<tr><td><div class="who"><div class="mini-av" style="background:#5F6B72">L</div><span data-en="Mdm Lee" data-zh="李女士">Mdm Lee</span></div></td>'+
       '<td>'+t.n+'</td>'+
@@ -2391,7 +2450,7 @@ Object.assign(CRUMB,{
     dashboard:['Dashboard','总览','teacher'],grading:['AI Grading','AI 评分','teacher'],learn:['Learn · Tutoring','Learn 辅导','teacher'],pinpoint:['Pinpoint · Diagnosis','知点诊断','teacher'],'t-studio':['AI Teaching Studio','AI 教学工作室','teacher'],'t-qbank':['Question Bank','题库管理','teacher'],market:['Marketplace','撮合市场','teacher'],events:['Live Events','线上活动','teacher'],payments:['Payments · Escrow','支付与担保','teacher'],
     'p-home':['Overview','总览','parent'],'p-book':['Bookings · Matching','预约与撮合','parent'],'p-pay':['Billing · Protection','账单与保障','parent'],
     's-home':['Today','今日学习','student'],'s-tutor':['AI Tutor','AI 辅导','student'],'s-class':['Live Class','上课模式','student'],
-    'a-ops':['Command · AI ops','指挥台 · AI 运营','admin'],'a-students':['Student records','学生档案','admin'],'a-academics':['Academics · Reports','成绩与证书','admin'],'a-members':['Members · Fees','会员与会费','admin'],'a-match':['Matching engine','自动撮合引擎','admin'],'a-risk':['Risk · Compliance','风控与合规','admin']
+    'a-ops':['Command · AI ops','指挥台 · AI 运营','admin'],'a-students':['Student records','学生档案','admin'],'a-academics':['Academics · Reports','成绩与证书','admin'],'a-members':['Members · Fees','会员与会费','admin'],'a-plan':['Plan · Modules','订阅与模块','admin'],'a-match':['Matching engine','自动撮合引擎','admin'],'a-risk':['Risk · Compliance','风控与合规','admin']
   };
   var RECENTS=[];
 
@@ -2511,7 +2570,7 @@ Object.assign(CRUMB,{
     list.innerHTML=h;
   };
   window.ckRun=function(i){var it=ckItems[i];if(!it)return;closeCmdk();setTimeout(it.fn,10);};
-  window.openCmdk=function(){
+  window.openCmdk=function(){if(!document.getElementById('app').classList.contains('show'))return;
     var bg=document.getElementById('cmdkBg');bg.classList.add('show');
     var inp=document.getElementById('ckInput');inp.value='';ckSel=0;
     inp.placeholder=T('Type a page, person or action…','搜索页面、人或操作…');
@@ -2540,6 +2599,7 @@ Object.assign(CRUMB,{
     {r:'student',m:'s-class',t:['Guided, never given away','引导，而不代劳'],d:['Hints in steps, never answers; focus analytics run on-device with nothing recorded.','阶梯提示、绝不给答案；专注力分析在设备端完成，不录制任何画面。']},
     {r:'parent',m:'p-home',t:['Trust converts to renewals','信任转化为续费'],d:['Parents see what teachers see — every claim cited, every dollar protected.','家长看到的与老师一致——每个结论有出处，每一分钱有保障。']},
     {r:'admin',m:'a-ops',t:['2 people run 1,240 students','2 个人运营 1,240 名学生'],d:['Agents draft comments, schedules, reminders and invoices; humans approve a queue of 12, not a school of 1,240.','智能体起草评语、排期、提醒与账单；人只审 12 条队列，而不是 1,240 人的学校。']},
+    {r:'admin',m:'a-plan',t:['Modular monetisation','模块化商业变现'],d:['Schools pay per student and flip modules on like switches — Studio add-on, marketplace take-rate, membership dues. This page is the revenue engine.','机构按学生数付费，模块像开关一样随需开启——工作室附加、撮合抽成、会员会费。这一页就是收入引擎。']},
     {r:'admin',m:'a-risk',t:['Financial-grade backbone','金融级底座'],d:['Segregated funds, daily reconciliation to the cent, dual approvals, hash-chained audit — regulator-ready.','资金隔离、逐分对账、双人复核、哈希链审计——随时面对监管。']}
   ];
   var ti=-1;
@@ -2730,6 +2790,20 @@ Object.assign(CRUMB,{
     if(cur&&cur.id==='m-sched')renderSched();
     if(cur&&cur.id==='m-brief')renderBrief();
   };
+})();
+</script>
+
+
+<script>
+(function(){
+  Object.assign(CRUMB,{'a-plan':['· Admin · Plan & modules','· 管理 · 订阅与模块']});
+  /* no dead clicks: any .btn without a handler gets an honest demo response */
+  document.querySelectorAll('button.btn:not([onclick]), .btn:not([onclick])').forEach(function(b){
+    if(b.tagName!=='BUTTON')return;
+    b.addEventListener('click',function(){
+      toast('en:Demo — this action is simulated here','zh:演示环境——该操作在此为模拟执行');
+    });
+  });
 })();
 </script>
 
