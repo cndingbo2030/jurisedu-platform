@@ -388,7 +388,7 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
   #app.show{grid-template-columns:1fr;grid-template-rows:56px 1fr;grid-template-areas:"top" "main"}
   .sidebar{display:none!important}
   .menu-btn{display:none!important}
-  .bottomnav{display:flex}
+  .bottomnav.bn-active{display:flex}
   .main{padding:16px 14px calc(100px + env(safe-area-inset-bottom))}
   .g4,.g3,.g2,.split,.split2,.glearn,.gpin,.gdash,.grade-wrap{grid-template-columns:1fr}
   .page-head h1{font-size:23px}
@@ -398,6 +398,74 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
   .estep{min-width:31%}
   .modal{max-width:none}
   .modal-b{max-height:58vh}
+}
+
+
+/* ---------- v3: roles, AI agent, admin ---------- */
+.role-nav{display:none}
+.role-chip{display:flex;align-items:center;gap:8px;background:var(--panel);border:1px solid var(--line);border-radius:100px;padding:7px 13px;font-weight:600;font-size:12.5px;color:var(--ink);cursor:pointer;white-space:nowrap}
+.role-chip .rc-dot{width:8px;height:8px;border-radius:50%;background:var(--brand)}
+.role-chip svg{width:13px;height:13px;color:var(--muted)}
+.role-menu{position:fixed;top:64px;right:150px;z-index:48;background:var(--paper);border:1px solid var(--line);border-radius:14px;box-shadow:var(--sh-lg);padding:8px;display:none;min-width:238px}
+.role-menu.show{display:block;animation:pop .18s}
+.role-menu a{display:flex;align-items:center;gap:11px;padding:10px 11px;border-radius:10px;cursor:pointer;font-weight:600;font-size:13px}
+.role-menu a:hover{background:var(--card2)}
+.role-menu a.on{background:var(--brand-tint);color:var(--brand-d)}
+.role-menu a svg{width:17px;height:17px;flex:0 0 17px}
+.role-menu .rm-sub{font-size:11px;color:var(--muted);font-weight:500;display:block;margin-top:1px}
+.demo-as{margin-top:14px;text-align:center;font-size:12px;color:var(--muted)}
+.demo-as .da-row{display:flex;gap:7px;justify-content:center;margin-top:8px;flex-wrap:wrap}
+.demo-as button{font-size:12px;font-weight:600;color:var(--brand-d);background:var(--brand-tint);border:1px solid var(--brand-soft);border-radius:100px;padding:6px 13px;cursor:pointer;transition:.14s}
+.demo-as button:hover{background:var(--brand-soft)}
+/* chat fab + panel */
+.chat-fab{position:fixed;right:20px;bottom:22px;z-index:52;width:54px;height:54px;border-radius:50%;background:linear-gradient(145deg,#DE7B44,#A2481F);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px -8px rgba(162,72,31,.65);cursor:pointer;transition:.18s;border:none}
+.chat-fab:hover{transform:scale(1.06)}
+.chat-fab svg{width:24px;height:24px}
+.chat-fab .cf-badge{position:absolute;top:-3px;right:-4px;background:var(--good);color:#fff;font-size:9px;font-weight:800;border-radius:100px;padding:2px 6px;border:2px solid var(--paper)}
+.chat-panel{position:fixed;right:20px;bottom:88px;z-index:53;width:378px;max-width:calc(100vw - 24px);background:var(--paper);border:1px solid var(--line);border-radius:18px;box-shadow:var(--sh-lg);display:none;flex-direction:column;overflow:hidden;max-height:min(560px,calc(100vh - 120px))}
+.chat-panel.show{display:flex;animation:pop .22s}
+.cp-head{background:linear-gradient(135deg,#2A2219,#4A3423);color:#F7EFE4;padding:13px 15px;position:relative}
+.cp-head .t{display:flex;align-items:center;gap:10px}
+.cp-head .cp-av{width:34px;height:34px;border-radius:10px;background:linear-gradient(145deg,#DE7B44,#A2481F);display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-style:italic;font-weight:600;font-size:15px}
+.cp-head b{font-size:13.5px}
+.cp-head .sub{font-size:10.5px;color:#C9B8A2}
+.cp-head .cp-x{position:absolute;top:10px;right:10px;color:#C9B8A2;cursor:pointer;background:none;border:none;padding:4px}
+.cp-head .cp-x svg{width:16px;height:16px}
+.cp-guard{display:flex;gap:5px;margin-top:9px;flex-wrap:wrap}
+.cp-guard span{font-size:9.5px;font-weight:600;background:rgba(232,137,79,.16);border:1px solid rgba(232,137,79,.35);color:#F1DFCD;border-radius:100px;padding:2.5px 8px}
+.cp-body{flex:1;overflow-y:auto;padding:13px;display:flex;flex-direction:column;gap:9px;background:var(--card2);min-height:180px}
+.cmsg{max-width:88%;font-size:12.5px;line-height:1.55;padding:9px 12px;border-radius:12px}
+.cmsg.bot{background:#fff;border:1px solid var(--line);border-bottom-left-radius:4px;align-self:flex-start}
+.cmsg.usr{background:var(--brand);color:#fff;border-bottom-right-radius:4px;align-self:flex-end}
+.cmsg .csrc{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:700;color:var(--info);background:var(--info-soft);border-radius:6px;padding:2px 7px;margin-top:7px;margin-right:4px}
+.cmsg .cact{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+.cmsg .cact button{font-size:11px;font-weight:600;border:1px solid var(--brand-soft);color:var(--brand-d);background:var(--brand-tint);border-radius:8px;padding:5px 10px;cursor:pointer}
+.cp-quick{display:flex;gap:6px;padding:9px 11px;border-top:1px solid var(--line);flex-wrap:wrap;background:var(--paper)}
+.cp-quick button{font-size:11.5px;font-weight:600;border:1px solid var(--line);background:var(--card);border-radius:100px;padding:6px 11px;cursor:pointer;color:var(--muted);transition:.13s}
+.cp-quick button:hover{border-color:var(--brand);color:var(--brand-d)}
+.cp-foot{display:flex;gap:8px;padding:9px 11px;border-top:1px solid var(--line);align-items:center;background:var(--paper)}
+.cp-foot input{flex:1;border:1px solid var(--line);border-radius:100px;padding:9px 14px;font-family:inherit;font-size:12.5px;background:var(--card);outline:none;color:var(--ink)}
+.cp-foot input:focus{border-color:var(--brand)}
+.cp-foot .btn{padding:8px 12px}
+.typing{display:inline-flex;gap:3px;padding:11px 13px;background:#fff;border:1px solid var(--line);border-radius:12px;border-bottom-left-radius:4px;align-self:flex-start}
+.typing i{width:6px;height:6px;border-radius:50%;background:#C9BBA4;animation:tp 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes tp{0%,100%{opacity:.35;transform:translateY(0)}50%{opacity:1;transform:translateY(-3px)}}
+/* cost bar */
+.costbar{display:flex;height:14px;border-radius:8px;overflow:hidden;margin:10px 0 12px}
+.costbar i{display:block;height:100%}
+.cost-legend{display:flex;flex-wrap:wrap;gap:12px;font-size:11.5px;color:var(--muted)}
+.cost-legend span{display:inline-flex;align-items:center;gap:6px}
+.streak{display:flex;gap:5px;margin-top:8px}
+.streak i{width:22px;height:22px;border-radius:7px;background:var(--panel);display:flex;align-items:center;justify-content:center}
+.streak i.on{background:var(--brand-tint)}
+.streak i.on svg{color:var(--brand)}
+.streak svg{width:13px;height:13px;color:var(--faint)}
+@media(max-width:700px){
+  .chat-fab{bottom:calc(90px + env(safe-area-inset-bottom));right:14px}
+  .chat-panel{right:10px;left:10px;width:auto;bottom:calc(154px + env(safe-area-inset-bottom))}
+  .role-menu{right:10px}
+  .role-chip .rc-lab{max-width:74px;overflow:hidden;text-overflow:ellipsis}
 }
 
 </style>
@@ -433,6 +501,14 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
       <div class="row"><span><input type="checkbox" checked style="vertical-align:-1px"> <span data-en="Remember me" data-zh="记住我">Remember me</span></span><a data-en="Forgot password?" data-zh="忘记密码？">Forgot password?</a></div>
       <button class="btn-lg" onclick="enterApp()" data-en="Sign in" data-zh="登录">Sign in</button>
       <button class="sso" onclick="enterApp()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span data-en="Continue with SSO" data-zh="使用 SSO 继续">Continue with SSO</span></button>
+      <div class="demo-as"><span data-en="Or explore the demo as" data-zh="或以不同角色进入演示">Or explore the demo as</span>
+        <div class="da-row">
+          <button onclick="enterAs('teacher')" data-en="Teacher" data-zh="教师">Teacher</button>
+          <button onclick="enterAs('parent')" data-en="Parent" data-zh="家长">Parent</button>
+          <button onclick="enterAs('student')" data-en="Student" data-zh="学生">Student</button>
+          <button onclick="enterAs('admin')" data-en="Admin" data-zh="管理">Admin</button>
+        </div>
+      </div>
       <p class="fine" data-en="Demo environment · sample data only. No student records are real." data-zh="演示环境 · 仅示例数据，学生记录均非真实。">Demo environment · sample data only. No student records are real.</p>
     </div>
   </div>
@@ -457,6 +533,29 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
       <a data-mod="events" onclick="go('events')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="17" rx="2"/><path d="M8 2.5v4M16 2.5v4M3 10h18"/></svg><span data-en="Live Events" data-zh="线上活动">Live Events</span><span class="badge-n" style="background:var(--danger)">2</span></a>
       <a data-mod="payments" onclick="go('payments')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 7H6a2.5 2.5 0 0 1 0-5h11v5"/><path d="M19 7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2.5 2.5 0 0 1-2.5-2.5V4.5"/><circle cx="16.5" cy="13.8" r="1.3"/></svg><span data-en="Payments · Escrow" data-zh="支付与担保">Payments · Escrow</span></a>
     </nav>
+    <div class="sb-sec role-nav" data-role="parent" data-en="My child" data-zh="我的孩子">My child</div>
+    <nav class="nav role-nav" data-role="parent">
+      <a data-mod="p-home" onclick="go('p-home')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span data-en="Overview" data-zh="总览">Overview</span></a>
+      <a data-mod="p-book" onclick="go('p-book')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z"/></svg><span data-en="Bookings · Matching" data-zh="预约与撮合">Bookings · Matching</span><span class="badge-n">3</span></a>
+      <a data-mod="p-pay" onclick="go('p-pay')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 7H6a2.5 2.5 0 0 1 0-5h11v5"/><path d="M19 7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2.5 2.5 0 0 1-2.5-2.5V4.5"/><circle cx="16.5" cy="13.8" r="1.3"/></svg><span data-en="Billing · Protection" data-zh="账单与保障">Billing · Protection</span></a>
+    </nav>
+    <div class="sb-sec role-nav" data-role="student" data-en="Learn" data-zh="学习">Learn</div>
+    <nav class="nav role-nav" data-role="student">
+      <a data-mod="s-home" onclick="go('s-home')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span data-en="Today" data-zh="今日学习">Today</span></a>
+      <a data-mod="s-tutor" onclick="go('s-tutor')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span data-en="AI Tutor" data-zh="AI 辅导">AI Tutor</span></a>
+    </nav>
+    <div class="sb-sec role-nav" data-role="admin" data-en="Institution" data-zh="机构管理">Institution</div>
+    <nav class="nav role-nav" data-role="admin">
+      <a data-mod="a-ops" onclick="go('a-ops')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span data-en="Command · AI ops" data-zh="指挥台 · AI 运营">Command · AI ops</span><span class="badge-n">12</span></a>
+      <a data-mod="a-students" onclick="go('a-students')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><circle cx="8.5" cy="11" r="2.2"/><path d="M5.5 16.5c.6-1.6 1.7-2.4 3-2.4s2.4.8 3 2.4"/><path d="M14.5 9.5H19M14.5 13h4.5M14.5 16.5h3"/></svg><span data-en="Student records" data-zh="学生档案 · 学籍">Student records</span></a>
+      <a data-mod="a-academics" onclick="go('a-academics')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m2.5 9.5 9.5-5 9.5 5-9.5 5z"/><path d="M6.5 11.8V16c0 1.4 2.5 3 5.5 3s5.5-1.6 5.5-3v-4.2"/><path d="M21.5 9.5V15"/></svg><span data-en="Academics · Reports" data-zh="成绩 · 报告 · 证书">Academics · Reports</span></a>
+      <a data-mod="a-members" onclick="go('a-members')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13A4 4 0 0 1 16 11"/></svg><span data-en="Members · Fees" data-zh="会员与会费">Members · Fees</span></a>
+    </nav>
+    <div class="sb-sec role-nav" data-role="admin" data-en="Platform" data-zh="平台">Platform</div>
+    <nav class="nav role-nav" data-role="admin">
+      <a data-mod="a-match" onclick="go('a-match')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9.5" y="9.5" width="5" height="5"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg><span data-en="Matching engine" data-zh="自动撮合引擎">Matching engine</span></a>
+      <a data-mod="a-risk" onclick="go('a-risk')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 4l9 5.5"/><path d="M5 10v7M9.5 10v7M14.5 10v7M19 10v7"/><path d="M3 20h18"/></svg><span data-en="Risk · Compliance" data-zh="风控与合规">Risk · Compliance</span><span class="badge-n" style="background:var(--warn)">3</span></a>
+    </nav>
 
     <div class="sb-foot">
       <div class="sb-card">
@@ -474,6 +573,7 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
     <div class="tb-crumb"><b data-en="Raffles Academy" data-zh="莱佛士书院">Raffles Academy</b> <span id="crumb" data-en="· Dashboard" data-zh="· 总览">· Dashboard</span></div>
     <div class="search"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><input placeholder="Search students, assignments, tutors…" data-en-ph="Search students, assignments, tutors…" data-zh-ph="搜索学生、作业、师资…"></div>
     <div class="tb-right">
+      <button class="role-chip" onclick="toggleRoleMenu()"><span class="rc-dot"></span><span class="rc-lab" id="roleLabel" data-en="Teacher · Ms Tan" data-zh="教师 · 陈老师">Teacher · Ms Tan</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
       <div class="lang-tog"><button data-lang="en" class="on">EN</button><button data-lang="zh">中</button></div>
       <button class="icon-btn"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg><span class="dot"></span></button>
       <button class="icon-btn"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.2 9a3 3 0 0 1 5.6 1c0 2-3 2.5-3 4"/><path d="M12 17h.01"/></svg></button>
@@ -934,6 +1034,517 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
     </div>
   </section>
 
+
+  <!-- ========== PARENT: HOME ========== -->
+  <section class="module" id="m-p-home">
+    <div class="page-head">
+      <div>
+        <div class="eyebrow" data-en="Parent · Mdm Lee" data-zh="家长端 · 李女士">Parent · Mdm Lee</div>
+        <h1 data-en="Rui Feng’s learning, at a glance" data-zh="睿峰的学习全景">Rui Feng’s learning, at a glance</h1>
+        <p class="lead" data-en="Everything here comes from graded work and tutor sessions — cited, never guessed. You see what the teacher sees." data-zh="这里的每个结论都来自批改与辅导记录——有据可查，绝不臆测。老师看到什么，你就看到什么。">Everything here comes from graded work and tutor sessions — cited, never guessed. You see what the teacher sees.</p>
+      </div>
+      <div class="ph-actions"><button class="btn ghost" onclick="openChat()"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/></svg><span data-en="Ask JE support" data-zh="问 JE 客服">Ask JE support</span></button><button class="btn primary" onclick="openBook(0)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z"/></svg><span data-en="Book more lessons" data-zh="续订课程">Book more lessons</span></button></div>
+    </div>
+    <div class="grid g4" style="margin-bottom:16px">
+      <div class="card stat"><div class="top"><div class="lab" data-en="Mastery this week" data-zh="本周掌握度">Mastery this week</div><div class="ico g"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4"/></svg></div></div><div class="num">73<small>%</small></div><div class="delta up"><span data-en="+6 pts · verified by grading" data-zh="+6 分 · 来自批改数据">+6 pts · verified by grading</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Learning streak" data-zh="连续学习">Learning streak</div><div class="ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4.4 0 7-2.8 7-6.5 0-4-3.2-6-4.5-9.5-2 1.5-2.7 3.4-2.5 5.5-1.2-.6-2-1.7-2.3-3.2C7.6 10 5 12 5 15.5 5 19.2 7.6 22 12 22z"/></svg></div></div><div class="num">6 <small data-en="days" data-zh="天">days</small></div><div class="delta up"><span data-en="Best: 11 days" data-zh="最长纪录 11 天">Best: 11 days</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Lesson to confirm" data-zh="待确认课程">Lesson to confirm</div><div class="ico a"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div></div><div class="num">1</div><div class="delta" style="color:var(--warn)"><span data-en="Confirm to release escrow" data-zh="确认后托管才放款">Confirm to release escrow</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="In escrow" data-zh="托管中">In escrow</div><div class="ico i"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg></div></div><div class="num"><small>S$</small>277.70</div><div class="delta" style="color:var(--muted)"><span data-en="Refundable until confirmed" data-zh="确认前可全额退回">Refundable until confirmed</span></div></div>
+    </div>
+    <div class="grid gdash">
+      <div class="card">
+        <div class="card-h"><h3 data-en="Teacher’s weekly note" data-zh="老师周报">Teacher’s weekly note</h3><span class="badge i"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="m9 14 2 2 4-4"/></svg><span data-en="Grounded in 12 graded pieces" data-zh="基于 12 次批改 · 有据">Grounded in 12 graded pieces</span></span></div>
+        <div class="pad">
+          <p style="font-size:14px;line-height:1.7;color:#4A4238" data-en="“Rui Feng’s thesis statements improved clearly this week (82%). The gap is counter-arguments — he tends to overstate the opposing view. The 3-step path below targets exactly that.”" data-zh="「睿峰本周论点表述明显进步（82%）。短板在反方论证——他容易夸大对方观点。下面的三步路径正是针对这一点。」">“Rui Feng’s thesis statements improved clearly this week (82%). The gap is counter-arguments — he tends to overstate the opposing view. The 3-step path below targets exactly that.”</p>
+          <div class="small muted" style="margin-top:8px">— Ms Tan · <span data-en="English & Literature" data-zh="英文与文学">English & Literature</span></div>
+          <div class="hr" style="margin:14px 0"></div>
+          <div class="fw6" style="margin-bottom:10px;display:flex;align-items:center;gap:8px"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="2.5"/><circle cx="18" cy="5" r="2.5"/><path d="M8.5 19H16a3 3 0 0 0 0-6H8a3 3 0 0 1 0-6h1.5"/></svg><span data-en="Remediation path · assigned" data-zh="强化路径 · 已指派">Remediation path · assigned</span></div>
+          <div class="list-row" style="padding:6px 0"><div class="mini-av" style="background:var(--brand)">1</div><div style="flex:1" class="small fw6" data-en="3-min explainer: tone vs. topic" data-zh="3 分钟讲解：语气 vs. 主题">3-min explainer: tone vs. topic</div><span class="badge g" data-en="Done" data-zh="已完成">Done</span></div>
+          <div class="list-row" style="padding:6px 0"><div class="mini-av" style="background:var(--brand)">2</div><div style="flex:1" class="small fw6" data-en="4 targeted practice items" data-zh="4 道针对性练习">4 targeted practice items</div><span class="badge a" data-en="2 of 4" data-zh="已做 2/4">2 of 4</span></div>
+          <div class="list-row" style="padding:6px 0"><div class="mini-av" style="background:var(--brand)">3</div><div style="flex:1" class="small fw6" data-en="Re-check on Thursday" data-zh="周四复检">Re-check on Thursday</div><span class="badge n" data-en="Scheduled" data-zh="已排期">Scheduled</span></div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div class="card pad">
+          <div class="fw6" style="margin-bottom:10px" data-en="Coming up" data-zh="即将到来">Coming up</div>
+          <div class="list-row"><div class="date" style="flex:0 0 52px;text-align:center;background:var(--brand-tint);border-radius:10px;padding:7px 4px"><div style="font-size:10px;font-weight:700;color:var(--brand-d)" data-en="SAT" data-zh="周六">SAT</div><div style="font-family:var(--disp);font-size:19px;font-weight:600">10:00</div></div><div style="flex:1"><div class="fw6 small">Adeline Lim · <span data-en="Essay coaching" data-zh="作文辅导">Essay coaching</span></div><div class="small muted" data-en="Online · escrow-protected" data-zh="线上 · 担保交易中">Online · escrow-protected</div></div><span class="badge b" data-en="Paid" data-zh="已托管">Paid</span></div>
+          <div class="list-row"><div class="date" style="flex:0 0 52px;text-align:center;background:var(--panel);border-radius:10px;padding:7px 4px"><div style="font-size:10px;font-weight:700;color:var(--muted)" data-en="THU" data-zh="周四">THU</div><div style="font-family:var(--disp);font-size:19px;font-weight:600">19:30</div></div><div style="flex:1"><div class="fw6 small" data-en="Pinpoint re-check · tone & attitude" data-zh="知点复检 · 语气与态度">Pinpoint re-check · tone & attitude</div><div class="small muted" data-en="Auto-scheduled by JE" data-zh="JE 自动排期">Auto-scheduled by JE</div></div><span class="badge n" data-en="Free" data-zh="免费">Free</span></div>
+          <button class="btn subtle" style="width:100%;justify-content:center;margin-top:12px" onclick="go('p-book')" data-en="Manage bookings" data-zh="管理预约">Manage bookings</button>
+        </div>
+        <div class="callout"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg></div><div><b data-en="Your money & data are protected" data-zh="资金与数据双重保护">Your money & data are protected</b><p data-en="Escrow until you confirm each lesson · PDPA, data in Singapore · every AI claim cites its source." data-zh="每节课确认后才放款 · PDPA 数据驻留新加坡 · AI 的每个结论都有出处。">Escrow until you confirm each lesson · PDPA, data in Singapore · every AI claim cites its source.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PARENT: BOOKINGS ========== -->
+  <section class="module" id="m-p-book">
+    <div class="page-head">
+      <div>
+        <div class="eyebrow" data-en="Parent · Bookings" data-zh="家长端 · 预约与撮合">Parent · Bookings</div>
+        <h1 data-en="Matching, done for you" data-zh="撮合，由 JE 引擎替你完成">Matching, done for you</h1>
+        <p class="lead" data-en="Tell us the need once. The JE engine screens candidates, explains each recommendation, and only escalates to a human when it isn’t sure." data-zh="只需提交一次需求。JE 引擎自动筛选候选、逐条解释推荐理由，拿不准才转人工。">Tell us the need once. The JE engine screens candidates, explains each recommendation, and only escalates to a human when it isn’t sure.</p>
+      </div>
+      <div class="ph-actions"><button class="btn primary" onclick="toast('en:New request submitted · JE engine is screening','zh:新需求已提交 · JE 引擎筛选中')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z"/></svg><span data-en="New request" data-zh="发起新需求">New request</span></button></div>
+    </div>
+    <div class="card" style="margin-bottom:16px">
+      <div class="card-h"><h3 data-en="Your request · live status" data-zh="你的需求 · 实时进度">Your request · live status</h3><span class="badge g"><span class="d"></span><span data-en="Automated by the JE engine" data-zh="JE 引擎自动执行">Automated by the JE engine</span></span></div>
+      <div class="pad" style="padding-top:8px">
+        <div class="escrow-steps">
+          <div class="estep done"><div class="en2">1</div><div class="el" data-en="Request submitted" data-zh="需求已提交">Request submitted</div><div class="ev2" data-en="Sec 3 · essay · ≤S$70" data-zh="中三 · 作文 · ≤S$70">Sec 3 · essay · ≤S$70</div></div>
+          <div class="estep done"><div class="en2">2</div><div class="el" data-en="12 candidates screened" data-zh="已筛 12 位候选">12 candidates screened</div><div class="ev2" data-en="subject · rating · distance" data-zh="科目 · 评分 · 距离">subject · rating · distance</div></div>
+          <div class="estep done"><div class="en2">3</div><div class="el" data-en="3 recommended" data-zh="推荐 3 位">3 recommended</div><div class="ev2" data-en="each one explained" data-zh="每位都有理由">each one explained</div></div>
+          <div class="estep"><div class="en2">4</div><div class="el" data-en="You confirm" data-zh="等你确认">You confirm</div><div class="ev2" data-en="pay into escrow" data-zh="支付即托管">pay into escrow</div></div>
+        </div>
+        <div class="small muted" style="margin-top:4px" data-en="Total engine time: 1.8 min · a human reviews only low-confidence matches" data-zh="引擎总耗时 1.8 分钟 · 仅低置信匹配才需人工复核">Total engine time: 1.8 min · a human reviews only low-confidence matches</div>
+      </div>
+    </div>
+    <div class="split2">
+      <div class="card">
+        <div class="card-h"><h3 data-en="Recommended for Rui Feng" data-zh="为睿峰推荐">Recommended for Rui Feng</h3><span class="sub" data-en="Ranked · with reasons" data-zh="按匹配度排序 · 附理由">Ranked · with reasons</span></div>
+        <div style="padding:8px 18px 14px">
+          <div class="list-row"><div class="mini-av" style="width:38px;height:38px;border-radius:10px;background:#3E6B54">AL</div><div style="flex:1"><div class="fw6 small">Adeline Lim <span class="badge b" style="margin-left:4px">96%</span></div><div class="small muted" data-en="Strongest on essay structure · 2.1 km · within budget" data-zh="作文结构最强 · 2.1 km · 预算内">Strongest on essay structure · 2.1 km · within budget</div></div><button class="btn primary" style="padding:7px 12px" onclick="openBook(0)" data-en="Book" data-zh="预约">Book</button></div>
+          <div class="list-row"><div class="mini-av" style="width:38px;height:38px;border-radius:10px;background:#A2481F">JW</div><div style="flex:1"><div class="fw6 small">Jonathan Wee <span class="badge b" style="margin-left:4px">93%</span></div><div class="small muted" data-en="Weekend slots fit best · exam-focused" data-zh="周末时段最合 · 应试导向">Weekend slots fit best · exam-focused</div></div><button class="btn ghost" style="padding:7px 12px" onclick="openBook(1)" data-en="Book" data-zh="预约">Book</button></div>
+          <div class="list-row"><div class="mini-av" style="width:38px;height:38px;border-radius:10px;background:#4E3E63">PR</div><div style="flex:1"><div class="fw6 small">Priya Raman <span class="badge b" style="margin-left:4px">90%</span></div><div class="small muted" data-en="Best budget fit · bilingual feedback" data-zh="预算最优 · 双语反馈">Best budget fit · bilingual feedback</div></div><button class="btn ghost" style="padding:7px 12px" onclick="openBook(2)" data-en="Book" data-zh="预约">Book</button></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-h"><h3 data-en="My bookings" data-zh="我的预约">My bookings</h3><span class="badge n" data-en="All escrow-protected" data-zh="全部担保交易">All escrow-protected</span></div>
+        <div style="padding:8px 18px 14px">
+          <div class="list-row"><div style="flex:1"><div class="fw6 small">Adeline Lim · <span data-en="Sat 10:00" data-zh="周六 10:00">Sat 10:00</span></div><div class="small muted" data-en="4-lesson pack · S$277.70" data-zh="4 课时包 · S$277.70">4-lesson pack · S$277.70</div></div><span class="badge b"><span class="d"></span><span data-en="In escrow" data-zh="托管中">In escrow</span></span></div>
+          <div class="list-row"><div style="flex:1"><div class="fw6 small">Jonathan Wee · <span data-en="last Wed" data-zh="上周三">last Wed</span></div><div class="small muted" data-en="1 lesson · S$89.20 · confirm within 24h" data-zh="单次课 · S$89.20 · 24h 内确认">1 lesson · S$89.20 · confirm within 24h</div></div><button class="btn primary" style="padding:6px 11px" onclick="toast('en:Confirmed · escrow releases to tutor T+1','zh:已确认 · 托管 T+1 放款给老师')" data-en="Confirm" data-zh="确认上课">Confirm</button></div>
+          <div class="list-row"><div style="flex:1"><div class="fw6 small">Marcus Ong · <span data-en="Aug 12" data-zh="8月12日">Aug 12</span></div><div class="small muted" data-en="Tutor rescheduled · refunded in full" data-zh="老师改期 · 已全额退款">Tutor rescheduled · refunded in full</div></div><span class="badge n"><span class="d"></span><span data-en="Refunded" data-zh="已退款">Refunded</span></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PARENT: BILLING ========== -->
+  <section class="module" id="m-p-pay">
+    <div class="page-head">
+      <div>
+        <div class="eyebrow" data-en="Parent · Billing" data-zh="家长端 · 账单与保障">Parent · Billing</div>
+        <h1 data-en="Clear bills, protected money" data-zh="账单清清楚楚，资金安安全全">Clear bills, protected money</h1>
+        <p class="lead" data-en="Escrow status for every dollar, GST e-receipts for every payment, insurance on every lesson." data-zh="每一分钱的托管状态、每笔支付的 GST 电子收据、每节课的保险保障。">Escrow status for every dollar, GST e-receipts for every payment, insurance on every lesson.</p>
+      </div>
+      <div class="ph-actions"><button class="btn ghost" onclick="toast('en:All receipts emailed to you','zh:全部收据已发送至邮箱')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h12V21l-2-1.4L14 21l-2-1.4L10 21l-2-1.4L6 21z"/><path d="M9 7.5h6M9 11h6M9 14.5h4"/></svg><span data-en="Email all receipts" data-zh="收据发我邮箱">Email all receipts</span></button></div>
+    </div>
+    <div class="grid g4" style="margin-bottom:16px">
+      <div class="card stat"><div class="top"><div class="lab" data-en="Spent · month" data-zh="本月支出">Spent · month</div><div class="ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 7H6a2.5 2.5 0 0 1 0-5h11v5"/><path d="M19 7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2.5 2.5 0 0 1-2.5-2.5V4.5"/><circle cx="16.5" cy="13.8" r="1.3"/></svg></div></div><div class="num"><small>S$</small>635.20</div><div class="delta" style="color:var(--muted)"><span data-en="3 bookings" data-zh="3 笔预约">3 bookings</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="In escrow" data-zh="托管中">In escrow</div><div class="ico i"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg></div></div><div class="num"><small>S$</small>277.70</div><div class="delta up"><span data-en="Refundable pre-confirm" data-zh="确认前可退">Refundable pre-confirm</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="E-receipts" data-zh="电子收据">E-receipts</div><div class="ico g"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h12V21l-2-1.4L14 21l-2-1.4L10 21l-2-1.4L6 21z"/><path d="M9 7.5h6M9 11h6M9 14.5h4"/></svg></div></div><div class="num">6</div><div class="delta up"><span data-en="GST-compliant · auto" data-zh="GST 合规 · 自动开具">GST-compliant · auto</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Insured lessons" data-zh="保险覆盖">Insured lessons</div><div class="ico a"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 0 1 9 9H3a9 9 0 0 1 9-9z"/><path d="M12 12v6.5a2 2 0 0 0 4 0"/></svg></div></div><div class="num">100<small>%</small></div><div class="delta up"><span data-en="Incl. liability in-person" data-zh="含线下责任险">Incl. liability in-person</span></div></div>
+    </div>
+    <div class="split2">
+      <div class="card">
+        <div class="card-h"><h3 data-en="My transactions" data-zh="我的交易">My transactions</h3><span class="badge n" data-en="Original-method refunds" data-zh="退款原路返回">Original-method refunds</span></div>
+        <div class="tbl-scroll"><table class="tbl"><thead><tr><th data-en="Tutor / item" data-zh="老师／项目">Tutor / item</th><th data-en="Amount" data-zh="金额">Amount</th><th data-en="Status" data-zh="状态">Status</th><th data-en="Receipt" data-zh="收据">Receipt</th></tr></thead><tbody>
+          <tr><td><span data-en="Adeline Lim · 4 lessons" data-zh="Adeline Lim · 4 课时">Adeline Lim · 4 lessons</span></td><td class="fw6">S$277.70</td><td><span class="badge b"><span class="d"></span><span data-en="In escrow" data-zh="托管中">In escrow</span></span></td><td><button class="btn ghost" style="padding:5px 10px" onclick="toast('en:Receipt downloaded (PDF)','zh:收据已下载（PDF）')" data-en="PDF" data-zh="下载">PDF</button></td></tr>
+          <tr><td><span data-en="Jonathan Wee · 1 lesson" data-zh="Jonathan Wee · 1 课时">Jonathan Wee · 1 lesson</span></td><td class="fw6">S$89.20</td><td><span class="badge a"><span class="d"></span><span data-en="Awaiting confirm" data-zh="待确认">Awaiting confirm</span></span></td><td><button class="btn ghost" style="padding:5px 10px" onclick="toast('en:Receipt downloaded (PDF)','zh:收据已下载（PDF）')" data-en="PDF" data-zh="下载">PDF</button></td></tr>
+          <tr><td><span data-en="Exam Skills workshop · 2 seats" data-zh="应试技巧工作坊 · 2 席">Exam Skills workshop · 2 seats</span></td><td class="fw6">S$56.00</td><td><span class="badge g"><span class="d"></span><span data-en="Paid" data-zh="已支付">Paid</span></span></td><td><button class="btn ghost" style="padding:5px 10px" onclick="toast('en:Receipt downloaded (PDF)','zh:收据已下载（PDF）')" data-en="PDF" data-zh="下载">PDF</button></td></tr>
+          <tr><td><span data-en="Marcus Ong · refund" data-zh="Marcus Ong · 退款">Marcus Ong · refund</span></td><td class="fw6" style="color:var(--good)">+S$59.90</td><td><span class="badge n"><span class="d"></span><span data-en="Refunded · 3 days" data-zh="已退款 · 3 天到账">Refunded · 3 days</span></span></td><td><button class="btn ghost" style="padding:5px 10px" onclick="toast('en:Credit note downloaded','zh:红字收据已下载')" data-en="PDF" data-zh="下载">PDF</button></td></tr>
+        </tbody></table></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div class="card pad">
+          <div class="fw6" style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg><span data-en="Where your money sits" data-zh="你的钱在哪里">Where your money sits</span></div>
+          <ul class="rule-list">
+            <li data-en="Held by a licensed escrow partner — never in the platform’s own account (demo)." data-zh="由持牌托管机构保管——从不进入平台自有账户（演示）。">Held by a licensed escrow partner — never in the platform’s own account (demo).</li>
+            <li data-en="Released to the tutor only 24h after you confirm each lesson." data-zh="每节课你确认 24 小时后才放款给老师。">Released to the tutor only 24h after you confirm each lesson.</li>
+            <li data-en="Disputes freeze the funds until resolved (≤5 working days)." data-zh="发生争议立即冻结资金，5 个工作日内裁定。">Disputes freeze the funds until resolved (≤5 working days).</li>
+          </ul>
+        </div>
+        <div class="card pad">
+          <div class="fw6" style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 0 1 9 9H3a9 9 0 0 1 9-9z"/><path d="M12 12v6.5a2 2 0 0 0 4 0"/></svg><span data-en="Your protection" data-zh="你的保障">Your protection</span></div>
+          <div class="trust-row"><div class="ti g"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h2a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg></div><div><div class="fw6 small" data-en="Lesson Protection · free" data-zh="课程保障 · 免费">Lesson Protection · free</div><div class="small muted" data-en="No lesson → auto refund + S$20 credit" data-zh="课程未发生 → 自动退款＋S$20 课程券">No lesson → auto refund + S$20 credit</div></div></div>
+          <div class="trust-row"><div class="ti a"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 0 1 9 9H3a9 9 0 0 1 9-9z"/><path d="M12 12v6.5a2 2 0 0 0 4 0"/></svg></div><div><div class="fw6 small" data-en="Liability cover · in-person" data-zh="责任险 · 线下课">Liability cover · in-person</div><div class="small muted" data-en="Up to S$1,000,000 (demo)" data-zh="最高 S$1,000,000（演示）">Up to S$1,000,000 (demo)</div></div></div>
+          <div class="trust-row"><div class="ti"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg></div><div><div class="fw6 small" data-en="First-lesson guarantee" data-zh="首课不满意全额退">First-lesson guarantee</div><div class="small muted" data-en="Full refund, no questions" data-zh="全额退款，无需理由">Full refund, no questions</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== STUDENT: TODAY ========== -->
+  <section class="module" id="m-s-home">
+    <div class="page-head">
+      <div>
+        <div class="eyebrow" data-en="Student · Rui Feng" data-zh="学生端 · 睿峰">Student · Rui Feng</div>
+        <h1 data-en="Today’s plan — 18 minutes" data-zh="今天的学习计划 · 只要 18 分钟">Today’s plan — 18 minutes</h1>
+        <p class="lead" data-en="Built from your last essay, spaced so you remember. Finish all three to keep your streak." data-zh="根据你上一篇作文生成，按遗忘曲线安排。完成三项就能保住连续纪录。">Built from your last essay, spaced so you remember. Finish all three to keep your streak.</p>
+      </div>
+      <div class="ph-actions"><button class="btn primary" onclick="go('s-tutor')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z"/></svg><span data-en="Start now" data-zh="开始学习">Start now</span></button></div>
+    </div>
+    <div class="grid g4" style="margin-bottom:16px">
+      <div class="card stat"><div class="top"><div class="lab" data-en="Streak" data-zh="连续学习">Streak</div><div class="ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4.4 0 7-2.8 7-6.5 0-4-3.2-6-4.5-9.5-2 1.5-2.7 3.4-2.5 5.5-1.2-.6-2-1.7-2.3-3.2C7.6 10 5 12 5 15.5 5 19.2 7.6 22 12 22z"/></svg></div></div><div class="num">6 <small data-en="days" data-zh="天">days</small></div><div class="streak"><i class="on"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4.4 0 7-2.8 7-6.5 0-4-3.2-6-4.5-9.5-2 1.5-2.7 3.4-2.5 5.5-1.2-.6-2-1.7-2.3-3.2C7.6 10 5 12 5 15.5 5 19.2 7.6 22 12 22z"/></svg></i><i class="on"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4.4 0 7-2.8 7-6.5 0-4-3.2-6-4.5-9.5-2 1.5-2.7 3.4-2.5 5.5-1.2-.6-2-1.7-2.3-3.2C7.6 10 5 12 5 15.5 5 19.2 7.6 22 12 22z"/></svg></i><i class="on"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4.4 0 7-2.8 7-6.5 0-4-3.2-6-4.5-9.5-2 1.5-2.7 3.4-2.5 5.5-1.2-.6-2-1.7-2.3-3.2C7.6 10 5 12 5 15.5 5 19.2 7.6 22 12 22z"/></svg></i><i class="on"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4.4 0 7-2.8 7-6.5 0-4-3.2-6-4.5-9.5-2 1.5-2.7 3.4-2.5 5.5-1.2-.6-2-1.7-2.3-3.2C7.6 10 5 12 5 15.5 5 19.2 7.6 22 12 22z"/></svg></i><i class="on"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4.4 0 7-2.8 7-6.5 0-4-3.2-6-4.5-9.5-2 1.5-2.7 3.4-2.5 5.5-1.2-.6-2-1.7-2.3-3.2C7.6 10 5 12 5 15.5 5 19.2 7.6 22 12 22z"/></svg></i><i class="on"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4.4 0 7-2.8 7-6.5 0-4-3.2-6-4.5-9.5-2 1.5-2.7 3.4-2.5 5.5-1.2-.6-2-1.7-2.3-3.2C7.6 10 5 12 5 15.5 5 19.2 7.6 22 12 22z"/></svg></i><i><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4.4 0 7-2.8 7-6.5 0-4-3.2-6-4.5-9.5-2 1.5-2.7 3.4-2.5 5.5-1.2-.6-2-1.7-2.3-3.2C7.6 10 5 12 5 15.5 5 19.2 7.6 22 12 22z"/></svg></i></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Today’s tasks" data-zh="今日任务">Today’s tasks</div><div class="ico g"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h2a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg></div></div><div class="num">1<small>/3</small></div><div class="delta up"><span data-en="15 min left" data-zh="还需约 15 分钟">15 min left</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Mastery" data-zh="掌握度">Mastery</div><div class="ico i"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4"/></svg></div></div><div class="num">73<small>%</small></div><div class="delta up"><span data-en="+6 this week" data-zh="本周 +6">+6 this week</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Badges" data-zh="徽章">Badges</div><div class="ico a"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 7 5-3 5 3-1.5-7"/></svg></div></div><div class="num">8</div><div class="delta up"><span data-en="Next: 7-day streak" data-zh="下一枚：连续 7 天">Next: 7-day streak</span></div></div>
+    </div>
+    <div class="grid gdash">
+      <div class="card">
+        <div class="card-h"><h3 data-en="Your three tasks" data-zh="今天的三件事">Your three tasks</h3><span class="badge b" data-en="From your own mistakes" data-zh="来自你自己的错题">From your own mistakes</span></div>
+        <div style="padding:8px 18px 16px">
+          <div class="list-row"><div class="mini-av" style="background:var(--good)">✓</div><div style="flex:1"><div class="fw6 small" data-en="Watch: tone vs. topic (3 min)" data-zh="看讲解：语气 vs. 主题（3 分钟）">Watch: tone vs. topic (3 min)</div><div class="small muted" data-en="From your Q7 mistake · in-corpus" data-zh="来自你第 7 题的错误 · 语料内">From your Q7 mistake · in-corpus</div></div><span class="badge g" data-en="Done" data-zh="已完成">Done</span></div>
+          <div class="list-row"><div class="mini-av" style="background:var(--brand)">2</div><div style="flex:1"><div class="fw6 small" data-en="4 practice questions (8 min)" data-zh="4 道练习（8 分钟）">4 practice questions (8 min)</div><div class="small muted" data-en="Adaptive · gets harder as you improve" data-zh="自适应 · 越做越进阶">Adaptive · gets harder as you improve</div></div><button class="btn primary" style="padding:6px 12px" onclick="toast('en:Practice set opened','zh:练习已打开')" data-en="Start" data-zh="开始">Start</button></div>
+          <div class="list-row"><div class="mini-av" style="background:var(--brand)">3</div><div style="flex:1"><div class="fw6 small" data-en="Ask the tutor one question (5 min)" data-zh="向 AI 辅导提一个问题（5 分钟）">Ask the tutor one question (5 min)</div><div class="small muted" data-en="It only teaches from your class materials" data-zh="它只讲你课内的材料">It only teaches from your class materials</div></div><button class="btn ghost" style="padding:6px 12px" onclick="go('s-tutor')" data-en="Open" data-zh="去提问">Open</button></div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div class="card pad">
+          <div class="fw6" style="margin-bottom:12px" data-en="Where you stand" data-zh="你的掌握情况">Where you stand</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div><div style="display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:5px"><span data-en="Thesis statements" data-zh="论点表述">Thesis statements</span><b>82%</b></div><div class="pbar"><i class="g" style="width:82%"></i></div></div>
+            <div><div style="display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:5px"><span data-en="Evidence use" data-zh="论据运用">Evidence use</span><b>68%</b></div><div class="pbar"><i style="width:68%"></i></div></div>
+            <div><div style="display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:5px"><span data-en="Counter-arguments" data-zh="反方论证">Counter-arguments</span><b style="color:var(--warn)">41%</b></div><div class="pbar"><i class="a" style="width:41%"></i></div></div>
+          </div>
+        </div>
+        <div class="card pad">
+          <div class="fw6" style="margin-bottom:10px" data-en="Next live class" data-zh="下一节直播课">Next live class</div>
+          <div class="list-row" style="padding:0"><div class="date" style="flex:0 0 52px;text-align:center;background:var(--brand-tint);border-radius:10px;padding:7px 4px"><div style="font-size:10px;font-weight:700;color:var(--brand-d)" data-en="FRI" data-zh="周五">FRI</div><div style="font-family:var(--disp);font-size:19px;font-weight:600">17:00</div></div><div style="flex:1"><div class="fw6 small" data-en="Weekly Writing Clinic" data-zh="每周写作诊室">Weekly Writing Clinic</div><div class="small muted" data-en="52 classmates joined last week" data-zh="上周 52 位同学参加">52 classmates joined last week</div></div><button class="btn subtle" style="padding:6px 11px" onclick="toast('en:Reminder set','zh:已设置提醒')" data-en="Remind me" data-zh="提醒我">Remind me</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== STUDENT: TUTOR ========== -->
+  <section class="module" id="m-s-tutor">
+    <div class="page-head">
+      <div>
+        <span class="patent-tag"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg> <span data-en="In-corpus tutoring · sentence-level gate" data-zh="语料内辅导 · 句级蕴含闸门">In-corpus tutoring · sentence-level gate</span></span>
+        <h1 style="margin-top:9px" data-en="Your AI tutor — honest by design" data-zh="你的 AI 辅导 · 天生诚实">Your AI tutor — honest by design</h1>
+        <p class="lead" data-en="It teaches only from your class materials, shows its sources, and won’t do the work for you — that’s the point." data-zh="它只讲你课内的材料、亮出出处，也不会替你写作业——这正是它的价值。">It teaches only from your class materials, shows its sources, and won’t do the work for you — that’s the point.</p>
+      </div>
+    </div>
+    <div class="grid glearn">
+      <div class="card" style="display:flex;flex-direction:column">
+        <div class="card-h"><div style="display:flex;align-items:center;gap:10px"><div class="mini-av" style="background:linear-gradient(145deg,#DE7B44,#A2481F)">JE</div><div><h3 style="font-size:15px" data-en="Tutor · Persuasive writing" data-zh="辅导 · 说服性写作">Tutor · Persuasive writing</h3><span class="sub" data-en="Visible to your teacher & parents" data-zh="老师与家长可见">Visible to your teacher & parents</span></div></div><span class="badge g"><span class="d"></span><span data-en="In corpus" data-zh="语料内">In corpus</span></span></div>
+        <div class="chat">
+          <div class="msg stu"><div class="av">RF</div><div class="b" data-en="What’s the difference between tone and topic again?" data-zh="语气和主题的区别到底是什么？">What’s the difference between tone and topic again?</div></div>
+          <div class="msg ai"><div class="av">JE</div><div><div class="b" data-en="Topic is WHAT the author writes about; tone is HOW the author feels about it. In your Q7 passage, the topic was social media — but words like “reckless” and “unchecked” show a critical tone. Try this: find two more words in that passage that reveal feeling." data-zh="主题是作者「写什么」；语气是作者「怎么看待它」。你第 7 题的文章主题是社交媒体——但“reckless”“unchecked”这些词透露的是批判的语气。试试看：再在文中找出两个带情感色彩的词。">Topic is WHAT the author writes about; tone is HOW the author feels about it. In your Q7 passage, the topic was social media — but words like “reckless” and “unchecked” show a critical tone. Try this: find two more words in that passage that reveal feeling.</div><div><span class="src-chip"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="m9 14 2 2 4-4"/></svg><span data-en="Unit notes ¶3" data-zh="单元讲义 · 第 3 段">Unit notes ¶3</span></span><span class="src-chip"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="m9 14 2 2 4-4"/></svg><span data-en="Your Q7 passage" data-zh="你的第 7 题文章">Your Q7 passage</span></span></div></div></div>
+          <div class="msg stu"><div class="av">RF</div><div class="b" data-en="Can you just write the conclusion for me?" data-zh="你能直接帮我把结论写了吗？">Can you just write the conclusion for me?</div></div>
+          <div class="msg ai"><div class="av">JE</div><div><div class="block-note"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15V4h12l-2 3.5L16 11H4z"/><path d="M4 21v-6"/></svg><span data-en="I won’t write it for you — your teacher sees this chat, and doing it for you wouldn’t help you score. But I’ll coach you: a strong conclusion restates your thesis in new words + answers “so what?”. Give me your thesis and I’ll ask you the two questions that build it." data-zh="我不会替你写——这段对话老师看得到，替你写也不会帮你拿分。但我可以带你：好的结论要用新的话重申论点，并回答「所以呢？」。把你的论点发我，我用两个问题带你把结论搭出来。">I won’t write it for you — your teacher sees this chat, and doing it for you wouldn’t help you score. But I’ll coach you: a strong conclusion restates your thesis in new words + answers “so what?”. Give me your thesis and I’ll ask you the two questions that build it.</span></div></div></div>
+        </div>
+        <div style="padding:12px 16px;border-top:1px solid var(--line2);display:flex;gap:10px;align-items:center"><div class="search" style="flex:1;max-width:none;display:flex"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/></svg><input placeholder="Ask about your materials…" data-en-ph="Ask about your materials…" data-zh-ph="问问课内的内容…"></div><button class="btn primary" style="padding:9px 13px" data-en="Send" data-zh="发送">Send</button></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div class="card pad" style="text-align:center">
+          <div class="small muted" data-en="Session coverage" data-zh="本次覆盖分">Session coverage</div>
+          <div style="font-family:var(--disp);font-size:40px;font-weight:600;color:var(--good);margin:4px 0">100%</div>
+          <span class="badge g"><span class="d"></span><span data-en="Every sentence sourced" data-zh="每句都有出处">Every sentence sourced</span></span>
+        </div>
+        <div class="callout"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13A4 4 0 0 1 16 11"/></svg></div><div><b class="small" data-en="Nothing is hidden" data-zh="没有黑箱">Nothing is hidden</b><p data-en="Your teacher and parents can see this conversation. The tutor abstains instead of guessing." data-zh="老师和家长都能看到这段对话。辅导拿不准就存疑，绝不乱猜。">Your teacher and parents can see this conversation. The tutor abstains instead of guessing.</p></div></div>
+        <div class="card pad">
+          <div class="fw6" style="margin-bottom:10px" data-en="Keep going" data-zh="继续任务">Keep going</div>
+          <div class="list-row" style="padding:6px 0"><div class="mini-av" style="background:var(--brand)">2</div><div style="flex:1" class="small fw6" data-en="4 practice questions" data-zh="4 道练习">4 practice questions</div><button class="btn subtle" style="padding:5px 10px" onclick="toast('en:Practice set opened','zh:练习已打开')" data-en="Start" data-zh="开始">Start</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ADMIN: OPS (INSTITUTION COMMAND) ========== -->
+  <section class="module" id="m-a-ops">
+    <div class="page-head">
+      <div>
+        <span class="patent-tag"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.7 4.8L18.5 9l-4.8 1.2L12 15l-1.7-4.8L5.5 9l4.8-1.2z"/><path d="M19 13.5l.8 2.2 2.2.8-2.2.8L19 19.5l-.8-2.2-2.2-.8 2.2-.8z"/></svg> <span data-en="AI runs the busywork · you approve" data-zh="AI 代办琐事 · 你只审批">AI runs the busywork · you approve</span></span>
+        <h1 style="margin-top:9px" data-en="Institution command centre" data-zh="机构指挥台">Institution command centre</h1>
+        <p class="lead" data-en="Raffles Academy · 1,240 students · 38 staff. The JE agents drafted 214 items today — comments, reminders, schedules, invoices. Your team of 2 only reviews what the AI isn’t sure about." data-zh="莱佛士书院 · 在读 1,240 人 · 教职员 38 人。JE 智能体今天已起草 214 项事务——评语、提醒、排期、账单。2 人管理团队只需审批 AI 拿不准的部分。">Raffles Academy · 1,240 students · 38 staff. The JE agents drafted 214 items today — comments, reminders, schedules, invoices. Your team of 2 only reviews what the AI isn’t sure about.</p>
+      </div>
+      <div class="ph-actions"><button class="btn ghost" onclick="toast('en:Monthly board report exported','zh:月度理事会报告已导出')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h12V21l-2-1.4L14 21l-2-1.4L10 21l-2-1.4L6 21z"/><path d="M9 7.5h6M9 11h6M9 14.5h4"/></svg><span data-en="Board report" data-zh="导出月报">Board report</span></button><button class="btn primary" onclick="toast('en:11 routine items approved in one click · 1 held for review','zh:11 项常规事项已一键批准 · 1 项保留人工细看')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h2a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg><span data-en="Approve routine · 11" data-zh="一键批准常规 · 11">Approve routine · 11</span></button></div>
+    </div>
+    <div class="grid g4" style="margin-bottom:16px">
+      <div class="card stat"><div class="top"><div class="lab" data-en="Students enrolled" data-zh="在读学生">Students enrolled</div><div class="ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m2.5 9.5 9.5-5 9.5 5-9.5 5z"/><path d="M6.5 11.8V16c0 1.4 2.5 3 5.5 3s5.5-1.6 5.5-3v-4.2"/><path d="M21.5 9.5V15"/></svg></div></div><div class="num">1,240</div><div class="delta up"><span data-en="+38 this month" data-zh="本月 +38">+38 this month</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="AI completed · today" data-zh="AI 今日完成">AI completed · today</div><div class="ico g"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z"/></svg></div></div><div class="num">214</div><div class="delta up"><span data-en="≈ 3.5 staff-days saved" data-zh="≈ 省 3.5 个人日">≈ 3.5 staff-days saved</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Awaiting your approval" data-zh="待你审批">Awaiting your approval</div><div class="ico a"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15V4h12l-2 3.5L16 11H4z"/><path d="M4 21v-6"/></svg></div></div><div class="num">12</div><div class="delta" style="color:var(--warn)"><span data-en="AI abstained · needs judgment" data-zh="AI 存疑 · 需人工判断">AI abstained · needs judgment</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Admin headcount" data-zh="管理人力">Admin headcount</div><div class="ico i"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13A4 4 0 0 1 16 11"/></svg></div></div><div class="num">2</div><div class="delta up"><span data-en="0.5 admin per 300 students" data-zh="每 300 学生仅 0.5 人">0.5 admin per 300 students</span></div></div>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <div class="card-h"><h3 data-en="AI agent workbench · today" data-zh="AI 智能体工作台 · 今日">AI agent workbench · today</h3><span class="badge g"><span class="d"></span><span data-en="Draft → you approve → logged" data-zh="AI 起草 → 你审批 → 留痕">Draft → you approve → logged</span></span></div>
+      <div style="padding:6px 18px 14px">
+        <div class="list-row"><div class="ti" style="flex:0 0 32px;height:32px;border-radius:9px;background:var(--brand-tint);color:var(--brand-d);display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="m9 14 2 2 4-4"/></svg></div><div style="flex:1"><div class="fw6 small" data-en="258 term-report comments drafted — grounded in each student’s graded work" data-zh="258 份学期评语已起草——逐条依据学生批改记录">258 term-report comments drafted — grounded in each student’s graded work</div><div class="small muted" data-en="982 already teacher-approved" data-zh="其余 982 份教师已审定">982 already teacher-approved</div></div><button class="btn primary" style="padding:6px 12px" onclick="toast('en:Review queue opened · 258 comments','zh:评语审核队列已打开 · 258 份')" data-en="Review" data-zh="去审核">Review</button></div>
+        <div class="list-row"><div class="ti" style="flex:0 0 32px;height:32px;border-radius:9px;background:var(--good-soft);color:var(--good);display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="17" rx="2"/><path d="M8 2.5v4M16 2.5v4M3 10h18"/></svg></div><div style="flex:1"><div class="fw6 small" data-en="14 parent-teacher meetings scheduled to parents’ preferred slots" data-zh="14 场家长会已按家长偏好时段自动排期">14 parent-teacher meetings scheduled to parents’ preferred slots</div><div class="small muted" data-en="3 flagged sensitive → teacher-led" data-zh="3 场涉敏感议题 → 转老师亲自安排">3 flagged sensitive → teacher-led</div></div><button class="btn ghost" style="padding:6px 12px" onclick="toast('en:Schedule confirmed · invites sent','zh:排期已确认 · 邀请已发送')" data-en="Confirm" data-zh="确认">Confirm</button></div>
+        <div class="list-row"><div class="ti" style="flex:0 0 32px;height:32px;border-radius:9px;background:var(--warn-soft);color:var(--warn);display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15V4h12l-2 3.5L16 11H4z"/><path d="M4 21v-6"/></svg></div><div style="flex:1"><div class="fw6 small" data-en="6 attendance-drop alerts with drafted parent letters" data-zh="6 名学生出勤下滑预警，家长沟通函已代拟">6 attendance-drop alerts with drafted parent letters</div><div class="small muted" data-en="Tone: caring, per your house style" data-zh="语气按你机构风格：关怀式">Tone: caring, per your house style</div></div><button class="btn ghost" style="padding:6px 12px" onclick="toast('en:6 letters sent after your sign-off','zh:6 封沟通函已签发')" data-en="Sign & send" data-zh="签发">Sign & send</button></div>
+        <div class="list-row"><div class="ti" style="flex:0 0 32px;height:32px;border-radius:9px;background:var(--info-soft);color:var(--info);display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h12V21l-2-1.4L14 21l-2-1.4L10 21l-2-1.4L6 21z"/><path d="M9 7.5h6M9 11h6M9 14.5h4"/></svg></div><div style="flex:1"><div class="fw6 small" data-en="23 membership-fee reminders drafted (3-tone ladder) · S$2,760 expected" data-zh="23 封会费催缴函已按三档语气起草 · 预计回收 S$2,760">23 membership-fee reminders drafted (3-tone ladder) · S$2,760 expected</div><div class="small muted" data-en="Auto GST receipts on payment" data-zh="到账自动开 GST 收据">Auto GST receipts on payment</div></div><button class="btn ghost" style="padding:6px 12px" onclick="toast('en:Reminders queued · replies routed to AI agent','zh:催缴已排队发送 · 回复由 AI 客服接待')" data-en="Send" data-zh="发送">Send</button></div>
+        <div class="list-row"><div class="ti" style="flex:0 0 32px;height:32px;border-radius:9px;background:var(--brand-tint);color:var(--brand-d);display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 7 5-3 5 3-1.5-7"/></svg></div><div style="flex:1"><div class="fw6 small" data-en="26 certificates generated (term completion · progress) with verifiable IDs" data-zh="26 张证书已生成（结业/进步），含可验真编号">26 certificates generated (term completion · progress) with verifiable IDs</div><div class="small muted" data-en="Principal’s e-signature ready" data-zh="校长电子签章已就绪">Principal’s e-signature ready</div></div><button class="btn ghost" style="padding:6px 12px" onclick="toast('en:26 certificates issued · parents notified','zh:26 张证书已签发 · 已通知家长')" data-en="Issue" data-zh="签发">Issue</button></div>
+      </div>
+    </div>
+
+    <div class="split2">
+      <div class="card">
+        <div class="card-h"><h3 data-en="Cost structure · this month S$6,180" data-zh="成本结构 · 本月 S$6,180">Cost structure · this month S$6,180</h3><span class="badge g"><span class="d"></span><span data-en="Serverless · pay-per-use" data-zh="Serverless · 按量付费">Serverless · pay-per-use</span></span></div>
+        <div class="pad" style="padding-top:10px">
+          <div class="costbar"><i style="width:38%;background:#C15A2E"></i><i style="width:22%;background:#C4872B"></i><i style="width:18%;background:#4C6E86"></i><i style="width:15%;background:#4E7C59"></i><i style="width:7%;background:#9C9080"></i></div>
+          <div class="cost-legend">
+            <span><span class="dotb" style="background:#C15A2E"></span><span data-en="Model inference 38%" data-zh="模型推理 38%">Model inference 38%</span></span>
+            <span><span class="dotb" style="background:#C4872B"></span><span data-en="Cloud & storage 22%" data-zh="云与存储 22%">Cloud & storage 22%</span></span>
+            <span><span class="dotb" style="background:#4C6E86"></span><span data-en="Payment rails 18%" data-zh="支付通道 18%">Payment rails 18%</span></span>
+            <span><span class="dotb" style="background:#4E7C59"></span><span data-en="People 15%" data-zh="人力 15%">People 15%</span></span>
+            <span><span class="dotb" style="background:#9C9080"></span><span data-en="Other 7%" data-zh="其它 7%">Other 7%</span></span>
+          </div>
+          <div class="small muted" style="margin-top:10px" data-en="Levers: tiered model routing (small tasks → small models) · 61% cache hit · off-peak batch grading · AI cost per lesson S$0.42 (−18% QoQ)." data-zh="降本抓手：模型分级调度（小任务用小模型）· 缓存命中 61% · 错峰批量批改 · 单课 AI 成本 S$0.42（环比 −18%）。">Levers: tiered model routing (small tasks → small models) · 61% cache hit · off-peak batch grading · AI cost per lesson S$0.42 (−18% QoQ).</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div class="card pad">
+          <div class="fw6" style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg><span data-en="Service levels" data-zh="服务水平 SLA">Service levels</span></div>
+          <div class="list-row" style="padding:8px 0"><div style="flex:1" class="small fw6" data-en="Uptime · 30 days" data-zh="可用性 · 近 30 天">Uptime · 30 days</div><b style="color:var(--good)">99.95%</b></div>
+          <div class="list-row" style="padding:8px 0"><div style="flex:1" class="small fw6" data-en="AI support first response" data-zh="AI 客服首响">AI support first response</div><b>&lt; 30s</b></div>
+          <div class="list-row" style="padding:8px 0"><div style="flex:1" class="small fw6" data-en="Infra bill · month" data-zh="月度基础设施">Infra bill · month</div><b>S$1,360</b></div>
+          <div class="list-row" style="padding:8px 0"><div style="flex:1" class="small fw6" data-en="Blended margin" data-zh="综合毛利">Blended margin</div><b style="color:var(--good)">84%</b></div>
+        </div>
+        <div class="callout"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9.5" y="9.5" width="5" height="5"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></div><div><b class="small" data-en="Why 2 people are enough" data-zh="为什么 2 个人就够">Why 2 people are enough</b><p data-en="Every agent follows the same discipline as grading: act only with evidence, abstain when unsure, log everything. Humans see a queue of 12, not a school of 1,240." data-zh="每个智能体都沿用评分的纪律：有据才行动、拿不准就存疑、全程留痕。人看到的是 12 条待审队列，而不是 1,240 人的学校。">Every agent follows the same discipline as grading: act only with evidence, abstain when unsure, log everything. Humans see a queue of 12, not a school of 1,240.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ADMIN: STUDENT RECORDS ========== -->
+  <section class="module" id="m-a-students">
+    <div class="page-head">
+      <div>
+        <div class="eyebrow" data-en="Institution · Student records" data-zh="机构管理 · 学生档案">Institution · Student records</div>
+        <h1 data-en="Student records & enrolment" data-zh="学生档案与学籍">Student records & enrolment</h1>
+        <p class="lead" data-en="One live record per student — enrolment, guardians, attendance, mastery and every AI note, all cited and PDPA-scoped." data-zh="每位学生一份活档案——学籍、监护人、出勤、掌握度与所有 AI 记录，全部有据、按 PDPA 权限隔离。">One live record per student — enrolment, guardians, attendance, mastery and every AI note, all cited and PDPA-scoped.</p>
+      </div>
+      <div class="ph-actions"><button class="btn ghost" onclick="toast('en:Roster import ready (CSV / MOE format)','zh:名单导入已就绪（CSV / 教育部格式）')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2.5 2.5H19a2 2 0 0 1 2 2V17a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span data-en="Import roster" data-zh="导入名单">Import roster</span></button><button class="btn primary" onclick="toast('en:Enrolment form sent to parent · auto-fills the record','zh:报名表已发送家长 · 提交后自动建档')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><circle cx="8.5" cy="11" r="2.2"/><path d="M5.5 16.5c.6-1.6 1.7-2.4 3-2.4s2.4.8 3 2.4"/><path d="M14.5 9.5H19M14.5 13h4.5M14.5 16.5h3"/></svg><span data-en="New enrolment" data-zh="新生注册">New enrolment</span></button></div>
+    </div>
+    <div class="grid g4" style="margin-bottom:16px">
+      <div class="card stat"><div class="top"><div class="lab" data-en="Enrolled" data-zh="在读">Enrolled</div><div class="ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m2.5 9.5 9.5-5 9.5 5-9.5 5z"/><path d="M6.5 11.8V16c0 1.4 2.5 3 5.5 3s5.5-1.6 5.5-3v-4.2"/><path d="M21.5 9.5V15"/></svg></div></div><div class="num">1,240</div><div class="delta up"><span data-en="24 classes · 4 levels" data-zh="24 个班 · 4 个年级">24 classes · 4 levels</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="New this month" data-zh="本月新注册">New this month</div><div class="ico g"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><circle cx="8.5" cy="11" r="2.2"/><path d="M5.5 16.5c.6-1.6 1.7-2.4 3-2.4s2.4.8 3 2.4"/><path d="M14.5 9.5H19M14.5 13h4.5M14.5 16.5h3"/></svg></div></div><div class="num">38</div><div class="delta up"><span data-en="Records auto-created" data-zh="档案自动建立">Records auto-created</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Attendance · term" data-zh="本学期出勤率">Attendance · term</div><div class="ico i"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h2a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg></div></div><div class="num">94<small>%</small></div><div class="delta up"><span data-en="Auto-tracked · alerts on dips" data-zh="自动统计 · 下滑即预警">Auto-tracked · alerts on dips</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="At-risk flags" data-zh="流失预警">At-risk flags</div><div class="ico a"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15V4h12l-2 3.5L16 11H4z"/><path d="M4 21v-6"/></svg></div></div><div class="num">6</div><div class="delta" style="color:var(--warn)"><span data-en="AI-flagged · letters drafted" data-zh="AI 标记 · 沟通函已拟">AI-flagged · letters drafted</span></div></div>
+    </div>
+    <div class="split2">
+      <div class="card">
+        <div class="card-h"><h3 data-en="Register · Sec 3B" data-zh="学籍表 · 中三 B 班">Register · Sec 3B</h3><span class="badge n" data-en="PDPA · role-scoped access" data-zh="PDPA · 按角色隔离访问">PDPA · role-scoped access</span></div>
+        <div class="tbl-scroll"><table class="tbl"><thead><tr><th data-en="Student" data-zh="学生">Student</th><th data-en="ID" data-zh="学号">ID</th><th data-en="Status" data-zh="学籍状态">Status</th><th data-en="Attendance" data-zh="出勤">Attendance</th><th data-en="Mastery" data-zh="掌握度">Mastery</th><th data-en="AI note" data-zh="AI 提示">AI note</th></tr></thead><tbody>
+          <tr onclick="toast('en:Rui Feng’s 360° record opened','zh:睿峰 360° 档案已打开')" style="cursor:pointer"><td><div class="who"><div class="mini-av" style="background:#5F6B72">RF</div><span>Rui Feng</span></div></td><td class="muted">S3B-012</td><td><span class="badge g"><span class="d"></span><span data-en="Enrolled" data-zh="在读">Enrolled</span></span></td><td>96%</td><td class="fw6">73%</td><td><span class="badge b" data-en="Progress star" data-zh="进步之星">Progress star</span></td></tr>
+          <tr onclick="toast('en:Kavya’s 360° record opened','zh:Kavya 360° 档案已打开')" style="cursor:pointer"><td><div class="who"><div class="mini-av" style="background:#6E5A86">K</div><span>Kavya Nair</span></div></td><td class="muted">S3B-007</td><td><span class="badge g"><span class="d"></span><span data-en="Enrolled" data-zh="在读">Enrolled</span></span></td><td>98%</td><td class="fw6">88%</td><td><span class="badge g" data-en="On track" data-zh="状态良好">On track</span></td></tr>
+          <tr onclick="toast('en:Marcus’s 360° record opened','zh:Marcus 360° 档案已打开')" style="cursor:pointer"><td><div class="who"><div class="mini-av" style="background:#C4872B">M</div><span>Marcus Lim</span></div></td><td class="muted">S3B-019</td><td><span class="badge a"><span class="d"></span><span data-en="Trial · week 2" data-zh="试读 · 第 2 周">Trial · week 2</span></span></td><td>100%</td><td class="fw6">61%</td><td><span class="badge a" data-en="Convert offer drafted" data-zh="转正方案已拟">Convert offer drafted</span></td></tr>
+          <tr onclick="toast('en:Siti’s 360° record opened','zh:Siti 360° 档案已打开')" style="cursor:pointer"><td><div class="who"><div class="mini-av" style="background:#4E7C59">S</div><span>Siti Rahman</span></div></td><td class="muted">S3B-004</td><td><span class="badge g"><span class="d"></span><span data-en="Enrolled" data-zh="在读">Enrolled</span></span></td><td style="color:var(--warn)" class="fw6">78%</td><td class="fw6">70%</td><td><span class="badge a" data-en="Attendance dip · letter ready" data-zh="出勤下滑 · 函件已拟">Attendance dip · letter ready</span></td></tr>
+          <tr onclick="toast('en:Wei Lin’s 360° record opened','zh:伟霖 360° 档案已打开')" style="cursor:pointer"><td><div class="who"><div class="mini-av" style="background:#4C6E86">W</div><span>Wei Lin</span></div></td><td class="muted">S3B-001</td><td><span class="badge g"><span class="d"></span><span data-en="Enrolled" data-zh="在读">Enrolled</span></span></td><td>95%</td><td class="fw6">85%</td><td><span class="badge g" data-en="On track" data-zh="状态良好">On track</span></td></tr>
+          <tr onclick="toast('en:Devi’s 360° record opened','zh:Devi 360° 档案已打开')" style="cursor:pointer"><td><div class="who"><div class="mini-av" style="background:#B4472F">D</div><span>Devi Kumar</span></div></td><td class="muted">S3B-016</td><td><span class="badge n"><span class="d"></span><span data-en="On leave · medical" data-zh="休学 · 病假">On leave · medical</span></span></td><td class="muted">—</td><td class="muted">—</td><td><span class="badge n" data-en="Return check-in 9/2" data-zh="9月2日复学回访">Return check-in 9/2</span></td></tr>
+        </tbody></table></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div class="card pad">
+          <div style="display:flex;align-items:center;gap:11px;margin-bottom:10px"><div class="mini-av" style="width:42px;height:42px;border-radius:12px;font-size:15px;background:#5F6B72">RF</div><div><div class="fw6">Rui Feng · S3B-012</div><div class="small muted" data-en="Guardian: Mdm Lee · PayNow on file" data-zh="监护人：李女士 · 已绑定 PayNow">Guardian: Mdm Lee · PayNow on file</div></div><span class="badge g" style="margin-left:auto" data-en="Enrolled" data-zh="在读">Enrolled</span></div>
+          <div class="small muted" style="margin-bottom:6px" data-en="AI summary · grounded in 12 graded pieces" data-zh="AI 摘要 · 基于 12 次批改">AI summary · grounded in 12 graded pieces</div>
+          <p class="small" style="line-height:1.6;color:#4A4238" data-en="“Thesis writing up 6 pts this term; counter-arguments remain the gap (41%). Attendance strong. Recommended: continue current remediation path.”" data-zh="「本学期论点表述提升 6 分；反方论证仍是短板（41%）。出勤稳定。建议：继续当前强化路径。」">“Thesis writing up 6 pts this term; counter-arguments remain the gap (41%). Attendance strong. Recommended: continue current remediation path.”</p>
+          <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
+            <button class="btn primary" style="padding:7px 12px" onclick="toast('en:Report comment drafted · sent to Ms Tan to approve','zh:评语已起草 · 已送陈老师审定')" data-en="Draft comment" data-zh="生成评语">Draft comment</button>
+            <button class="btn ghost" style="padding:7px 12px" onclick="toast('en:Progress certificate issued · ID JE-2026-4183 · parent notified','zh:进步证书已颁发 · 编号 JE-2026-4183 · 已通知家长')" data-en="Issue certificate" data-zh="颁发证书">Issue certificate</button>
+            <button class="btn ghost" style="padding:7px 12px" onclick="toast('en:PTM slot proposed to Mdm Lee','zh:家长会时段已发给李女士确认')" data-en="Book PTM" data-zh="约家长会">Book PTM</button>
+          </div>
+        </div>
+        <div class="callout"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg></div><div><b class="small" data-en="Records you can defend" data-zh="经得起追问的档案">Records you can defend</b><p data-en="Every field has provenance; every AI note cites its evidence; access is role-scoped and audit-logged (PDPA)." data-zh="每个字段有来源、每条 AI 记录有依据；访问按角色隔离并留痕（PDPA）。">Every field has provenance; every AI note cites its evidence; access is role-scoped and audit-logged (PDPA).</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ADMIN: ACADEMICS ========== -->
+  <section class="module" id="m-a-academics">
+    <div class="page-head">
+      <div>
+        <div class="eyebrow" data-en="Institution · Academics" data-zh="机构管理 · 教务">Institution · Academics</div>
+        <h1 data-en="Grades, reports, PTMs & certificates" data-zh="成绩 · 报告 · 家长会 · 证书">Grades, reports, PTMs & certificates</h1>
+        <p class="lead" data-en="The term’s heaviest admin — report comments, meeting schedules, certificates — drafted by agents from real graded work, approved by teachers." data-zh="学期里最重的行政活——评语、家长会排期、证书——都由智能体基于真实批改数据起草，教师审定即可。">The term’s heaviest admin — report comments, meeting schedules, certificates — drafted by agents from real graded work, approved by teachers.</p>
+      </div>
+      <div class="ph-actions"><button class="btn primary" onclick="toast('en:Term reports: 258 comments left · review queue opened','zh:学期报告：剩余 258 份评语 · 审核队列已打开')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="m9 14 2 2 4-4"/></svg><span data-en="Finish term reports" data-zh="完成学期报告">Finish term reports</span></button></div>
+    </div>
+    <div class="grid g4" style="margin-bottom:16px">
+      <div class="card stat"><div class="top"><div class="lab" data-en="Cohort average" data-zh="年级平均分">Cohort average</div><div class="ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m2.5 9.5 9.5-5 9.5 5-9.5 5z"/><path d="M6.5 11.8V16c0 1.4 2.5 3 5.5 3s5.5-1.6 5.5-3v-4.2"/><path d="M21.5 9.5V15"/></svg></div></div><div class="num">72.4</div><div class="delta up"><span data-en="+3.1 vs last term" data-zh="较上学期 +3.1">+3.1 vs last term</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Report comments" data-zh="学期评语">Report comments</div><div class="ico g"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="m9 14 2 2 4-4"/></svg></div></div><div class="num">982<small>/1,240</small></div><div class="delta up"><span data-en="AI-drafted · teacher-approved" data-zh="AI 起草 · 教师已审">AI-drafted · teacher-approved</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="PTMs scheduled" data-zh="家长会已排">PTMs scheduled</div><div class="ico i"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="17" rx="2"/><path d="M8 2.5v4M16 2.5v4M3 10h18"/></svg></div></div><div class="num">86<small>%</small></div><div class="delta up"><span data-en="Matched to parent slots" data-zh="按家长偏好时段匹配">Matched to parent slots</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Certificates · month" data-zh="本月证书">Certificates · month</div><div class="ico a"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 7 5-3 5 3-1.5-7"/></svg></div></div><div class="num">126</div><div class="delta up"><span data-en="Verifiable IDs · e-signed" data-zh="可验真编号 · 电子签章">Verifiable IDs · e-signed</span></div></div>
+    </div>
+    <div class="split2">
+      <div class="card">
+        <div class="card-h"><h3 data-en="Gradebook · Sec 3 English" data-zh="成绩册 · 中三英文">Gradebook · Sec 3 English</h3><span class="badge n" data-en="From AI-graded work · auditable" data-zh="来自 AI 批改 · 可审计">From AI-graded work · auditable</span></div>
+        <div class="tbl-scroll"><table class="tbl"><thead><tr><th data-en="Class" data-zh="班级">Class</th><th data-en="Average" data-zh="平均分">Average</th><th data-en="Pass" data-zh="及格率">Pass</th><th data-en="Distinction" data-zh="优秀率">Distinction</th><th data-en="Trend" data-zh="趋势">Trend</th></tr></thead><tbody>
+          <tr><td class="fw6">3A</td><td>76.8</td><td>97%</td><td>31%</td><td><span class="delta up" style="margin:0"><span data-en="+2.4" data-zh="+2.4">+2.4</span></span></td></tr>
+          <tr><td class="fw6">3B</td><td>73.1</td><td>94%</td><td>26%</td><td><span class="delta up" style="margin:0"><span data-en="+4.2 · best gain" data-zh="+4.2 · 进步最大">+4.2 · best gain</span></span></td></tr>
+          <tr><td class="fw6">3C</td><td>67.2</td><td>89%</td><td>18%</td><td><span class="delta down" style="margin:0"><span data-en="−0.8 · support plan drafted" data-zh="−0.8 · 帮扶方案已拟">−0.8 · support plan drafted</span></span></td></tr>
+        </tbody></table></div>
+        <div class="hr"></div>
+        <div class="pad">
+          <div class="fw6" style="margin-bottom:8px" data-en="Sample AI comment · awaiting approval" data-zh="AI 评语示例 · 待审定">Sample AI comment · awaiting approval</div>
+          <p class="small" style="line-height:1.65;color:#4A4238" data-en="“Rui Feng argues with a clear, confident thesis and evidence that has grown stronger each week. His next step is treating opposing views fairly before rebutting them — we will keep practising this in Term 4.”" data-zh="「睿峰的论点清晰自信，论据逐周扎实。下一步是先公允呈现反方观点再进行反驳——第四学期我们将持续练习这一点。」">“Rui Feng argues with a clear, confident thesis and evidence that has grown stronger each week. His next step is treating opposing views fairly before rebutting them — we will keep practising this in Term 4.”</p>
+          <div style="display:flex;gap:6px;margin-top:8px;align-items:center;flex-wrap:wrap"><span class="src-chip"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="m9 14 2 2 4-4"/></svg><span data-en="12 graded essays" data-zh="12 篇批改作文">12 graded essays</span></span><span class="src-chip"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="m9 14 2 2 4-4"/></svg><span data-en="Mastery timeline" data-zh="掌握度曲线">Mastery timeline</span></span><span style="margin-left:auto;display:flex;gap:7px"><button class="btn primary" style="padding:6px 12px" onclick="toast('en:Approved · locked into report','zh:已审定 · 写入报告')" data-en="Approve" data-zh="采用">Approve</button><button class="btn ghost" style="padding:6px 12px" onclick="toast('en:Regenerated in a warmer tone','zh:已用更温暖的语气重写')" data-en="Rewrite" data-zh="改写">Rewrite</button></span></div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div class="card pad">
+          <div class="fw6" style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="17" rx="2"/><path d="M8 2.5v4M16 2.5v4M3 10h18"/></svg><span data-en="Parent-teacher meetings · this week" data-zh="家长会 · 本周">Parent-teacher meetings · this week</span></div>
+          <div class="list-row" style="padding:8px 0"><div style="flex:1" class="small"><b>14</b> <span data-en="auto-scheduled · parents confirmed" data-zh="场自动排期 · 家长已确认">auto-scheduled · parents confirmed</span></div><span class="badge g" data-en="Done" data-zh="已完成">Done</span></div>
+          <div class="list-row" style="padding:8px 0"><div style="flex:1" class="small"><b>3</b> <span data-en="sensitive topics → teacher arranges personally" data-zh="场敏感议题 → 老师亲自安排">sensitive topics → teacher arranges personally</span></div><span class="badge a" data-en="Human-first" data-zh="人工优先">Human-first</span></div>
+          <div class="list-row" style="padding:8px 0"><div style="flex:1" class="small" data-en="Minutes auto-drafted after each PTM, shared once teacher approves" data-zh="每场会后纪要自动起草，教师审定后共享家长">Minutes auto-drafted after each PTM, shared once teacher approves</div></div>
+          <button class="btn subtle" style="width:100%;justify-content:center;margin-top:8px" onclick="toast('en:PTM calendar exported (ICS)','zh:家长会日程已导出（ICS）')" data-en="Export calendar" data-zh="导出日程">Export calendar</button>
+        </div>
+        <div class="card pad">
+          <div class="fw6" style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 7 5-3 5 3-1.5-7"/></svg><span data-en="Certificates" data-zh="证书管理">Certificates</span></div>
+          <div class="list-row" style="padding:8px 0"><div style="flex:1" class="small fw6" data-en="Term completion · 84 issued" data-zh="结业证书 · 已颁 84 张">Term completion · 84 issued</div><span class="badge g" data-en="E-signed" data-zh="已签章">E-signed</span></div>
+          <div class="list-row" style="padding:8px 0"><div style="flex:1" class="small fw6" data-en="Progress awards · 26 ready" data-zh="进步奖 · 26 张待签发">Progress awards · 26 ready</div><button class="btn ghost" style="padding:5px 10px" onclick="toast('en:26 issued · verify at jurisedu.com/verify','zh:26 张已签发 · 可在 jurisedu.com/verify 验真')" data-en="Issue" data-zh="签发">Issue</button></div>
+          <div class="list-row" style="padding:8px 0"><div style="flex:1" class="small fw6" data-en="Competition medals · 16" data-zh="竞赛奖 · 16 张">Competition medals · 16</div><span class="badge n" data-en="Queued" data-zh="排队中">Queued</span></div>
+          <div class="small muted" style="margin-top:6px" data-en="Every certificate carries a verifiable ID — anyone can check authenticity online." data-zh="每张证书都有可验真编号——任何人都可在线核验真伪。">Every certificate carries a verifiable ID — anyone can check authenticity online.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ADMIN: MEMBERS ========== -->
+  <section class="module" id="m-a-members">
+    <div class="page-head">
+      <div>
+        <div class="eyebrow" data-en="Institution · Membership" data-zh="机构管理 · 会员与会费">Institution · Membership</div>
+        <h1 data-en="Members, fees & benefits" data-zh="会员 · 会费 · 权益">Members, fees & benefits</h1>
+        <p class="lead" data-en="For associations, societies and alumni bodies — the same platform runs your membership: tiers, dues, renewals and benefits, on the same escrow-grade payment rails. A module you switch on, not a separate system." data-zh="面向协会、学会与校友会——同一平台承接会员体系：等级、会费、续费与权益，走同一套担保级收款通道。这是一个可开关的模块，不是另一套系统。">For associations, societies and alumni bodies — the same platform runs your membership: tiers, dues, renewals and benefits, on the same escrow-grade payment rails. A module you switch on, not a separate system.</p>
+      </div>
+      <div class="ph-actions"><button class="btn ghost" onclick="toast('en:Member list exported','zh:会员名册已导出')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2.5 2.5H19a2 2 0 0 1 2 2V17a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span data-en="Export list" data-zh="导出名册">Export list</span></button><button class="btn primary" onclick="toast('en:Invite link created · new members self-serve onboard','zh:邀请链接已生成 · 新会员自助入会')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13A4 4 0 0 1 16 11"/></svg><span data-en="Invite members" data-zh="邀请会员">Invite members</span></button></div>
+    </div>
+    <div class="grid g4" style="margin-bottom:16px">
+      <div class="card stat"><div class="top"><div class="lab" data-en="Members" data-zh="会员总数">Members</div><div class="ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13A4 4 0 0 1 16 11"/></svg></div></div><div class="num">864</div><div class="delta up"><span data-en="+21 this month" data-zh="本月 +21">+21 this month</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Renewal rate" data-zh="续费率">Renewal rate</div><div class="ico g"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h2a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg></div></div><div class="num">91<small>%</small></div><div class="delta up"><span data-en="Auto-renew 62%" data-zh="自动续费占 62%">Auto-renew 62%</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Dues · month" data-zh="本月会费收入">Dues · month</div><div class="ico i"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 4l9 5.5"/><path d="M5 10v7M9.5 10v7M14.5 10v7M19 10v7"/><path d="M3 20h18"/></svg></div></div><div class="num"><small>S$</small>12,940</div><div class="delta up"><span data-en="GST receipts auto-issued" data-zh="GST 收据自动开具">GST receipts auto-issued</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Overdue" data-zh="逾期待缴">Overdue</div><div class="ico a"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div></div><div class="num">23</div><div class="delta" style="color:var(--warn)"><span data-en="AI reminders drafted" data-zh="AI 催缴函已拟">AI reminders drafted</span></div></div>
+    </div>
+    <div class="split2">
+      <div class="card">
+        <div class="card-h"><h3 data-en="Member register" data-zh="会员名册">Member register</h3><span class="badge n" data-en="Self-serve portal for members" data-zh="会员可自助查询/续费">Self-serve portal for members</span></div>
+        <div class="tbl-scroll"><table class="tbl"><thead><tr><th data-en="Member" data-zh="会员">Member</th><th data-en="Tier" data-zh="等级">Tier</th><th data-en="Status" data-zh="状态">Status</th><th data-en="Renews" data-zh="到期日">Renews</th><th></th></tr></thead><tbody>
+          <tr><td><div class="who"><div class="mini-av" style="background:#5F6B72">L</div><span data-en="Mdm Lee" data-zh="李女士">Mdm Lee</span></div></td><td><span class="badge b" data-en="Family" data-zh="家庭会员">Family</span></td><td><span class="badge g"><span class="d"></span><span data-en="Active · auto-renew" data-zh="正常 · 自动续费">Active · auto-renew</span></span></td><td><span data-en="Jan 2027" data-zh="2027年1月">Jan 2027</span></td><td></td></tr>
+          <tr><td><div class="who"><div class="mini-av" style="background:#4C6E86">T</div><span data-en="Mr Tan" data-zh="陈先生">Mr Tan</span></div></td><td><span class="badge n" data-en="Individual" data-zh="个人会员">Individual</span></td><td><span class="badge a"><span class="d"></span><span data-en="Renewal due · 12 days" data-zh="待续费 · 剩 12 天">Renewal due · 12 days</span></span></td><td><span data-en="Aug 29" data-zh="8月29日">Aug 29</span></td><td><button class="btn ghost" style="padding:5px 10px" onclick="toast('en:Renewal link sent (PayNow)','zh:续费链接已发送（PayNow）')" data-en="Remind" data-zh="提醒">Remind</button></td></tr>
+          <tr><td><div class="who"><div class="mini-av" style="background:#6E5A86">B</div><span>Bright Minds Centre</span></div></td><td><span class="badge i" data-en="Institutional" data-zh="机构会员">Institutional</span></td><td><span class="badge g"><span class="d"></span><span data-en="Active" data-zh="正常">Active</span></span></td><td><span data-en="Mar 2027" data-zh="2027年3月">Mar 2027</span></td><td></td></tr>
+          <tr><td><div class="who"><div class="mini-av" style="background:#B4472F">R</div><span data-en="Mr Raj" data-zh="拉吉先生">Mr Raj</span></div></td><td><span class="badge n" data-en="Individual" data-zh="个人会员">Individual</span></td><td><span class="badge" style="background:var(--danger-soft);color:var(--danger)"><span class="d"></span><span data-en="Overdue · 18 days" data-zh="逾期 · 18 天">Overdue · 18 days</span></span></td><td><span data-en="Jul 30" data-zh="7月30日">Jul 30</span></td><td><button class="btn ghost" style="padding:5px 10px" onclick="toast('en:Formal reminder sent · tone level 2 of 3','zh:正式催缴函已发送 · 三档语气第 2 档')" data-en="Chase" data-zh="催缴">Chase</button></td></tr>
+          <tr><td><div class="who"><div class="mini-av" style="background:#4E7C59">A</div><span data-en="Dr Aisha" data-zh="艾莎博士">Dr Aisha</span></div></td><td><span class="badge g" data-en="Honorary" data-zh="荣誉会员">Honorary</span></td><td><span class="badge g"><span class="d"></span><span data-en="Lifetime" data-zh="终身">Lifetime</span></span></td><td>—</td><td></td></tr>
+        </tbody></table></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div class="card pad">
+          <div class="fw6" style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 4l9 5.5"/><path d="M5 10v7M9.5 10v7M14.5 10v7M19 10v7"/><path d="M3 20h18"/></svg><span data-en="Fee plans" data-zh="会费方案">Fee plans</span></div>
+          <div class="list-row" style="padding:8px 0"><div style="flex:1"><div class="fw6 small" data-en="Individual" data-zh="个人会员">Individual</div><div class="small muted" data-en="Events + member pricing" data-zh="活动＋会员价">Events + member pricing</div></div><b>S$120<span class="small muted">/yr</span></b></div>
+          <div class="list-row" style="padding:8px 0"><div style="flex:1"><div class="fw6 small" data-en="Family" data-zh="家庭会员">Family</div><div class="small muted" data-en="2 adults + children" data-zh="两名成人＋子女">2 adults + children</div></div><b>S$200<span class="small muted">/yr</span></b></div>
+          <div class="list-row" style="padding:8px 0"><div style="flex:1"><div class="fw6 small" data-en="Institutional" data-zh="机构会员">Institutional</div><div class="small muted" data-en="Staff-wide benefits" data-zh="全员权益">Staff-wide benefits</div></div><b>S$800<span class="small muted">/yr</span></b></div>
+          <div class="small muted" style="margin-top:8px" data-en="PayNow / card auto-renew · GST e-receipts · refunds follow the same 5-day rule as tuition." data-zh="PayNow／银行卡自动续费 · GST 电子收据 · 退费与课费同一套 5 日规则。">PayNow / card auto-renew · GST e-receipts · refunds follow the same 5-day rule as tuition.</div>
+        </div>
+        <div class="card pad">
+          <div class="fw6" style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.7 4.8L18.5 9l-4.8 1.2L12 15l-1.7-4.8L5.5 9l4.8-1.2z"/><path d="M19 13.5l.8 2.2 2.2.8-2.2.8L19 19.5l-.8-2.2-2.2-.8 2.2-.8z"/></svg><span data-en="AI dues assistant" data-zh="AI 会费助理">AI dues assistant</span></div>
+          <p class="small" style="line-height:1.6;color:#4A4238" data-en="23 personalised reminders drafted on a 3-tone ladder (friendly → formal). Expected recovery S$2,760. Replies are handled by the support agent; hard cases escalate to you." data-zh="已按三档语气（友好→正式）起草 23 封个性化催缴函，预计回收 S$2,760。会员回复由智能客服接待，仅困难案例升级给你。">23 personalised reminders drafted on a 3-tone ladder (friendly → formal). Expected recovery S$2,760. Replies are handled by the support agent; hard cases escalate to you.</p>
+          <button class="btn primary" style="width:100%;justify-content:center;margin-top:10px" onclick="toast('en:23 reminders sent · watching replies','zh:23 封催缴函已发送 · 回复监听中')" data-en="Send all · logged" data-zh="全部发送 · 留痕">Send all · logged</button>
+        </div>
+        <div class="callout"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg></div><div><b class="small" data-en="Same rails, same rigour" data-zh="同一通道 · 同一标准">Same rails, same rigour</b><p data-en="Dues run on the platform’s escrow-grade payment stack — licensed collection, reconciliation to the cent, full audit trail." data-zh="会费走平台同一套担保级支付栈——持牌收款、逐分对账、完整审计。">Dues run on the platform’s escrow-grade payment stack — licensed collection, reconciliation to the cent, full audit trail.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ADMIN: MATCHING ENGINE ========== -->
+  <section class="module" id="m-a-match">
+    <div class="page-head">
+      <div>
+        <span class="patent-tag"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg> <span data-en="JEanchor applied to matching" data-zh="JEanchor 五步管线 · 应用于撮合">JEanchor applied to matching</span></span>
+        <h1 style="margin-top:9px" data-en="JE engine · auto-matching console" data-zh="JE 引擎 · 自动撮合控制台">JE engine · auto-matching console</h1>
+        <p class="lead" data-en="Every match follows the same pipeline as grading: retrieve candidates, rank with cited reasons, abstain when unsure, human approves edge cases, record everything." data-zh="撮合与评分走同一套管线：检索候选 → 有据排序 → 拿不准就存疑 → 人工只审边界案例 → 全程留痕。">Every match follows the same pipeline as grading: retrieve candidates, rank with cited reasons, abstain when unsure, human approves edge cases, record everything.</p>
+      </div>
+      <div class="ph-actions"><button class="btn primary" onclick="toast('en:2 abstained requests sent to review queue','zh:2 条存疑请求已进入人工复核队列')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15V4h12l-2 3.5L16 11H4z"/><path d="M4 21v-6"/></svg><span data-en="Review queue · 2" data-zh="人工复核队列 · 2">Review queue · 2</span></button></div>
+    </div>
+    <div class="grid g4" style="margin-bottom:16px">
+      <div class="card stat"><div class="top"><div class="lab" data-en="Requests · today" data-zh="今日需求">Requests · today</div><div class="ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z"/></svg></div></div><div class="num">38</div><div class="delta up"><span data-en="+9 vs yesterday" data-zh="较昨日 +9">+9 vs yesterday</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Fully automated" data-zh="全自动成交">Fully automated</div><div class="ico g"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9.5" y="9.5" width="5" height="5"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></div></div><div class="num">86<small>%</small></div><div class="delta up"><span data-en="Human touches 5 of 38" data-zh="38 条中人工仅 5 条">Human touches 5 of 38</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Median time-to-match" data-zh="中位撮合时长">Median time-to-match</div><div class="ico i"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div></div><div class="num">1.6 <small>min</small></div><div class="delta up"><span data-en="Industry: ~2 days" data-zh="行业均值约 2 天">Industry: ~2 days</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Cost per match" data-zh="单次撮合成本">Cost per match</div><div class="ico a"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="5.5"/><path d="M18.1 6.6a5.5 5.5 0 0 1 0 10.8M8 21a5.5 5.5 0 0 0 5.4-6.6"/></svg></div></div><div class="num"><small>S$</small>0.03</div><div class="delta up"><span data-en="vs S$38 human broker" data-zh="人工中介约 S$38">vs S$38 human broker</span></div></div>
+    </div>
+    <div class="card" style="margin-bottom:16px">
+      <div class="card-h"><h3 data-en="The matching pipeline" data-zh="撮合管线">The matching pipeline</h3><span class="badge g"><span class="d"></span><span data-en="Same JEanchor discipline as grading" data-zh="与评分同一套 JEanchor 纪律">Same JEanchor discipline as grading</span></span></div>
+      <div class="pad" style="padding-top:8px">
+        <div class="escrow-steps">
+          <div class="estep done"><div class="en2">1</div><div class="el" data-en="Retrieve" data-zh="检索候选">Retrieve</div><div class="ev2" data-en="subject · level · slots" data-zh="科目 · 年级 · 时段">subject · level · slots</div></div>
+          <div class="estep done"><div class="en2">2</div><div class="el" data-en="Rank · cited" data-zh="有据排序">Rank · cited</div><div class="ev2" data-en="every reason shown" data-zh="理由逐条可见">every reason shown</div></div>
+          <div class="estep done"><div class="en2">3</div><div class="el" data-en="Abstain if unsure" data-zh="低置信存疑">Abstain if unsure</div><div class="ev2" data-en="&lt; 85% → human" data-zh="&lt; 85% → 人工">&lt; 85% → human</div></div>
+          <div class="estep done"><div class="en2">4</div><div class="el" data-en="Human approves edges" data-zh="人工审边界">Human approves edges</div><div class="ev2" data-en="5 today" data-zh="今日 5 条">5 today</div></div>
+          <div class="estep done"><div class="en2">5</div><div class="el" data-en="Record" data-zh="全程留痕">Record</div><div class="ev2" data-en="auditable trail" data-zh="可审计追溯">auditable trail</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="split2">
+      <div class="card">
+        <div class="card-h"><h3 data-en="Live decisions" data-zh="实时撮合决策">Live decisions</h3><span class="sub" data-en="Last 20 minutes" data-zh="近 20 分钟">Last 20 minutes</span></div>
+        <div class="tbl-scroll"><table class="tbl"><thead><tr><th data-en="Request" data-zh="需求">Request</th><th data-en="JE pick" data-zh="JE 推荐">JE pick</th><th data-en="Fit" data-zh="匹配度">Fit</th><th data-en="Guardrails" data-zh="守护检查">Guardrails</th><th data-en="Outcome" data-zh="结果">Outcome</th></tr></thead><tbody>
+          <tr><td><span data-en="Sec 3 English · ≤S$70" data-zh="中三英文 · ≤S$70">Sec 3 English · ≤S$70</span></td><td>Adeline Lim</td><td class="fw6">96%</td><td><span class="small muted" data-en="budget ✓ slots ✓ rating ✓" data-zh="预算✓ 时段✓ 评分✓">budget ✓ slots ✓ rating ✓</span></td><td><span class="badge g"><span class="d"></span><span data-en="Auto-matched" data-zh="自动成交">Auto-matched</span></span></td></tr>
+          <tr><td><span data-en="A-Level Physics · weekends" data-zh="A-Level 物理 · 周末">A-Level Physics · weekends</span></td><td>Jonathan Wee</td><td class="fw6">93%</td><td><span class="small muted" data-en="budget ✓ slots ✓ rating ✓" data-zh="预算✓ 时段✓ 评分✓">budget ✓ slots ✓ rating ✓</span></td><td><span class="badge g"><span class="d"></span><span data-en="Auto-matched" data-zh="自动成交">Auto-matched</span></span></td></tr>
+          <tr><td><span data-en="P6 Chinese oral · evenings" data-zh="小六华文口语 · 晚间">P6 Chinese oral · evenings</span></td><td>Priya Raman</td><td class="fw6">90%</td><td><span class="small muted" data-en="budget ✓ slots ✓ rating ✓" data-zh="预算✓ 时段✓ 评分✓">budget ✓ slots ✓ rating ✓</span></td><td><span class="badge g"><span class="d"></span><span data-en="Auto-matched" data-zh="自动成交">Auto-matched</span></span></td></tr>
+          <tr><td><span data-en="P4 Maths · ≤S$40" data-zh="小四数学 · ≤S$40">P4 Maths · ≤S$40</span></td><td><span class="muted">—</span></td><td class="fw6" style="color:var(--warn)">62%</td><td><span class="small" style="color:var(--warn)" data-en="budget conflict" data-zh="预算冲突">budget conflict</span></td><td><span class="badge a"><span class="d"></span><span data-en="Abstained → human" data-zh="存疑 → 转人工">Abstained → human</span></span></td></tr>
+          <tr><td><span data-en="Special-needs support" data-zh="特殊需求辅导">Special-needs support</span></td><td><span class="muted">—</span></td><td class="fw6 muted">—</td><td><span class="small" style="color:var(--danger)" data-en="sensitive-case rule" data-zh="敏感场景规则">sensitive-case rule</span></td><td><span class="badge" style="background:var(--danger-soft);color:var(--danger)"><span class="d"></span><span data-en="Human-first" data-zh="人工优先">Human-first</span></span></td></tr>
+        </tbody></table></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div class="card pad">
+          <div class="fw6" style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg><span data-en="Fairness & quality guardrails" data-zh="公平与质量守护">Fairness & quality guardrails</span></div>
+          <ul class="rule-list">
+            <li data-en="New-tutor exposure quota: 15% of eligible traffic, so incumbents can’t lock the market." data-zh="新老师曝光配额：合格流量的 15%，避免头部垄断。">New-tutor exposure quota: 15% of eligible traffic, so incumbents can’t lock the market.</li>
+            <li data-en="Price-anomaly detection blocks gouging and undercutting." data-zh="价格异常检测，拦截哄抬与恶意低价。">Price-anomaly detection blocks gouging and undercutting.</li>
+            <li data-en="Complaints auto-downrank; two verified complaints pause listing." data-zh="投诉自动降权；两次核实投诉即暂停接单。">Complaints auto-downrank; two verified complaints pause listing.</li>
+            <li data-en="Sensitive requests (special needs, safeguarding) always go human-first." data-zh="敏感需求（特殊教育、儿童保护）一律人工优先。">Sensitive requests (special needs, safeguarding) always go human-first.</li>
+          </ul>
+        </div>
+        <div class="callout"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9.5" y="9.5" width="5" height="5"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></div><div><b class="small" data-en="Why this is defensible" data-zh="为什么这是壁垒">Why this is defensible</b><p data-en="Matching reuses the patented grading stack — calibrated confidence, abstention, audit trail. Competitors must rebuild all three." data-zh="撮合复用专利化的评分技术栈——校准置信、存疑机制、审计留痕。对手要追，得把三件事都重做一遍。">Matching reuses the patented grading stack — calibrated confidence, abstention, audit trail. Competitors must rebuild all three.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ADMIN: RISK ========== -->
+  <section class="module" id="m-a-risk">
+    <div class="page-head">
+      <div>
+        <span class="patent-tag"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 4l9 5.5"/><path d="M5 10v7M9.5 10v7M14.5 10v7M19 10v7"/><path d="M3 20h18"/></svg> <span data-en="Financial-grade controls (demo)" data-zh="金融级管控标准（演示）">Financial-grade controls (demo)</span></span>
+        <h1 style="margin-top:9px" data-en="Risk, reconciliation & compliance" data-zh="风控 · 对账与合规">Risk, reconciliation & compliance</h1>
+        <p class="lead" data-en="Run like a regulated fintech: segregated funds, daily reconciliation to the cent, dual approval on large payouts, and an audit trail a regulator could walk through." data-zh="按受监管金融机构的标准运转：资金隔离、逐分钱日终对账、大额放款双人复核、监管随时可查的审计链。">Run like a regulated fintech: segregated funds, daily reconciliation to the cent, dual approval on large payouts, and an audit trail a regulator could walk through.</p>
+      </div>
+      <div class="ph-actions">
+        <button class="btn ghost" onclick="toast('en:Audit log exported (CSV · hash-chained)','zh:审计日志已导出（CSV · 哈希链）')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h12V21l-2-1.4L14 21l-2-1.4L10 21l-2-1.4L6 21z"/><path d="M9 7.5h6M9 11h6M9 14.5h4"/></svg><span data-en="Export audit log" data-zh="导出审计日志">Export audit log</span></button>
+        <button class="btn primary" onclick="toast('en:Regulator view generated · read-only link','zh:监管视图已生成 · 只读链接')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 4l9 5.5"/><path d="M5 10v7M9.5 10v7M14.5 10v7M19 10v7"/><path d="M3 20h18"/></svg><span data-en="Regulator view" data-zh="监管视图">Regulator view</span></button>
+      </div>
+    </div>
+    <div class="grid g4" style="margin-bottom:16px">
+      <div class="card stat"><div class="top"><div class="lab" data-en="EOD reconciliation" data-zh="日终对账">EOD reconciliation</div><div class="ico g"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h2a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg></div></div><div class="num">100<small>%</small></div><div class="delta up"><span data-en="Diff S$0.00 · 92 days straight" data-zh="差异 S$0.00 · 连续 92 天">Diff S$0.00 · 92 days straight</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Escrow ledger" data-zh="托管账本核对">Escrow ledger</div><div class="ico i"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg></div></div><div class="num"><small>S$</small>3,840</div><div class="delta up"><span data-en="Bank = ledger = PSP ✓" data-zh="银行=账本=通道 ✓">Bank = ledger = PSP ✓</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="AML review queue" data-zh="AML 待人工复核">AML review queue</div><div class="ico a"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15V4h12l-2 3.5L16 11H4z"/><path d="M4 21v-6"/></svg></div></div><div class="num">3</div><div class="delta" style="color:var(--warn)"><span data-en="Auto-screened · SLA 24h" data-zh="已自动筛查 · SLA 24h">Auto-screened · SLA 24h</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Actions audit-logged" data-zh="操作审计覆盖">Actions audit-logged</div><div class="ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg></div></div><div class="num">100<small>%</small></div><div class="delta up"><span data-en="Hash-chained · tamper-evident" data-zh="哈希链 · 防篡改">Hash-chained · tamper-evident</span></div></div>
+    </div>
+    <div class="split2">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div class="card pad">
+          <div class="fw6" style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 4l9 5.5"/><path d="M5 10v7M9.5 10v7M14.5 10v7M19 10v7"/><path d="M3 20h18"/></svg><span data-en="Funds & reconciliation controls" data-zh="资金与对账管控">Funds & reconciliation controls</span></div>
+          <ul class="rule-list">
+            <li data-en="Segregation: escrow sits with a licensed partner, fully separate from operating cash (demo)." data-zh="资金隔离：托管资金存放于持牌机构，与运营资金完全分离（演示）。">Segregation: escrow sits with a licensed partner, fully separate from operating cash (demo).</li>
+            <li data-en="T+0 end-of-day, three-way reconciliation: bank statement ↔ internal ledger ↔ PSP records." data-zh="T+0 日终三方对账：银行流水 ↔ 内部账本 ↔ 支付通道记录。">T+0 end-of-day, three-way reconciliation: bank statement ↔ internal ledger ↔ PSP records.</li>
+            <li data-en="Dual approval for payouts &gt; S$5,000; payout whitelist + payee KYC before first transfer." data-zh="超过 S$5,000 放款需双人复核；放款白名单＋收款人首笔前 KYC。">Dual approval for payouts &gt; S$5,000; payout whitelist + payee KYC before first transfer.</li>
+            <li data-en="Disputed funds auto-freeze; no release path while a case is open." data-zh="争议资金自动冻结；案件未结不存在放款路径。">Disputed funds auto-freeze; no release path while a case is open.</li>
+            <li data-en="Change management: four-eyes review on pricing, payout and rules-engine changes." data-zh="变更管理：定价、放款与规则引擎改动均需双人评审。">Change management: four-eyes review on pricing, payout and rules-engine changes.</li>
+          </ul>
+        </div>
+        <div class="card pad">
+          <div class="fw6" style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-en="Continuity & incidents" data-zh="连续性与事故">Continuity & incidents</span></div>
+          <div class="list-row" style="padding:8px 0"><div style="flex:1" class="small fw6">RTO</div><b data-en="1 hour" data-zh="1 小时">1 hour</b></div>
+          <div class="list-row" style="padding:8px 0"><div style="flex:1" class="small fw6">RPO</div><b data-en="5 minutes" data-zh="5 分钟">5 minutes</b></div>
+          <div class="list-row" style="padding:8px 0"><div style="flex:1" class="small fw6" data-en="Failover drills" data-zh="容灾演练">Failover drills</div><b data-en="Quarterly · last passed" data-zh="每季度 · 上次通过">Quarterly · last passed</b></div>
+          <div class="list-row" style="padding:8px 0"><div style="flex:1" class="small fw6" data-en="Public status page" data-zh="公开状态页">Public status page</div><b>status.jurisedu.com</b></div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div class="card pad">
+          <div class="fw6" style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg><span data-en="Standards & certifications" data-zh="标准与认证路线">Standards & certifications</span></div>
+          <div class="trust-row"><div class="ti g"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h2a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg></div><div><div class="fw6 small" data-en="PDPA · data residency in Singapore" data-zh="PDPA · 数据驻留新加坡">PDPA · data residency in Singapore</div><div class="small muted" data-en="In force across all modules" data-zh="全模块生效">In force across all modules</div></div></div>
+          <div class="trust-row"><div class="ti g"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h2a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg></div><div><div class="fw6 small" data-en="PCI DSS — card data stays with licensed PSP" data-zh="PCI DSS——卡数据由持牌 PSP 处理">PCI DSS — card data stays with licensed PSP</div><div class="small muted" data-en="Platform never touches card numbers (demo)" data-zh="平台不触碰卡号（演示）">Platform never touches card numbers (demo)</div></div></div>
+          <div class="trust-row"><div class="ti a"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div><div class="fw6 small" data-en="SOC 2 Type II — audit in progress" data-zh="SOC 2 Type II——审计进行中">SOC 2 Type II — audit in progress</div><div class="small muted" data-en="Report expected Q4" data-zh="预计 Q4 出报告">Report expected Q4</div></div></div>
+          <div class="trust-row"><div class="ti i"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="2.5"/><circle cx="18" cy="5" r="2.5"/><path d="M8.5 19H16a3 3 0 0 0 0-6H8a3 3 0 0 1 0-6h1.5"/></svg></div><div><div class="fw6 small" data-en="MAS PS Act framework alignment (demo)" data-zh="MAS《支付服务法》框架对齐（演示）">MAS PS Act framework alignment (demo)</div><div class="small muted" data-en="Via licensed escrow & payment partners" data-zh="经由持牌托管与支付伙伴">Via licensed escrow & payment partners</div></div></div>
+        </div>
+        <div class="card pad">
+          <div class="fw6" style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15V4h12l-2 3.5L16 11H4z"/><path d="M4 21v-6"/></svg><span data-en="Open items" data-zh="待办风险项">Open items</span></div>
+          <div class="list-row"><div class="dotb" style="background:var(--warn)"></div><div style="flex:1" class="small" data-en="3 tutor payouts held for AML review (auto-flagged)" data-zh="3 笔老师提现因 AML 命中待人工复核">3 tutor payouts held for AML review (auto-flagged)</div><button class="btn ghost" style="padding:5px 10px" onclick="toast('en:Review workspace opened','zh:复核工作台已打开')" data-en="Review" data-zh="复核">Review</button></div>
+          <div class="list-row"><div class="dotb" style="background:var(--danger)"></div><div style="flex:1" class="small" data-en="1 dispute in mediation · funds frozen · day 2 of 5" data-zh="1 起争议调解中 · 资金已冻结 · 第 2/5 天">1 dispute in mediation · funds frozen · day 2 of 5</div><button class="btn ghost" style="padding:5px 10px" onclick="toast('en:Case file opened','zh:案件卷宗已打开')" data-en="Open" data-zh="查看">Open</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   </main>
 </div>
 
@@ -981,7 +1592,7 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
   </div>
 </div>
 
-<nav class="bottomnav">
+<nav class="bottomnav bn-active" data-role="teacher">
   <button class="bn-item on" data-bn="home" onclick="go('dashboard')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span data-en="Home" data-zh="总览">Home</span><span class="bd"></span></button>
   <button class="bn-item" data-bn="grade" onclick="go('grading')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h2a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg><span data-en="Grade" data-zh="评分">Grade</span><span class="bd"></span></button>
   <button class="bn-item" data-bn="market" onclick="go('market')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 9 1.3-5h14.4L20.5 9"/><path d="M5 9v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9"/><path d="M3.5 9h17"/><path d="M9.5 20v-5.5h5V20"/></svg><span data-en="Market" data-zh="撮合">Market</span><span class="bd"></span></button>
@@ -994,6 +1605,53 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
   <a onclick="go('pinpoint')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4"/></svg><span data-en="Pinpoint · Diagnosis" data-zh="知点诊断">Pinpoint · Diagnosis</span></a>
   <a onclick="go('events')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="17" rx="2"/><path d="M8 2.5v4M16 2.5v4M3 10h18"/></svg><span data-en="Live Events" data-zh="线上活动">Live Events</span><span class="badge-n" style="background:var(--danger);color:#fff;margin-left:auto;font-size:10.5px;border-radius:100px;padding:1px 7px">2</span></a>
 </div>
+
+
+<div class="role-menu" id="roleMenu">
+  <a data-role-opt="teacher" onclick="setRole('teacher')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h2a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg><span><span data-en="Teacher" data-zh="教师">Teacher</span><span class="rm-sub" data-en="Ms Tan · grading & classes" data-zh="陈老师 · 批改与班级">Ms Tan · grading & classes</span></span></a>
+  <a data-role-opt="parent" onclick="setRole('parent')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13A4 4 0 0 1 16 11"/></svg><span><span data-en="Parent" data-zh="家长">Parent</span><span class="rm-sub" data-en="Mdm Lee · Rui Feng’s progress" data-zh="李女士 · 睿峰的学习">Mdm Lee · Rui Feng’s progress</span></span></a>
+  <a data-role-opt="student" onclick="setRole('student')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span><span data-en="Student" data-zh="学生">Student</span><span class="rm-sub" data-en="Rui Feng · Sec 3B" data-zh="睿峰 · 中三 B 班">Rui Feng · Sec 3B</span></span></a>
+  <a data-role-opt="admin" onclick="setRole('admin')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg><span><span data-en="Admin" data-zh="管理">Admin</span><span class="rm-sub" data-en="Principal · records, fees & AI ops" data-zh="校长/机构负责人 · 档案会费 · AI 运营">Principal · records, fees & AI ops</span></span></a>
+</div>
+
+<button class="chat-fab" id="chatFab" onclick="openChat()"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/></svg><span class="cf-badge">AI</span></button>
+<div class="chat-panel" id="chatPanel">
+  <div class="cp-head">
+    <button class="cp-x" onclick="closeChat()"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <div class="t"><div class="cp-av">JE</div><div><b data-en="JE Support Agent" data-zh="JE 智能客服">JE Support Agent</b><div class="sub" data-en="Answers only from the rules & your orders · resolves 83% instantly" data-zh="只依据规则库与你的订单作答 · 83% 咨询即时解决">Answers only from the rules & your orders · resolves 83% instantly</div></div></div>
+    <div class="cp-guard">
+      <span data-en="Grounded · cites sources" data-zh="有据 · 带出处">Grounded · cites sources</span>
+      <span data-en="Abstains → human" data-zh="拿不准 → 转人工">Abstains → human</span>
+      <span data-en="Fully logged" data-zh="全程留痕">Fully logged</span>
+    </div>
+  </div>
+  <div class="cp-body" id="cpBody"></div>
+  <div class="cp-quick" id="cpQuick"></div>
+  <div class="cp-foot">
+    <input id="cpInput" placeholder="Type a question…" data-en-ph="Type a question…" data-zh-ph="输入你的问题…" onkeydown="if(event.key==='Enter')chatSend()">
+    <button class="btn primary" onclick="chatSend()" style="border-radius:100px"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg></button>
+    <button class="btn ghost" onclick="chatHuman()" style="border-radius:100px;padding:8px 11px" data-en="Human" data-zh="转人工">Human</button>
+  </div>
+</div>
+
+<nav class="bottomnav" data-role="parent">
+  <button class="bn-item" data-bn="p-home" onclick="go('p-home')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span data-en="Home" data-zh="总览">Home</span><span class="bd"></span></button>
+  <button class="bn-item" data-bn="p-book" onclick="go('p-book')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z"/></svg><span data-en="Bookings" data-zh="预约">Bookings</span><span class="bd"></span></button>
+  <button class="bn-item" data-bn="p-pay" onclick="go('p-pay')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 7H6a2.5 2.5 0 0 1 0-5h11v5"/><path d="M19 7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2.5 2.5 0 0 1-2.5-2.5V4.5"/><circle cx="16.5" cy="13.8" r="1.3"/></svg><span data-en="Billing" data-zh="账单">Billing</span><span class="bd"></span></button>
+  <button class="bn-item" onclick="openChat()"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/></svg><span data-en="Support" data-zh="客服">Support</span><span class="bd"></span></button>
+</nav>
+<nav class="bottomnav" data-role="student">
+  <button class="bn-item" data-bn="s-home" onclick="go('s-home')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span data-en="Today" data-zh="今日">Today</span><span class="bd"></span></button>
+  <button class="bn-item" data-bn="s-tutor" onclick="go('s-tutor')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span data-en="Tutor" data-zh="辅导">Tutor</span><span class="bd"></span></button>
+  <button class="bn-item" onclick="openChat()"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/></svg><span data-en="Help" data-zh="帮助">Help</span><span class="bd"></span></button>
+</nav>
+<nav class="bottomnav" data-role="admin">
+  <button class="bn-item" data-bn="a-ops" onclick="go('a-ops')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span data-en="Command" data-zh="指挥台">Command</span><span class="bd"></span></button>
+  <button class="bn-item" data-bn="a-students" onclick="go('a-students')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><circle cx="8.5" cy="11" r="2.2"/><path d="M5.5 16.5c.6-1.6 1.7-2.4 3-2.4s2.4.8 3 2.4"/><path d="M14.5 9.5H19M14.5 13h4.5M14.5 16.5h3"/></svg><span data-en="Students" data-zh="学生">Students</span><span class="bd"></span></button>
+  <button class="bn-item" data-bn="a-academics" onclick="go('a-academics')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m2.5 9.5 9.5-5 9.5 5-9.5 5z"/><path d="M6.5 11.8V16c0 1.4 2.5 3 5.5 3s5.5-1.6 5.5-3v-4.2"/><path d="M21.5 9.5V15"/></svg><span data-en="Academics" data-zh="教务">Academics</span><span class="bd"></span></button>
+  <button class="bn-item" data-bn="a-members" onclick="go('a-members')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13A4 4 0 0 1 16 11"/></svg><span data-en="Members" data-zh="会员">Members</span><span class="bd"></span></button>
+  <button class="bn-item" data-bn="a-risk" onclick="go('a-risk')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 4l9 5.5"/><path d="M5 10v7M9.5 10v7M14.5 10v7M19 10v7"/><path d="M3 20h18"/></svg><span data-en="Risk" data-zh="风控">Risk</span><span class="bd"></span></button>
+</nav>
 
 <div class="toast" id="toast"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.7 4.8L18.5 9l-4.8 1.2L12 15l-1.7-4.8L5.5 9l4.8-1.2z"/><path d="M19 13.5l.8 2.2 2.2.8-2.2.8L19 19.5l-.8-2.2-2.2-.8 2.2-.8z"/></svg><span id="toastMsg"></span></div>
 
@@ -1210,6 +1868,120 @@ applyLang('en');
     if(sel)selectTutor(parseInt(sel.id.replace('pin','')));
   };
   selectTutor(0);
+})();
+</script>
+
+
+<script>
+(function(){
+  Object.assign(CRUMB,{
+    'p-home':['· Parent · Overview','· 家长 · 总览'],'p-book':['· Parent · Bookings','· 家长 · 预约撮合'],'p-pay':['· Parent · Billing','· 家长 · 账单保障'],
+    's-home':['· Student · Today','· 学生 · 今日学习'],'s-tutor':['· Student · AI Tutor','· 学生 · AI 辅导'],
+    'a-ops':['· Admin · Command','· 管理 · 指挥台'],'a-students':['· Admin · Student records','· 管理 · 学生档案'],'a-academics':['· Admin · Academics','· 管理 · 教务成绩'],'a-members':['· Admin · Members & fees','· 管理 · 会员会费'],'a-match':['· Admin · Matching engine','· 管理 · 自动撮合'],'a-risk':['· Admin · Risk & compliance','· 管理 · 风控合规']
+  });
+  var ROLES={
+    teacher:{def:'dashboard',av:'MT',label:['Teacher · Ms Tan','教师 · 陈老师']},
+    parent:{def:'p-home',av:'ML',label:['Parent · Mdm Lee','家长 · 李女士']},
+    student:{def:'s-home',av:'RF',label:['Student · Rui Feng','学生 · 睿峰']},
+    admin:{def:'a-ops',av:'AD',label:['Admin · Institution','管理 · 机构']}
+  };
+  window.ROLE='teacher';
+  var teacherBits=Array.prototype.slice.call(document.querySelectorAll('.sidebar .sb-sec:not(.role-nav), .sidebar .nav:not(.role-nav)'));
+  var sbFoot=document.querySelector('.sb-foot');
+
+  window.toggleRoleMenu=function(){document.getElementById('roleMenu').classList.toggle('show');};
+  document.addEventListener('click',function(e){
+    if(!e.target.closest('.role-menu') && !e.target.closest('.role-chip')) document.getElementById('roleMenu').classList.remove('show');
+  });
+
+  window.setRole=function(r){
+    ROLE=r;
+    teacherBits.forEach(function(el){el.style.display=(r==='teacher')?'':'none';});
+    if(sbFoot)sbFoot.style.display=(r==='teacher')?'':'none';
+    document.querySelectorAll('.role-nav').forEach(function(el){el.style.display=(el.dataset.role===r)?'block':'none';});
+    document.querySelectorAll('.bottomnav').forEach(function(n){n.classList.toggle('bn-active',n.dataset.role===r);});
+    document.querySelectorAll('.role-menu a').forEach(function(a){a.classList.toggle('on',a.dataset.roleOpt===r);});
+    var av=document.querySelector('.topbar .avatar'); if(av)av.textContent=ROLES[r].av;
+    var lab=document.getElementById('roleLabel'); lab.dataset.en=ROLES[r].label[0]; lab.dataset.zh=ROLES[r].label[1]; setText(lab);
+    document.getElementById('roleMenu').classList.remove('show');
+    go(ROLES[r].def);
+  };
+  window.enterAs=function(r){enterApp();setRole(r);};
+
+  var _go3=window.go;
+  window.go=function(m){
+    _go3(m);
+    if(/^(p|s|a)-/.test(m)){
+      document.querySelectorAll('.bn-item').forEach(function(b){b.classList.toggle('on',b.dataset.bn===m);});
+    }
+  };
+
+  /* ---------------- AI support agent ---------------- */
+  var chatSeeded=false, MSGS=[];
+  function tr3(en,zh){return LANG==='zh'?zh:en;}
+  function pushMsg(m){MSGS.push(m);renderChat();}
+  window.renderChat=function(){
+    var b=document.getElementById('cpBody');
+    b.innerHTML=MSGS.map(function(m){
+      if(m.who==='typing')return '<div class="typing"><i></i><i></i><i></i></div>';
+      var h='<div class="cmsg '+(m.who==='usr'?'usr':'bot')+'">'+tr3(m.en,m.zh);
+      if(m.src)h+='<br>'+m.src.map(function(s){return '<span class="csrc">§ '+tr3(s[0],s[1])+'</span>';}).join('');
+      if(m.acts)h+='<div class="cact">'+m.acts.map(function(a,i){return '<button onclick="'+a[2]+'">'+tr3(a[0],a[1])+'</button>';}).join('')+'</div>';
+      return h+'</div>';
+    }).join('');
+    b.scrollTop=b.scrollHeight;
+    var q=document.getElementById('cpQuick');
+    q.innerHTML=[['Refund status','退款进度','chatQ(0)'],['Change tutor','更换老师','chatQ(1)'],['Get invoices','开发票','chatQ(2)']].map(function(x){return '<button onclick="'+x[2]+'">'+tr3(x[0],x[1])+'</button>';}).join('');
+  };
+  function botReply(m,delay){
+    pushMsg({who:'typing'});
+    setTimeout(function(){MSGS.pop();pushMsg(m);},delay||650);
+  }
+  window.openChat=function(){
+    document.getElementById('chatPanel').classList.add('show');
+    if(!chatSeeded){chatSeeded=true;
+      pushMsg({who:'bot',
+        en:'Hi! I’m the JE support agent. I answer only from the platform rulebook and your own orders — every answer cites its source, and I hand over to a human the moment I’m unsure.',
+        zh:'你好！我是 JE 智能客服。我只依据平台规则库与你的订单数据回答——每条答案都附出处，拿不准会立刻转人工。',
+        src:[['Rulebook v3 · logged','规则库 v3 · 已留痕']]});
+    } else renderChat();
+  };
+  window.closeChat=function(){document.getElementById('chatPanel').classList.remove('show');};
+  window.chatQ=function(i){
+    var qs=[['What’s my refund status?','我的退款进度怎么样了？'],['I’d like to change tutor.','我想更换老师。'],['Can I get this month’s invoices?','这个月的发票可以开一下吗？']];
+    pushMsg({who:'usr',en:qs[i][0],zh:qs[i][1]});
+    if(i===0)botReply({who:'bot',
+      en:'Your refund of S$59.90 (order #4818, Marcus Ong · Aug 12) was released from escrow on Aug 12. Under rule §4 it lands via the original method within 5 working days — by Aug 19 at the latest. It left our escrow partner on day 1.',
+      zh:'你的退款 S$59.90（订单 #4818，Marcus Ong · 8月12日）已于 8月12日 从托管账户发起。按规则 §4，5 个工作日内原路到账——最迟 8月19日。托管方已在第 1 天出款。',
+      src:[['Transaction rules §4','交易规则 §4'],['Order #4818','订单 #4818']],
+      acts:[['View order','查看订单',"toast('en:Order #4818 opened','zh:订单 #4818 已打开')"],['Expedite','催办',"toast('en:Expedited · ticket #4821 created','zh:已加急 · 生成工单 #4821')"]]});
+    if(i===1)botReply({who:'bot',
+      en:'Of course — no fee, and your remaining 3 escrowed lessons transfer over. The JE engine has already screened 2 candidates with the same subject and slots: Jonathan Wee (93% fit) and Priya Raman (90%). First lesson with a new tutor is covered by the money-back guarantee.',
+      zh:'当然可以——不收费，剩余 3 节托管课时直接转移。JE 引擎已按相同科目与时段筛出 2 位候选：Jonathan Wee（匹配 93%）与 Priya Raman（90%）。新老师首课适用不满意全额退。',
+      src:[['Matching policy §2','撮合规则 §2'],['Escrow terms §3','托管条款 §3']],
+      acts:[['See candidates','查看候选',"ROLE==='parent'?go('p-book'):go('market');closeChat()"],['Start switch','发起更换',"toast('en:Switch started · tutor notified politely','zh:更换已发起 · 已礼貌通知原老师')"]]});
+    if(i===2)botReply({who:'bot',
+      en:'Done — your 3 GST e-receipts for August (S$635.20 total) were auto-issued at payment time and just re-sent to your email. You can also download them anytime under Billing.',
+      zh:'已处理——8 月共 3 张 GST 电子收据（合计 S$635.20）在支付时已自动开具，刚刚已重发到你的邮箱。也可随时在「账单」页下载。',
+      src:[['GST records · IRAS-compliant (demo)','GST 记录 · IRAS 合规（演示）']],
+      acts:[['Download all','全部下载',"toast('en:3 receipts downloaded','zh:3 张收据已下载')"]]});
+  };
+  window.chatSend=function(){
+    var inp=document.getElementById('cpInput'); var v=inp.value.trim(); if(!v)return; inp.value='';
+    pushMsg({who:'usr',en:v,zh:v});
+    botReply({who:'bot',
+      en:'Honest answer: I’m not confident enough on that one to reply from the rulebook, so I won’t guess. I’ve handed it to a human with full context — queue time is under 2 minutes, and this chat is already logged as ticket #4822.',
+      zh:'诚实说：这个问题我在规则库里没有足够把握，所以我不猜。已带上下文转交人工——排队不到 2 分钟，本次对话已留痕为工单 #4822。',
+      src:[['Abstention policy §1','存疑规则 §1']]},800);
+  };
+  window.chatHuman=function(){
+    botReply({who:'bot',
+      en:'Connecting you to a human specialist — queue under 2 minutes. Everything above is attached, so you won’t repeat yourself. (Ticket #4821)',
+      zh:'正在为你转接人工客服——排队不到 2 分钟。以上对话已完整同步，无需重复描述。（工单 #4821）'},500);
+  };
+
+  var _apply3=window.applyLang;
+  window.applyLang=function(l){_apply3(l);if(document.getElementById('chatPanel').classList.contains('show'))renderChat();};
 })();
 </script>
 
