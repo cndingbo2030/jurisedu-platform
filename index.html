@@ -468,6 +468,37 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
   .role-chip .rc-lab{max-width:74px;overflow:hidden;text-overflow:ellipsis}
 }
 
+
+/* ---------- v5: studio, live class, qbank ---------- */
+.vidbox{position:relative;background:linear-gradient(145deg,#2A2219,#4A3423);border-radius:14px;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;overflow:hidden;color:#F7EFE4}
+.vidbox .grid-bg{position:absolute;inset:0;opacity:.4;background-image:linear-gradient(rgba(247,239,228,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(247,239,228,.05) 1px,transparent 1px);background-size:36px 36px}
+.playbtn{width:62px;height:62px;border-radius:50%;background:rgba(232,137,79,.92);display:flex;align-items:center;justify-content:center;box-shadow:0 14px 34px -10px rgba(162,72,31,.8);cursor:pointer;transition:.15s;position:relative;z-index:2}
+.playbtn:hover{transform:scale(1.07)}
+.playbtn svg{width:24px;height:24px;color:#fff;margin-left:3px}
+.vtitle{position:absolute;top:12px;left:14px;right:14px;display:flex;justify-content:space-between;align-items:center;z-index:2;font-size:12px;color:#E9DCC8}
+.vtitle b{font-size:13px;color:#FBF4EA}
+.vprog{position:absolute;left:14px;right:14px;bottom:12px;height:6px;background:rgba(247,239,228,.18);border-radius:6px;z-index:2}
+.vprog i{display:block;width:58%;height:100%;background:#E8894F;border-radius:6px}
+.vdot{position:absolute;top:-3.5px;width:12px;height:12px;border-radius:50%;background:#F7EFE4;border:2.5px solid #A2481F;transform:translateX(-50%)}
+.hint{background:var(--card2);border:1px dashed var(--line);border-radius:10px;padding:10px 12px;font-size:12.5px;color:#4A4238;margin-top:8px;line-height:1.55}
+.hint b{color:var(--brand-d)}
+.focusring{position:relative;width:128px;height:128px;margin:2px auto 0}
+.focusring svg{transform:rotate(-90deg);display:block}
+.focusring .fv{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.focusring .fv b{font-family:var(--disp);font-size:30px;font-weight:600;line-height:1}
+.focusring .fv span{font-size:10.5px;color:var(--muted);margin-top:3px}
+.ftl{display:flex;height:10px;border-radius:6px;overflow:hidden;margin-top:12px}
+.ftl i{height:100%}
+.script-seg{border:1px solid var(--line);border-radius:11px;padding:11px 13px;margin-bottom:9px;background:var(--card)}
+.script-seg .ss-t{font-size:12.5px;line-height:1.6;color:#3A342B}
+.script-seg .ss-f{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;align-items:center}
+.script-seg .ss-f .sp{margin-left:auto;display:flex;gap:6px}
+.script-seg .ss-f button{font-size:10.5px;font-weight:600;border:1px solid var(--line);background:var(--card2);color:var(--muted);border-radius:7px;padding:4px 8px;cursor:pointer}
+.script-seg .ss-f button:hover{color:var(--brand-d);border-color:var(--brand)}
+.qs-star{color:var(--warn);letter-spacing:.5px;white-space:nowrap}
+.qs-star .off{color:var(--line)}
+@media(max-width:700px){.focusring{width:112px;height:112px}}
+
 </style>
 </head>
 <body>
@@ -525,6 +556,8 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
       <a data-mod="grading" onclick="go('grading')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h2a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg><span data-en="AI Grading" data-zh="AI 评分">AI Grading</span><span class="badge-n">18</span></a>
       <a data-mod="learn" onclick="go('learn')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span data-en="Learn · Tutoring" data-zh="Learn 辅导">Learn · Tutoring</span></a>
       <a data-mod="pinpoint" onclick="go('pinpoint')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4"/></svg><span data-en="Pinpoint · Diagnosis" data-zh="知点诊断">Pinpoint · Diagnosis</span></a>
+      <a data-mod="t-studio" onclick="go('t-studio')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="m22 8-6 4 6 4z"/></svg><span data-en="AI Teaching Studio" data-zh="AI 教学工作室">AI Teaching Studio</span></a>
+      <a data-mod="t-qbank" onclick="go('t-qbank')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="2.8"/><path d="M4 5v14c0 1.6 3.6 2.8 8 2.8s8-1.2 8-2.8V5"/><path d="M4 12c0 1.6 3.6 2.8 8 2.8s8-1.2 8-2.8"/></svg><span data-en="Question Bank" data-zh="题库管理">Question Bank</span><span class="badge-n" style="background:var(--warn)">45</span></a>
     </nav>
 
     <div class="sb-sec" data-en="Grow" data-zh="增长">Grow</div>
@@ -543,6 +576,7 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
     <nav class="nav role-nav" data-role="student">
       <a data-mod="s-home" onclick="go('s-home')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span data-en="Today" data-zh="今日学习">Today</span></a>
       <a data-mod="s-tutor" onclick="go('s-tutor')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span data-en="AI Tutor" data-zh="AI 辅导">AI Tutor</span></a>
+      <a data-mod="s-class" onclick="go('s-class')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4.5 20 12 7 19.5z"/></svg><span data-en="Live Class" data-zh="上课模式">Live Class</span><span class="badge-n" style="background:var(--danger)">•</span></a>
     </nav>
     <div class="sb-sec role-nav" data-role="admin" data-en="Institution" data-zh="机构管理">Institution</div>
     <nav class="nav role-nav" data-role="admin">
@@ -1545,6 +1579,191 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
     </div>
   </section>
 
+
+  <!-- ========== TEACHER: AI TEACHING STUDIO ========== -->
+  <section class="module" id="m-t-studio">
+    <div class="page-head">
+      <div>
+        <span class="patent-tag"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="m9 14 2 2 4-4"/></svg> <span data-en="Every script line cites approved sources" data-zh="脚本逐段引用批准材料 · 有据生成">Every script line cites approved sources</span></span>
+        <h1 style="margin-top:9px" data-en="AI Teaching Studio — a lesson in minutes" data-zh="AI 教学工作室 · 分钟级做出一堂课">AI Teaching Studio — a lesson in minutes</h1>
+        <p class="lead" data-en="Upload your notes, get a cited script, a bilingual digital presenter, and checkpoints pulled from your question bank — then you approve before anything reaches a student." data-zh="上传讲义，得到有出处的脚本、双语数字讲师与来自题库的随堂检查点——发布前由你签发，学生才看得到。">Upload your notes, get a cited script, a bilingual digital presenter, and checkpoints pulled from your question bank — then you approve before anything reaches a student.</p>
+      </div>
+      <div class="ph-actions"><button class="btn ghost" onclick="toast('en:Presenter & voice settings opened','zh:讲师形象与音色设置已打开')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2.5" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3.5"/></svg><span data-en="Presenter & voice" data-zh="讲师与音色">Presenter & voice</span></button><button class="btn primary" onclick="toast('en:New lesson: upload materials or pick knowledge points','zh:新建课程：上传讲义或从知识点选择')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="m22 8-6 4 6 4z"/></svg><span data-en="New lesson video" data-zh="新建课程视频">New lesson video</span></button></div>
+    </div>
+    <div class="grid g4" style="margin-bottom:16px">
+      <div class="card stat"><div class="top"><div class="lab" data-en="Published lessons" data-zh="已发布课程">Published lessons</div><div class="ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="m22 8-6 4 6 4z"/></svg></div></div><div class="num">48</div><div class="delta up"><span data-en="+6 this week" data-zh="本周 +6">+6 this week</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Time to produce" data-zh="单课制作时长">Time to produce</div><div class="ico g"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div></div><div class="num">6 <small>min</small></div><div class="delta up"><span data-en="vs ~3h studio recording" data-zh="传统录制约 3 小时">vs ~3h studio recording</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Cost per video" data-zh="单条成本">Cost per video</div><div class="ico i"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="5.5"/><path d="M18.1 6.6a5.5 5.5 0 0 1 0 10.8M8 21a5.5 5.5 0 0 0 5.4-6.6"/></svg></div></div><div class="num"><small>S$</small>4.20</div><div class="delta up"><span data-en="Add-on S$49/mo or pay-per-video" data-zh="模块 S$49/月或按条计费">Add-on S$49/mo or pay-per-video</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Completion rate" data-zh="学生完课率">Completion rate</div><div class="ico a"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4"/></svg></div></div><div class="num">78<small>%</small></div><div class="delta up"><span data-en="Checkpoints keep them in" data-zh="检查点让学生留下来">Checkpoints keep them in</span></div></div>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <div class="card-h"><h3 data-en="Production pipeline · “Counter-arguments 101”" data-zh="制作管线 · 《反方论证入门》">Production pipeline · “Counter-arguments 101”</h3><span class="badge a"><span class="d"></span><span data-en="Awaiting your sign-off" data-zh="等待你签发">Awaiting your sign-off</span></span></div>
+      <div class="pad" style="padding-top:8px">
+        <div class="escrow-steps">
+          <div class="estep done"><div class="en2">1</div><div class="el" data-en="Materials in" data-zh="讲义上传">Materials in</div><div class="ev2" data-en="Unit notes + 2 exemplars" data-zh="单元讲义＋2 篇范文">Unit notes + 2 exemplars</div></div>
+          <div class="estep done"><div class="en2">2</div><div class="el" data-en="Cited script" data-zh="有据脚本">Cited script</div><div class="ev2" data-en="9 segments · all sourced" data-zh="9 段 · 全部有出处">9 segments · all sourced</div></div>
+          <div class="estep done"><div class="en2">3</div><div class="el" data-en="Bilingual presenter" data-zh="双语数字讲师">Bilingual presenter</div><div class="ev2" data-en="EN + 中文 · your voice bank" data-zh="EN＋中文 · 机构音色库">EN + 中文 · your voice bank</div></div>
+          <div class="estep done"><div class="en2">4</div><div class="el" data-en="Checkpoints" data-zh="随堂检查点">Checkpoints</div><div class="ev2" data-en="3 items from question bank" data-zh="题库匹配 3 题">3 items from question bank</div></div>
+          <div class="estep"><div class="en2">5</div><div class="el" data-en="You approve" data-zh="教师签发">You approve</div><div class="ev2" data-en="nothing ships without it" data-zh="未签发不上线">nothing ships without it</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="split2">
+      <div class="card">
+        <div class="card-h"><h3 data-en="Script editor · segment by segment" data-zh="脚本编辑 · 逐段可控">Script editor · segment by segment</h3><span class="badge i"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="m9 14 2 2 4-4"/></svg><span data-en="Sources locked to your corpus" data-zh="来源锁定你的批准语料">Sources locked to your corpus</span></span></div>
+        <div class="pad">
+          <div class="script-seg">
+            <div class="ss-t" data-en="“Last lesson we learned to state a thesis. Today we tackle the skill that separates a good essay from a great one: handling the other side’s argument fairly.”" data-zh="「上节课我们学会了表述论点。今天要攻克让作文从『好』到『优秀』的关键：公允地处理对方的论点。」">“Last lesson we learned to state a thesis. Today we tackle the skill that separates a good essay from a great one: handling the other side’s argument fairly.”</div>
+            <div class="ss-f"><span class="src-chip"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="m9 14 2 2 4-4"/></svg><span data-en="Unit notes ¶1" data-zh="单元讲义 ¶1">Unit notes ¶1</span></span><span class="sp"><button onclick="toast('en:Segment rewritten · warmer tone','zh:本段已重写 · 语气更亲切')" data-en="Rewrite tone" data-zh="改写语气">Rewrite tone</button><button onclick="toast('en:Segment regenerated','zh:本段已重新生成')" data-en="Regenerate" data-zh="重新生成">Regenerate</button></span></div>
+          </div>
+          <div class="script-seg">
+            <div class="ss-t" data-en="“Watch how Exemplar A does it: it states the opposing view in one honest sentence — no exaggeration — before answering it with evidence.”" data-zh="「看范文 A 的做法：它先用一句诚实的话陈述反方观点——不夸大——再用论据回应。」">“Watch how Exemplar A does it: it states the opposing view in one honest sentence — no exaggeration — before answering it with evidence.”</div>
+            <div class="ss-f"><span class="src-chip"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="m9 14 2 2 4-4"/></svg><span data-en="Exemplar A ¶3" data-zh="范文 A ¶3">Exemplar A ¶3</span></span><span class="sp"><button onclick="toast('en:Segment rewritten','zh:本段已改写')" data-en="Rewrite tone" data-zh="改写语气">Rewrite tone</button><button onclick="toast('en:Segment regenerated','zh:本段已重新生成')" data-en="Regenerate" data-zh="重新生成">Regenerate</button></span></div>
+          </div>
+          <div class="script-seg" style="border-color:var(--brand-soft);background:var(--brand-tint)">
+            <div class="ss-t"><b data-en="Checkpoint 1 (from your bank, Q-8812):" data-zh="检查点 1（来自题库 Q-8812）：">Checkpoint 1 (from your bank, Q-8812):</b> <span data-en="“Which sentence states the opposing view without a strawman?” · knowledge point: counter-arguments" data-zh="「哪一句在没有『稻草人』的情况下陈述了反方观点？」 · 知识点：反方论证">“Which sentence states the opposing view without a strawman?” · knowledge point: counter-arguments</span></div>
+            <div class="ss-f"><span class="src-chip"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="2.8"/><path d="M4 5v14c0 1.6 3.6 2.8 8 2.8s8-1.2 8-2.8V5"/><path d="M4 12c0 1.6 3.6 2.8 8 2.8s8-1.2 8-2.8"/></svg><span data-en="Bank Q-8812 · difficulty ★★★" data-zh="题库 Q-8812 · 难度 ★★★">Bank Q-8812 · difficulty ★★★</span></span><span class="sp"><button onclick="toast('en:Swapped for a similar item','zh:已替换同知识点题目')" data-en="Swap item" data-zh="换一题">Swap item</button></span></div>
+          </div>
+          <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;align-items:center">
+            <div class="seg"><button class="on">EN + 中文</button><button data-en="EN only" data-zh="仅英文">EN only</button><button data-en="中文 only" data-zh="仅中文">中文 only</button></div>
+            <div class="seg"><button data-en="Warm" data-zh="亲切" class="on">Warm</button><button data-en="Formal" data-zh="正式">Formal</button><button data-en="Playful" data-zh="活泼">Playful</button></div>
+            <button class="btn primary" style="margin-left:auto" onclick="toast('en:Preview rendering · ready in ~90s','zh:预览生成中 · 约 90 秒就绪')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4.5 20 12 7 19.5z"/></svg><span data-en="Render preview" data-zh="生成预览">Render preview</span></button>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div class="card">
+          <div class="card-h"><h3 data-en="Lesson library" data-zh="内容库">Lesson library</h3><span class="sub" data-en="This term" data-zh="本学期">This term</span></div>
+          <div style="padding:8px 18px 14px">
+            <div class="list-row"><div style="flex:1"><div class="fw6 small" data-en="Thesis statements · L3" data-zh="论点表述 · 第 3 课">Thesis statements · L3</div><div class="small muted" data-en="412 views · 81% completion · 74% checkpoint correct" data-zh="412 次观看 · 完课 81% · 检查点正确率 74%">412 views · 81% completion · 74% checkpoint correct</div></div><span class="badge g"><span class="d"></span><span data-en="Published" data-zh="已发布">Published</span></span></div>
+            <div class="list-row"><div style="flex:1"><div class="fw6 small" data-en="Counter-arguments 101 · L4" data-zh="反方论证入门 · 第 4 课">Counter-arguments 101 · L4</div><div class="small muted" data-en="Bilingual · 3 checkpoints" data-zh="双语 · 3 个检查点">Bilingual · 3 checkpoints</div></div><span class="badge a"><span class="d"></span><span data-en="Awaiting sign-off" data-zh="待签发">Awaiting sign-off</span></span></div>
+            <div class="list-row"><div style="flex:1"><div class="fw6 small" data-en="Evidence that convinces · L5" data-zh="有说服力的论据 · 第 5 课">Evidence that convinces · L5</div><div class="small muted" data-en="Rendering 62%" data-zh="生成中 62%">Rendering 62%</div><div class="pbar" style="margin-top:6px"><i style="width:62%"></i></div></div><span class="badge n"><span class="d"></span><span data-en="Rendering" data-zh="生成中">Rendering</span></span></div>
+          </div>
+        </div>
+        <div class="callout"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg></div><div><b class="small" data-en="Studio guardrails" data-zh="工作室守护线">Studio guardrails</b><p data-en="Scripts generate only from your approved corpus, every segment cites its source, and nothing is published without your signature — same discipline as grading." data-zh="脚本只从批准语料生成、逐段有出处、未经你签发绝不上线——与评分同一套纪律。">Scripts generate only from your approved corpus, every segment cites its source, and nothing is published without your signature — same discipline as grading.</p></div></div>
+        <div class="callout" style="background:var(--good-soft);border-color:#CFE1CF"><div class="ic" style="color:var(--good)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="5.5"/><path d="M18.1 6.6a5.5 5.5 0 0 1 0 10.8M8 21a5.5 5.5 0 0 0 5.4-6.6"/></svg></div><div><b class="small" data-en="Why it’s worth it" data-zh="为什么划算">Why it’s worth it</b><p data-en="A studio recording day costs ~S$300+ and 3 hours per lesson. Here: 6 minutes, S$4.20, bilingual by default — and edits are instant." data-zh="传统录制一课约 3 小时、S$300+；这里 6 分钟、S$4.20、默认双语——而且修改即时生效。">A studio recording day costs ~S$300+ and 3 hours per lesson. Here: 6 minutes, S$4.20, bilingual by default — and edits are instant.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TEACHER: QUESTION BANK ========== -->
+  <section class="module" id="m-t-qbank">
+    <div class="page-head">
+      <div>
+        <span class="patent-tag"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="2.8"/><path d="M4 5v14c0 1.6 3.6 2.8 8 2.8s8-1.2 8-2.8V5"/><path d="M4 12c0 1.6 3.6 2.8 8 2.8s8-1.2 8-2.8"/></svg> <span data-en="Import → split → tag → calibrate, automatically" data-zh="导入→切题→标注→定标 · 全自动">Import → split → tag → calibrate, automatically</span></span>
+        <h1 style="margin-top:9px" data-en="Question bank that maintains itself" data-zh="会自己维护的题库">Question bank that maintains itself</h1>
+        <p class="lead" data-en="Drop in PDFs, scans or past papers. The engine OCRs, splits items, tags them to the knowledge graph, calibrates difficulty from real answers, merges duplicates — and abstains to you when an answer can’t be verified." data-zh="丢进 PDF、扫描件或历年真题：引擎自动 OCR、切题、挂载知识图谱、按真实作答定标难度、合并重复——答案无法交叉验证时，存疑转给你。">Drop in PDFs, scans or past papers. The engine OCRs, splits items, tags them to the knowledge graph, calibrates difficulty from real answers, merges duplicates — and abstains to you when an answer can’t be verified.</p>
+      </div>
+      <div class="ph-actions"><button class="btn ghost" onclick="toast('en:Bank exported (QTI + CSV)','zh:题库已导出（QTI + CSV）')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3m0 0 4 4m-4-4-4 4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg><span data-en="Export" data-zh="导出">Export</span></button><button class="btn primary" onclick="toast('en:Parsing 3 papers: OCR → split → tag → calibrate…','zh:正在解析 3 份试卷：OCR→切题→标注→定标…')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3m0 0 4 4m-4-4-4 4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg><span data-en="Import papers" data-zh="导入试卷">Import papers</span></button></div>
+    </div>
+    <div class="grid g4" style="margin-bottom:16px">
+      <div class="card stat"><div class="top"><div class="lab" data-en="Items in bank" data-zh="题目总数">Items in bank</div><div class="ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="2.8"/><path d="M4 5v14c0 1.6 3.6 2.8 8 2.8s8-1.2 8-2.8V5"/><path d="M4 12c0 1.6 3.6 2.8 8 2.8s8-1.2 8-2.8"/></svg></div></div><div class="num">12,480</div><div class="delta up"><span data-en="+320 this week" data-zh="本周 +320">+320 this week</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="This week’s intake" data-zh="本周入库">This week’s intake</div><div class="ico g"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3m0 0 4 4m-4-4-4 4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg></div></div><div class="num">320</div><div class="delta up"><span data-en="220 imported · 100 AI-drafted" data-zh="导入 220 · AI 生成 100">220 imported · 100 AI-drafted</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Syllabus coverage" data-zh="知识点覆盖">Syllabus coverage</div><div class="ico i"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4"/></svg></div></div><div class="num">96<small>%</small></div><div class="delta up"><span data-en="214 of 223 nodes covered" data-zh="课纲 223 节点已覆盖 214">214 of 223 nodes covered</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Held for review" data-zh="存疑待审">Held for review</div><div class="ico a"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15V4h12l-2 3.5L16 11H4z"/><path d="M4 21v-6"/></svg></div></div><div class="num">45</div><div class="delta" style="color:var(--warn)"><span data-en="Answers couldn’t be verified" data-zh="答案交叉验证未通过">Answers couldn’t be verified</span></div></div>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <div class="card-h"><h3 data-en="Last import · “2025 Prelim papers.pdf” (3 files)" data-zh="最近一次导入 · 《2025 年预考卷.pdf》（3 份）">Last import · “2025 Prelim papers.pdf” (3 files)</h3><span class="badge g"><span class="d"></span><span data-en="212 items in 4 min" data-zh="4 分钟入库 212 题">212 items in 4 min</span></span></div>
+      <div class="pad" style="padding-top:8px">
+        <div class="escrow-steps">
+          <div class="estep done"><div class="en2">1</div><div class="el" data-en="Upload" data-zh="上传">Upload</div><div class="ev2" data-en="PDF · Word · scans" data-zh="PDF · Word · 扫描件">PDF · Word · scans</div></div>
+          <div class="estep done"><div class="en2">2</div><div class="el" data-en="OCR & split" data-zh="OCR 与切题">OCR & split</div><div class="ev2" data-en="224 items found" data-zh="识别 224 题">224 items found</div></div>
+          <div class="estep done"><div class="en2">3</div><div class="el" data-en="Tag to graph" data-zh="挂载知识图谱">Tag to graph</div><div class="ev2" data-en="auto-linked to 38 nodes" data-zh="自动关联 38 个知识点">auto-linked to 38 nodes</div></div>
+          <div class="estep done"><div class="en2">4</div><div class="el" data-en="Calibrate" data-zh="难度定标">Calibrate</div><div class="ev2" data-en="IRT from 40k answers" data-zh="基于 4 万次作答 IRT">IRT from 40k answers</div></div>
+          <div class="estep done"><div class="en2">5</div><div class="el" data-en="De-duplicate" data-zh="查重合并">De-duplicate</div><div class="ev2" data-en="12 merged" data-zh="合并 12 题">12 merged</div></div>
+          <div class="estep"><div class="en2">6</div><div class="el" data-en="Verify answers" data-zh="答案验证">Verify answers</div><div class="ev2" data-en="209 ✓ · 3 held for you" data-zh="209 通过 · 3 题转你复核">209 ✓ · 3 held for you</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="split2">
+      <div class="card">
+        <div class="card-h"><h3 data-en="Items · Sec 3 English" data-zh="题目列表 · 中三英文">Items · Sec 3 English</h3><span class="badge n" data-en="Source & copyright logged" data-zh="来源与版权全程留痕">Source & copyright logged</span></div>
+        <div class="tbl-scroll"><table class="tbl"><thead><tr><th data-en="Item" data-zh="题干摘要">Item</th><th data-en="Knowledge point" data-zh="知识点">Knowledge point</th><th data-en="Difficulty" data-zh="难度">Difficulty</th><th data-en="Correct %" data-zh="正确率">Correct %</th><th data-en="Status" data-zh="状态">Status</th></tr></thead><tbody>
+          <tr><td class="small" data-en="“Which sentence best states the author’s tone…”" data-zh="「哪一句最能体现作者语气……」">“Which sentence best states the author’s tone…”</td><td><span class="badge b" data-en="Tone & attitude" data-zh="语气与态度">Tone & attitude</span></td><td><span class="qs-star">★★★<span class="off">★★</span></span></td><td>61%</td><td><span class="badge g"><span class="d"></span><span data-en="Live" data-zh="已入库">Live</span></span></td></tr>
+          <tr><td class="small" data-en="“Identify the strawman in the passage below…”" data-zh="「找出下文中的『稻草人』论证……」">“Identify the strawman in the passage below…”</td><td><span class="badge b" data-en="Counter-arguments" data-zh="反方论证">Counter-arguments</span></td><td><span class="qs-star">★★★★<span class="off">★</span></span></td><td>43%</td><td><span class="badge g"><span class="d"></span><span data-en="Live" data-zh="已入库">Live</span></span></td></tr>
+          <tr><td class="small" data-en="“Choose the evidence that best supports…”" data-zh="「选择最能支撑论点的论据……」">“Choose the evidence that best supports…”</td><td><span class="badge b" data-en="Evidence use" data-zh="论据运用">Evidence use</span></td><td><span class="qs-star">★★<span class="off">★★★</span></span></td><td>78%</td><td><span class="badge g"><span class="d"></span><span data-en="Live" data-zh="已入库">Live</span></span></td></tr>
+          <tr><td class="small" data-en="“Q17 from 2025 Prelim — answer key conflict”" data-zh="「2025 预考卷第 17 题——答案存在冲突」">“Q17 from 2025 Prelim — answer key conflict”</td><td><span class="badge b" data-en="Inference" data-zh="推断">Inference</span></td><td><span class="qs-star">★★★<span class="off">★★</span></span></td><td class="muted">—</td><td><span class="badge a"><span class="d"></span><span data-en="Held · verify answer" data-zh="存疑 · 待你定答案">Held · verify answer</span></span></td></tr>
+          <tr><td class="small" data-en="“Poetry scansion item (imported)”" data-zh="「诗歌格律题（导入）」">“Poetry scansion item (imported)”</td><td><span class="badge n" data-en="Out of syllabus" data-zh="超纲">Out of syllabus</span></td><td><span class="qs-star">★★★★★</span></td><td class="muted">—</td><td><span class="badge" style="background:var(--danger-soft);color:var(--danger)"><span class="d"></span><span data-en="Flagged · Sec 4 bank?" data-zh="已标记 · 移中四题库？">Flagged · Sec 4 bank?</span></span></td></tr>
+        </tbody></table></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div class="card pad">
+          <div class="fw6" style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m15 4 5 5L7.5 21.5l-5-5z"/><path d="m13 6 5 5"/><path d="M19 3l.9 2.4L22.3 6l-2.4.9L19 9.3l-.9-2.4L15.7 6l2.4-.9z"/></svg><span data-en="Smart paper builder" data-zh="智能组卷">Smart paper builder</span></div>
+          <p class="small muted" data-en="Builds from Pinpoint’s class weaknesses — not random picks." data-zh="按知点诊断出的班级弱点组卷——不是随机抽题。">Builds from Pinpoint’s class weaknesses — not random picks.</p>
+          <div class="hint" style="margin-top:10px"><b data-en="Sec 3B · 45-min practice:" data-zh="中三 B 班 · 45 分钟练习卷：">Sec 3B · 45-min practice:</b> <span data-en="40% counter-arguments · 30% tone · 30% mixed review — difficulty ramped ★★→★★★★, all in-syllabus." data-zh="40% 反方论证 · 30% 语气 · 30% 综合复习——难度从 ★★ 爬坡到 ★★★★，全部课纲内。">40% counter-arguments · 30% tone · 30% mixed review — difficulty ramped ★★→★★★★, all in-syllabus.</span></div>
+          <button class="btn primary" style="width:100%;justify-content:center;margin-top:11px" onclick="toast('en:Paper generated · 18 items · answer key + rubric attached','zh:试卷已生成 · 18 题 · 附答案与评分标准')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m15 4 5 5L7.5 21.5l-5-5z"/><path d="m13 6 5 5"/><path d="M19 3l.9 2.4L22.3 6l-2.4.9L19 9.3l-.9-2.4L15.7 6l2.4-.9z"/></svg><span data-en="Generate paper" data-zh="生成试卷">Generate paper</span></button>
+        </div>
+        <div class="card pad">
+          <div class="fw6" style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg><span data-en="Bank health" data-zh="题库健康度">Bank health</span></div>
+          <div class="list-row" style="padding:7px 0"><div style="flex:1" class="small fw6" data-en="Duplicates merged · month" data-zh="本月重复合并">Duplicates merged · month</div><b>12</b></div>
+          <div class="list-row" style="padding:7px 0"><div style="flex:1" class="small fw6" data-en="Answer keys verified" data-zh="答案验证通过率">Answer keys verified</div><b style="color:var(--good)">99.2%</b></div>
+          <div class="list-row" style="padding:7px 0"><div style="flex:1" class="small fw6" data-en="Out-of-syllabus flagged" data-zh="超纲题标记">Out-of-syllabus flagged</div><b>6</b></div>
+          <div class="list-row" style="padding:7px 0"><div style="flex:1" class="small fw6" data-en="Source & copyright trail" data-zh="来源与版权留痕">Source & copyright trail</div><b style="color:var(--good)">100%</b></div>
+        </div>
+        <div class="callout"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z"/></svg></div><div><b class="small" data-en="Everything connects" data-zh="模块相互咬合">Everything connects</b><p data-en="Pinpoint finds the gap → the bank supplies calibrated items → Studio drops them in as checkpoints → grading feeds difficulty back. One graph underneath." data-zh="知点找出断点 → 题库供给已定标题目 → 工作室把它们变成检查点 → 批改数据回流校准难度。底层是同一张知识图谱。">Pinpoint finds the gap → the bank supplies calibrated items → Studio drops them in as checkpoints → grading feeds difficulty back. One graph underneath.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== STUDENT: LIVE CLASS ========== -->
+  <section class="module" id="m-s-class">
+    <div class="page-head">
+      <div>
+        <span class="patent-tag"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-6.5 10-6.5S22 12 22 12s-3.5 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="2.8"/></svg> <span data-en="Focus analytics run on your device · nothing recorded" data-zh="专注力分析在你设备上完成 · 不录制画面">Focus analytics run on your device · nothing recorded</span></span>
+        <h1 style="margin-top:9px" data-en="Live class — guided, never given away" data-zh="上课模式 · AI 引导而不代劳">Live class — guided, never given away</h1>
+        <p class="lead" data-en="When you’re stuck, the AI offers hints in steps — never the answer during practice. When your attention drifts, it nudges you gently. Your camera never leaves your device." data-zh="卡住时，AI 按阶梯给提示——练习中绝不直接给答案；走神时，轻轻提醒你回来。摄像头画面永远不离开你的设备。">When you’re stuck, the AI offers hints in steps — never the answer during practice. When your attention drifts, it nudges you gently. Your camera never leaves your device.</p>
+      </div>
+      <div class="ph-actions"><button class="btn primary" onclick="toast('en:Rejoining class…','zh:正在回到课堂…')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4.5 20 12 7 19.5z"/></svg><span data-en="Continue lesson" data-zh="继续上课">Continue lesson</span></button></div>
+    </div>
+    <div class="grid glearn">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div class="card pad">
+          <div class="vidbox">
+            <div class="grid-bg"></div>
+            <div class="vtitle"><b data-en="Counter-arguments 101 · Lesson 4" data-zh="反方论证入门 · 第 4 课">Counter-arguments 101 · Lesson 4</b><span>18:32 / 32:00</span></div>
+            <div class="playbtn" onclick="toast('en:Playing · presenter switches to 中文 anytime','zh:播放中 · 讲师可随时切换中英文')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4.5 20 12 7 19.5z"/></svg></div>
+            <div class="vprog"><i></i><span class="vdot" style="left:22%"></span><span class="vdot" style="left:47%"></span><span class="vdot" style="left:58%;background:#E8894F;border-color:#F7EFE4"></span><span class="vdot" style="left:78%"></span><span class="vdot" style="left:92%"></span></div>
+          </div>
+          <div class="seg" style="margin-top:12px"><button class="on" data-en="① Why fairness wins" data-zh="① 公允为何得分">① Why fairness wins</button><button data-en="② Spot the strawman" data-zh="② 识别稻草人">② Spot the strawman</button><button data-en="③ Write the rebuttal" data-zh="③ 写出反驳">③ Write the rebuttal</button></div>
+        </div>
+        <div class="card">
+          <div class="card-h"><h3 data-en="Checkpoint 3 of 5" data-zh="检查点 3／5">Checkpoint 3 of 5</h3><span class="badge b"><span class="d"></span><span data-en="Practice mode · no direct answers" data-zh="练习模式 · 不给答案">Practice mode · no direct answers</span></span></div>
+          <div class="pad">
+            <div class="fw6" style="font-size:14px;line-height:1.6" data-en="Which sentence states the opposing view without a strawman?" data-zh="哪一句在没有「稻草人」的情况下陈述了反方观点？">Which sentence states the opposing view without a strawman?</div>
+            <div class="hint"><b data-en="Hint 1 · used" data-zh="提示 1 · 已用">Hint 1 · used</b> — <span data-en="A strawman exaggerates. Look for the sentence that a defender of the opposing view would actually agree with." data-zh="「稻草人」会夸大对方。找那句连反方支持者自己都会认同的表述。">A strawman exaggerates. Look for the sentence that a defender of the opposing view would actually agree with.</span></div>
+            <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
+              <button class="btn subtle" onclick="toast('en:Hint 2 — compare intensity words in options B and D','zh:提示 2——比较 B、D 两项中的程度词')" data-en="Hint 2" data-zh="要提示 2">Hint 2</button>
+              <button class="btn ghost" onclick="toast('en:Full walkthrough unlocks after you submit an attempt','zh:先提交一次作答，才能看完整讲解')" data-en="Full walkthrough" data-zh="完整讲解">Full walkthrough</button>
+              <button class="btn primary" style="margin-left:auto" onclick="toast('en:Correct! The AI logs your reasoning path for Ms Tan','zh:答对了！你的思考路径已同步给陈老师')" data-en="Submit answer" data-zh="提交作答">Submit answer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div class="card pad" style="text-align:center">
+          <div class="fw6" style="margin-bottom:6px;display:flex;align-items:center;gap:8px;justify-content:center"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-6.5 10-6.5S22 12 22 12s-3.5 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="2.8"/></svg><span data-en="Focus · this lesson" data-zh="本节课专注度">Focus · this lesson</span></div>
+          <div class="focusring">
+            <svg width="128" height="128" viewBox="0 0 128 128"><circle cx="64" cy="64" r="54" fill="none" stroke="#EFE7D7" stroke-width="11"/><circle cx="64" cy="64" r="54" fill="none" stroke="#4E7C59" stroke-width="11" stroke-linecap="round" stroke-dasharray="295.2 44.1"/></svg>
+            <div class="fv"><b>87%</b><span data-en="great focus" data-zh="专注状态很好">great focus</span></div>
+          </div>
+          <div class="ftl"><i style="width:16%;background:#4E7C59"></i><i style="width:5%;background:#E3C892"></i><i style="width:22%;background:#4E7C59"></i><i style="width:6%;background:#C4872B"></i><i style="width:31%;background:#4E7C59"></i><i style="width:4%;background:#E3C892"></i><i style="width:16%;background:#4E7C59"></i></div>
+          <div class="small muted" style="margin-top:9px" data-en="2 drifts · min 18 & 26 · gentle nudge worked both times" data-zh="走神 2 次 · 第 18 与 26 分钟 · 轻提醒后都回来了">2 drifts · min 18 & 26 · gentle nudge worked both times</div>
+        </div>
+        <div class="callout"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg></div><div><b class="small" data-en="Privacy, by architecture" data-zh="隐私 · 从架构上保证">Privacy, by architecture</b><p data-en="Analysis runs on-device; no video is recorded or uploaded. Your teacher sees only class-level focus patterns — never your camera. You and your parents opted in, and you can turn it off anytime." data-zh="分析在设备端完成；不录制、不上传任何画面。老师只能看到班级层面的匿名专注热区——看不到任何人的摄像头。已经过你和家长同意，且随时可关闭。">Analysis runs on-device; no video is recorded or uploaded. Your teacher sees only class-level focus patterns — never your camera. You and your parents opted in, and you can turn it off anytime.</p><div style="display:flex;align-items:center;gap:8px;margin-top:8px"><span class="small fw6" data-en="Focus analytics" data-zh="专注力分析">Focus analytics</span><div class="tog" onclick="this.classList.toggle('off');toast('en:Preference saved','zh:偏好已保存')"></div></div></div></div>
+        <div class="card pad">
+          <div class="fw6" style="margin-bottom:8px" data-en="This lesson" data-zh="本节课进度">This lesson</div>
+          <div class="list-row" style="padding:7px 0"><div style="flex:1" class="small fw6" data-en="Checkpoints passed" data-zh="检查点通过">Checkpoints passed</div><b>2 / 3</b></div>
+          <div class="list-row" style="padding:7px 0"><div style="flex:1" class="small fw6" data-en="Hints used" data-zh="使用提示">Hints used</div><b>1</b></div>
+          <div class="list-row" style="padding:7px 0"><div style="flex:1" class="small fw6" data-en="Reasoning shared with Ms Tan" data-zh="思考路径同步陈老师">Reasoning shared with Ms Tan</div><span class="badge g" data-en="On" data-zh="已开启">On</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   </main>
 </div>
 
@@ -1603,6 +1822,8 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
 <div class="sheet" id="moreSheet">
   <a onclick="go('learn')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span data-en="Learn · Tutoring" data-zh="Learn 辅导">Learn · Tutoring</span></a>
   <a onclick="go('pinpoint')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4"/></svg><span data-en="Pinpoint · Diagnosis" data-zh="知点诊断">Pinpoint · Diagnosis</span></a>
+  <a onclick="go('t-studio')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="m22 8-6 4 6 4z"/></svg><span data-en="AI Teaching Studio" data-zh="AI 教学工作室">AI Teaching Studio</span></a>
+  <a onclick="go('t-qbank')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="2.8"/><path d="M4 5v14c0 1.6 3.6 2.8 8 2.8s8-1.2 8-2.8V5"/><path d="M4 12c0 1.6 3.6 2.8 8 2.8s8-1.2 8-2.8"/></svg><span data-en="Question Bank" data-zh="题库管理">Question Bank</span></a>
   <a onclick="go('events')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="17" rx="2"/><path d="M8 2.5v4M16 2.5v4M3 10h18"/></svg><span data-en="Live Events" data-zh="线上活动">Live Events</span><span class="badge-n" style="background:var(--danger);color:#fff;margin-left:auto;font-size:10.5px;border-radius:100px;padding:1px 7px">2</span></a>
 </div>
 
@@ -1641,9 +1862,10 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
   <button class="bn-item" onclick="openChat()"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/></svg><span data-en="Support" data-zh="客服">Support</span><span class="bd"></span></button>
 </nav>
 <nav class="bottomnav" data-role="student">
-  <button class="bn-item" data-bn="s-home" onclick="go('s-home')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span data-en="Today" data-zh="今日">Today</span><span class="bd"></span></button>
-  <button class="bn-item" data-bn="s-tutor" onclick="go('s-tutor')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span data-en="Tutor" data-zh="辅导">Tutor</span><span class="bd"></span></button>
-  <button class="bn-item" onclick="openChat()"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/></svg><span data-en="Help" data-zh="帮助">Help</span><span class="bd"></span></button>
+  <button class="bn-item" data-bn="s-home" onclick="go('s-home')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5-9 5-9-5z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/></svg><span data-en="Today" data-zh="今日">Today</span><span class="bd"></span></button>
+  <button class="bn-item" data-bn="s-tutor" onclick="go('s-tutor')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="m9 14 2 2 4-4"/></svg><span data-en="Tutor" data-zh="辅导">Tutor</span><span class="bd"></span></button>
+  <button class="bn-item" data-bn="s-class" onclick="go('s-class')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4.5 20 12 7 19.5z"/></svg><span data-en="Class" data-zh="上课">Class</span><span class="bd"></span></button>
+  <button class="bn-item" onclick="openChat()"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13A4 4 0 0 1 16 11"/></svg><span data-en="Help" data-zh="帮助">Help</span><span class="bd"></span></button>
 </nav>
 <nav class="bottomnav" data-role="admin">
   <button class="bn-item" data-bn="a-ops" onclick="go('a-ops')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span data-en="Command" data-zh="指挥台">Command</span><span class="bd"></span></button>
@@ -1983,6 +2205,15 @@ applyLang('en');
   var _apply3=window.applyLang;
   window.applyLang=function(l){_apply3(l);if(document.getElementById('chatPanel').classList.contains('show'))renderChat();};
 })();
+</script>
+
+
+<script>
+Object.assign(CRUMB,{
+ 't-studio':['· AI Teaching Studio','· AI 教学工作室'],
+ 't-qbank':['· Question Bank','· 题库管理'],
+ 's-class':['· Live Class','· 上课模式']
+});
 </script>
 
 </body>
