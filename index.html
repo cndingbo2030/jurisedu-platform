@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Juris & Edu Intelligence — Educator Platform</title>
+<meta name="description" content="Juris & Edu Intelligence — the trustworthy AI platform for educators. Grading, tutoring, diagnosis, marketplace and live events in one governable system.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23C15A2E'/%3E%3Ctext x='32' y='34' font-family='Georgia,serif' font-style='italic' font-weight='600' font-size='34' fill='%23FBF3EC' text-anchor='middle' dominant-baseline='central'%3EJE%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FAF6EE; --canvas:#F4EEE1; --card:#FFFFFF; --card2:#FCF9F2;
+  --panel:#F3ECDE; --sidebar:#241E17; --ink:#241E17; --muted:#6E6355; --faint:#9C9080;
+  --brand:#C15A2E; --brand-d:#A2481F; --brand-soft:#F5E3D6; --brand-tint:#FBEEE3;
+  --line:#E8DFCE; --line2:#EFE7D7;
+  --good:#4E7C59; --good-soft:#E4EEE4; --warn:#C4872B; --warn-soft:#F6E8CF; --danger:#B4472F; --danger-soft:#F4DFD6;
+  --slate:#5F6B72; --info:#4C6E86; --info-soft:#E2ECF0;
+  --disp:'Newsreader',Georgia,serif; --ui:'Inter','Noto Sans SC',system-ui,sans-serif;
+  --r:14px; --r-sm:10px; --sh:0 1px 2px rgba(36,30,23,.05),0 8px 24px -12px rgba(36,30,23,.10);
+  --sh-lg:0 24px 60px -24px rgba(36,30,23,.28);
+}
+html.zh{ --disp:'Noto Serif SC',serif; --ui:'Noto Sans SC','Inter',system-ui,sans-serif; }
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{font-family:var(--ui);background:var(--canvas);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5;font-size:14px}
+h1,h2,h3,h4,.disp{font-family:var(--disp);font-weight:600;letter-spacing:-.01em;line-height:1.12}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--brand-soft)}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:#e4d9c4;border-radius:20px;border:3px solid transparent;background-clip:content-box}
+
+/* ---------- LOGIN ---------- */
+#login{position:fixed;inset:0;z-index:60;display:grid;grid-template-columns:1.05fr .95fr;background:var(--paper)}
+#login .lhero{position:relative;overflow:hidden;background:linear-gradient(160deg,#2A2219,#3A2C1E 60%,#5A3A22);color:#F7EFE4;display:flex;flex-direction:column;justify-content:space-between;padding:48px}
+#login .lhero .grid-bg{position:absolute;inset:0;opacity:.5;background-image:linear-gradient(rgba(247,239,228,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(247,239,228,.06) 1px,transparent 1px);background-size:44px 44px}
+#login .lhero .glow{position:absolute;right:-140px;top:-120px;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,rgba(222,123,68,.55),transparent 62%);filter:blur(6px)}
+.lbrand{display:flex;align-items:center;gap:12px;position:relative;z-index:2}
+.lmark{width:44px;height:44px;border-radius:11px;background:linear-gradient(145deg,#DE7B44,#A2481F);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px -8px rgba(222,123,68,.7)}
+.lmark span{font-family:var(--disp);font-style:italic;font-weight:600;font-size:24px;color:#FBF3EC}
+.lbrand b{font-family:var(--disp);font-weight:600;font-size:20px}
+.lbrand b i{color:#E8894F;font-style:italic;padding:0 1px}
+.lhero .pitch{position:relative;z-index:2}
+.lhero .pitch h2{font-size:40px;line-height:1.08;letter-spacing:-.02em;color:#FBF4EA;max-width:15ch}
+.lhero .pitch h2 em{font-style:italic;color:#E8894F}
+.lhero .pitch p{margin-top:16px;color:#D8C8B4;font-size:15px;max-width:42ch}
+.lhero .lfeats{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:8px}
+.lchip{font-size:12px;font-weight:600;color:#F1DFCD;border:1px solid rgba(232,137,79,.4);background:rgba(222,123,68,.12);border-radius:100px;padding:6px 12px}
+.lform-wrap{display:flex;align-items:center;justify-content:center;padding:40px}
+.lform{width:100%;max-width:360px}
+.lform .eyebrow{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--brand-d)}
+.lform h1{font-size:30px;margin:10px 0 6px}
+.lform .sub{color:var(--muted);margin-bottom:26px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:12.5px;font-weight:600;color:var(--muted);margin-bottom:6px}
+.field input{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--card);font-size:14px;font-family:inherit;color:var(--ink);transition:.15s}
+.field input:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-tint)}
+.lform .row{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:var(--muted);margin:4px 2px 20px}
+.lform .row a{color:var(--brand-d);font-weight:600}
+.btn-lg{width:100%;padding:13px;border-radius:var(--r-sm);background:var(--brand);color:#fff;font-weight:600;font-size:14.5px;box-shadow:0 10px 24px -12px rgba(193,90,46,.9);transition:.15s}
+.btn-lg:hover{background:var(--brand-d)}
+.lform .sso{margin-top:12px;padding:12px;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--card);font-weight:600;color:var(--ink);width:100%;display:flex;align-items:center;justify-content:center;gap:9px;transition:.15s}
+.lform .sso:hover{background:var(--card2);border-color:var(--brand)}
+.lform .fine{margin-top:22px;font-size:11.5px;color:var(--faint);text-align:center;line-height:1.5}
+.lang-mini{position:absolute;top:26px;right:30px;z-index:3;display:flex;gap:2px;background:rgba(255,255,255,.08);border:1px solid rgba(247,239,228,.18);border-radius:100px;padding:3px}
+.lang-mini button{font-size:12px;font-weight:600;color:#D8C8B4;padding:5px 12px;border-radius:100px}
+.lang-mini button.on{background:#F7EFE4;color:#2A2219}
+
+/* ---------- APP SHELL ---------- */
+#app{display:none;grid-template-columns:248px 1fr;grid-template-rows:60px 1fr;height:100vh;grid-template-areas:"side top" "side main"}
+#app.show{display:grid}
+.sidebar{grid-area:side;background:var(--sidebar);color:#E9E0D2;display:flex;flex-direction:column;padding:16px 14px;overflow-y:auto;border-right:1px solid #17120c}
+.sb-brand{display:flex;align-items:center;gap:11px;padding:6px 8px 16px}
+.sb-brand .lmark{width:38px;height:38px;border-radius:10px}
+.sb-brand .lmark span{font-size:21px}
+.sb-brand .t{display:flex;flex-direction:column;line-height:1.15}
+.sb-brand .t b{font-family:var(--disp);font-weight:600;font-size:15.5px;color:#FBF4EA}
+.sb-brand .t b i{color:#E8894F;font-style:italic}
+.sb-brand .t small{font-size:10.5px;color:#9C8E7C;letter-spacing:.04em}
+.sb-sec{font-size:10.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#8A7C69;padding:16px 10px 7px}
+.nav a{display:flex;align-items:center;gap:11px;padding:9px 11px;border-radius:10px;color:#CDBFAD;font-weight:500;font-size:13.5px;position:relative;transition:.14s;margin-bottom:1px}
+.nav a svg{width:18px;height:18px;flex:0 0 18px;stroke-width:1.7}
+.nav a:hover{background:rgba(247,239,228,.06);color:#F3E9DA}
+.nav a.on{background:linear-gradient(90deg,rgba(222,123,68,.22),rgba(222,123,68,.08));color:#FBEEE3}
+.nav a.on::before{content:"";position:absolute;left:-14px;top:9px;bottom:9px;width:3px;border-radius:0 3px 3px 0;background:#E8894F}
+.nav a .badge-n{margin-left:auto;font-size:10.5px;font-weight:700;background:var(--brand);color:#fff;border-radius:100px;padding:1px 7px}
+.nav a.on .badge-n{background:#E8894F}
+.sb-foot{margin-top:auto;padding-top:14px}
+.sb-card{background:rgba(247,239,228,.06);border:1px solid rgba(247,239,228,.09);border-radius:12px;padding:13px}
+.sb-card .lab{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9C8E7C}
+.sb-card .val{font-family:var(--disp);font-size:20px;color:#FBF4EA;margin:3px 0 8px}
+.sb-card .pbar{height:6px;border-radius:6px;background:rgba(247,239,228,.12);overflow:hidden}
+.sb-card .pbar i{display:block;height:100%;width:68%;background:linear-gradient(90deg,#DE7B44,#E8A46F);border-radius:6px}
+.sb-card small{display:block;margin-top:8px;font-size:11px;color:#B8AA97}
+.sb-up{margin-top:10px;width:100%;text-align:center;padding:9px;border-radius:9px;background:#E8894F;color:#2A2219;font-weight:700;font-size:12.5px}
+
+/* topbar */
+.topbar{grid-area:top;background:rgba(250,246,238,.86);backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:14px;padding:0 22px;position:sticky;top:0;z-index:20}
+.tb-crumb{font-size:13px;color:var(--muted)}
+.tb-crumb b{color:var(--ink);font-weight:600}
+.search{margin-left:8px;flex:1;max-width:420px;display:flex;align-items:center;gap:9px;background:var(--card);border:1px solid var(--line);border-radius:100px;padding:8px 15px;color:var(--faint)}
+.search svg{width:16px;height:16px}
+.search input{border:none;background:none;outline:none;font-family:inherit;font-size:13.5px;color:var(--ink);width:100%}
+.tb-right{margin-left:auto;display:flex;align-items:center;gap:8px}
+.lang-tog{display:flex;gap:2px;background:var(--panel);border:1px solid var(--line);border-radius:100px;padding:3px}
+.lang-tog button{font-size:12px;font-weight:600;color:var(--muted);padding:5px 11px;border-radius:100px;transition:.14s}
+.lang-tog button.on{background:var(--brand);color:#fff}
+.icon-btn{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--muted);border:1px solid transparent;position:relative;transition:.14s}
+.icon-btn:hover{background:var(--card);border-color:var(--line);color:var(--ink)}
+.icon-btn svg{width:19px;height:19px}
+.icon-btn .dot{position:absolute;top:8px;right:9px;width:7px;height:7px;border-radius:50%;background:var(--brand);border:2px solid var(--paper)}
+.avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(145deg,#DE7B44,#A2481F);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;font-family:var(--disp);cursor:pointer}
+
+/* main */
+.main{grid-area:main;overflow-y:auto;padding:26px 30px 60px}
+.module{display:none;animation:fade .35s ease}
+.module.show{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.page-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:22px;flex-wrap:wrap}
+.page-head .eyebrow{font-size:11.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--brand-d);margin-bottom:7px}
+.page-head h1{font-size:29px}
+.page-head .lead{color:var(--muted);margin-top:7px;max-width:64ch;font-size:14px}
+.ph-actions{display:flex;gap:9px;flex-wrap:wrap}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:9px 15px;border-radius:10px;font-weight:600;font-size:13.5px;transition:.15s;white-space:nowrap}
+.btn svg{width:16px;height:16px}
+.btn.primary{background:var(--brand);color:#fff;box-shadow:0 10px 22px -14px rgba(193,90,46,.9)}
+.btn.primary:hover{background:var(--brand-d)}
+.btn.ghost{background:var(--card);border:1px solid var(--line);color:var(--ink)}
+.btn.ghost:hover{border-color:var(--brand);color:var(--brand-d)}
+.btn.subtle{background:var(--brand-tint);color:var(--brand-d)}
+.btn.subtle:hover{background:var(--brand-soft)}
+
+/* cards + grid */
+.grid{display:grid;gap:16px}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh)}
+.pad{padding:18px}
+.card-h{display:flex;align-items:center;justify-content:space-between;padding:15px 18px;border-bottom:1px solid var(--line2)}
+.card-h h3{font-size:16px}
+.card-h .sub{font-size:12px;color:var(--muted);font-weight:500}
+.stat{padding:17px 18px;position:relative;overflow:hidden}
+.stat .top{display:flex;align-items:center;justify-content:space-between}
+.stat .ico{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;background:var(--brand-tint);color:var(--brand-d)}
+.stat .ico svg{width:18px;height:18px}
+.stat .ico.g{background:var(--good-soft);color:var(--good)}
+.stat .ico.a{background:var(--warn-soft);color:var(--warn)}
+.stat .ico.i{background:var(--info-soft);color:var(--info)}
+.stat .lab{font-size:12.5px;color:var(--muted);font-weight:500;margin:12px 0 3px}
+.stat .num{font-family:var(--disp);font-size:31px;font-weight:600;line-height:1}
+.stat .num small{font-size:15px;color:var(--faint);font-weight:500}
+.stat .delta{font-size:12px;font-weight:600;margin-top:7px;display:inline-flex;align-items:center;gap:4px}
+.delta.up{color:var(--good)} .delta.down{color:var(--danger)}
+.spark{position:absolute;right:14px;bottom:12px;opacity:.85}
+
+.badge{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:600;padding:3px 9px;border-radius:100px;line-height:1.4}
+.badge.b{background:var(--brand-tint);color:var(--brand-d)}
+.badge.g{background:var(--good-soft);color:var(--good)}
+.badge.a{background:var(--warn-soft);color:#9A6A1E}
+.badge.n{background:var(--panel);color:var(--muted)}
+.badge.i{background:var(--info-soft);color:var(--info)}
+.badge .d{width:6px;height:6px;border-radius:50%;background:currentColor}
+
+.pbar{height:8px;border-radius:8px;background:var(--panel);overflow:hidden}
+.pbar i{display:block;height:100%;border-radius:8px;background:var(--brand);transition:width .8s cubic-bezier(.4,0,.2,1)}
+.pbar i.g{background:var(--good)} .pbar i.a{background:var(--warn)}
+
+table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
+.tbl th{text-align:left;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);padding:11px 16px;border-bottom:1px solid var(--line2)}
+.tbl td{padding:12px 16px;border-bottom:1px solid var(--line2)}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tbody tr{transition:.12s}
+.tbl tbody tr:hover{background:var(--card2)}
+.who{display:flex;align-items:center;gap:10px}
+.mini-av{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:11px;color:#fff;font-family:var(--disp)}
+
+/* tabs */
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-bottom:18px;overflow-x:auto}
+.tabs button{padding:9px 3px;margin-right:18px;font-size:13.5px;font-weight:600;color:var(--muted);border-bottom:2px solid transparent;transition:.14s;white-space:nowrap}
+.tabs button.on{color:var(--brand-d);border-color:var(--brand)}
+.tabs button:hover{color:var(--ink)}
+
+/* grading */
+.grade-wrap{display:grid;grid-template-columns:1fr 340px;gap:16px}
+.paper{background:var(--card2);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px}
+.paper .q{font-size:13px;color:var(--muted);margin-bottom:5px;font-weight:600}
+.paper .ans{font-size:14.5px;line-height:1.7;color:#3A342B}
+.paper .hl{background:var(--good-soft);border-bottom:1.5px solid var(--good);padding:0 1px}
+.paper .hl.a{background:var(--warn-soft);border-color:var(--warn)}
+.crit{border:1px solid var(--line);border-radius:12px;padding:13px 14px;margin-bottom:10px;background:var(--card)}
+.crit .r1{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.crit .cname{font-weight:600;font-size:13.5px}
+.crit .cite{font-size:12px;color:var(--info);margin-top:6px;display:flex;align-items:center;gap:6px;background:var(--info-soft);padding:6px 9px;border-radius:8px}
+.crit .cite svg{width:13px;height:13px;flex:0 0 13px}
+.conf{font-size:11.5px;color:var(--muted);margin-top:8px;display:flex;align-items:center;gap:7px}
+.conf .track{flex:1;height:5px;border-radius:5px;background:var(--panel);overflow:hidden}
+.conf .track i{display:block;height:100%;border-radius:5px}
+
+/* learn chat */
+.chat{display:flex;flex-direction:column;gap:14px;padding:20px;max-height:460px;overflow-y:auto}
+.msg{max-width:82%;display:flex;gap:10px}
+.msg .b{padding:12px 14px;border-radius:14px;font-size:13.5px;line-height:1.6}
+.msg.stu{align-self:flex-end;flex-direction:row-reverse}
+.msg.stu .b{background:var(--brand);color:#fff;border-bottom-right-radius:5px}
+.msg.ai .b{background:var(--card2);border:1px solid var(--line);border-bottom-left-radius:5px}
+.msg .av{width:30px;height:30px;border-radius:9px;flex:0 0 30px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;font-family:var(--disp)}
+.msg.ai .av{background:linear-gradient(145deg,#DE7B44,#A2481F)}
+.msg.stu .av{background:var(--slate)}
+.src-chip{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;color:var(--info);background:var(--info-soft);border-radius:7px;padding:3px 8px;margin:6px 5px 0 0}
+.block-note{background:var(--warn-soft);border:1px solid #EAD4A8;border-radius:12px;padding:11px 13px;font-size:12.5px;color:#8A5E16;display:flex;gap:9px;align-items:flex-start}
+.block-note svg{width:16px;height:16px;flex:0 0 16px;margin-top:1px}
+
+/* pinpoint kg */
+.kg{background:radial-gradient(circle at 50% 40%,#FDF6EC,#F6EEDF);border:1px solid var(--line);border-radius:var(--r);height:320px;position:relative;overflow:hidden}
+.node{position:absolute;transform:translate(-50%,-50%);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:700;text-align:center;border:2px solid #fff;box-shadow:var(--sh);line-height:1.1;padding:4px}
+.node.hub{background:var(--brand);color:#fff;width:96px;height:96px;font-size:12.5px;z-index:3}
+.node.weak{background:var(--danger);color:#fff;width:74px;height:74px;z-index:2}
+.node.ok{background:var(--good);color:#fff;width:60px;height:60px}
+.node.mid{background:var(--warn);color:#fff;width:64px;height:64px}
+.node.n{background:#fff;color:var(--muted);width:56px;height:56px;border-color:var(--line)}
+
+/* marketplace */
+.mk-card{overflow:hidden;transition:.18s}
+.mk-card:hover{transform:translateY(-3px);box-shadow:var(--sh-lg);border-color:var(--brand-soft)}
+.mk-card .cover{height:96px;background:linear-gradient(135deg,var(--brand-soft),#EFD9C6);position:relative}
+.mk-card .cover.v2{background:linear-gradient(135deg,#E2EAE0,#D6E4D8)}
+.mk-card .cover.v3{background:linear-gradient(135deg,#E8E2F0,#DCD3EA)}
+.mk-card .av-lg{position:absolute;left:16px;bottom:-22px;width:52px;height:52px;border-radius:14px;border:3px solid #fff;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-family:var(--disp);font-size:18px}
+.mk-body{padding:30px 16px 16px}
+.stars{color:var(--warn);font-size:12px;letter-spacing:1px}
+.mk-meta{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);margin-top:5px}
+.mk-price{display:flex;align-items:flex-end;justify-content:space-between;margin-top:13px;padding-top:13px;border-top:1px solid var(--line2)}
+.mk-price .p{font-family:var(--disp);font-size:20px;font-weight:600}
+.mk-price .p small{font-size:12px;color:var(--muted);font-weight:500}
+
+/* events */
+.ev{display:flex;gap:15px;padding:15px 16px;border:1px solid var(--line);border-radius:var(--r);background:var(--card);transition:.15s;align-items:center}
+.ev:hover{border-color:var(--brand-soft);box-shadow:var(--sh)}
+.ev .date{flex:0 0 62px;text-align:center;background:var(--brand-tint);border-radius:11px;padding:9px 6px}
+.ev .date .m{font-size:11px;font-weight:700;color:var(--brand-d);text-transform:uppercase;letter-spacing:.05em}
+.ev .date .d{font-family:var(--disp);font-size:24px;font-weight:600;color:var(--ink);line-height:1}
+.ev .info{flex:1;min-width:0}
+.ev .info h4{font-size:15px;margin-bottom:4px}
+.ev .info .meta{font-size:12.5px;color:var(--muted);display:flex;gap:14px;flex-wrap:wrap}
+.ev .info .meta span{display:inline-flex;align-items:center;gap:5px}
+.ev .info .meta svg{width:13px;height:13px}
+.stack{display:flex}
+.stack .mini-av{border:2px solid #fff;margin-left:-8px}
+.stack .mini-av:first-child{margin-left:0}
+.ev-live{background:var(--danger);color:#fff}
+
+/* modal */
+.modal-bg{position:fixed;inset:0;background:rgba(36,30,23,.42);backdrop-filter:blur(3px);z-index:70;display:none;align-items:center;justify-content:center;padding:20px;animation:fade .2s}
+.modal-bg.show{display:flex}
+.modal{background:var(--paper);border-radius:18px;box-shadow:var(--sh-lg);width:100%;max-width:520px;overflow:hidden;animation:pop .25s cubic-bezier(.2,.9,.3,1.2)}
+@keyframes pop{from{transform:scale(.94) translateY(10px);opacity:0}to{transform:none;opacity:1}}
+.modal-h{padding:18px 22px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
+.modal-h h3{font-size:18px}
+.modal-b{padding:20px 22px;max-height:64vh;overflow-y:auto}
+.modal-f{padding:15px 22px;border-top:1px solid var(--line);display:flex;justify-content:flex-end;gap:10px;background:var(--card2)}
+.seg{display:flex;gap:6px;flex-wrap:wrap}
+.seg button{padding:8px 13px;border-radius:9px;border:1px solid var(--line);background:var(--card);font-weight:600;font-size:12.5px;color:var(--muted)}
+.seg button.on{background:var(--brand-tint);border-color:var(--brand);color:var(--brand-d)}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:12px 20px;border-radius:12px;font-size:13.5px;font-weight:500;box-shadow:var(--sh-lg);z-index:90;opacity:0;transition:.3s;display:flex;align-items:center;gap:9px}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.toast svg{width:17px;height:17px;color:#E8894F}
+
+.callout{display:flex;gap:12px;padding:14px 16px;border-radius:12px;background:var(--brand-tint);border:1px solid var(--brand-soft)}
+.callout .ic{flex:0 0 34px;height:34px;border-radius:9px;background:#fff;display:flex;align-items:center;justify-content:center;color:var(--brand-d)}
+.callout .ic svg{width:18px;height:18px}
+.callout b{font-size:13.5px}
+.callout p{font-size:12.5px;color:var(--muted);margin-top:2px}
+.patent-tag{font-size:10.5px;font-weight:700;color:var(--brand-d);background:#fff;border:1px solid var(--brand-soft);border-radius:100px;padding:2px 9px;display:inline-flex;align-items:center;gap:5px}
+
+.list-row{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--line2)}
+.list-row:last-child{border-bottom:none}
+.dotb{width:8px;height:8px;border-radius:50%;flex:0 0 8px}
+.muted{color:var(--muted)} .fw6{font-weight:600} .small{font-size:12px}
+.sectitle{font-family:var(--disp);font-size:19px;margin:26px 0 14px}
+.hr{height:1px;background:var(--line);margin:0}
+
+@media(max-width:1080px){ .g4{grid-template-columns:repeat(2,1fr)} .grade-wrap{grid-template-columns:1fr} .g3{grid-template-columns:1fr 1fr} }
+@media(max-width:820px){
+  #login{grid-template-columns:1fr} #login .lhero{display:none}
+  #app.show{grid-template-columns:1fr;grid-template-rows:56px 1fr;grid-template-areas:"top" "main"}
+  .sidebar{position:fixed;left:0;top:0;bottom:0;width:250px;z-index:50;transform:translateX(-102%);transition:.25s;box-shadow:var(--sh-lg)}
+  .sidebar.open{transform:none}
+  .menu-btn{display:flex !important}
+  .search{display:none}
+  .g4,.g3,.g2{grid-template-columns:1fr}
+  .main{padding:18px 16px 50px}
+}
+.menu-btn{display:none}
+.patent-tag svg{width:13px;height:13px}
+.src-chip svg{width:13px;height:13px;flex:0 0 13px}
+.badge svg{width:13px;height:13px}
+.stat .delta svg{width:14px;height:14px}
+.stat .delta{line-height:1.3;white-space:nowrap}
+.ev .date .d svg{width:22px;height:22px}
+.ev .info .meta svg,.callout .ic svg{flex:none}
+.crit .cite svg{flex:0 0 13px}
+</style>
+</head>
+<body>
+
+<!-- ===================== LOGIN ===================== -->
+<div id="login">
+  <div class="lhero">
+    <div class="grid-bg"></div><div class="glow"></div>
+    <div class="lbrand"><div class="lmark"><span>JE</span></div><b>Juris<i>&amp;</i>Edu <span style="font-weight:400;font-size:14px;color:#B8AA97">Intelligence</span></b></div>
+    <div class="pitch">
+      <h2 data-en="The trustworthy AI workspace for <em>educators.</em>" data-zh="面向<em>教育者</em>的可信 AI 工作台。">The trustworthy AI workspace for <em>educators.</em></h2>
+      <p data-en="Grading, tutoring, diagnosis, a tutor marketplace and live events — one governable system that cites its sources and keeps teachers in control." data-zh="评分、辅导、诊断、师资撮合与线上活动——同一套可监管系统，逐点给出处，始终由教师掌控。">Grading, tutoring, diagnosis, a tutor marketplace and live events — one governable system that cites its sources and keeps teachers in control.</p>
+    </div>
+    <div class="lfeats">
+      <span class="lchip" data-en="Cited by default" data-zh="逐点给出处">Cited by default</span>
+      <span class="lchip" data-en="In-corpus only" data-zh="只在批准知识内">In-corpus only</span>
+      <span class="lchip" data-en="Teacher-led" data-zh="教师主导">Teacher-led</span>
+      <span class="lchip" data-en="PDPA · data in Singapore" data-zh="PDPA · 数据驻留新加坡">PDPA · data in Singapore</span>
+    </div>
+  </div>
+  <div class="lform-wrap">
+    <div class="lang-mini" style="position:fixed">
+      <button data-lang="en" class="on">EN</button><button data-lang="zh">中</button>
+    </div>
+    <div class="lform">
+      <div class="eyebrow" data-en="Educator Platform" data-zh="教育者平台">Educator Platform</div>
+      <h1 data-en="Welcome back" data-zh="欢迎回来">Welcome back</h1>
+      <p class="sub" data-en="Sign in to your institution workspace." data-zh="登录你的机构工作台。">Sign in to your institution workspace.</p>
+      <div class="field"><label data-en="Work email" data-zh="工作邮箱">Work email</label><input type="email" value="mei.tan@rafflesacademy.edu.sg"></div>
+      <div class="field"><label data-en="Password" data-zh="密码">Password</label><input type="password" value="••••••••••••"></div>
+      <div class="row"><span><input type="checkbox" checked style="vertical-align:-1px"> <span data-en="Remember me" data-zh="记住我">Remember me</span></span><a data-en="Forgot password?" data-zh="忘记密码？">Forgot password?</a></div>
+      <button class="btn-lg" onclick="enterApp()" data-en="Sign in" data-zh="登录">Sign in</button>
+      <button class="sso" onclick="enterApp()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span data-en="Continue with SSO" data-zh="使用 SSO 继续">Continue with SSO</span></button>
+      <p class="fine" data-en="Demo environment · sample data only. No student records are real." data-zh="演示环境 · 仅示例数据，学生记录均非真实。">Demo environment · sample data only. No student records are real.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== APP ===================== -->
+<div id="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="sb-brand"><div class="lmark"><span>JE</span></div><div class="t"><b>Juris<i>&amp;</i>Edu</b><small data-en="Intelligence" data-zh="人工智能">Intelligence</small></div></div>
+
+    <div class="sb-sec" data-en="Teach" data-zh="教学">Teach</div>
+    <nav class="nav">
+      <a data-mod="dashboard" class="on" onclick="go('dashboard')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span data-en="Dashboard" data-zh="总览">Dashboard</span></a>
+      <a data-mod="grading" onclick="go('grading')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h2a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg><span data-en="AI Grading" data-zh="AI 评分">AI Grading</span><span class="badge-n">18</span></a>
+      <a data-mod="learn" onclick="go('learn')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span data-en="Learn · Tutoring" data-zh="Learn 辅导">Learn · Tutoring</span></a>
+      <a data-mod="pinpoint" onclick="go('pinpoint')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4"/></svg><span data-en="Pinpoint · Diagnosis" data-zh="知点诊断">Pinpoint · Diagnosis</span></a>
+    </nav>
+
+    <div class="sb-sec" data-en="Grow" data-zh="增长">Grow</div>
+    <nav class="nav">
+      <a data-mod="market" onclick="go('market')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 9 1.3-5h14.4L20.5 9"/><path d="M5 9v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9"/><path d="M3.5 9h17"/><path d="M9.5 20v-5.5h5V20"/></svg><span data-en="Marketplace" data-zh="撮合市场">Marketplace</span></a>
+      <a data-mod="events" onclick="go('events')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="17" rx="2"/><path d="M8 2.5v4M16 2.5v4M3 10h18"/></svg><span data-en="Live Events" data-zh="线上活动">Live Events</span><span class="badge-n" style="background:var(--danger)">2</span></a>
+    </nav>
+
+    <div class="sb-foot">
+      <div class="sb-card">
+        <div class="lab" data-en="Hours saved · term" data-zh="本学期已省工时">Hours saved · term</div>
+        <div class="val">142<span style="font-size:13px;color:#B8AA97"> hrs</span></div>
+        <div class="pbar"><i></i></div>
+        <small data-en="68% of your grading is AI-assisted" data-zh="你 68% 的批改由 AI 辅助">68% of your grading is AI-assisted</small>
+        <button class="sb-up" onclick="go('grading')" data-en="Grade next batch" data-zh="批改下一批">Grade next batch</button>
+      </div>
+    </div>
+  </aside>
+
+  <header class="topbar">
+    <button class="icon-btn menu-btn" onclick="document.getElementById('sidebar').classList.toggle('open')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+    <div class="tb-crumb"><b data-en="Raffles Academy" data-zh="莱佛士书院">Raffles Academy</b> <span id="crumb" data-en="· Dashboard" data-zh="· 总览">· Dashboard</span></div>
+    <div class="search"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><input placeholder="Search students, assignments, tutors…" data-en-ph="Search students, assignments, tutors…" data-zh-ph="搜索学生、作业、师资…"></div>
+    <div class="tb-right">
+      <div class="lang-tog"><button data-lang="en" class="on">EN</button><button data-lang="zh">中</button></div>
+      <button class="icon-btn"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg><span class="dot"></span></button>
+      <button class="icon-btn"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.2 9a3 3 0 0 1 5.6 1c0 2-3 2.5-3 4"/><path d="M12 17h.01"/></svg></button>
+      <div class="avatar">MT</div>
+    </div>
+  </header>
+
+  <main class="main">
+
+  <!-- ========== DASHBOARD ========== -->
+  <section class="module show" id="m-dashboard">
+    <div class="page-head">
+      <div>
+        <div class="eyebrow" data-en="Good morning, Ms. Tan" data-zh="早上好，陈老师">Good morning, Ms. Tan</div>
+        <h1 data-en="Your teaching workspace" data-zh="你的教学工作台">Your teaching workspace</h1>
+        <p class="lead" data-en="Secondary 3 English & Literature · 4 classes · 118 students. Everything the AI does here is cited, calibrated and reversible." data-zh="中三英文与文学 · 4 个班 · 118 名学生。这里 AI 做的每一步都有出处、经校准、可回退。">Secondary 3 English & Literature · 4 classes · 118 students. Everything the AI does here is cited, calibrated and reversible.</p>
+      </div>
+      <div class="ph-actions">
+        <button class="btn ghost" onclick="go('events')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="17" rx="2"/><path d="M8 2.5v4M16 2.5v4M3 10h18"/></svg><span data-en="Host an event" data-zh="举办活动">Host an event</span></button>
+        <button class="btn primary" onclick="go('grading')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.7 4.8L18.5 9l-4.8 1.2L12 15l-1.7-4.8L5.5 9l4.8-1.2z"/><path d="M19 13.5l.8 2.2 2.2.8-2.2.8L19 19.5l-.8-2.2-2.2-.8 2.2-.8z"/></svg><span data-en="Start AI grading" data-zh="开始 AI 评分">Start AI grading</span></button>
+      </div>
+    </div>
+
+    <div class="grid g4" style="margin-bottom:16px">
+      <div class="card stat">
+        <div class="top"><div class="lab" data-en="Awaiting grading" data-zh="待批改">Awaiting grading</div><div class="ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h2a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg></div></div>
+        <div class="num">18</div><div class="delta up"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg><span data-en="AI drafted 15 of 18" data-zh="AI 已起草 15/18">AI drafted 15 of 18</span></div>
+      </div>
+      <div class="card stat">
+        <div class="top"><div class="lab" data-en="Class mastery" data-zh="班级掌握度">Class mastery</div><div class="ico g"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4"/></svg></div></div>
+        <div class="num">73<small>%</small></div><div class="delta up"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg><span data-en="+6 pts vs last month" data-zh="较上月 +6 分">+6 pts vs last month</span></div>
+      </div>
+      <div class="card stat">
+        <div class="top"><div class="lab" data-en="Flagged for review" data-zh="待人工复核">Flagged for review</div><div class="ico a"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15V4h12l-2 3.5L16 11H4z"/><path d="M4 21v-6"/></svg></div></div>
+        <div class="num">7</div><div class="delta down"><span data-en="Low-confidence · abstained" data-zh="低置信 · 已存疑">Low-confidence · abstained</span></div>
+      </div>
+      <div class="card stat">
+        <div class="top"><div class="lab" data-en="Marketplace revenue" data-zh="撮合收入">Marketplace revenue</div><div class="ico i"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 9 1.3-5h14.4L20.5 9"/><path d="M5 9v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9"/><path d="M3.5 9h17"/><path d="M9.5 20v-5.5h5V20"/></svg></div></div>
+        <div class="num"><small>S$</small>2,480</div><div class="delta up"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg><span data-en="12% platform take" data-zh="平台抽成 12%">12% platform take</span></div>
+      </div>
+    </div>
+
+    <div class="grid" style="grid-template-columns:1.7fr 1fr;margin-bottom:16px">
+      <div class="card">
+        <div class="card-h"><h3 data-en="Class mastery trend" data-zh="班级掌握度趋势">Class mastery trend</h3><span class="badge n" data-en="Last 8 weeks" data-zh="近 8 周">Last 8 weeks</span></div>
+        <div class="pad" id="trendChart"></div>
+      </div>
+      <div class="card">
+        <div class="card-h"><h3 data-en="Grading status" data-zh="批改状态">Grading status</h3><span class="sub" data-en="This week" data-zh="本周">This week</span></div>
+        <div class="pad" style="display:flex;align-items:center;gap:18px" id="donutWrap"></div>
+      </div>
+    </div>
+
+    <div class="grid" style="grid-template-columns:1.7fr 1fr">
+      <div class="card">
+        <div class="card-h"><h3 data-en="Needs your attention" data-zh="需要你处理">Needs your attention</h3><button class="btn subtle" onclick="go('grading')" data-en="Open queue" data-zh="打开队列">Open queue</button></div>
+        <div style="padding:6px 18px 12px">
+          <div class="list-row"><span class="dotb" style="background:var(--warn)"></span><div style="flex:1"><div class="fw6" data-en="7 essays abstained — confidence below your 85% bar" data-zh="7 篇作文已存疑——置信度低于你设定的 85% 阈值">7 essays abstained — confidence below your 85% bar</div><div class="small muted" data-en="Argumentative essay · 3B · AI deferred to you" data-zh="议论文 · 3B 班 · AI 已转交你">Argumentative essay · 3B · AI deferred to you</div></div><button class="btn ghost" onclick="go('grading')" data-en="Review" data-zh="复核">Review</button></div>
+          <div class="list-row"><span class="dotb" style="background:var(--danger)"></span><div style="flex:1"><div class="fw6" data-en="Rui Feng — mastery dropped in ‘thesis & evidence’" data-zh="睿峰——「论点与论据」掌握度下滑">Rui Feng — mastery dropped in ‘thesis & evidence’</div><div class="small muted" data-en="Pinpoint suggests a 3-step remediation path" data-zh="知点已给出 3 步强化路径">Pinpoint suggests a 3-step remediation path</div></div><button class="btn ghost" onclick="go('pinpoint')" data-en="View" data-zh="查看">View</button></div>
+          <div class="list-row"><span class="dotb" style="background:var(--info)"></span><div style="flex:1"><div class="fw6" data-en="14 parents requested 1:1 tutor matches" data-zh="14 位家长申请 1 对 1 师资撮合">14 parents requested 1:1 tutor matches</div><div class="small muted" data-en="Marketplace · auto-matched by subject & availability" data-zh="撮合市场 · 已按科目与时段自动匹配">Marketplace · auto-matched by subject & availability</div></div><button class="btn ghost" onclick="go('market')" data-en="Match" data-zh="撮合">Match</button></div>
+          <div class="list-row"><span class="dotb" style="background:var(--brand)"></span><div style="flex:1"><div class="fw6" data-en="‘Exam Skills’ live workshop starts in 2 days" data-zh="「应试技巧」线上工作坊 2 天后开始">‘Exam Skills’ live workshop starts in 2 days</div><div class="small muted" data-en="86 registered · 40 seats left" data-zh="已报名 86 人 · 余 40 席">86 registered · 40 seats left</div></div><button class="btn ghost" onclick="go('events')" data-en="Manage" data-zh="管理">Manage</button></div>
+        </div>
+      </div>
+      <div class="card pad">
+        <h3 style="font-size:16px;margin-bottom:4px" data-en="The trust layer" data-zh="可信底座">The trust layer</h3>
+        <p class="small muted" data-en="Why schools can actually deploy this." data-zh="学校为何真的敢用。">Why schools can actually deploy this.</p>
+        <div style="margin-top:14px;display:flex;flex-direction:column;gap:11px">
+          <div class="list-row" style="padding:0"><div class="ico" style="width:30px;height:30px;border-radius:8px;background:var(--good-soft);color:var(--good);display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="m9 14 2 2 4-4"/></svg></div><div style="flex:1"><div class="fw6 small" data-en="Cited by default" data-zh="逐点给出处">Cited by default</div><div class="small muted" data-en="Every score links to rubric evidence" data-zh="每个分数都链回评分依据">Every score links to rubric evidence</div></div></div>
+          <div class="list-row" style="padding:0"><div class="ico" style="width:30px;height:30px;border-radius:8px;background:var(--warn-soft);color:var(--warn);display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15V4h12l-2 3.5L16 11H4z"/><path d="M4 21v-6"/></svg></div><div style="flex:1"><div class="fw6 small" data-en="Abstains when unsure" data-zh="不确定就存疑">Abstains when unsure</div><div class="small muted" data-en="Calibrated to your agreement" data-zh="按你的一致性校准">Calibrated to your agreement</div></div></div>
+          <div class="list-row" style="padding:0"><div class="ico" style="width:30px;height:30px;border-radius:8px;background:var(--info-soft);color:var(--info);display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg></div><div style="flex:1"><div class="fw6 small" data-en="PDPA · data in Singapore" data-zh="PDPA · 数据驻留新加坡">PDPA · data in Singapore</div><div class="small muted" data-en="Raw PII never touches the model" data-zh="原始 PII 不触模型">Raw PII never touches the model</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- modules injected below -->
+  
+  <!-- ========== GRADING ========== -->
+  <section class="module" id="m-grading">
+    <div class="page-head">
+      <div>
+        <span class="patent-tag"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg> <span data-en="Patent 1 · Rubric-anchored grading" data-zh="专利一 · 标尺锚定评分">Patent 1 · Rubric-anchored grading</span></span>
+        <h1 style="margin-top:9px" data-en="AI Grading, with calibrated abstention" data-zh="AI 智能评分 · 会存疑的评分">AI Grading, with calibrated abstention</h1>
+        <p class="lead" data-en="The engine grades each rubric criterion against evidence it can cite. When its confidence falls below your bar, it abstains and hands the essay to you — never a blind score." data-zh="引擎按每条评分标准、对照可引用的证据打分。一旦置信度低于你的阈值，它就存疑并把作文转交给你——绝不盲目给分。">The engine grades each rubric criterion against evidence it can cite. When confidence falls below your bar, it abstains and hands the essay to you — never a blind score.</p>
+      </div>
+      <div class="ph-actions">
+        <button class="btn ghost"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg><span data-en="Rubric & threshold" data-zh="标准与阈值">Rubric & threshold</span></button>
+        <button class="btn primary" onclick="nextStudent()"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span data-en="Approve & next" data-zh="通过并下一份">Approve & next</span></button>
+      </div>
+    </div>
+
+    <div class="grid g4" style="margin-bottom:18px">
+      <div class="card stat"><div class="top"><div class="lab" data-en="In this batch" data-zh="本批作业">In this batch</div><div class="ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h2a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg></div></div><div class="num">18</div><div class="delta" style="color:var(--muted)"><span data-en="Argumentative essay · 3B" data-zh="议论文 · 3B 班">Argumentative essay · 3B</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="AI graded" data-zh="AI 已评">AI graded</div><div class="ico g"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.7 4.8L18.5 9l-4.8 1.2L12 15l-1.7-4.8L5.5 9l4.8-1.2z"/><path d="M19 13.5l.8 2.2 2.2.8-2.2.8L19 19.5l-.8-2.2-2.2-.8 2.2-.8z"/></svg></div></div><div class="num">11</div><div class="delta up"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg><span data-en="Confidence ≥ 85%" data-zh="置信度 ≥ 85%">Confidence ≥ 85%</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Abstained · for you" data-zh="存疑 · 待你处理">Abstained · for you</div><div class="ico a"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15V4h12l-2 3.5L16 11H4z"/><path d="M4 21v-6"/></svg></div></div><div class="num">7</div><div class="delta" style="color:var(--warn)"><span data-en="Below your bar" data-zh="低于你的阈值">Below your bar</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Time saved" data-zh="节省工时">Time saved</div><div class="ico i"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div></div><div class="num">3.2<small> hrs</small></div><div class="delta up"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg><span data-en="vs manual grading" data-zh="相比人工批改">vs manual grading</span></div></div>
+    </div>
+
+    <div class="grade-wrap">
+      <div class="card">
+        <div class="card-h">
+          <div><h3 data-en="Wei Lin · Essay #12" data-zh="伟霖 · 作文 #12">Wei Lin · Essay #12</h3><span class="sub" data-en="“Should social media be regulated?”" data-zh="「社交媒体是否应被监管？」">“Should social media be regulated?”</span></div>
+          <span class="badge g"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.7 4.8L18.5 9l-4.8 1.2L12 15l-1.7-4.8L5.5 9l4.8-1.2z"/><path d="M19 13.5l.8 2.2 2.2.8-2.2.8L19 19.5l-.8-2.2-2.2-.8 2.2-.8z"/></svg><span data-en="AI graded · 91% conf." data-zh="AI 已评 · 置信 91%">AI graded · 91% conf.</span></span>
+        </div>
+        <div class="pad">
+          <div class="paper" style="margin-bottom:16px">
+            <div class="q" data-en="Student response (excerpt)" data-zh="学生作答（节选）">Student response (excerpt)</div>
+            <div class="ans" data-en="Social media platforms should face targeted regulation. <span class='hl'>Firstly, unchecked algorithms amplify misinformation, as seen during recent elections where false claims spread six times faster than facts.</span> This directly harms public discourse. <span class='hl'>Secondly, data-privacy breaches expose minors to exploitation</span>, which schools witness regularly. <span class='hl a'>However, some argue regulation stifles innovation and the economy will collapse without free platforms.</span>" data-zh="社交媒体平台应接受有针对性的监管。<span class='hl'>首先，失控的算法会放大错误信息——近期选举中虚假声明的传播速度是事实的六倍。</span>这直接损害公共讨论。<span class='hl'>其次，数据隐私泄露会使未成年人面临被利用的风险</span>，学校对此屡见不鲜。<span class='hl a'>然而，也有人认为监管扼杀创新、没有自由平台经济就会崩溃。</span>">Social media platforms should face targeted regulation. <span class='hl'>Firstly, unchecked algorithms amplify misinformation, as seen during recent elections where false claims spread six times faster than facts.</span> This directly harms public discourse. <span class='hl'>Secondly, data-privacy breaches expose minors to exploitation</span>, which schools witness regularly. <span class='hl a'>However, some argue regulation stifles innovation and the economy will collapse without free platforms.</span></div>
+          </div>
+          <div class="crit">
+            <div class="r1"><span class="cname" data-en="Thesis & position" data-zh="论点与立场">Thesis & position</span><span class="badge g"><span class="d"></span><span data-en="5 / 5" data-zh="5 / 5">5 / 5</span></span></div>
+            <div class="cite"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="m9 14 2 2 4-4"/></svg><span data-en="Evidence: clear stance in sentence 1 — matches rubric level 5 “takes and sustains a position.”" data-zh="依据：第 1 句立场明确——符合标准 5 级「提出并贯彻立场」。">Evidence: clear stance in sentence 1 — matches rubric level 5 “takes and sustains a position.”</span></div>
+            <div class="conf"><span data-en="Confidence" data-zh="置信度">Confidence</span><span class="track"><i style="width:94%;background:var(--good)"></i></span><b>94%</b></div>
+          </div>
+          <div class="crit">
+            <div class="r1"><span class="cname" data-en="Evidence & development" data-zh="论据与展开">Evidence & development</span><span class="badge g"><span class="d"></span><span data-en="4 / 5" data-zh="4 / 5">4 / 5</span></span></div>
+            <div class="cite"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="m9 14 2 2 4-4"/></svg><span data-en="Evidence: two supported reasons (highlighted). Missing a counter-rebuttal for level 5." data-zh="依据：两条有支撑的论据（高亮处）。缺少对反方的反驳，故未达 5 级。">Evidence: two supported reasons (highlighted). Missing a counter-rebuttal for level 5.</span></div>
+            <div class="conf"><span data-en="Confidence" data-zh="置信度">Confidence</span><span class="track"><i style="width:88%;background:var(--good)"></i></span><b>88%</b></div>
+          </div>
+          <div class="crit" style="border-color:var(--warn);background:var(--warn-soft)">
+            <div class="r1"><span class="cname" data-en="Counter-argument handling" data-zh="反方论证处理">Counter-argument handling</span><span class="badge a"><span class="d"></span><span data-en="Abstained" data-zh="存疑">Abstained</span></span></div>
+            <div class="cite" style="background:#fff;color:#8A5E16"><span data-en="The last sentence may be a strawman rather than a fair counter-argument. Confidence is below your 85% bar — deferred to you." data-zh="末句可能是「稻草人」而非公允的反方论证。置信度低于你 85% 的阈值——已转交你判断。">The last sentence may be a strawman rather than a fair counter-argument. Confidence below your 85% bar — deferred to you.</span></div>
+            <div class="conf"><span data-en="Confidence" data-zh="置信度">Confidence</span><span class="track"><i style="width:61%;background:var(--warn)"></i></span><b>61%</b></div>
+            <div style="display:flex;gap:8px;margin-top:11px"><button class="btn primary" style="padding:7px 12px" onclick="toast('en:Score saved · added to audit trail','zh:分数已保存 · 已记入审计链')" data-en="Score it 3 / 5" data-zh="判 3 / 5 分">Score it 3 / 5</button><button class="btn ghost" style="padding:7px 12px" data-en="Ask AI to explain" data-zh="让 AI 解释">Ask AI to explain</button></div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card pad" style="margin-bottom:16px;text-align:center">
+          <div class="small muted" data-en="Overall (provisional)" data-zh="总分（暂定）">Overall (provisional)</div>
+          <div style="font-family:var(--disp);font-size:52px;font-weight:600;line-height:1;margin:6px 0">17<span style="font-size:24px;color:var(--faint)">/20</span></div>
+          <div class="badge a" style="margin-bottom:4px"><span class="d"></span><span data-en="1 criterion awaiting you" data-zh="1 项标准待你确认">1 criterion awaiting you</span></div>
+          <div class="hr" style="margin:14px 0"></div>
+          <div style="display:flex;flex-direction:column;gap:9px">
+            <button class="btn primary" style="justify-content:center" onclick="nextStudent()" data-en="Approve & next student" data-zh="通过并下一位">Approve & next student</button>
+            <button class="btn ghost" style="justify-content:center" data-en="Adjust scores" data-zh="调整分数">Adjust scores</button>
+            <button class="btn ghost" style="justify-content:center;color:var(--danger);border-color:var(--danger-soft)" data-en="Send back to student" data-zh="退回学生">Send back to student</button>
+          </div>
+        </div>
+        <div class="card pad" style="margin-bottom:16px">
+          <div class="fw6" style="margin-bottom:10px" data-en="Feedback drafted for student" data-zh="已为学生起草的反馈">Feedback drafted for student</div>
+          <p class="small" style="line-height:1.65;color:#4A4238" data-en="“Strong, clear thesis and two well-evidenced reasons. To reach the top band, treat the opposing view fairly before rebutting it — your last point overstates it.”" data-zh="「论点鲜明，两条论据有力。若想冲刺最高档，请先公允地陈述反方观点再反驳——你最后一点有些夸大。」">“Strong, clear thesis and two well-evidenced reasons. To reach the top band, treat the opposing view fairly before rebutting it — your last point overstates it.”</p>
+          <div class="src-chip"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="m9 14 2 2 4-4"/></svg><span data-en="Grounded in rubric + 2 exemplars" data-zh="依据评分标准 + 2 篇范文">Grounded in rubric + 2 exemplars</span></div>
+        </div>
+        <div class="callout">
+          <div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg></div>
+          <div><b data-en="Full audit trail" data-zh="完整审计留痕">Full audit trail</b><p data-en="Every score, citation and your edits are logged and reversible — ready for moderation and appeals." data-zh="每个分数、引用与你的修改都留痕、可回退——随时应对复核与申诉。">Every score, citation and your edits are logged and reversible — ready for moderation and appeals.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== LEARN ========== -->
+  <section class="module" id="m-learn">
+    <div class="page-head">
+      <div>
+        <span class="patent-tag"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg> <span data-en="Patent 2 · In-corpus tutoring gate" data-zh="专利二 · 句级蕴含闸门">Patent 2 · In-corpus tutoring gate</span></span>
+        <h1 style="margin-top:9px" data-en="Learn — tutoring that can’t go off-syllabus" data-zh="Learn 辅导 · 绝不超纲的个性化辅导">Learn — tutoring that can’t go off-syllabus</h1>
+        <p class="lead" data-en="Every sentence the tutor says must be entailed by material you approved. Anything outside the corpus is blocked — and each answer shows its source." data-zh="辅导说的每一句话，都必须被你批准的材料所蕴含。语料之外的内容一律拦截——每个回答都亮出出处。">Every sentence the tutor says must be entailed by material you approved. Anything outside the corpus is blocked — and each answer shows its source.</p>
+      </div>
+      <div class="ph-actions"><button class="btn ghost"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span data-en="Approved corpus (14)" data-zh="批准语料（14）">Approved corpus (14)</span></button></div>
+    </div>
+    <div class="grid" style="grid-template-columns:1fr 320px">
+      <div class="card" style="display:flex;flex-direction:column">
+        <div class="card-h"><div style="display:flex;align-items:center;gap:10px"><div class="mini-av" style="background:var(--slate)">RF</div><div><h3 style="font-size:15px" data-en="Rui Feng · Sec 3B" data-zh="睿峰 · 中三 B 班">Rui Feng · Sec 3B</h3><span class="sub" data-en="Topic: Persuasive writing" data-zh="主题：说服性写作">Topic: Persuasive writing</span></div></div><span class="badge g"><span class="d"></span><span data-en="Live · in corpus" data-zh="进行中 · 语料内">Live · in corpus</span></span></div>
+        <div class="chat">
+          <div class="msg stu"><div class="av">RF</div><div class="b" data-en="I don’t get how to start my argument essay. Can you just write the intro for me?" data-zh="我不知道议论文怎么开头，你能直接帮我写引言吗？">I don’t get how to start my argument essay. Can you just write the intro for me?</div></div>
+          <div class="msg ai"><div class="av">JE</div><div><div class="b" data-en="I won’t write it for you — but I’ll coach you. A strong intro does three jobs: hook, context, and a clear thesis. Your class exemplar opens with a surprising statistic. What statistic from our unit could hook a reader on your topic?" data-zh="我不会替你写——但我来带你。好的引言做三件事：抓住注意、交代背景、给出明确论点。班级范文用了一个出人意料的数据开头。我们单元里哪个数据能吸引读者？">I won’t write it for you — but I’ll coach you. A strong intro does three jobs: hook, context, and a clear thesis. Your class exemplar opens with a surprising statistic. What statistic from our unit could hook a reader?</div><div><span class="src-chip"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="m9 14 2 2 4-4"/></svg><span data-en="Exemplar A, ¶1" data-zh="范文 A · 第 1 段">Exemplar A, ¶1</span></span><span class="src-chip"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="m9 14 2 2 4-4"/></svg><span data-en="Unit notes: ‘Hooks’" data-zh="单元讲义：「开头」">Unit notes: ‘Hooks’</span></span></div></div></div>
+          <div class="msg stu"><div class="av">RF</div><div class="b" data-en="What did Napoleon say about social media though?" data-zh="那拿破仑关于社交媒体说过什么？">What did Napoleon say about social media though?</div></div>
+          <div class="msg ai"><div class="av">JE</div><div><div class="block-note"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15V4h12l-2 3.5L16 11H4z"/><path d="M4 21v-6"/></svg><span data-en="Blocked — outside the approved corpus. That isn’t in this unit’s materials, and I won’t invent a quote. Want to go back to your hook?" data-zh="已拦截——超出批准语料。本单元材料中没有这一内容，我不会杜撰引用。要不要回到你的开头？">Blocked — outside the approved corpus. That isn’t in this unit’s materials, and I won’t invent a quote. Want to return to your hook?</span></div></div></div>
+        </div>
+        <div style="padding:12px 16px;border-top:1px solid var(--line2);display:flex;gap:10px;align-items:center;color:var(--faint)"><div class="search" style="flex:1;max-width:none"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/></svg><input placeholder="Coach the student…" data-en-ph="Coach the student…" data-zh-ph="引导学生…"></div><button class="btn primary" style="padding:9px 13px" data-en="Send" data-zh="发送">Send</button></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div class="card pad">
+          <div class="fw6" style="margin-bottom:4px" data-en="Coverage score" data-zh="覆盖分">Coverage score</div>
+          <p class="small muted" data-en="How much of this session was grounded in approved sources." data-zh="本次辅导有多少内容有批准来源支撑。">How much of this session was grounded in approved sources.</p>
+          <div style="display:flex;align-items:baseline;gap:8px;margin:10px 0"><span style="font-family:var(--disp);font-size:36px;font-weight:600;color:var(--good)">100%</span><span class="badge g"><span class="d"></span><span data-en="0 hallucinations" data-zh="0 处幻觉">0 hallucinations</span></span></div>
+          <div class="pbar"><i class="g" style="width:100%"></i></div>
+        </div>
+        <div class="card pad">
+          <div class="fw6" style="margin-bottom:10px" data-en="Mastery this week" data-zh="本周掌握度">Mastery this week</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div><div style="display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:5px"><span data-en="Thesis statements" data-zh="论点表述">Thesis statements</span><b>82%</b></div><div class="pbar"><i class="g" style="width:82%"></i></div></div>
+            <div><div style="display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:5px"><span data-en="Evidence use" data-zh="论据运用">Evidence use</span><b>68%</b></div><div class="pbar"><i style="width:68%"></i></div></div>
+            <div><div style="display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:5px"><span data-en="Counter-arguments" data-zh="反方论证">Counter-arguments</span><b style="color:var(--warn)">41%</b></div><div class="pbar"><i class="a" style="width:41%"></i></div></div>
+          </div>
+          <button class="btn subtle" style="width:100%;justify-content:center;margin-top:14px" onclick="go('pinpoint')" data-en="Diagnose the weak area" data-zh="诊断薄弱环节">Diagnose the weak area</button>
+        </div>
+        <div class="callout"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><div><b data-en="Teacher controls the boundary" data-zh="边界由教师掌控">Teacher controls the boundary</b><p data-en="You decide which textbooks, notes and exemplars the tutor may use." data-zh="由你决定辅导可使用哪些课本、讲义与范文。">You decide which textbooks, notes and exemplars the tutor may use.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PINPOINT ========== -->
+  <section class="module" id="m-pinpoint">
+    <div class="page-head">
+      <div>
+        <span class="patent-tag"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg> <span data-en="Patent 4 · Knowledge-point diagnosis" data-zh="专利四 · 知识点级诊断">Patent 4 · Knowledge-point diagnosis</span></span>
+        <h1 style="margin-top:9px" data-en="Pinpoint — one wrong answer, the exact gap" data-zh="知点 · 一道错题，精准定位断点">Pinpoint — one wrong answer, the exact gap</h1>
+        <p class="lead" data-en="Snap a single wrong question. Pinpoint maps the error to the curriculum knowledge graph, tells you which point is weak, and builds a remediation path — even from one item." data-zh="拍下一道错题。知点把错误映射到课纲知识图谱，指出薄弱知识点，并生成强化路径——哪怕只有一题。">Snap a single wrong question. Pinpoint maps the error to the curriculum knowledge graph, names the weak point, and builds a remediation path — even from one item.</p>
+      </div>
+      <div class="ph-actions"><button class="btn primary" onclick="toast('en:Sample question loaded','zh:已载入示例题目')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/><path d="M4 12h16"/></svg><span data-en="Scan a question" data-zh="扫描题目">Scan a question</span></button></div>
+    </div>
+    <div class="grid" style="grid-template-columns:340px 1fr">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div class="card pad">
+          <div class="fw6" style="margin-bottom:10px" data-en="Scanned item · Rui Feng" data-zh="已扫描题目 · 睿峰">Scanned item · Rui Feng</div>
+          <div class="paper" style="padding:14px">
+            <div class="q" data-en="Q7 · Reading comprehension" data-zh="第 7 题 · 阅读理解">Q7 · Reading comprehension</div>
+            <div class="ans small" data-en="“The author’s tone is best described as…” — student chose <b>‘neutral’</b>; correct answer <b>‘critical’</b>." data-zh="「作者的语气最适合形容为……」——学生选了<b>「中性」</b>；正确答案为<b>「批判性」</b>。">“The author’s tone is best described as…” — student chose <b>‘neutral’</b>; correct answer <b>‘critical’</b>.</div>
+          </div>
+          <div style="margin-top:14px" class="callout"><div class="ic" style="background:var(--danger-soft);color:var(--danger)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4"/></svg></div><div><b class="small" data-en="Root cause, not just ‘wrong’" data-zh="根因，而非只判「错」">Root cause, not just ‘wrong’</b><p data-en="Confused tone with subject matter — a known misconception node." data-zh="把「语气」与「主题」混淆——一个已知的错误概念节点。">Confused tone with subject matter — a known misconception node.</p></div></div>
+          <div class="conf" style="margin-top:14px"><span data-en="Diagnosis confidence" data-zh="诊断置信度">Diagnosis confidence</span><span class="track"><i style="width:92%;background:var(--good)"></i></span><b>92%</b></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-h"><h3 data-en="Curriculum knowledge graph" data-zh="课纲知识图谱">Curriculum knowledge graph</h3><span class="badge n" data-en="Sec 3 · Comprehension" data-zh="中三 · 阅读理解">Sec 3 · Comprehension</span></div>
+        <div class="pad">
+          <div class="kg">
+            <div class="node hub" style="left:50%;top:48%" data-en="Author’s craft" data-zh="作者手法">Author’s craft</div>
+            <div class="node weak" style="left:24%;top:26%" data-en="Tone & attitude" data-zh="语气与态度">Tone & attitude</div>
+            <div class="node mid" style="left:78%;top:24%" data-en="Word choice" data-zh="用词">Word choice</div>
+            <div class="node ok" style="left:80%;top:70%" data-en="Main idea" data-zh="主旨">Main idea</div>
+            <div class="node ok" style="left:20%;top:74%" data-en="Inference" data-zh="推断">Inference</div>
+            <div class="node n" style="left:50%;top:88%" data-en="Structure" data-zh="结构">Structure</div>
+            <svg style="position:absolute;inset:0;width:100%;height:100%;z-index:1" preserveAspectRatio="none"><line x1="50%" y1="48%" x2="24%" y2="26%" stroke="#C15A2E" stroke-width="2.5" stroke-dasharray="5 4"/><line x1="50%" y1="48%" x2="78%" y2="24%" stroke="#D9C4A6" stroke-width="2"/><line x1="50%" y1="48%" x2="80%" y2="70%" stroke="#D9C4A6" stroke-width="2"/><line x1="50%" y1="48%" x2="20%" y2="74%" stroke="#D9C4A6" stroke-width="2"/><line x1="50%" y1="48%" x2="50%" y2="88%" stroke="#E3D6BF" stroke-width="2"/></svg>
+          </div>
+          <div style="display:flex;gap:16px;margin-top:12px;flex-wrap:wrap;font-size:12px" class="muted">
+            <span style="display:inline-flex;align-items:center;gap:6px"><span class="dotb" style="background:var(--danger)"></span><span data-en="Weak — priority" data-zh="薄弱 · 优先">Weak — priority</span></span>
+            <span style="display:inline-flex;align-items:center;gap:6px"><span class="dotb" style="background:var(--warn)"></span><span data-en="Developing" data-zh="发展中">Developing</span></span>
+            <span style="display:inline-flex;align-items:center;gap:6px"><span class="dotb" style="background:var(--good)"></span><span data-en="Mastered" data-zh="已掌握">Mastered</span></span>
+          </div>
+          <div class="hr" style="margin:16px 0"></div>
+          <div class="fw6" style="margin-bottom:12px;display:flex;align-items:center;gap:8px"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="2.5"/><circle cx="18" cy="5" r="2.5"/><path d="M8.5 19H16a3 3 0 0 0 0-6H8a3 3 0 0 1 0-6h1.5"/></svg><span data-en="Remediation path" data-zh="强化路径">Remediation path</span></div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div class="list-row" style="padding:0"><div class="mini-av" style="background:var(--brand)">1</div><div style="flex:1"><div class="fw6 small" data-en="3-min explainer: tone vs. topic" data-zh="3 分钟讲解：语气 vs. 主题">3-min explainer: tone vs. topic</div><div class="small muted" data-en="From approved corpus · in-corpus tutor" data-zh="来自批准语料 · 语料内辅导">From approved corpus · in-corpus tutor</div></div><span class="badge b" data-en="Learn" data-zh="辅导">Learn</span></div>
+            <div class="list-row" style="padding:0"><div class="mini-av" style="background:var(--brand)">2</div><div style="flex:1"><div class="fw6 small" data-en="4 targeted practice items" data-zh="4 道针对性练习">4 targeted practice items</div><div class="small muted" data-en="Adaptive · spaced by forgetting curve" data-zh="自适应 · 按遗忘曲线间隔">Adaptive · spaced by forgetting curve</div></div><span class="badge b" data-en="Practice" data-zh="练习">Practice</span></div>
+            <div class="list-row" style="padding:0"><div class="mini-av" style="background:var(--brand)">3</div><div style="flex:1"><div class="fw6 small" data-en="Re-check in 3 days" data-zh="3 天后复检">Re-check in 3 days</div><div class="small muted" data-en="Auto-scheduled · teacher notified" data-zh="自动安排 · 通知教师">Auto-scheduled · teacher notified</div></div><span class="badge n" data-en="Follow-up" data-zh="跟进">Follow-up</span></div>
+          </div>
+          <button class="btn primary" style="width:100%;justify-content:center;margin-top:16px" onclick="toast('en:Path assigned to Rui Feng','zh:已将路径指派给睿峰')" data-en="Assign path to student" data-zh="将路径指派给学生">Assign path to student</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== MARKETPLACE ========== -->
+  <section class="module" id="m-market">
+    <div class="page-head">
+      <div>
+        <div class="eyebrow" data-en="Grow · Marketplace" data-zh="增长 · 撮合市场">Grow · Marketplace</div>
+        <h1 data-en="Tutor & resource marketplace" data-zh="师资与资源撮合市场">Tutor & resource marketplace</h1>
+        <p class="lead" data-en="Match families to vetted tutors and premium resources. The platform auto-matches by subject, level and availability — and earns a transparent take-rate on every booking." data-zh="把家庭与经审核的师资、优质资源精准撮合。平台按科目、年级与时段自动匹配——每笔成交收取透明的平台抽成。">Match families to vetted tutors and premium resources. The platform auto-matches by subject, level and availability — and earns a transparent take-rate on every booking.</p>
+      </div>
+      <div class="ph-actions"><button class="btn ghost"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18l-7 8v6l-4 2v-8z"/></svg><span data-en="Filters" data-zh="筛选">Filters</span></button><button class="btn primary" onclick="toast('en:14 requests auto-matched','zh:已自动撮合 14 条请求')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z"/></svg><span data-en="Auto-match 14 requests" data-zh="自动撮合 14 条请求">Auto-match 14 requests</span></button></div>
+    </div>
+
+    <div class="grid g4" style="margin-bottom:20px">
+      <div class="card stat"><div class="top"><div class="lab" data-en="GMV · this month" data-zh="本月成交额">GMV · this month</div><div class="ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="5.5"/><path d="M18.1 6.6a5.5 5.5 0 0 1 0 10.8M8 21a5.5 5.5 0 0 0 5.4-6.6"/></svg></div></div><div class="num"><small>S$</small>20.6k</div><div class="delta up"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg><span data-en="+22% MoM" data-zh="环比 +22%">+22% MoM</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Platform take (12%)" data-zh="平台抽成（12%）">Platform take (12%)</div><div class="ico g"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 9 1.3-5h14.4L20.5 9"/><path d="M5 9v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9"/><path d="M3.5 9h17"/><path d="M9.5 20v-5.5h5V20"/></svg></div></div><div class="num"><small>S$</small>2,480</div><div class="delta up"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg><span data-en="Blended margin 84%" data-zh="综合毛利 84%">Blended margin 84%</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Active tutors" data-zh="活跃师资">Active tutors</div><div class="ico i"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13A4 4 0 0 1 16 11"/></svg></div></div><div class="num">64</div><div class="delta up"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg><span data-en="Avg rating 4.8" data-zh="平均评分 4.8">Avg rating 4.8</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Match rate" data-zh="撮合成功率">Match rate</div><div class="ico a"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z"/></svg></div></div><div class="num">91<small>%</small></div><div class="delta up"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg><span data-en="&lt; 2 min median" data-zh="中位 &lt; 2 分钟">&lt; 2 min median</span></div></div>
+    </div>
+
+    <div class="grid" style="grid-template-columns:1fr 330px">
+      <div>
+        <div class="tabs"><button class="on" data-en="Tutors" data-zh="师资">Tutors</button><button data-en="Resource packs" data-zh="资源包">Resource packs</button><button data-en="Group classes" data-zh="小组课">Group classes</button></div>
+        <div class="grid g3">
+          <div class="card mk-card"><div class="cover"><div class="av-lg" style="background:linear-gradient(145deg,#5B8A72,#3E6B54)">AL</div></div><div class="mk-body"><div style="display:flex;justify-content:space-between;align-items:start"><div><div class="fw6">Adeline Lim</div><div class="small muted" data-en="English & Literature · ex-MOE" data-zh="英文与文学 · 前教育部教师">English & Literature · ex-MOE</div></div><span class="badge g" data-en="Verified" data-zh="已认证">Verified</span></div><div class="mk-meta"><span class="stars"><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" stroke="none"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.2l1-5.8L3.5 9.2l5.9-.9z"/></svg><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" stroke="none"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.2l1-5.8L3.5 9.2l5.9-.9z"/></svg><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" stroke="none"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.2l1-5.8L3.5 9.2l5.9-.9z"/></svg><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" stroke="none"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.2l1-5.8L3.5 9.2l5.9-.9z"/></svg><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" stroke="none"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.2l1-5.8L3.5 9.2l5.9-.9z"/></svg></span> 4.9 · <span data-en="212 sessions" data-zh="212 次课">212 sessions</span></div><div class="mk-price"><div class="p">S$68<small>/hr</small></div><button class="btn subtle" style="padding:7px 12px" onclick="toast('en:Booked · S$8.16 platform take','zh:已预约 · 平台抽成 S$8.16')" data-en="Match" data-zh="撮合">Match</button></div></div></div>
+          <div class="card mk-card"><div class="cover v2"><div class="av-lg" style="background:linear-gradient(145deg,#C15A2E,#A2481F)">JW</div></div><div class="mk-body"><div style="display:flex;justify-content:space-between;align-items:start"><div><div class="fw6">Jonathan Wee</div><div class="small muted" data-en="Maths & Science · A-Level" data-zh="数理 · A-Level">Maths & Science · A-Level</div></div><span class="badge g" data-en="Verified" data-zh="已认证">Verified</span></div><div class="mk-meta"><span class="stars"><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" stroke="none"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.2l1-5.8L3.5 9.2l5.9-.9z"/></svg><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" stroke="none"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.2l1-5.8L3.5 9.2l5.9-.9z"/></svg><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" stroke="none"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.2l1-5.8L3.5 9.2l5.9-.9z"/></svg><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" stroke="none"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.2l1-5.8L3.5 9.2l5.9-.9z"/></svg><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" stroke="none"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.2l1-5.8L3.5 9.2l5.9-.9z"/></svg></span> 4.8 · <span data-en="189 sessions" data-zh="189 次课">189 sessions</span></div><div class="mk-price"><div class="p">S$75<small>/hr</small></div><button class="btn subtle" style="padding:7px 12px" onclick="toast('en:Booked · S$9.00 platform take','zh:已预约 · 平台抽成 S$9.00')" data-en="Match" data-zh="撮合">Match</button></div></div></div>
+          <div class="card mk-card"><div class="cover v3"><div class="av-lg" style="background:linear-gradient(145deg,#6E5A86,#4E3E63)">PR</div></div><div class="mk-body"><div style="display:flex;justify-content:space-between;align-items:start"><div><div class="fw6">Priya Raman</div><div class="small muted" data-en="Chinese & Tamil · bilingual" data-zh="华文与泰米尔文 · 双语">Chinese & Tamil · bilingual</div></div><span class="badge g" data-en="Verified" data-zh="已认证">Verified</span></div><div class="mk-meta"><span class="stars"><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" stroke="none"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.2l1-5.8L3.5 9.2l5.9-.9z"/></svg><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" stroke="none"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.2l1-5.8L3.5 9.2l5.9-.9z"/></svg><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" stroke="none"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.2l1-5.8L3.5 9.2l5.9-.9z"/></svg><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" stroke="none"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.2l1-5.8L3.5 9.2l5.9-.9z"/></svg><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" stroke="none"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.2l1-5.8L3.5 9.2l5.9-.9z"/></svg></span> 5.0 · <span data-en="97 sessions" data-zh="97 次课">97 sessions</span></div><div class="mk-price"><div class="p">S$60<small>/hr</small></div><button class="btn subtle" style="padding:7px 12px" onclick="toast('en:Booked · S$7.20 platform take','zh:已预约 · 平台抽成 S$7.20')" data-en="Match" data-zh="撮合">Match</button></div></div></div>
+        </div>
+      </div>
+      <div class="card pad" style="align-self:start">
+        <div class="fw6" style="margin-bottom:3px" data-en="Auto-match queue" data-zh="自动撮合队列">Auto-match queue</div>
+        <p class="small muted" data-en="Parent requests, ranked by fit." data-zh="家长请求，按匹配度排序。">Parent requests, ranked by fit.</p>
+        <div style="margin-top:14px;display:flex;flex-direction:column;gap:12px">
+          <div class="list-row" style="padding:0"><div class="mini-av" style="background:var(--slate)">L</div><div style="flex:1"><div class="fw6 small" data-en="Sec 3 · Essay coaching" data-zh="中三 · 作文辅导">Sec 3 · Essay coaching</div><div class="small muted">→ Adeline Lim · 96% <span data-en="fit" data-zh="匹配">fit</span></div></div><button class="btn ghost" style="padding:6px 11px" data-en="Match" data-zh="撮合">Match</button></div>
+          <div class="list-row" style="padding:0"><div class="mini-av" style="background:var(--slate)">K</div><div style="flex:1"><div class="fw6 small" data-en="A-Level · Physics" data-zh="A-Level · 物理">A-Level · Physics</div><div class="small muted">→ Jonathan Wee · 93% <span data-en="fit" data-zh="匹配">fit</span></div></div><button class="btn ghost" style="padding:6px 11px" data-en="Match" data-zh="撮合">Match</button></div>
+          <div class="list-row" style="padding:0"><div class="mini-av" style="background:var(--slate)">M</div><div style="flex:1"><div class="fw6 small" data-en="P6 · 华文口语" data-zh="小六 · 华文口语">P6 · 华文口语</div><div class="small muted">→ Priya Raman · 90% <span data-en="fit" data-zh="匹配">fit</span></div></div><button class="btn ghost" style="padding:6px 11px" data-en="Match" data-zh="撮合">Match</button></div>
+        </div>
+        <button class="btn primary" style="width:100%;justify-content:center;margin-top:16px" onclick="toast('en:All 14 requests matched','zh:14 条请求已全部撮合')" data-en="Match all · earn S$1,180" data-zh="全部撮合 · 收入 S$1,180">Match all · earn S$1,180</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== EVENTS ========== -->
+  <section class="module" id="m-events">
+    <div class="page-head">
+      <div>
+        <div class="eyebrow" data-en="Grow · Live Events" data-zh="增长 · 线上活动">Grow · Live Events</div>
+        <h1 data-en="Host live classes, workshops & webinars" data-zh="举办线上课程、工作坊与讲座">Host live classes, workshops & webinars</h1>
+        <p class="lead" data-en="Run online events end-to-end — registration, live room, attendance and follow-up. Free or paid, with the same trust and audit layer as the rest of the platform." data-zh="端到端举办线上活动——报名、直播间、签到到跟进。可免费可付费，沿用平台一致的可信与审计底座。">Run online events end-to-end — registration, live room, attendance and follow-up. Free or paid, with the same trust and audit layer as the rest of the platform.</p>
+      </div>
+      <div class="ph-actions"><button class="btn primary" onclick="openModal()"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg><span data-en="Create event" data-zh="创建活动">Create event</span></button></div>
+    </div>
+
+    <div class="grid g4" style="margin-bottom:20px">
+      <div class="card stat"><div class="top"><div class="lab" data-en="Upcoming" data-zh="即将开始">Upcoming</div><div class="ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="17" rx="2"/><path d="M8 2.5v4M16 2.5v4M3 10h18"/></svg></div></div><div class="num">5</div><div class="delta" style="color:var(--muted)"><span data-en="Next in 2 days" data-zh="最近 2 天后">Next in 2 days</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Registered · month" data-zh="本月报名">Registered · month</div><div class="ico i"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13A4 4 0 0 1 16 11"/></svg></div></div><div class="num">642</div><div class="delta up"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg><span data-en="+31% MoM" data-zh="环比 +31%">+31% MoM</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Attendance rate" data-zh="到场率">Attendance rate</div><div class="ico g"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="m22 8-6 4 6 4z"/></svg></div></div><div class="num">88<small>%</small></div><div class="delta up"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg><span data-en="Above 70% benchmark" data-zh="高于 70% 基准">Above 70% benchmark</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Event revenue" data-zh="活动收入">Event revenue</div><div class="ico a"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="5.5"/><path d="M18.1 6.6a5.5 5.5 0 0 1 0 10.8M8 21a5.5 5.5 0 0 0 5.4-6.6"/></svg></div></div><div class="num"><small>S$</small>4,120</div><div class="delta up"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg><span data-en="3 paid workshops" data-zh="3 场付费工作坊">3 paid workshops</span></div></div>
+    </div>
+
+    <div class="sectitle" data-en="Upcoming events" data-zh="即将开始的活动">Upcoming events</div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div class="ev">
+        <div class="date"><div class="m" data-en="JUL" data-zh="7月">JUL</div><div class="d">25</div></div>
+        <div class="info"><h4 data-en="Exam Skills Masterclass · O-Level English" data-zh="应试技巧大师课 · O-Level 英文">Exam Skills Masterclass · O-Level English</h4><div class="meta"><span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-en="4:00–5:30pm" data-zh="下午 4:00–5:30">4:00–5:30pm</span></span><span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18z"/></svg><span data-en="Online · Zoom" data-zh="线上 · Zoom">Online · Zoom</span></span><span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13A4 4 0 0 1 16 11"/></svg><span data-en="86 registered · 40 left" data-zh="报名 86 · 余 40">86 registered · 40 left</span></span></div></div>
+        <div style="text-align:right"><div class="stack" style="justify-content:flex-end;margin-bottom:8px"><div class="mini-av" style="background:#5B8A72">A</div><div class="mini-av" style="background:#C15A2E">K</div><div class="mini-av" style="background:#6E5A86">M</div><div class="mini-av" style="background:var(--panel);color:var(--muted)">+83</div></div><button class="btn ghost" style="padding:7px 12px" data-en="Manage" data-zh="管理">Manage</button></div>
+      </div>
+      <div class="ev">
+        <div class="date"><div class="m" data-en="JUL" data-zh="7月">JUL</div><div class="d">28</div></div>
+        <div class="info"><h4 data-en="Parent Session: Understanding AI grading" data-zh="家长专场：读懂 AI 评分">Parent Session: Understanding AI grading</h4><div class="meta"><span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-en="7:30–8:15pm" data-zh="晚上 7:30–8:15">7:30–8:15pm</span></span><span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18z"/></svg><span data-en="Online · free" data-zh="线上 · 免费">Online · free</span></span><span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13A4 4 0 0 1 16 11"/></svg><span data-en="204 registered" data-zh="报名 204">204 registered</span></span></div></div>
+        <div style="text-align:right"><span class="badge b" style="margin-bottom:8px" data-en="Free · Community" data-zh="免费 · 社区">Free · Community</span><br><button class="btn ghost" style="padding:7px 12px" data-en="Manage" data-zh="管理">Manage</button></div>
+      </div>
+      <div class="ev">
+        <div class="date ev-live"><div class="m" data-en="LIVE" data-zh="直播">LIVE</div><div class="d"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="m22 8-6 4 6 4z"/></svg></div></div>
+        <div class="info"><h4 data-en="Weekly Writing Clinic · Sec 3 (in progress)" data-zh="每周写作诊室 · 中三（进行中）">Weekly Writing Clinic · Sec 3 (in progress)</h4><div class="meta"><span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13A4 4 0 0 1 16 11"/></svg><span data-en="52 live now" data-zh="52 人在线">52 live now</span></span><span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z"/></svg><span data-en="Live captions · cited answers" data-zh="实时字幕 · 有据答疑">Live captions · cited answers</span></span></div></div>
+        <div style="text-align:right"><button class="btn primary" style="padding:7px 12px" onclick="toast('en:Joining live room…','zh:正在加入直播间…')" data-en="Join room" data-zh="进入直播间">Join room</button></div>
+      </div>
+      <div class="ev">
+        <div class="date"><div class="m" data-en="AUG" data-zh="8月">AUG</div><div class="d">02</div></div>
+        <div class="info"><h4 data-en="Paid Workshop: Argumentative Essays that Score" data-zh="付费工作坊：会拿分的议论文">Paid Workshop: Argumentative Essays that Score</h4><div class="meta"><span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-en="10:00–12:00pm" data-zh="上午 10:00–12:00">10:00–12:00pm</span></span><span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="5.5"/><path d="M18.1 6.6a5.5 5.5 0 0 1 0 10.8M8 21a5.5 5.5 0 0 0 5.4-6.6"/></svg><span data-en="S$28 · 40 seats" data-zh="S$28 · 40 席">S$28 · 40 seats</span></span><span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13A4 4 0 0 1 16 11"/></svg><span data-en="31 registered" data-zh="报名 31">31 registered</span></span></div></div>
+        <div style="text-align:right"><span class="badge a" style="margin-bottom:8px" data-en="Paid" data-zh="付费">Paid</span><br><button class="btn ghost" style="padding:7px 12px" data-en="Manage" data-zh="管理">Manage</button></div>
+      </div>
+    </div>
+  </section>
+
+
+  </main>
+</div>
+
+<!-- modal + toast injected -->
+
+<div class="modal-bg" id="evModal">
+  <div class="modal">
+    <div class="modal-h"><h3 data-en="Create a live event" data-zh="创建线上活动">Create a live event</h3><button class="icon-btn" onclick="closeModal()"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+    <div class="modal-b">
+      <div class="field"><label data-en="Event title" data-zh="活动标题">Event title</label><input placeholder="e.g. Exam Skills Masterclass" data-en-ph="e.g. Exam Skills Masterclass" data-zh-ph="例如：应试技巧大师课"></div>
+      <div class="field"><label data-en="Type" data-zh="类型">Type</label><div class="seg" id="evType"><button class="on" data-en="Live class" data-zh="直播课">Live class</button><button data-en="Workshop" data-zh="工作坊">Workshop</button><button data-en="Webinar" data-zh="讲座">Webinar</button><button data-en="Parent session" data-zh="家长专场">Parent session</button></div></div>
+      <div class="grid g2">
+        <div class="field"><label data-en="Date & time" data-zh="日期与时间">Date & time</label><input value="2026-07-25 16:00"></div>
+        <div class="field"><label data-en="Seats" data-zh="席位">Seats</label><input value="120"></div>
+      </div>
+      <div class="field"><label data-en="Access" data-zh="参与方式">Access</label><div class="seg" id="evAccess"><button class="on" data-en="Free" data-zh="免费">Free</button><button data-en="Paid · S$28" data-zh="付费 · S$28">Paid · S$28</button><button data-en="Members only" data-zh="仅会员">Members only</button></div></div>
+      <div class="callout" style="margin-top:4px"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg></div><div><b class="small" data-en="Trust layer, on by default" data-zh="可信底座 · 默认开启">Trust layer, on by default</b><p data-en="Live Q&A answers stay in-corpus and cited; a full attendance & audit record is kept." data-zh="直播答疑保持语料内、带出处；完整保留签到与审计记录。">Live Q&A answers stay in-corpus and cited; a full attendance & audit record is kept.</p></div></div>
+    </div>
+    <div class="modal-f"><button class="btn ghost" onclick="closeModal()" data-en="Cancel" data-zh="取消">Cancel</button><button class="btn primary" onclick="createEvent()"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg><span data-en="Publish event" data-zh="发布活动">Publish event</span></button></div>
+  </div>
+</div>
+<div class="toast" id="toast"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.7 4.8L18.5 9l-4.8 1.2L12 15l-1.7-4.8L5.5 9l4.8-1.2z"/><path d="M19 13.5l.8 2.2 2.2.8-2.2.8L19 19.5l-.8-2.2-2.2-.8 2.2-.8z"/></svg><span id="toastMsg"></span></div>
+
+
+<script>
+var LANG='en';
+function setText(el){
+  var v = el.dataset[LANG]; if(v==null) return;
+  if(v.indexOf('<')>=0) el.innerHTML=v; else el.textContent=v;
+}
+function applyLang(l){
+  LANG=l;
+  document.documentElement.lang = (l==='zh'?'zh':'en');
+  document.documentElement.classList.toggle('zh', l==='zh');
+  document.querySelectorAll('[data-en]').forEach(setText);
+  document.querySelectorAll('[data-en-ph]').forEach(function(el){ el.placeholder = el.dataset[l+'Ph']||el.placeholder; });
+  document.querySelectorAll('[data-lang]').forEach(function(b){ b.classList.toggle('on', b.dataset.lang===l); });
+}
+document.querySelectorAll('[data-lang]').forEach(function(b){ b.addEventListener('click',function(){ applyLang(b.dataset.lang); }); });
+
+function enterApp(){
+  document.getElementById('login').style.display='none';
+  document.getElementById('app').classList.add('show');
+  setTimeout(drawCharts,60);
+  animateBars();
+}
+var CRUMB={dashboard:['· Dashboard','· 总览'],grading:['· AI Grading','· AI 评分'],learn:['· Learn','· 辅导'],pinpoint:['· Pinpoint','· 知点'],market:['· Marketplace','· 撮合市场'],events:['· Live Events','· 线上活动']};
+function go(mod){
+  document.querySelectorAll('.module').forEach(function(m){m.classList.remove('show');});
+  document.getElementById('m-'+mod).classList.add('show');
+  document.querySelectorAll('.nav a').forEach(function(a){a.classList.toggle('on', a.dataset.mod===mod);});
+  var c=document.getElementById('crumb'); c.dataset.en=CRUMB[mod][0]; c.dataset.zh=CRUMB[mod][1]; setText(c);
+  document.getElementById('sidebar').classList.remove('open');
+  document.querySelector('.main').scrollTop=0;
+  animateBars();
+}
+function animateBars(){
+  document.querySelectorAll('.module.show .pbar i').forEach(function(i){
+    if(i.dataset.done) return; var w=i.style.width; i.style.width='0'; i.dataset.done=1;
+    requestAnimationFrame(function(){ setTimeout(function(){ i.style.width=w; },50); });
+  });
+}
+var studentIdx=0, students=['Wei Lin','Kavya','Rui Feng','Marcus','Siti'];
+function nextStudent(){ studentIdx=(studentIdx+1)%students.length; toast('en:Approved · loaded '+students[studentIdx]+'’s essay','zh:已通过 · 载入 '+students[studentIdx]+' 的作文'); }
+
+// tabs + segmented
+function parentToggle(btn){ btn.parentElement.querySelectorAll('button').forEach(function(b){b.classList.remove('on');}); btn.classList.add('on'); }
+document.querySelectorAll('.tabs button, .seg button').forEach(function(b){ b.addEventListener('click',function(){ parentToggle(b); }); });
+
+function openModal(){ document.getElementById('evModal').classList.add('show'); }
+function closeModal(){ document.getElementById('evModal').classList.remove('show'); }
+function createEvent(){ closeModal(); toast('en:Event published · registration is open','zh:活动已发布 · 报名已开启'); }
+document.getElementById('evModal').addEventListener('click',function(e){ if(e.target===this) closeModal(); });
+
+var toastT;
+function toast(en,zh){
+  var msg = LANG==='zh'? zh.replace(/^zh:/,'') : en.replace(/^en:/,'');
+  var el=document.getElementById('toast'); document.getElementById('toastMsg').textContent=msg;
+  el.classList.add('show'); clearTimeout(toastT); toastT=setTimeout(function(){el.classList.remove('show');},2600);
+}
+
+// ---- charts (hand-drawn SVG) ----
+function drawCharts(){
+  var t=document.getElementById('trendChart'); if(t && !t.dataset.done){ t.dataset.done=1; t.innerHTML=lineChart(); }
+  var d=document.getElementById('donutWrap'); if(d && !d.dataset.done){ d.dataset.done=1; d.innerHTML=donut(); }
+}
+function lineChart(){
+  var data=[58,61,60,64,66,69,71,73], min=52, max=78, W=520, H=190, pad=10;
+  var pts=data.map(function(v,i){ var x=pad+i*((W-2*pad)/(data.length-1)); var y=H-14-((v-min)/(max-min))*(H-40); return [x,y]; });
+  var line=pts.map(function(p,i){return (i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1);}).join(' ');
+  var area=line+' L'+pts[pts.length-1][0].toFixed(1)+' '+(H-14)+' L'+pts[0][0].toFixed(1)+' '+(H-14)+' Z';
+  var dots=pts.map(function(p,i){return '<circle cx="'+p[0].toFixed(1)+'" cy="'+p[1].toFixed(1)+'" r="'+(i===pts.length-1?4.5:3)+'" fill="'+(i===pts.length-1?'#C15A2E':'#fff')+'" stroke="#C15A2E" stroke-width="2"/>';}).join('');
+  var grid=''; for(var g=0;g<4;g++){var y=14+g*((H-28)/3); grid+='<line x1="'+pad+'" y1="'+y+'" x2="'+(W-pad)+'" y2="'+y+'" stroke="#EFE7D7" stroke-width="1"/>';}
+  return '<svg viewBox="0 0 '+W+' '+H+'" width="100%" style="display:block"><defs><linearGradient id="ga" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C15A2E" stop-opacity=".18"/><stop offset="1" stop-color="#C15A2E" stop-opacity="0"/></linearGradient></defs>'+grid+'<path d="'+area+'" fill="url(#ga)"/><path d="'+line+'" fill="none" stroke="#C15A2E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>'+dots+'</svg>';
+}
+function donut(){
+  var segs=[['#4E7C59',61],['#C4872B',25],['#C15A2E',14]], tot=100, r=52, c=2*Math.PI*r, off=0;
+  var ring=segs.map(function(s){ var len=s[1]/tot*c; var el='<circle cx="70" cy="70" r="'+r+'" fill="none" stroke="'+s[0]+'" stroke-width="18" stroke-dasharray="'+len.toFixed(1)+' '+(c-len).toFixed(1)+'" stroke-dashoffset="'+(-off).toFixed(1)+'" transform="rotate(-90 70 70)" stroke-linecap="butt"/>'; off+=len; return el; }).join('');
+  var legendEN=['AI graded','Abstained','In review'], legendZH=['AI 已评','已存疑','复核中'];
+  var leg=segs.map(function(s,i){return '<div style="display:flex;align-items:center;gap:8px;margin-bottom:9px"><span style="width:10px;height:10px;border-radius:3px;background:'+s[0]+'"></span><span class="small" data-en="'+legendEN[i]+'" data-zh="'+legendZH[i]+'">'+legendEN[i]+'</span><b class="small" style="margin-left:auto">'+s[1]+'%</b></div>';}).join('');
+  return '<svg viewBox="0 0 140 140" width="140" height="140" style="flex:0 0 140px">'+ring+'<text x="70" y="66" text-anchor="middle" font-family="Newsreader,serif" font-size="26" font-weight="600" fill="#241E17">61%</text><text x="70" y="84" text-anchor="middle" font-size="9" fill="#9C9080">AI</text></svg><div style="flex:1">'+leg+'</div>';
+}
+
+applyLang('en');
+</script>
+</body>
+</html>
