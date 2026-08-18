@@ -1304,10 +1304,10 @@ body.pub .pub-hide{display:none!important}
       <div style="padding:20px 22px;display:flex;gap:18px;align-items:center;flex-wrap:wrap">
         <div style="width:52px;height:52px;border-radius:15px;background:linear-gradient(135deg,#C15A2E,#E8A46F);display:flex;align-items:center;justify-content:center;flex:0 0 52px"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0z"/><path d="M17 5h3a2 2 0 0 1-2 4h-1M7 5H4a2 2 0 0 0 2 4h1"/></svg></div>
         <div style="flex:1;min-width:230px">
-          <div style="font-weight:800;font-size:16px;color:#F7F0E3" data-en="JE Inter-Centre Challenge · Maths 48H" data-zh="JE 跨机构挑战赛 · 数学 48 小时">JE Inter-Centre Challenge · Maths 48H</div>
+          <div style="font-weight:800;font-size:16px;color:#F7F0E3;display:flex;align-items:center;gap:9px;flex-wrap:wrap"><span data-en="JE Inter-Centre Challenge · Maths 48H" data-zh="JE 跨机构挑战赛 · 数学 48 小时">JE Inter-Centre Challenge · Maths 48H</span><span class="rchip" id="chState" style="display:none;background:rgba(78,124,89,.25);color:#A8D3B5" data-en="Enrolled · consents 12/86" data-zh="已报名 · 同意书 12/86">Enrolled · consents 12/86</span></div>
           <div class="small" style="color:#CBBFA9;margin-top:4px" data-en="12 centres · 380 students registered · anonymous tiers, centre-level podium · double stardust weekend" data-zh="12 家机构 · 380 名学生已报名 · 学生匿名段位、机构上榜 · 周末星尘双倍">12 centres · 380 students registered · anonymous tiers, centre-level podium · double stardust weekend</div>
         </div>
-        <button class="btn primary" onclick="toast('en:Your centre is in — challenge kit &amp; parental consent forms sent','zh:已为本机构报名——比赛材料与家长同意书已发出')"><span data-en="Enter your centre" data-zh="为本机构报名">Enter your centre</span></button>
+        <button class="btn primary" onclick="openCh()" id="chBtn"><span data-en="Enter your centre" data-zh="为本机构报名">Enter your centre</span></button>
       </div>
     </div>
   </section>
@@ -1448,6 +1448,27 @@ body.pub .pub-hide{display:none!important}
         <div class="moment"><div class="m-av" style="background:#3E6B54">WT</div><div style="flex:1"><div class="small fw6" data-en="Rui Feng walked the class through his essay-revision plan ✍️" data-zh="睿峰向全班讲解了他的作文修改思路 ✍️">Rui Feng walked the class through his essay-revision plan ✍️</div><div class="small muted" data-en="Ms Tan · 14:20 · photo blurred on-device before sharing" data-zh="陈老师 · 14:20 · 照片在端侧完成脱敏后才分享">Ms Tan · 14:20 · photo blurred on-device before sharing</div></div><button class="likebtn" onclick="this.classList.add('on');this.querySelector('b').textContent=(+this.querySelector('b').textContent)+1;toast('en:Ms Tan can see your appreciation','zh:你的点赞已让陈老师看到')">❤ <b>4</b></button></div>
         <div class="moment"><div class="m-av" style="background:#4C6E86">SC</div><div style="flex:1"><div class="small fw6" data-en="Group experiment: timing a pendulum — Rui Feng recorded the data" data-zh="小组实验：测量单摆周期——睿峰负责记录数据">Group experiment: timing a pendulum — Rui Feng recorded the data</div><div class="small muted" data-en="Mr Chen · yesterday" data-zh="陈老师（科学）· 昨天">Mr Chen · yesterday</div></div><button class="likebtn" onclick="this.classList.add('on');this.querySelector('b').textContent=(+this.querySelector('b').textContent)+1;toast('en:Liked','zh:已点赞')">❤ <b>3</b></button></div>
         <div class="small muted" style="margin-top:8px" data-en="Teachers share in one tap; you only ever see moments involving your own child. This is the trust loop that renewals are made of." data-zh="老师一键分享；你只会看到与自家孩子相关的时刻。信任感，正是续费的来源。">Teachers share in one tap; you only ever see moments involving your own child. This is the trust loop that renewals are made of.</div>
+      </div>
+    </div>
+
+    <div class="grid g4" style="margin-bottom:18px">
+      <div class="card stat"><div class="top"><div class="lab" data-en="Stardust this week" data-zh="本周星尘">Stardust this week</div><div class="ico g"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.7 4.8L18.5 9l-4.8 1.2L12 15l-1.7-4.8L5.5 9l4.8-1.2z"/></svg></div></div><div class="num">+85</div><div class="delta up"><span data-en="all from finished paths" data-zh="全部来自完成的路径">all from finished paths</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Streak" data-zh="连胜">Streak</div><div class="ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2s5 4.5 5 9a5 5 0 0 1-10 0c0-1.5.5-3 1.5-4.5C9 8 10 9.5 11 9.5c1.5 0 1-3.5 1-7.5z"/></svg></div></div><div class="num">12<small data-en=" days" data-zh=" 天"> days</small></div><div class="delta up"><span data-en="longest this term" data-zh="本学期最长纪录">longest this term</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Daily goals met" data-zh="每日目标达成">Daily goals met</div><div class="ico i"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 5-5.5"/></svg></div></div><div class="num">6<small>/7</small></div><div class="delta up"><span data-en="86% this week" data-zh="本周 86%">86% this week</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Where it goes" data-zh="数据去向">Where it goes</div><div class="ico w"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="M9 13h6M9 17h4"/></svg></div></div><div class="num" style="font-size:15px;padding-top:8px" data-en="Sunday report" data-zh="周日周报">Sunday report</div><div class="delta"><span data-en="momentum joins the path report" data-zh="动力并入路径周报">momentum joins the path report</span></div></div>
+    </div>
+
+    <div class="card" style="margin-bottom:18px">
+      <div class="card-head"><h3 data-en="Reward house — you set the prizes" data-zh="奖励屋 · 奖励由你设定">Reward house — you set the prizes</h3><span class="rchip" data-en="redemptions need your approval" data-zh="兑换需你确认">redemptions need your approval</span></div>
+      <div style="padding:6px 18px 16px">
+        <div class="reward-row"><div class="reward-ico">🎮</div><div style="flex:1"><div class="small fw6" data-en="30 min weekend game time · 120 ✦" data-zh="周末游戏时间 30 分钟 · 120 ✦">30 min weekend game time · 120 ✦</div><div class="small muted" data-en="redeemed 2× this month" data-zh="本月已兑换 2 次">redeemed 2× this month</div></div><div class="tog" onclick="this.classList.toggle('off');toast('en:Reward updated','zh:奖励状态已更新')"></div></div>
+        <div class="reward-row"><div class="reward-ico">📚</div><div style="flex:1"><div class="small fw6" data-en="New comic volume · 260 ✦" data-zh="新一册漫画 · 260 ✦">New comic volume · 260 ✦</div><div class="small muted" data-en="pending: Rui Feng redeemed yesterday — approve?" data-zh="待确认：睿峰昨天申请兑换——同意吗？">pending: Rui Feng redeemed yesterday — approve?</div></div><button class="btn primary" style="padding:7px 14px" onclick="toast('en:Approved — 260 stardust deducted, have fun together','zh:已同意——扣除 260 星尘，好好享受')"><span data-en="Approve" data-zh="同意">Approve</span></button></div>
+        <div class="reward-row"><div class="reward-ico">🏸</div><div style="flex:1"><div class="small fw6" data-en="Badminton hour with Dad · 180 ✦" data-zh="和爸爸打一小时羽毛球 · 180 ✦">Badminton hour with Dad · 180 ✦</div><div class="small muted" data-en="active" data-zh="启用中">active</div></div><div class="tog" onclick="this.classList.toggle('off');toast('en:Reward updated','zh:奖励状态已更新')"></div></div>
+        <div class="reward-row" id="newReward" style="display:none"><div class="reward-ico">🧺</div><div style="flex:1"><div class="small fw6" data-en="Family picnic weekend · 400 ✦" data-zh="全家周末野餐 · 400 ✦">Family picnic weekend · 400 ✦</div><div class="small muted" data-en="new — visible to Rui Feng from tonight" data-zh="新奖励——今晚起对睿峰可见">new — visible to Rui Feng from tonight</div></div><div class="tog"></div></div>
+        <div style="display:flex;gap:9px;align-items:center;margin-top:10px;flex-wrap:wrap">
+          <button class="btn ghost" onclick="addReward()"><span data-en="+ Add a reward" data-zh="+ 添加奖励">+ Add a reward</span></button>
+          <span class="small muted" data-en="Tip: rewards work best when they buy shared time, not more screens." data-zh="小贴士：最好的奖励是共同时光，而不是更多屏幕时间。">Tip: rewards work best when they buy shared time, not more screens.</span>
+        </div>
       </div>
     </div>
   </section>
@@ -1733,6 +1754,19 @@ body.pub .pub-hide{display:none!important}
           <div class="list-row" style="padding:8px 0"><div style="flex:1" class="small fw6" data-en="Blended margin" data-zh="综合毛利">Blended margin</div><b style="color:var(--good)">84%</b></div>
         </div>
         <div class="callout"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9.5" y="9.5" width="5" height="5"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></div><div><b class="small" data-en="Why 2 people are enough" data-zh="为什么 2 个人就够">Why 2 people are enough</b><p data-en="Every agent follows the same discipline as grading: act only with evidence, abstain when unsure, log everything. Humans see a queue of 12, not a school of 1,240." data-zh="每个智能体都沿用评分的纪律：有据才行动、拿不准就存疑、全程留痕。人看到的是 12 条待审队列，而不是 1,240 人的学校。">Every agent follows the same discipline as grading: act only with evidence, abstain when unsure, log everything. Humans see a queue of 12, not a school of 1,240.</p></div></div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:18px">
+      <div class="card-head"><h3 data-en="Engagement health — momentum predicts renewals" data-zh="动力健康度 · 动力数据预测续费">Engagement health — momentum predicts renewals</h3><span class="rchip" data-en="feeds renewal forecast" data-zh="并入续费预测">feeds renewal forecast</span></div>
+      <div style="padding:14px 18px 16px">
+        <div class="grid g4" style="gap:12px;margin-bottom:12px">
+          <div><div class="small muted" data-en="Median streak" data-zh="连胜中位数">Median streak</div><div class="fw6" style="font-size:22px">8<span class="small muted" data-en=" days" data-zh=" 天"> days</span></div></div>
+          <div><div class="small muted" data-en="Stardust issued / wk" data-zh="星尘周发放">Stardust issued / wk</div><div class="fw6" style="font-size:22px">12,400 ✦</div></div>
+          <div><div class="small muted" data-en="Daily-goal completion" data-zh="每日目标完成率">Daily-goal completion</div><div class="fw6" style="font-size:22px">74%</div></div>
+          <div><div class="small muted" data-en="Low-momentum students" data-zh="动力低迷学生">Low-momentum students</div><div class="fw6" style="font-size:22px;color:#C15A2E">14</div></div>
+        </div>
+        <div class="callout"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><div><b class="small" data-en="14 students below the momentum floor for 2+ weeks" data-zh="14 名学生连续两周低于动力线">14 students below the momentum floor for 2+ weeks</b><p data-en="The care agent has drafted outreach for each — a call script for the form teacher and a gentle parent note. Momentum dips precede churn; catching them here is cheaper than win-back later. (Correlation figures to be validated in pilot — no claims yet.)" data-zh="关怀智能体已为每人起草跟进方案——给班主任的沟通要点 + 给家长的温和短讯。动力下滑通常先于退费发生；在这里接住，远比事后挽回便宜。（相关性系数待试点实测，不作数字宣称。）">The care agent has drafted outreach for each — a call script for the form teacher and a gentle parent note. Momentum dips precede churn; catching them here is cheaper than win-back later. (Correlation figures to be validated in pilot — no claims yet.)</p><button class="btn primary" style="margin-top:9px" onclick="toast('en:Care list opened — 14 drafts await your approval','zh:关怀清单已打开——14 份草稿等待你审批')"><span data-en="Review care list" data-zh="查看关怀清单">Review care list</span></button></div></div>
       </div>
     </div>
   </section>
@@ -2832,6 +2866,29 @@ body.pub .pub-hide{display:none!important}
     </div>
   </div>
 </div>
+
+<div class="modal-bg" id="chModal">
+  <div class="modal" style="max-width:520px">
+    <div style="padding:24px 26px 22px">
+      <div style="font-size:11.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--brand-d)" data-en="Enrol your centre" data-zh="为本机构报名">Enrol your centre</div>
+      <h3 style="font-size:20px;margin:8px 0 4px" data-en="JE Inter-Centre Challenge · Maths 48H" data-zh="JE 跨机构挑战赛 · 数学 48 小时">JE Inter-Centre Challenge · Maths 48H</h3>
+      <p class="small muted" style="margin:0 0 12px" data-en="Students compete in anonymous tiers; only centres appear on the podium. Every participant needs a parent e-consent before the first question loads." data-zh="学生以匿名段位参赛，榜单只显示机构名。开赛前每位参赛学生都必须完成家长电子同意书。">Students compete in anonymous tiers; only centres appear on the podium. Every participant needs a parent e-consent before the first question loads.</p>
+      <div class="small muted fw6" style="margin-bottom:8px" data-en="1 · Pick classes" data-zh="1 · 选择参赛班级">1 · Pick classes</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px">
+        <button class="subj-chip on" onclick="this.classList.toggle('on')">Sec 3A · 32</button>
+        <button class="subj-chip on" onclick="this.classList.toggle('on')">Sec 3B · 30</button>
+        <button class="subj-chip" onclick="this.classList.toggle('on')">P6 Achievers · 24</button>
+      </div>
+      <div class="small muted fw6" style="margin-bottom:6px" data-en="2 · Parent e-consent (PDPA)" data-zh="2 · 家长电子同意书（PDPA）">2 · Parent e-consent (PDPA)</div>
+      <div class="list-row" style="border-bottom:none"><span class="rchip" style="color:var(--good)">✓</span><div style="flex:1"><div class="small fw6" data-en="86 consent forms ready to send" data-zh="86 份同意书已生成待发送">86 consent forms ready to send</div><div class="small muted" data-en="states data scope plainly: scores &amp; tier only · no names public · revocable anytime" data-zh="数据范围写得明明白白：仅成绩与段位 · 不公开姓名 · 随时可撤回">states data scope plainly: scores &amp; tier only · no names public · revocable anytime</div></div></div>
+      <div class="small muted fw6" style="margin:10px 0 6px" data-en="3 · What happens next" data-zh="3 · 报名后会发生什么">3 · What happens next</div>
+      <p class="small muted" style="margin:0 0 14px" data-en="Consents tracked live on this card → tiers assigned on-device → 48h window opens Sat 09:00 → centre podium + stardust payouts Monday." data-zh="同意书回收进度实时显示在活动卡上 → 段位端侧分组 → 周六 09:00 开赛（48 小时窗口）→ 周一公布机构榜与星尘奖励。">Consents tracked live on this card → tiers assigned on-device → 48h window opens Sat 09:00 → centre podium + stardust payouts Monday.</p>
+      <button class="btn primary" style="width:100%;justify-content:center" onclick="chConfirm()"><span data-en="Enrol &amp; send 86 consents" data-zh="确认报名并发送 86 份同意书">Enrol &amp; send 86 consents</span></button>
+      <button class="btn ghost" style="width:100%;justify-content:center;margin-top:8px" onclick="closeCh()"><span data-en="Cancel" data-zh="取消">Cancel</span></button>
+      <p class="fine" style="margin-top:10px" data-en="Demo environment · consents are simulated." data-zh="演示环境 · 同意书发送为模拟。">Demo environment · consents are simulated.</p>
+    </div>
+  </div>
+</div>
 <div class="toast" id="toast"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.7 4.8L18.5 9l-4.8 1.2L12 15l-1.7-4.8L5.5 9l4.8-1.2z"/><path d="M19 13.5l.8 2.2 2.2.8-2.2.8L19 19.5l-.8-2.2-2.2-.8 2.2-.8z"/></svg><span id="toastMsg"></span></div>
 
 
@@ -3713,6 +3770,24 @@ window.oralGo=function(){
   var b=document.getElementById('oralBtn'),r=document.getElementById('oralResult');
   if(b)b.style.display='none'; if(r)r.style.display='block';
   toast('en:Nice run! Scored on-device — 2 words sent to your teacher','zh:练得不错！端侧完成评分——2 个词已转老师确认');
+};
+</script>
+
+<script>
+/* ---------- v13: reward config + challenge enrolment ---------- */
+window.addReward=function(){
+  var r=document.getElementById('newReward');
+  if(r){r.style.display='flex';}
+  toast('en:Reward added — Rui Feng sees it tonight','zh:奖励已添加——今晚起对睿峰可见');
+};
+window.openCh=function(){document.getElementById('chModal').classList.add('show');};
+window.closeCh=function(){document.getElementById('chModal').classList.remove('show');};
+document.getElementById('chModal').addEventListener('click',function(e){if(e.target===this)closeCh();});
+window.chConfirm=function(){
+  closeCh();
+  var st=document.getElementById('chState');if(st)st.style.display='inline-flex';
+  var b=document.getElementById('chBtn');if(b){b.classList.add('ghost');b.classList.remove('primary');var sp=b.querySelector('span');if(sp){sp.dataset.en='Manage entry';sp.dataset.zh='管理参赛';setText(sp);}}
+  toast('en:Enrolled — 86 consents sent, progress tracks live on this card','zh:已报名——86 份同意书已发送，回收进度将实时显示在活动卡上');
 };
 </script>
 </body>
