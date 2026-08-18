@@ -624,6 +624,20 @@ body.pub .pub-hide{display:none!important}
 .browse-link:hover{background:var(--brand-tint)}
 .pubsign{padding:8px 16px;align-items:center}
 @media (max-width:700px){.pubbrand .pb-name{display:none}.pubbrand{gap:7px}.pubbrand .pb-tabs{margin-left:0}.pubbrand .pb-tabs button{padding:6px 10px;font-size:11.5px}body.pub .topbar{gap:7px;padding:0 10px}.pubbrand .pb-tabs button{white-space:nowrap;padding:5px 9px;font-size:11px}body.pub .topbar .btn.primary{padding:6px 9px;font-size:11.5px}body.pub .pubbrand .pb-logo{width:26px;height:26px;flex-basis:26px;border-radius:8px}body.pub .lang-tog button{padding:4px 7px;font-size:11px}body.pub .lang-tog{padding:2px}}
+
+/* ---------- v11 : fairness calculator ---------- */
+.fc-slider{width:100%;-webkit-appearance:none;appearance:none;height:8px;border-radius:100px;background:linear-gradient(90deg,var(--brand) var(--fc,24%),#EFE7D8 var(--fc,24%));outline:none;margin:8px 0 4px}
+.fc-slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;border-radius:50%;background:#fff;border:3px solid var(--brand);box-shadow:0 2px 8px rgba(60,42,24,.25);cursor:pointer}
+.fc-slider::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:#fff;border:3px solid var(--brand);cursor:pointer}
+.fc-num{font-size:26px;font-weight:800;letter-spacing:-.01em}
+.fc-num small{font-size:12px;color:var(--muted);font-weight:600}
+.fc-vs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.fc-cell{border:1px solid var(--line);border-radius:14px;padding:14px 15px;background:var(--card)}
+.fc-cell.win{border-color:rgba(78,124,89,.45);background:rgba(78,124,89,.06)}
+.fc-cell .lbl{font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.fc-delta{margin-top:12px;border-radius:12px;padding:12px 15px;background:var(--sidebar);color:#F3EADA;display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.fc-delta b{font-size:22px;color:#F0BE93}
+@media (max-width:700px){.fc-vs{grid-template-columns:1fr}}
 /* ---------- v9 : essay & reading studio ---------- */
 .hl{padding:0 2px;border-radius:4px}
 .hl.y{background:#F6E7B8;box-shadow:inset 0 -2px 0 #C4872B}
@@ -2489,6 +2503,47 @@ body.pub .pub-hide{display:none!important}
       <div><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c8-5 8-14 8-14s-5-1-8-4c-3 3-8 4-8 4s0 9 8 14z"/></svg></div><b data-en="Vetted &amp; insured" data-zh="审核与保险">Vetted &amp; insured</b><p data-en="Identity, qualifications and background screened; every lesson carries liability cover (demo)." data-zh="实名、资质与背景三重审核；每节课含责任保险（演示）。">Identity, qualifications and background screened; every lesson carries liability cover (demo).</p></div>
     </div>
 
+
+    <div class="pm-sec-h"><h2 data-en="The fairness maths — and where we stand with schools" data-zh="算一笔公平账 · 以及我们与学校的关系">The fairness maths — and where we stand with schools</h2><span data-en="Benchmarks cited below" data-zh="基准均注明来源">Benchmarks cited below</span></div>
+    <div class="grid g2" style="margin-bottom:34px">
+      <div class="card" style="padding:20px 22px">
+        <div class="fw6" style="font-size:15px;margin-bottom:2px" data-en="Tutor take-home: agency vs JE escrow" data-zh="导师到手对比：传统中介 vs JE 托管">Tutor take-home: agency vs JE escrow</div>
+        <p class="small muted" style="margin:0 0 12px" data-en="Typical agencies charge tutors the first two weeks of fees as commission (≈50% of month one); parents pay no agency fee either way." data-zh="主流中介向导师收取约前两周课费作佣金（≈首月的 50%）；两种模式下家长都不付中介费。">Typical agencies charge tutors the first two weeks of fees as commission (≈50% of month one); parents pay no agency fee either way.</p>
+        <div class="small" style="display:flex;justify-content:space-between;align-items:baseline"><span class="fw6" data-en="Hourly rate" data-zh="课时费（每小时）">Hourly rate</span><span class="fc-num" id="fcRateV">S$50</span></div>
+        <input type="range" min="25" max="130" step="5" value="50" class="fc-slider" id="fcRate" oninput="fcCalc()">
+        <div class="small muted" style="display:flex;justify-content:space-between"><span>S$25</span><span data-en="benchmark band S$25–130/h" data-zh="市场带宽 S$25–130/小时">benchmark band S$25–130/h</span><span>S$130</span></div>
+        <div class="small fw6" style="margin:14px 0 8px" data-en="Lessons per week" data-zh="每周课次">Lessons per week</div>
+        <div class="seg" id="fcFreq">
+          <button class="on" onclick="fcFreqSet(1,this)">1</button>
+          <button onclick="fcFreqSet(2,this)">2</button>
+          <button onclick="fcFreqSet(3,this)">3</button>
+        </div>
+        <div class="fc-vs">
+          <div class="fc-cell">
+            <div class="lbl" data-en="Agency · month 1 take-home" data-zh="中介模式 · 首月到手">Agency · month 1 take-home</div>
+            <div class="fc-num" id="fcAg">S$100</div>
+            <div class="small muted" data-en="first 2 weeks go to commission" data-zh="前两周课费作为佣金">first 2 weeks go to commission</div>
+          </div>
+          <div class="fc-cell win">
+            <div class="lbl" data-en="JE escrow · month 1 take-home" data-zh="JE 托管 · 首月到手">JE escrow · month 1 take-home</div>
+            <div class="fc-num" id="fcJe">S$176</div>
+            <div class="small" style="color:var(--good);font-weight:650" data-en="12% all-in · escrow, insurance, invoicing included" data-zh="全包 12%：含托管、保险、电子发票">12% all-in · escrow, insurance, invoicing included</div>
+          </div>
+        </div>
+        <div class="fc-delta"><span data-en="More in your pocket, month one" data-zh="首月多到手">More in your pocket, month one</span><b id="fcDelta">+S$76</b></div>
+        <p class="small muted" style="margin:12px 0 0" data-en="From month 2: agency 100% but unprotected; JE 88% with escrow guaranteeing payment after every confirmed lesson. Benchmark: leading local agencies' public FAQs, checked Aug 2026 · demo illustration." data-zh="第 2 个月起：中介模式 100% 但无保障、需自行催款；JE 为 88% 且每节课确认后托管放款、含保险与发票。基准：本地主流中介公开 FAQ（2026 年 8 月核验）· 演示测算。">From month 2: agency 100% but unprotected; JE 88% with escrow guaranteeing payment after every confirmed lesson. Benchmark: leading local agencies' public FAQs, checked Aug 2026 · demo illustration.</p>
+      </div>
+
+      <div class="card" style="padding:20px 22px">
+        <div class="fw6" style="font-size:15px;margin-bottom:2px" data-en="Working with schools — never against them" data-zh="配合学校，而不是取代学校">Working with schools — never against them</div>
+        <p class="small muted" style="margin:0 0 6px" data-en="Singapore schools already have excellent free AI tools. We build what sits outside the school gate." data-zh="学校体系已有出色的免费 AI 工具；我们做的是校门之外那一段。">Singapore schools already have excellent free AI tools. We build what sits outside the school gate.</p>
+        <div class="list-row"><span class="rchip" style="color:var(--good)">✓</span><div style="flex:1"><div class="small fw6" data-en="Guides, never dumps answers" data-zh="只引导，不直接给答案">Guides, never dumps answers</div><div class="small muted" data-en="Socratic hints in steps — the same guided-learning philosophy as national platforms" data-zh="苏格拉底式阶梯提示——与国家平台一致的引导式学习观">Socratic hints in steps — the same guided-learning philosophy as national platforms</div></div></div>
+        <div class="list-row"><span class="rchip" style="color:var(--good)">✓</span><div style="flex:1"><div class="small fw6" data-en="Practises only inside approved materials" data-zh="只在批准材料内练习，不超纲">Practises only inside approved materials</div><div class="small muted" data-en="Every explanation cites its source; nothing beyond the syllabus your tutor approved" data-zh="每句讲解都有出处；不越出导师批准的考纲材料">Every explanation cites its source; nothing beyond the syllabus your tutor approved</div></div></div>
+        <div class="list-row" style="border-bottom:none"><span class="rchip" style="color:var(--good)">✓</span><div style="flex:1"><div class="small fw6" data-en="Reports paths, not pressure" data-zh="汇报路径，而不是制造焦虑">Reports paths, not pressure</div><div class="small muted" data-en="Weekly reports show what was practised and what's next — helping parents buy less, better" data-zh="周报讲清练了什么、下一步是什么——帮家长少买课、买对课">Weekly reports show what was practised and what's next — helping parents buy less, better</div></div></div>
+        <div class="callout" style="margin-top:10px"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="M9.5 12.5 11 14l3.5-3.5"/></svg></div><div><b class="small" data-en="Our stance" data-zh="我们的立场">Our stance</b><p data-en="Quality guidance over mechanical drilling. If a child needs less tuition, the weekly report will say so — that honesty is why families stay." data-zh="要高质量引导，不要机械刷题。如果孩子其实需要更少的补习，周报会如实说——这份诚实正是家庭留下来的原因。">Quality guidance over mechanical drilling. If a child needs less tuition, the weekly report will say so — that honesty is why families stay.</p></div></div>
+      </div>
+    </div>
+
     <div class="pm-cta">
       <h2 data-en="Three minutes to the right tutor" data-zh="三分钟，找到对的老师">Three minutes to the right tutor</h2>
       <p data-en="Free to join · escrow on every booking · first lesson guaranteed" data-zh="免费注册 · 每笔预约担保托管 · 首课不满意全额退">Free to join · escrow on every booking · first lesson guaranteed</p>
@@ -3510,6 +3565,26 @@ window.pmQuick=function(s,el){
   document.getElementById('pmQ').value=el?el.textContent.trim():'';
   var g=document.getElementById('pmGrid'); if(g)g.scrollIntoView({behavior:'smooth',block:'start'});
 };
+</script>
+
+<script>
+/* ---------- v11: fairness calculator ---------- */
+window.__fcFreq=1;
+window.fcFreqSet=function(n,el){window.__fcFreq=n;if(el){el.parentElement.querySelectorAll('button').forEach(function(b){b.classList.remove('on');});el.classList.add('on');}fcCalc();};
+window.fcCalc=function(){
+  var r=document.getElementById('fcRate');if(!r)return;
+  var rate=+r.value,f=window.__fcFreq,month=rate*4*f;
+  var pct=(rate-25)/(130-25)*100;r.style.setProperty('--fc',pct+'%');
+  var ag=month-rate*2*f;           /* agency: minus first 2 weeks commission */
+  var je=Math.round(month*0.88);   /* JE: 12% all-in */
+  var d=je-ag;
+  var f2=function(v){return 'S$'+v.toLocaleString('en-SG');};
+  document.getElementById('fcRateV').textContent='S$'+rate;
+  document.getElementById('fcAg').textContent=f2(ag);
+  document.getElementById('fcJe').textContent=f2(je);
+  document.getElementById('fcDelta').textContent=(d>=0?'+':'−')+f2(Math.abs(d)).replace('S$','S$');
+};
+document.addEventListener('DOMContentLoaded',fcCalc);fcCalc();
 </script>
 </body>
 </html>
