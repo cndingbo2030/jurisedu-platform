@@ -664,6 +664,108 @@ body.pub .pub-hide{display:none!important}
 .bub.me{background:var(--brand);color:#fff;margin-left:auto;border-bottom-right-radius:4px}
 .bub.ai{background:var(--panel);border:1px solid var(--line);border-bottom-left-radius:4px}
 .bubwrap{display:flex;flex-direction:column;margin-top:10px}
+
+/* ---------- v10 : public marketplace landing ---------- */
+#m-pub-market{max-width:1180px;margin:0 auto}
+.pm-hero{position:relative;overflow:hidden;border-radius:22px;background:
+  radial-gradient(600px 300px at 85% -10%,rgba(193,90,46,.13),transparent 60%),
+  radial-gradient(500px 260px at -5% 110%,rgba(196,135,43,.12),transparent 55%),
+  linear-gradient(180deg,#FBF7EF,#F6EFE2);border:1px solid var(--line);padding:58px 30px 46px;text-align:center;margin-bottom:26px}
+.pm-kicker{font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--brand-d);margin-bottom:14px}
+.pm-h1{font-size:clamp(28px,4vw,44px);line-height:1.16;margin:0 auto 14px;max-width:760px;letter-spacing:-.01em}
+.pm-sub{font-size:15px;line-height:1.7;color:var(--muted);max-width:640px;margin:0 auto 26px}
+.pm-search{display:flex;align-items:center;gap:0;max-width:680px;margin:0 auto 14px;background:#fff;border:1px solid var(--line);border-radius:100px;padding:6px 6px 6px 20px;box-shadow:0 12px 34px -14px rgba(60,42,24,.25);text-align:left}
+.pm-search svg{flex:0 0 auto;color:var(--muted)}
+.pm-search input{flex:1;border:0;outline:0;background:transparent;font:inherit;font-size:14px;padding:10px 12px;min-width:0}
+.pm-search .pm-div{width:1px;height:26px;background:var(--line);margin:0 4px}
+.pm-search select{border:0;outline:0;background:transparent;font:inherit;font-size:13px;font-weight:600;color:var(--muted);padding:8px 6px;cursor:pointer;max-width:120px}
+.pm-go{flex:0 0 auto;display:flex;align-items:center;gap:7px;background:var(--brand);color:#fff;border-radius:100px;padding:11px 20px;font-weight:700;font-size:13.5px;cursor:pointer;transition:.15s}
+.pm-go:hover{background:var(--brand-d)}
+.pm-quick{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:22px;font-size:12px;color:var(--muted);align-items:center}
+.pm-quick button{padding:6px 13px;border-radius:100px;border:1px solid var(--line);background:rgba(255,255,255,.7);font-size:12px;font-weight:600;color:var(--ink,#3B2F22);cursor:pointer;transition:.13s}
+.pm-quick button:hover{border-color:var(--brand);color:var(--brand-d);background:#fff}
+.pm-trust{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;font-size:12.5px;color:var(--muted);font-weight:600}
+.pm-trust span{display:inline-flex;align-items:center;gap:6px}
+.pm-trust svg{color:var(--good)}
+.pm-trust .star{color:#C4872B}
+.pm-filters{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 16px}
+.pm-filters .pmf{padding:8px 16px;border-radius:100px;border:1px solid var(--line);background:var(--card);font-size:12.5px;font-weight:650;color:var(--muted);cursor:pointer;transition:.13s}
+.pm-filters .pmf:hover{border-color:var(--brand)}
+.pm-filters .pmf.on{background:var(--sidebar);border-color:var(--sidebar);color:#F3EADA}
+.pm-sort{margin-left:auto;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);font-weight:600}
+.pm-sort select{border:1px solid var(--line);background:var(--card);border-radius:100px;padding:8px 14px;font:inherit;font-size:12.5px;font-weight:650;color:inherit;outline:0;cursor:pointer}
+.pm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:34px}
+.pm-card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px 20px 16px;display:flex;flex-direction:column;gap:12px;transition:.18s;position:relative}
+.pm-card:hover{transform:translateY(-3px);box-shadow:0 18px 40px -18px rgba(60,42,24,.28);border-color:#DCCFB8}
+.pm-top{display:flex;gap:12px;align-items:center}
+.pm-av{width:52px;height:52px;border-radius:15px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:17px;flex:0 0 52px;box-shadow:inset 0 -12px 22px rgba(0,0,0,.14)}
+.pm-name{font-weight:750;font-size:15.5px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.pm-verified{display:inline-flex;align-items:center;gap:4px;font-size:10.5px;font-weight:750;color:var(--good);background:rgba(78,124,89,.1);border-radius:100px;padding:2.5px 8px;letter-spacing:.02em}
+.pm-meta{font-size:12px;color:var(--muted);margin-top:2px}
+.pm-mid{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.pm-stars{font-size:12.5px;font-weight:700;color:#C4872B}
+.pm-stars .n{color:inherit}
+.pm-stars small{color:var(--muted);font-weight:600}
+.pm-price{font-size:19px;font-weight:800;letter-spacing:-.01em}
+.pm-price small{font-size:11px;color:var(--muted);font-weight:600}
+.pm-tags{display:flex;gap:6px;flex-wrap:wrap}
+.pm-tag{font-size:11px;font-weight:650;color:var(--brand-d);background:var(--brand-tint);border:1px solid var(--brand-soft);border-radius:100px;padding:3.5px 10px}
+.pm-avail{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--good);font-weight:650}
+.pm-avail i{width:7px;height:7px;border-radius:50%;background:var(--good);box-shadow:0 0 0 3px rgba(78,124,89,.15)}
+.pm-foot-row{display:flex;align-items:center;gap:9px;margin-top:auto;padding-top:12px;border-top:1px solid var(--line2)}
+.pm-fit{font-size:11px;font-weight:750;color:var(--brand-d);background:var(--brand-tint);border-radius:100px;padding:4px 10px;white-space:nowrap}
+.pm-book{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;background:var(--brand);color:#fff;border-radius:11px;padding:10.5px 12px;font-weight:700;font-size:13px;cursor:pointer;transition:.15s}
+.pm-book:hover{background:var(--brand-d)}
+.pm-more{border:1.5px dashed #D8CCB4;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:26px 20px;text-align:center;background:rgba(255,255,255,.45)}
+.pm-more b{font-size:15px}
+.pm-more p{font-size:12.5px;color:var(--muted);margin:0;line-height:1.6}
+.pm-more button{background:var(--sidebar);color:#F3EADA;border-radius:100px;padding:10px 20px;font-weight:700;font-size:12.5px;cursor:pointer}
+.pm-sec-h{display:flex;align-items:baseline;justify-content:space-between;margin:0 0 14px}
+.pm-sec-h h2{font-size:21px;margin:0}
+.pm-sec-h span{font-size:12px;color:var(--muted)}
+.pm-step{display:flex;gap:14px;padding:15px 0;border-bottom:1px solid var(--line2)}
+.pm-step:last-child{border-bottom:none}
+.pm-step b.n{width:30px;height:30px;border-radius:50%;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13.5px;flex:0 0 30px}
+.pm-step .t{font-weight:700;font-size:13.5px;margin-bottom:3px}
+.pm-step p{font-size:12.5px;color:var(--muted);margin:0;line-height:1.62}
+.pm-say{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:34px}
+.pm-quote{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px}
+.pm-quote .q{font-size:26px;line-height:0;color:var(--brand);font-weight:800;display:block;margin-bottom:14px}
+.pm-quote .stars{color:#C4872B;font-size:12px;letter-spacing:2px;margin-bottom:10px}
+.pm-quote p{font-size:13.5px;line-height:1.72;margin:0 0 13px}
+.pm-quote .who{font-size:12px;color:var(--muted);font-weight:650}
+.pm-band{display:grid;grid-template-columns:repeat(3,1fr);gap:0;background:var(--brand-tint);border:1px solid var(--brand-soft);border-radius:18px;margin-bottom:34px;overflow:hidden}
+.pm-band>div{padding:22px 24px;border-right:1px solid var(--brand-soft)}
+.pm-band>div:last-child{border-right:none}
+.pm-band .ic{width:34px;height:34px;border-radius:10px;background:#fff;display:flex;align-items:center;justify-content:center;color:var(--brand-d);margin-bottom:11px}
+.pm-band b{font-size:13.5px;display:block;margin-bottom:4px}
+.pm-band p{font-size:12.5px;color:var(--muted);margin:0;line-height:1.6}
+.pm-cta{background:var(--sidebar);color:#F3EADA;border-radius:22px;padding:46px 30px;text-align:center;margin-bottom:30px}
+.pm-cta h2{font-size:clamp(22px,3vw,30px);margin:0 0 10px;color:#F7F0E3}
+.pm-cta p{font-size:13.5px;color:#CBBFA9;margin:0 0 22px}
+.pm-cta button{background:var(--brand);color:#fff;border-radius:100px;padding:14px 30px;font-weight:750;font-size:14.5px;cursor:pointer;transition:.15s;box-shadow:0 12px 30px -10px rgba(193,90,46,.55)}
+.pm-cta button:hover{background:#CE6636}
+.pm-cta .fine2{font-size:11px;color:#A2957E;margin-top:14px}
+.pm-footer{border-top:1px solid var(--line);padding:30px 6px 8px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:22px;margin-bottom:6px}
+.pm-footer .brand{display:flex;align-items:center;gap:9px;font-weight:800;margin-bottom:9px}
+.pm-footer .brand i{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,#C15A2E,#E8A46F);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;font-style:normal}
+.pm-footer p{font-size:12px;color:var(--muted);line-height:1.65;margin:0}
+.pm-footer .col b{font-size:12px;display:block;margin-bottom:9px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+.pm-footer .col a{display:block;font-size:12.5px;color:inherit;margin-bottom:7px;cursor:pointer}
+.pm-footer .col a:hover{color:var(--brand-d)}
+.pm-copy{font-size:11px;color:var(--muted);text-align:center;padding:14px 0 4px;border-top:1px solid var(--line2)}
+@media (max-width:1120px){.pm-grid{grid-template-columns:repeat(2,1fr)}.pm-say{grid-template-columns:1fr}.pm-band{grid-template-columns:1fr}.pm-band>div{border-right:none;border-bottom:1px solid var(--brand-soft)}.pm-band>div:last-child{border-bottom:none}.pm-footer{grid-template-columns:1fr 1fr}}
+@media (max-width:700px){
+  .pm-hero{padding:38px 18px 32px;border-radius:18px}
+  .pm-search{flex-wrap:wrap;border-radius:18px;padding:10px;gap:6px}
+  .pm-search input{flex:1 1 100%;padding:9px 6px}
+  .pm-search .pm-div{display:none}
+  .pm-search select{flex:1;max-width:none;border:1px solid var(--line);border-radius:10px;padding:9px 10px}
+  .pm-go{flex:1;justify-content:center}
+  .pm-grid{grid-template-columns:1fr}
+  .pm-sort{margin-left:0;width:100%}
+  .pm-footer{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
@@ -783,7 +885,7 @@ body.pub .pub-hide{display:none!important}
     <button class="icon-btn menu-btn" aria-label="Menu" onclick="document.getElementById('sidebar').classList.toggle('open')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
     <div class="tb-crumb"><b data-en="Raffles Academy" data-zh="莱佛士书院">Raffles Academy</b> <span id="crumb" data-en="· Dashboard" data-zh="· 总览">· Dashboard</span></div>
     <div class="pubbrand pubonly"><span class="pb-logo">JE</span><span class="pb-name">Juris &amp; Edu <span class="pb-sub" style="color:var(--muted);font-weight:600" data-en="· Tutor marketplace" data-zh="· 导师撮合市场">· Tutor marketplace</span></span>
-      <span class="pb-tabs"><button class="on" id="pbTabM" onclick="pubGo('market',this)" data-en="Marketplace" data-zh="导师市场">Marketplace</button><button id="pbTabE" onclick="pubGo('events',this)" data-en="Events" data-zh="公开活动">Events</button></span>
+      <span class="pb-tabs"><button class="on" id="pbTabM" onclick="pubGo('pub-market',this)" data-en="Marketplace" data-zh="导师市场">Marketplace</button><button id="pbTabE" onclick="pubGo('events',this)" data-en="Events" data-zh="公开活动">Events</button></span>
     </div>
     <div class="search" onclick="openCmdk()" style="cursor:pointer"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><input readonly placeholder="Search students, assignments, tutors…" data-en-ph="Search students, assignments, tutors…" data-zh-ph="搜索学生、作业、师资…"></div>
     <div class="tb-right">
@@ -2246,6 +2348,176 @@ body.pub .pub-hide{display:none!important}
       </div>
     </div>
   </section>
+
+  <!-- ========== PUBLIC MARKETPLACE LANDING ========== -->
+  <section class="module" id="m-pub-market">
+
+    <div class="pm-hero">
+      <div class="pm-kicker" data-en="Singapore · Tutor matching" data-zh="新加坡 · 导师撮合平台">Singapore · Tutor matching</div>
+      <h1 class="pm-h1" data-en="Find a tutor you can trust&lt;br&gt;— and see exactly why" data-zh="找到值得信任的老师——&lt;br&gt;并看清每一个推荐理由">Find a tutor you can trust<br>— and see exactly why</h1>
+      <p class="pm-sub" data-en="The JE engine explains every match — subject, distance, schedule, budget. Your money sits in escrow until you confirm each lesson." data-zh="JE 引擎讲清每个推荐——科目、距离、时段、预算。课时费先入托管，每节课你确认后才放款。">The JE engine explains every match — subject, distance, schedule, budget. Your money sits in escrow until you confirm each lesson.</p>
+      <div class="pm-search">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input id="pmQ" placeholder="Subject or tutor — e.g. “O-Level English”" data-en-ph="Subject or tutor — e.g. “O-Level English”" data-zh-ph="搜科目或老师——例如“O-Level 英文”" onkeydown="if(event.key==='Enter')pmSearch()">
+        <span class="pm-div"></span>
+        <select id="pmLevel" aria-label="Level">
+          <option data-en="All levels" data-zh="全部学段">All levels</option>
+          <option>PSLE</option><option>O-Level</option><option>A-Level</option><option>IB</option><option>AEIS</option>
+        </select>
+        <button class="pm-go" onclick="pmSearch()"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><span data-en="Find tutors" data-zh="找老师">Find tutors</span></button>
+      </div>
+      <div class="pm-quick">
+        <span data-en="Popular:" data-zh="热门：">Popular:</span>
+        <button onclick="pmQuick('english',this)" data-en="O-Level English" data-zh="O-Level 英文">O-Level English</button>
+        <button onclick="pmQuick('maths',this)" data-en="PSLE Maths" data-zh="小六会考数学">PSLE Maths</button>
+        <button onclick="pmQuick('science',this)" data-en="Sec Science" data-zh="中学科学">Sec Science</button>
+        <button onclick="pmQuick('chinese',this)" data-en="Chinese oral" data-zh="华文口试">Chinese oral</button>
+        <button onclick="pmQuick('econ',this)" data-en="H2 Econs" data-zh="H2 经济">H2 Econs</button>
+      </div>
+      <div class="pm-trust">
+        <span><b class="star">★ 4.9</b> <span data-en="from 2,140 parent reviews (demo)" data-zh="来自 2,140 条家长评价（演示）">from 2,140 parent reviews (demo)</span></span>
+        <span><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span data-en="Identity &amp; background vetted" data-zh="实名与背景审核">Identity &amp; background vetted</span></span>
+        <span><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg><span data-en="Escrow-protected payments" data-zh="担保托管付款">Escrow-protected payments</span></span>
+        <span><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18M12 3c-3 3-8 4-8 4s0 9 8 14c8-5 8-14 8-14s-5-1-8-4z" opacity=".0"/><path d="M12 21c8-5 8-14 8-14s-5-1-8-4c-3 3-8 4-8 4s0 9 8 14z"/></svg><span data-en="Every lesson insured (demo)" data-zh="每节课含保险（演示）">Every lesson insured (demo)</span></span>
+      </div>
+    </div>
+
+    <div class="pm-sec-h"><h2 data-en="Tutors near Bishan" data-zh="碧山附近的导师">Tutors near Bishan</h2><span data-en="Location blurred to precinct · PDPA" data-zh="位置模糊到街区 · 符合 PDPA">Location blurred to precinct · PDPA</span></div>
+    <div class="pm-filters">
+      <button class="pmf on" onclick="pmFilter('all',this)" data-en="All subjects" data-zh="全部科目">All subjects</button>
+      <button class="pmf" onclick="pmFilter('english',this)" data-en="English" data-zh="英文">English</button>
+      <button class="pmf" onclick="pmFilter('maths',this)" data-en="Maths" data-zh="数学">Maths</button>
+      <button class="pmf" onclick="pmFilter('science',this)" data-en="Science" data-zh="科学">Science</button>
+      <button class="pmf" onclick="pmFilter('chinese',this)" data-en="Chinese" data-zh="华文">Chinese</button>
+      <button class="pmf" onclick="pmFilter('econ',this)" data-en="Economics" data-zh="经济">Economics</button>
+      <div class="pm-sort"><span data-en="Sort" data-zh="排序">Sort</span>
+        <select onchange="pmSort(this.value)">
+          <option value="fit" data-en="Best fit" data-zh="匹配度优先">Best fit</option>
+          <option value="rt" data-en="Top rated" data-zh="评分优先">Top rated</option>
+          <option value="price" data-en="Lowest price" data-zh="价格优先">Lowest price</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="pm-grid" id="pmGrid">
+      <div class="pm-card" data-subj="english" data-fit="96" data-rt="4.9" data-price="68">
+        <div class="pm-top"><div class="pm-av" style="background:#3E6B54">AL</div><div><div class="pm-name">Adeline Lim <span class="pm-verified"><svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg><span data-en="Verified" data-zh="已认证">Verified</span></span></div><div class="pm-meta"><span data-en="English &amp; Literature · O-Level" data-zh="英文与文学 · O-Level">English &amp; Literature · O-Level</span> · <span data-en="Bukit Timah · 2.1 km" data-zh="武吉知马 · 2.1 km">Bukit Timah · 2.1 km</span></div></div></div>
+        <div class="pm-mid"><div class="pm-stars">★ 4.9 <small>(212 <span data-en="sessions" data-zh="节课">sessions</span>)</small></div><div class="pm-price">S$68<small>/hr</small></div></div>
+        <div class="pm-tags"><span class="pm-tag" data-en="Exam-focused" data-zh="备考专项">Exam-focused</span><span class="pm-tag" data-en="Patient &amp; structured" data-zh="耐心且有条理">Patient &amp; structured</span></div>
+        <div class="pm-avail"><i></i><span data-en="Available today · 19:30" data-zh="今天可约 · 19:30">Available today · 19:30</span></div>
+        <div class="pm-foot-row"><span class="pm-fit" data-en="JE fit 96" data-zh="匹配 96">JE fit 96</span><button class="pm-book" onclick="openBook(0)"><span data-en="View &amp; book" data-zh="查看并预约">View &amp; book</span></button></div>
+      </div>
+
+      <div class="pm-card" data-subj="maths science" data-fit="93" data-rt="4.8" data-price="75">
+        <div class="pm-top"><div class="pm-av" style="background:#A2481F">JW</div><div><div class="pm-name">Jonathan Wee <span class="pm-verified"><svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg><span data-en="Verified" data-zh="已认证">Verified</span></span></div><div class="pm-meta"><span data-en="Maths &amp; Science · Sec 1–4" data-zh="数理 · 中一至中四">Maths &amp; Science · Sec 1–4</span> · <span data-en="Tampines · 8.4 km" data-zh="淡滨尼 · 8.4 km">Tampines · 8.4 km</span></div></div></div>
+        <div class="pm-mid"><div class="pm-stars">★ 4.8 <small>(189 <span data-en="sessions" data-zh="节课">sessions</span>)</small></div><div class="pm-price">S$75<small>/hr</small></div></div>
+        <div class="pm-tags"><span class="pm-tag" data-en="IP/JC track" data-zh="直通车专项">IP/JC track</span><span class="pm-tag" data-en="Clear whiteboards" data-zh="板书清晰">Clear whiteboards</span></div>
+        <div class="pm-avail"><i></i><span data-en="Next: Tue · 20:00" data-zh="最近可约：周二 · 20:00">Next: Tue · 20:00</span></div>
+        <div class="pm-foot-row"><span class="pm-fit" data-en="JE fit 93" data-zh="匹配 93">JE fit 93</span><button class="pm-book" onclick="openBook(1)"><span data-en="View &amp; book" data-zh="查看并预约">View &amp; book</span></button></div>
+      </div>
+
+      <div class="pm-card" data-subj="chinese" data-fit="90" data-rt="5.0" data-price="60">
+        <div class="pm-top"><div class="pm-av" style="background:#4E3E63">PR</div><div><div class="pm-name">Priya Raman <span class="pm-verified"><svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg><span data-en="Verified" data-zh="已认证">Verified</span></span></div><div class="pm-meta"><span data-en="Chinese &amp; Tamil · PSLE" data-zh="华文与泰米尔文 · 小六会考">Chinese &amp; Tamil · PSLE</span> · <span data-en="Jurong East · 11.2 km" data-zh="裕廊东 · 11.2 km">Jurong East · 11.2 km</span></div></div></div>
+        <div class="pm-mid"><div class="pm-stars">★ 5.0 <small>(97 <span data-en="sessions" data-zh="节课">sessions</span>)</small></div><div class="pm-price">S$60<small>/hr</small></div></div>
+        <div class="pm-tags"><span class="pm-tag" data-en="Oral-exam coaching" data-zh="口试专项">Oral-exam coaching</span><span class="pm-tag" data-en="Bilingual" data-zh="双语教学">Bilingual</span></div>
+        <div class="pm-avail"><i></i><span data-en="Next: Wed · 16:00" data-zh="最近可约：周三 · 16:00">Next: Wed · 16:00</span></div>
+        <div class="pm-foot-row"><span class="pm-fit" data-en="JE fit 90" data-zh="匹配 90">JE fit 90</span><button class="pm-book" onclick="openBook(2)"><span data-en="View &amp; book" data-zh="查看并预约">View &amp; book</span></button></div>
+      </div>
+
+      <div class="pm-card" data-subj="science" data-fit="86" data-rt="4.7" data-price="55">
+        <div class="pm-top"><div class="pm-av" style="background:#C4872B">MO</div><div><div class="pm-name">Marcus Ong <span class="pm-verified"><svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg><span data-en="Verified" data-zh="已认证">Verified</span></span></div><div class="pm-meta"><span data-en="Science · P5–Sec 2" data-zh="科学 · 小五至中二">Science · P5–Sec 2</span> · <span data-en="Woodlands · 9.8 km" data-zh="兀兰 · 9.8 km">Woodlands · 9.8 km</span></div></div></div>
+        <div class="pm-mid"><div class="pm-stars">★ 4.7 <small>(143 <span data-en="sessions" data-zh="节课">sessions</span>)</small></div><div class="pm-price">S$55<small>/hr</small></div></div>
+        <div class="pm-tags"><span class="pm-tag" data-en="Hands-on demos" data-zh="实验演示">Hands-on demos</span><span class="pm-tag" data-en="Step-by-step" data-zh="循序渐进">Step-by-step</span></div>
+        <div class="pm-avail"><i></i><span data-en="Next: Sat · 10:00" data-zh="最近可约：周六 · 10:00">Next: Sat · 10:00</span></div>
+        <div class="pm-foot-row"><span class="pm-fit" data-en="JE fit 86" data-zh="匹配 86">JE fit 86</span><button class="pm-book" onclick="openBook(3)"><span data-en="View &amp; book" data-zh="查看并预约">View &amp; book</span></button></div>
+      </div>
+
+      <div class="pm-card" data-subj="econ" data-fit="84" data-rt="4.9" data-price="82">
+        <div class="pm-top"><div class="pm-av" style="background:#4C6E86">SC</div><div><div class="pm-name">Sarah Chen <span class="pm-verified"><svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg><span data-en="Verified" data-zh="已认证">Verified</span></span></div><div class="pm-meta"><span data-en="Economics · JC / H2" data-zh="经济 · 初级学院 H2">Economics · JC / H2</span> · <span data-en="Marina Bay · 5.6 km" data-zh="滨海湾 · 5.6 km">Marina Bay · 5.6 km</span></div></div></div>
+        <div class="pm-mid"><div class="pm-stars">★ 4.9 <small>(178 <span data-en="sessions" data-zh="节课">sessions</span>)</small></div><div class="pm-price">S$82<small>/hr</small></div></div>
+        <div class="pm-tags"><span class="pm-tag" data-en="Essay drills" data-zh="论述训练">Essay drills</span><span class="pm-tag" data-en="Case-study led" data-zh="案例教学">Case-study led</span></div>
+        <div class="pm-avail"><i></i><span data-en="Next: Sun · 14:00" data-zh="最近可约：周日 · 14:00">Next: Sun · 14:00</span></div>
+        <div class="pm-foot-row"><span class="pm-fit" data-en="JE fit 84" data-zh="匹配 84">JE fit 84</span><button class="pm-book" onclick="openBook(4)"><span data-en="View &amp; book" data-zh="查看并预约">View &amp; book</span></button></div>
+      </div>
+
+      <div class="pm-more">
+        <b data-en="47 vetted tutors near you" data-zh="你附近还有 47 位实名导师">47 vetted tutors near you</b>
+        <p data-en="Sign in free to see the full list, live availability and the JE engine's picks for your child." data-zh="免费登录即可查看完整列表、实时可约时段，以及 JE 引擎为你孩子挑选的推荐。">Sign in free to see the full list, live availability and the JE engine's picks for your child.</p>
+        <button onclick="openGate()" data-en="Sign in · free" data-zh="免费登录查看">Sign in · free</button>
+      </div>
+    </div>
+
+    <div class="pm-sec-h"><h2 data-en="Why every match is explained" data-zh="为什么每个推荐都说得清理由">Why every match is explained</h2><span data-en="No black box — ever" data-zh="拒绝黑箱推荐">No black box — ever</span></div>
+    <div class="grid g2" style="margin-bottom:34px">
+      <div class="card" style="padding:22px 24px">
+        <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap">
+          <svg width="200" height="160" viewBox="0 0 200 160" style="flex:0 0 auto">
+            <polygon points="100,22 158,80 100,138 42,80" fill="none" stroke="#E4D9C3" stroke-width="1"/>
+            <polygon points="100,41.7 138.3,80 100,118.3 61.7,80" fill="none" stroke="#E4D9C3" stroke-width="1"/>
+            <polygon points="100,60.9 119.1,80 100,99.1 80.9,80" fill="none" stroke="#E4D9C3" stroke-width="1"/>
+            <line x1="100" y1="22" x2="100" y2="138" stroke="#EDE4D2" stroke-width="1"/>
+            <line x1="42" y1="80" x2="158" y2="80" stroke="#EDE4D2" stroke-width="1"/>
+            <polygon points="100,23.2 154.5,80 100,132.2 49,80" fill="rgba(193,90,46,.16)" stroke="#C15A2E" stroke-width="2" stroke-linejoin="round"/>
+            <circle cx="100" cy="23.2" r="3.5" fill="#C15A2E"/><circle cx="154.5" cy="80" r="3.5" fill="#4C6E86"/><circle cx="100" cy="132.2" r="3.5" fill="#C4872B"/><circle cx="49" cy="80" r="3.5" fill="#4E7C59"/>
+          </svg>
+          <div style="flex:1;min-width:200px">
+            <div class="small" style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><i style="width:9px;height:9px;border-radius:3px;background:#C15A2E;display:inline-block"></i><span class="fw6" data-en="Subject match 98" data-zh="科目匹配 98">Subject match 98</span></div>
+            <div class="small" style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><i style="width:9px;height:9px;border-radius:3px;background:#4C6E86;display:inline-block"></i><span class="fw6" data-en="Distance 94" data-zh="距离就近 94">Distance 94</span></div>
+            <div class="small" style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><i style="width:9px;height:9px;border-radius:3px;background:#C4872B;display:inline-block"></i><span class="fw6" data-en="Schedule fit 90" data-zh="时段契合 90">Schedule fit 90</span></div>
+            <div class="small" style="display:flex;align-items:center;gap:8px"><i style="width:9px;height:9px;border-radius:3px;background:#4E7C59;display:inline-block"></i><span class="fw6" data-en="Budget fit 88" data-zh="预算匹配 88">Budget fit 88</span></div>
+            <p class="small muted" style="margin:12px 0 0;line-height:1.65" data-en="Open any recommendation to see its four-way score. If a tutor isn't a fit, the engine says so — and says why." data-zh="点开任何推荐都能看到四维评分。不合适的老师，引擎会直说——并且说清楚为什么。">Open any recommendation to see its four-way score. If a tutor isn't a fit, the engine says so — and says why.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card" style="padding:8px 24px">
+        <div class="pm-step"><b class="n">1</b><div><div class="t" data-en="Tell us what you need" data-zh="告诉我们你的需求">Tell us what you need</div><p data-en="Subject, level, budget, schedule and where you are — two minutes, no phone calls." data-zh="科目、学段、预算、时段和位置——两分钟填完，无需接听推销电话。">Subject, level, budget, schedule and where you are — two minutes, no phone calls.</p></div></div>
+        <div class="pm-step"><b class="n">2</b><div><div class="t" data-en="The JE engine matches — with reasons" data-zh="JE 引擎带着理由来推荐">The JE engine matches — with reasons</div><p data-en="Ranked picks in under 2 minutes for 91% of requests, each with the four-way fit score above." data-zh="91% 的请求 2 分钟内出结果，每个推荐都附上面的四维评分。">Ranked picks in under 2 minutes for 91% of requests, each with the four-way fit score above.</p></div></div>
+        <div class="pm-step"><b class="n">3</b><div><div class="t" data-en="Book with escrow — confirm to release" data-zh="担保支付上课——确认后才放款">Book with escrow — confirm to release</div><p data-en="Pay into escrow, meet the tutor, confirm each lesson. Money moves only when you say so." data-zh="课时费先入托管，上完课你确认后才放款给老师。钱只在你点头后才动。">Pay into escrow, meet the tutor, confirm each lesson. Money moves only when you say so.</p></div></div>
+      </div>
+    </div>
+
+    <div class="pm-sec-h"><h2 data-en="What parents say" data-zh="家长怎么说">What parents say</h2><span data-en="Sample reviews (demo)" data-zh="示例评价（演示）">Sample reviews (demo)</span></div>
+    <div class="pm-say">
+      <div class="pm-quote"><span class="q">“</span><div class="stars">★★★★★</div><p data-en="Escrow made trying a new tutor feel safe — the first-lesson refund was instant, no questions asked." data-zh="担保托管让试新老师毫无压力——首课退款是即时到账的，也没人追问原因。">Escrow made trying a new tutor feel safe — the first-lesson refund was instant, no questions asked.</p><div class="who" data-en="Mdm Lee · P6 parent · Bishan" data-zh="李女士 · 小六家长 · 碧山">Mdm Lee · P6 parent · Bishan</div></div>
+      <div class="pm-quote"><span class="q">“</span><div class="stars">★★★★★</div><p data-en="The match came with reasons, not just a name. We compared two tutors and booked the same evening." data-zh="推荐是带着理由来的，不只是一个名字。我们对比了两位老师，当晚就下了订。">The match came with reasons, not just a name. We compared two tutors and booked the same evening.</p><div class="who" data-en="Mr Nair · Sec 3 parent · Tampines" data-zh="奈尔先生 · 中三家长 · 淡滨尼">Mr Nair · Sec 3 parent · Tampines</div></div>
+      <div class="pm-quote"><span class="q">“</span><div class="stars">★★★★★</div><p data-en="The weekly path report tells me what my son practised and where he's stuck — not just a score." data-zh="每周的路径报告告诉我孩子练了什么、卡在哪里——而不只是一个分数。">The weekly path report tells me what my son practised and where he's stuck — not just a score.</p><div class="who" data-en="Mdm Zhang · P5 parent · Jurong" data-zh="张女士 · 小五家长 · 裕廊">Mdm Zhang · P5 parent · Jurong</div></div>
+    </div>
+
+    <div class="pm-band">
+      <div><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="M9.5 12.5 11 14l3.5-3.5"/></svg></div><b data-en="First-lesson guarantee" data-zh="首课保障">First-lesson guarantee</b><p data-en="Not the right fit? Full refund on lesson one — no questions, no forms." data-zh="第一节课不满意？全额退款——不问原因、不填表格。">Not the right fit? Full refund on lesson one — no questions, no forms.</p></div>
+      <div><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg></div><b data-en="Escrow by design" data-zh="担保托管机制">Escrow by design</b><p data-en="Funds are held by a licensed escrow partner and released only after you confirm each lesson (demo)." data-zh="资金由持牌托管方保管，每节课经你确认后才放款（演示）。">Funds are held by a licensed escrow partner and released only after you confirm each lesson (demo).</p></div>
+      <div><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c8-5 8-14 8-14s-5-1-8-4c-3 3-8 4-8 4s0 9 8 14z"/></svg></div><b data-en="Vetted &amp; insured" data-zh="审核与保险">Vetted &amp; insured</b><p data-en="Identity, qualifications and background screened; every lesson carries liability cover (demo)." data-zh="实名、资质与背景三重审核；每节课含责任保险（演示）。">Identity, qualifications and background screened; every lesson carries liability cover (demo).</p></div>
+    </div>
+
+    <div class="pm-cta">
+      <h2 data-en="Three minutes to the right tutor" data-zh="三分钟，找到对的老师">Three minutes to the right tutor</h2>
+      <p data-en="Free to join · escrow on every booking · first lesson guaranteed" data-zh="免费注册 · 每笔预约担保托管 · 首课不满意全额退">Free to join · escrow on every booking · first lesson guaranteed</p>
+      <button onclick="openGate()" data-en="Start matching · free" data-zh="开始匹配 · 免费">Start matching · free</button>
+      <div class="fine2" data-en="Demo environment · sample data only" data-zh="演示环境 · 仅示例数据">Demo environment · sample data only</div>
+    </div>
+
+    <div class="pm-footer">
+      <div>
+        <div class="brand"><i>JE</i> Juris &amp; Edu Intelligence</div>
+        <p data-en="An education engine that shows its work — cited AI, explained matching, escrow-grade payments." data-zh="一套「亮出依据」的教育引擎——AI 有出处、撮合有理由、支付有担保。">An education engine that shows its work — cited AI, explained matching, escrow-grade payments.</p>
+      </div>
+      <div class="col"><b data-en="Platform" data-zh="平台">Platform</b>
+        <a onclick="toast('en:Demo — page not included in this mock','zh:演示环境——此页面未包含在 mock 中')" data-en="How matching works" data-zh="撮合机制说明">How matching works</a>
+        <a onclick="openGate()" data-en="Become a tutor" data-zh="成为导师">Become a tutor</a>
+        <a onclick="pubGo('events',document.getElementById('pbTabE'))" data-en="Open events" data-zh="公开活动">Open events</a>
+      </div>
+      <div class="col"><b data-en="Trust" data-zh="信任与安全">Trust</b>
+        <a onclick="toast('en:Demo — escrow rules summary would open here','zh:演示环境——此处将展示托管规则说明')" data-en="Escrow &amp; refund rules" data-zh="托管与退款规则">Escrow &amp; refund rules</a>
+        <a onclick="toast('en:Demo — vetting standards would open here','zh:演示环境——此处将展示导师审核标准')" data-en="Tutor vetting standards" data-zh="导师审核标准">Tutor vetting standards</a>
+        <a onclick="toast('en:Demo — insurance summary would open here','zh:演示环境——此处将展示保险说明')" data-en="Insurance cover" data-zh="保险说明">Insurance cover</a>
+      </div>
+      <div class="col"><b data-en="Legal" data-zh="法律">Legal</b>
+        <a onclick="toast('en:Demo — terms would open here','zh:演示环境——此处将展示服务条款')" data-en="Terms of service" data-zh="服务条款">Terms of service</a>
+        <a onclick="toast('en:Demo — PDPA notice would open here','zh:演示环境——此处将展示 PDPA 隐私声明')" data-en="PDPA &amp; privacy" data-zh="PDPA 与隐私">PDPA &amp; privacy</a>
+      </div>
+    </div>
+    <div class="pm-copy" data-en="© 2026 Juris &amp; Edu AI Technologies Pte. Ltd. · Demo environment · sample data only" data-zh="© 2026 Juris &amp; Edu AI Technologies Pte. Ltd. · 演示环境 · 仅示例数据">© 2026 Juris &amp; Edu AI Technologies Pte. Ltd. · Demo environment · sample data only</div>
+  </section>
   </main>
 </div>
 
@@ -3186,6 +3458,57 @@ window.addRule=function(){
   var r=document.getElementById('newRule');
   if(r){r.style.display='flex';r.scrollIntoView({behavior:'smooth',block:'center'});}
   toast('en:Rule R29 added in pilot mode — suggests only for 2 weeks, then audited','zh:规则 R29 已灰度上线——前两周只提示不动分，审计通过才生效');
+};
+</script>
+
+<script>
+/* ---------- v10: public landing interactions ---------- */
+Object.assign(CRUMB,{'pub-market':['· Marketplace','· 导师市场']});
+(function(){
+  var ep=window.enterPublic;
+  window.enterPublic=function(){
+    ep();
+    go('pub-market');
+    var m=document.getElementById('pbTabM'),e=document.getElementById('pbTabE');
+    if(m)m.classList.add('on'); if(e)e.classList.remove('on');
+  };
+})();
+window.pmFilter=function(s,el){
+  document.querySelectorAll('.pm-filters .pmf').forEach(function(b){b.classList.remove('on');});
+  if(el)el.classList.add('on');
+  document.querySelectorAll('#pmGrid .pm-card').forEach(function(c){
+    c.style.display=(s==='all'||(c.dataset.subj||'').indexOf(s)>=0)?'flex':'none';
+  });
+};
+window.pmSort=function(k){
+  var g=document.getElementById('pmGrid');
+  var cards=[].slice.call(g.querySelectorAll('.pm-card'));
+  var more=g.querySelector('.pm-more');
+  cards.sort(function(a,b){
+    if(k==='price')return (+a.dataset.price)-(+b.dataset.price);
+    if(k==='rt')return (+b.dataset.rt)-(+a.dataset.rt);
+    return (+b.dataset.fit)-(+a.dataset.fit);
+  });
+  cards.forEach(function(c){g.insertBefore(c,more);});
+  toast('en:Sorted — the JE fit score still explains each pick','zh:已重新排序——每个推荐仍附匹配理由');
+};
+window.pmSearch=function(){
+  var q=(document.getElementById('pmQ').value||'').toLowerCase();
+  var map=[['english','english 英文 literature 文学 eng'],['maths','math maths 数学 数理'],['science','science 科学 physics chem bio'],['chinese','chinese 华文 口试 oral tamil'],['econ','econ economics 经济 h2']];
+  var hit='all';
+  map.forEach(function(m){ if(q && m[1].split(' ').some(function(w){return q.indexOf(w)>=0;}))hit=m[0]; });
+  var chips=document.querySelectorAll('.pm-filters .pmf');
+  var idx={all:0,english:1,maths:2,science:3,chinese:4,econ:5}[hit]||0;
+  pmFilter(hit,chips[idx]);
+  var g=document.getElementById('pmGrid'); if(g)g.scrollIntoView({behavior:'smooth',block:'start'});
+  toast('en:Showing tutors for your search — every pick is explained','zh:已按搜索条件筛选——每个推荐都可点开看理由');
+};
+window.pmQuick=function(s,el){
+  var chips=document.querySelectorAll('.pm-filters .pmf');
+  var idx={all:0,english:1,maths:2,science:3,chinese:4,econ:5}[s]||0;
+  pmFilter(s,chips[idx]);
+  document.getElementById('pmQ').value=el?el.textContent.trim():'';
+  var g=document.getElementById('pmGrid'); if(g)g.scrollIntoView({behavior:'smooth',block:'start'});
 };
 </script>
 </body>
