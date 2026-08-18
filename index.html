@@ -638,6 +638,29 @@ body.pub .pub-hide{display:none!important}
 .fc-delta{margin-top:12px;border-radius:12px;padding:12px 15px;background:var(--sidebar);color:#F3EADA;display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap}
 .fc-delta b{font-size:22px;color:#F0BE93}
 @media (max-width:700px){.fc-vs{grid-template-columns:1fr}}
+
+/* ---------- v12 : engagement & borrowed-best ---------- */
+.ring{transform:rotate(-90deg)}
+.ring .bgc{stroke:#EFE7D8;fill:none;stroke-width:7}
+.ring .fgc{stroke:var(--brand);fill:none;stroke-width:7;stroke-linecap:round;transition:stroke-dashoffset 1s cubic-bezier(.4,0,.2,1)}
+.tier{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:100px;background:linear-gradient(135deg,#4C6E86,#6E93AC);color:#fff;font-weight:750;font-size:12px}
+.reward-row{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--line2)}
+.reward-row:last-child{border-bottom:none}
+.reward-ico{width:38px;height:38px;border-radius:11px;background:var(--brand-tint);display:flex;align-items:center;justify-content:center;font-size:17px;flex:0 0 38px}
+.photo-drop{border:1.5px dashed var(--brand-soft);border-radius:14px;padding:22px;text-align:center;cursor:pointer;transition:.15s;background:rgba(255,255,255,.5)}
+.photo-drop:hover{background:var(--brand-tint)}
+.wavebars{display:flex;align-items:flex-end;gap:3px;height:34px;margin:10px 0}
+.wavebars i{width:5px;border-radius:3px;background:var(--brand);opacity:.75;animation:wv 1s ease-in-out infinite}
+@keyframes wv{0%,100%{transform:scaleY(.45)}50%{transform:scaleY(1)}}
+@media (prefers-reduced-motion: reduce){.wavebars i{animation:none}}
+.moment{display:flex;gap:12px;padding:13px 0;border-bottom:1px solid var(--line2)}
+.moment:last-child{border-bottom:none}
+.m-av{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:14px;flex:0 0 40px}
+.likebtn{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:100px;border:1px solid var(--line);background:var(--card);font-size:12px;font-weight:650;cursor:pointer;transition:.13s}
+.likebtn:hover{border-color:var(--brand);color:var(--brand-d)}
+.likebtn.on{background:var(--brand-tint);border-color:var(--brand);color:var(--brand-d)}
+.toolchip{display:inline-flex;align-items:center;gap:7px;padding:10px 15px;border-radius:12px;border:1px solid var(--line);background:var(--card);font-weight:650;font-size:12.5px;cursor:pointer;transition:.14s}
+.toolchip:hover{border-color:var(--brand);transform:translateY(-1px);box-shadow:var(--sh-sm,0 4px 12px rgba(60,42,24,.12))}
 /* ---------- v9 : essay & reading studio ---------- */
 .hl{padding:0 2px;border-radius:4px}
 .hl.y{background:#F6E7B8;box-shadow:inset 0 -2px 0 #C4872B}
@@ -1276,6 +1299,17 @@ body.pub .pub-hide{display:none!important}
         <div style="text-align:right"><span class="badge a" style="margin-bottom:8px" data-en="Paid" data-zh="付费">Paid</span><br><button class="btn ghost" style="padding:7px 12px" data-en="Manage" data-zh="管理">Manage</button></div>
       </div>
     </div>
+
+    <div class="card" style="margin-bottom:18px;background:linear-gradient(120deg,#2B2117,#3A2E1F);border:none">
+      <div style="padding:20px 22px;display:flex;gap:18px;align-items:center;flex-wrap:wrap">
+        <div style="width:52px;height:52px;border-radius:15px;background:linear-gradient(135deg,#C15A2E,#E8A46F);display:flex;align-items:center;justify-content:center;flex:0 0 52px"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0z"/><path d="M17 5h3a2 2 0 0 1-2 4h-1M7 5H4a2 2 0 0 0 2 4h1"/></svg></div>
+        <div style="flex:1;min-width:230px">
+          <div style="font-weight:800;font-size:16px;color:#F7F0E3" data-en="JE Inter-Centre Challenge · Maths 48H" data-zh="JE 跨机构挑战赛 · 数学 48 小时">JE Inter-Centre Challenge · Maths 48H</div>
+          <div class="small" style="color:#CBBFA9;margin-top:4px" data-en="12 centres · 380 students registered · anonymous tiers, centre-level podium · double stardust weekend" data-zh="12 家机构 · 380 名学生已报名 · 学生匿名段位、机构上榜 · 周末星尘双倍">12 centres · 380 students registered · anonymous tiers, centre-level podium · double stardust weekend</div>
+        </div>
+        <button class="btn primary" onclick="toast('en:Your centre is in — challenge kit &amp; parental consent forms sent','zh:已为本机构报名——比赛材料与家长同意书已发出')"><span data-en="Enter your centre" data-zh="为本机构报名">Enter your centre</span></button>
+      </div>
+    </div>
   </section>
 
 
@@ -1405,6 +1439,15 @@ body.pub .pub-hide{display:none!important}
           <button class="btn subtle" style="width:100%;justify-content:center;margin-top:12px" onclick="go('p-book')" data-en="Manage bookings" data-zh="管理预约">Manage bookings</button>
         </div>
         <div class="callout"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg></div><div><b data-en="Your money & data are protected" data-zh="资金与数据双重保护">Your money & data are protected</b><p data-en="Escrow until you confirm each lesson · PDPA, data in Singapore · every AI claim cites its source." data-zh="每节课确认后才放款 · PDPA 数据驻留新加坡 · AI 的每个结论都有出处。">Escrow until you confirm each lesson · PDPA, data in Singapore · every AI claim cites its source.</p></div></div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:18px">
+      <div class="card-head"><h3 data-en="Today's moments — from the classroom" data-zh="今日时刻 · 来自课堂的瞬间">Today's moments — from the classroom</h3><span class="rchip" data-en="PDPA · only your child" data-zh="PDPA · 仅本人相关">PDPA · only your child</span></div>
+      <div style="padding:6px 18px 14px">
+        <div class="moment"><div class="m-av" style="background:#3E6B54">WT</div><div style="flex:1"><div class="small fw6" data-en="Rui Feng walked the class through his essay-revision plan ✍️" data-zh="睿峰向全班讲解了他的作文修改思路 ✍️">Rui Feng walked the class through his essay-revision plan ✍️</div><div class="small muted" data-en="Ms Tan · 14:20 · photo blurred on-device before sharing" data-zh="陈老师 · 14:20 · 照片在端侧完成脱敏后才分享">Ms Tan · 14:20 · photo blurred on-device before sharing</div></div><button class="likebtn" onclick="this.classList.add('on');this.querySelector('b').textContent=(+this.querySelector('b').textContent)+1;toast('en:Ms Tan can see your appreciation','zh:你的点赞已让陈老师看到')">❤ <b>4</b></button></div>
+        <div class="moment"><div class="m-av" style="background:#4C6E86">SC</div><div style="flex:1"><div class="small fw6" data-en="Group experiment: timing a pendulum — Rui Feng recorded the data" data-zh="小组实验：测量单摆周期——睿峰负责记录数据">Group experiment: timing a pendulum — Rui Feng recorded the data</div><div class="small muted" data-en="Mr Chen · yesterday" data-zh="陈老师（科学）· 昨天">Mr Chen · yesterday</div></div><button class="likebtn" onclick="this.classList.add('on');this.querySelector('b').textContent=(+this.querySelector('b').textContent)+1;toast('en:Liked','zh:已点赞')">❤ <b>3</b></button></div>
+        <div class="small muted" style="margin-top:8px" data-en="Teachers share in one tap; you only ever see moments involving your own child. This is the trust loop that renewals are made of." data-zh="老师一键分享；你只会看到与自家孩子相关的时刻。信任感，正是续费的来源。">Teachers share in one tap; you only ever see moments involving your own child. This is the trust loop that renewals are made of.</div>
       </div>
     </div>
   </section>
@@ -1541,6 +1584,23 @@ body.pub .pub-hide{display:none!important}
         </div>
       </div>
     </div>
+
+    <div class="grid g4" style="margin-bottom:18px">
+      <div class="card stat"><div class="top"><div class="lab" data-en="Streak" data-zh="连胜">Streak</div><div class="ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2s5 4.5 5 9a5 5 0 0 1-10 0c0-1.5.5-3 1.5-4.5C9 8 10 9.5 11 9.5c1.5 0 1-3.5 1-7.5z"/></svg></div></div><div class="num">12<small data-en=" days" data-zh=" 天"> days</small></div><div class="delta up"><span data-en="finish today's 3 to keep it" data-zh="完成今日 3 项即可保持">finish today's 3 to keep it</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Daily goal" data-zh="每日目标">Daily goal</div><div class="ico i" style="position:relative"><svg class="ring" width="34" height="34" viewBox="0 0 34 34" style="position:absolute;inset:2px"><circle class="bgc" cx="17" cy="17" r="13"/><circle class="fgc" cx="17" cy="17" r="13" stroke-dasharray="81.7" stroke-dashoffset="27.2"/></svg></div></div><div class="num">2<small>/3</small></div><div class="delta"><span data-en="18 min planned · 6 min left" data-zh="计划 18 分钟 · 还剩 6 分钟">18 min planned · 6 min left</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="JE stardust" data-zh="JE 星尘">JE stardust</div><div class="ico g"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.7 4.8L18.5 9l-4.8 1.2L12 15l-1.7-4.8L5.5 9l4.8-1.2z"/></svg></div></div><div class="num">340</div><div class="delta up"><span data-en="for finishing paths, not volume" data-zh="按完成路径获得，不按刷题量">for finishing paths, not volume</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="League tier" data-zh="匿名段位">League tier</div><div class="ico w"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0z"/><path d="M17 5h3a2 2 0 0 1-2 4h-1M7 5H4a2 2 0 0 0 2 4h1"/></svg></div></div><div class="num" style="font-size:19px;padding-top:5px"><span class="tier" data-en="Star III" data-zh="星耀 III">Star III</span></div><div class="delta"><span data-en="anonymous league · no names" data-zh="匿名段位 · 不公开姓名">anonymous league · no names</span></div></div>
+    </div>
+
+    <div class="card" style="margin-bottom:18px">
+      <div class="card-head"><h3 data-en="Reward house — stardust becomes real-world wins" data-zh="奖励屋 · 星尘换成看得见的奖励">Reward house — stardust becomes real-world wins</h3><span class="rchip" data-en="parent-configured" data-zh="家长可配置">parent-configured</span></div>
+      <div style="padding:6px 18px 16px">
+        <div class="reward-row"><div class="reward-ico">🎮</div><div style="flex:1"><div class="small fw6" data-en="30 min weekend game time" data-zh="周末游戏时间 30 分钟">30 min weekend game time</div><div class="small muted" data-en="set by Mum" data-zh="由妈妈设定的家庭奖励">set by Mum</div></div><button class="btn ghost" style="padding:7px 14px" onclick="toast('en:Redeemed 120 stardust — parent notified for approval','zh:已用 120 星尘兑换——已通知家长确认')"><span data-en="120 ✦" data-zh="120 ✦">120 ✦</span></button></div>
+        <div class="reward-row"><div class="reward-ico">📚</div><div style="flex:1"><div class="small fw6" data-en="New comic volume" data-zh="新一册漫画">New comic volume</div><div class="small muted" data-en="family reward" data-zh="家庭奖励">family reward</div></div><button class="btn ghost" style="padding:7px 14px" onclick="toast('en:Redeemed 260 stardust — parent notified','zh:已用 260 星尘兑换——已通知家长')"><span>260 ✦</span></button></div>
+        <div class="reward-row"><div class="reward-ico">🏸</div><div style="flex:1"><div class="small fw6" data-en="Badminton hour with Dad" data-zh="和爸爸打一小时羽毛球">Badminton hour with Dad</div><div class="small muted" data-en="centre bonus: free workshop seat at 500 ✦" data-zh="机构加码：500 ✦ 可换工作坊名额">centre bonus: free workshop seat at 500 ✦</div></div><button class="btn ghost" style="padding:7px 14px" onclick="toast('en:Redeemed 180 stardust — enjoy!','zh:已用 180 星尘兑换——玩得开心！')"><span>180 ✦</span></button></div>
+        <div class="small muted" style="margin-top:8px" data-en="Stardust rewards finishing your path — never raw question volume. Grinding extra drills earns zero. (Anti-cram by design.)" data-zh="星尘只奖励“完成路径”，刷题量不加分——机制上反对机械刷题。">Stardust rewards finishing your path — never raw question volume. Grinding extra drills earns zero. (Anti-cram by design.)</div>
+      </div>
+    </div>
   </section>
 
   <!-- ========== STUDENT: TUTOR ========== -->
@@ -1573,6 +1633,49 @@ body.pub .pub-hide{display:none!important}
         <div class="card pad">
           <div class="fw6" style="margin-bottom:10px" data-en="Keep going" data-zh="继续任务">Keep going</div>
           <div class="list-row" style="padding:6px 0"><div class="mini-av" style="background:var(--brand)">2</div><div style="flex:1" class="small fw6" data-en="4 practice questions" data-zh="4 道练习">4 practice questions</div><button class="btn subtle" style="padding:5px 10px" onclick="toast('en:Practice set opened','zh:练习已打开')" data-en="Start" data-zh="开始">Start</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid g2" style="margin-bottom:18px">
+      <div class="card">
+        <div class="card-head"><h3 data-en="Snap a question — get guided, not given" data-zh="拍照问一题 · 引导你，不代替你">Snap a question — get guided, not given</h3><span class="rchip" data-en="joins your path" data-zh="自动进路径">joins your path</span></div>
+        <div style="padding:14px 18px 18px">
+          <div class="photo-drop" id="snapDrop" onclick="snapAsk()">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="color:var(--brand-d)"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+            <div class="fw6" style="margin-top:8px" data-en="Snap or upload a question" data-zh="拍照或上传题目">Snap or upload a question</div>
+            <div class="small muted" data-en="maths · science · english — handwriting OK" data-zh="数学 · 科学 · 英文——手写也可以">maths · science · english — handwriting OK</div>
+          </div>
+          <div id="snapResult" style="display:none">
+            <div style="display:flex;gap:7px;flex-wrap:wrap;margin:12px 0 10px">
+              <span class="rchip"><span data-en="OCR 97.8%" data-zh="识别 97.8%">OCR 97.8%</span></span>
+              <span class="rchip" style="background:var(--brand-tint);color:var(--brand-d)"><span data-en="Tagged: quadratics · completing the square" data-zh="归因：二次函数 · 配方法">Tagged: quadratics · completing the square</span></span>
+              <span class="rchip" style="color:var(--good)"><span data-en="added to your path + mistake book" data-zh="已加入路径与错题本">added to your path + mistake book</span></span>
+            </div>
+            <div class="bubwrap" style="display:flex">
+              <div class="bub me" data-en="Solve: 2x² + 8x − 10 = 0" data-zh="解方程：2x² + 8x − 10 = 0">Solve: 2x² + 8x − 10 = 0</div>
+              <div class="bub ai" data-en="Before any formula — what happens if you divide both sides by 2? What does the equation become? (hint 1 of 3)" data-zh="先别套公式——两边同时除以 2 会发生什么？方程会变成什么样？（提示 1/3）">Before any formula — what happens if you divide both sides by 2? What does the equation become? (hint 1 of 3)</div>
+            </div>
+            <div class="small muted" data-en="Guided mode is the default. Full worked solutions unlock only if your teacher or parent enables them — and every snap is logged to your path, so one question becomes lasting mastery, not a one-off answer." data-zh="默认只引导。完整解析需老师或家长开启；每次拍照都会记入学习路径——一道题沉淀为长期掌握，而不是一次性答案。">Guided mode is the default. Full worked solutions unlock only if your teacher or parent enables them — and every snap is logged to your path, so one question becomes lasting mastery, not a one-off answer.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3 data-en="Oral coach — PSLE / O-Level speaking" data-zh="口语陪练 · 小六会考 / O-Level 口试">Oral coach — PSLE / O-Level speaking</h3><span class="rchip" data-en="on-device audio" data-zh="音频端侧处理">on-device audio</span></div>
+        <div style="padding:14px 18px 18px">
+          <div class="small muted fw6" style="margin-bottom:6px" data-en="Today's stimulus" data-zh="今日题目">Today's stimulus</div>
+          <p class="essay-p" style="background:var(--panel);border-radius:10px;padding:11px 13px;font-size:12.5px;margin-bottom:12px" data-en="“Describe a time you helped someone. What did you do, and how did it make you feel?”" data-zh="“Describe a time you helped someone. What did you do, and how did it make you feel?”（英文口试题）">“Describe a time you helped someone. What did you do, and how did it make you feel?”</p>
+          <button class="btn primary" id="oralBtn" onclick="oralGo()"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1M12 18v4M8 22h8"/></svg><span data-en="Start practising" data-zh="开始练习">Start practising</span></button>
+          <div id="oralResult" style="display:none">
+            <div class="wavebars" aria-hidden="true"><i style="animation-delay:0s;height:60%"></i><i style="animation-delay:.1s;height:90%"></i><i style="animation-delay:.2s;height:45%"></i><i style="animation-delay:.3s;height:100%"></i><i style="animation-delay:.4s;height:70%"></i><i style="animation-delay:.5s;height:85%"></i><i style="animation-delay:.6s;height:50%"></i><i style="animation-delay:.7s;height:95%"></i><i style="animation-delay:.15s;height:65%"></i><i style="animation-delay:.35s;height:80%"></i></div>
+            <div style="display:grid;gap:9px;margin-bottom:10px">
+              <div><div class="small" style="display:flex;justify-content:space-between"><span class="fw6" data-en="Fluency" data-zh="流利度">Fluency</span><span class="muted">82</span></div><div class="pbar"><i class="g" style="width:82%"></i></div></div>
+              <div><div class="small" style="display:flex;justify-content:space-between"><span class="fw6" data-en="Pronunciation" data-zh="发音">Pronunciation</span><span class="muted">88</span></div><div class="pbar"><i class="g" style="width:88%"></i></div></div>
+              <div><div class="small" style="display:flex;justify-content:space-between"><span class="fw6" data-en="Content & structure" data-zh="内容与结构">Content & structure</span><span class="muted">74</span></div><div class="pbar"><i class="a" style="width:74%"></i></div></div>
+            </div>
+            <div class="callout"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg></div><div><b class="small" data-en="2 pronunciations flagged — sent to your teacher" data-zh="2 处发音存疑——已转给老师确认">2 pronunciations flagged — sent to your teacher</b><p data-en="“thorough” and “anxious” scored below the confidence bar, so the coach abstains and your teacher decides. Audio is processed on-device; nothing is uploaded." data-zh="“thorough”“anxious”两词低于置信阈值——AI 不硬判，转由老师确认。音频在设备端处理，不上传任何录音。">“thorough” and “anxious” scored below the confidence bar, so the coach abstains and your teacher decides. Audio is processed on-device; nothing is uploaded.</p></div></div>
+          </div>
         </div>
       </div>
     </div>
@@ -1948,6 +2051,18 @@ body.pub .pub-hide{display:none!important}
         </div>
         <div class="callout"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg></div><div><b class="small" data-en="Studio guardrails" data-zh="工作室守护线">Studio guardrails</b><p data-en="Scripts generate only from your approved corpus, every segment cites its source, and nothing is published without your signature — same discipline as grading." data-zh="脚本只从批准语料生成、逐段有出处、未经你签发绝不上线——与评分同一套纪律。">Scripts generate only from your approved corpus, every segment cites its source, and nothing is published without your signature — same discipline as grading.</p></div></div>
         <div class="callout" style="background:var(--good-soft);border-color:#CFE1CF"><div class="ic" style="color:var(--good)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="5.5"/><path d="M18.1 6.6a5.5 5.5 0 0 1 0 10.8M8 21a5.5 5.5 0 0 0 5.4-6.6"/></svg></div><div><b class="small" data-en="Why it’s worth it" data-zh="为什么划算">Why it’s worth it</b><p data-en="A studio recording day costs ~S$300+ and 3 hours per lesson. Here: 6 minutes, S$4.20, bilingual by default — and edits are instant." data-zh="传统录制一课约 3 小时、S$300+；这里 6 分钟、S$4.20、默认双语——而且修改即时生效。">A studio recording day costs ~S$300+ and 3 hours per lesson. Here: 6 minutes, S$4.20, bilingual by default — and edits are instant.</p></div></div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:18px">
+      <div class="card-head"><h3 data-en="Teacher toolbox — one-tap drafts, your signature" data-zh="教师工具箱 · 一键成稿，由你签发">Teacher toolbox — one-tap drafts, your signature</h3><span class="rchip" data-en="every output cited &amp; abstain-aware" data-zh="产出带出处 · 会存疑">every output cited &amp; abstain-aware</span></div>
+      <div style="padding:14px 18px 16px;display:flex;gap:9px;flex-wrap:wrap">
+        <button class="toolchip" onclick="toast('en:Comment drafts for 4B generated from grading evidence — in your review queue','zh:已按批改证据生成 4B 班评语初稿——进入你的签发队列')"><span>📝</span><span data-en="Report comments" data-zh="评语生成">Report comments</span></button>
+        <button class="toolchip" onclick="toast('en:3 differentiated worksheets drafted from the same objective','zh:同一教学目标已生成 3 档差异化练习')"><span>🎯</span><span data-en="Differentiated practice" data-zh="差异化练习">Differentiated practice</span></button>
+        <button class="toolchip" onclick="toast('en:Parent letter drafted — bilingual, cites this week\'s path data','zh:家长信已成稿——中英双语，引用本周路径数据')"><span>✉️</span><span data-en="Parent letter" data-zh="家长信">Parent letter</span></button>
+        <button class="toolchip" onclick="toast('en:Weekly class report drafted from live data','zh:班级周报已按实时数据成稿')"><span>📊</span><span data-en="Weekly report" data-zh="周报草稿">Weekly report</span></button>
+        <button class="toolchip" onclick="toast('en:6 oral stimulus cards generated from the approved syllabus','zh:已从批准考纲生成 6 张口试题卡')"><span>🎙️</span><span data-en="Oral stimulus cards" data-zh="口试题卡">Oral stimulus cards</span></button>
+        <button class="toolchip" onclick="toast('en:Praise stickers ready — tied to path milestones, not scores','zh:表扬贴纸已生成——挂钩路径里程碑，而非分数')"><span>⭐</span><span data-en="Praise stickers" data-zh="表扬贴纸">Praise stickers</span></button>
       </div>
     </div>
   </section>
@@ -3585,6 +3700,20 @@ window.fcCalc=function(){
   document.getElementById('fcDelta').textContent=(d>=0?'+':'−')+f2(Math.abs(d)).replace('S$','S$');
 };
 document.addEventListener('DOMContentLoaded',fcCalc);fcCalc();
+</script>
+
+<script>
+/* ---------- v12: engagement interactions ---------- */
+window.snapAsk=function(){
+  var d=document.getElementById('snapDrop'),r=document.getElementById('snapResult');
+  if(d)d.style.display='none'; if(r)r.style.display='block';
+  toast('en:Question recognised — tagged to your path, Socratic mode on','zh:题目已识别——已归因到路径，苏格拉底引导已开启');
+};
+window.oralGo=function(){
+  var b=document.getElementById('oralBtn'),r=document.getElementById('oralResult');
+  if(b)b.style.display='none'; if(r)r.style.display='block';
+  toast('en:Nice run! Scored on-device — 2 words sent to your teacher','zh:练得不错！端侧完成评分——2 个词已转老师确认');
+};
 </script>
 </body>
 </html>
