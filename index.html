@@ -601,6 +601,69 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
   .sd-col{min-height:auto}
 }
 
+
+/* ---------- v9 : public browse mode ---------- */
+.pubonly{display:none!important}
+body.pub .pubonly{display:flex!important}
+body.pub .sidebar{display:none}
+body.pub #app.show{grid-template-columns:minmax(0,1fr);grid-template-areas:"top" "main"}
+body.pub .topbar{min-width:0}
+.pubbrand{min-width:0;flex:1;overflow:hidden}
+body.pub .tb-right{flex:0 0 auto}
+.pubbrand .pb-tabs{overflow-x:auto;scrollbar-width:none;min-width:0}
+body.pub .tb-crumb,body.pub .search,body.pub .topbar .icon-btn,body.pub .role-chip,body.pub .avatar{display:none!important}
+body.pub .bottomnav{display:none!important}
+body.pub .pub-hide{display:none!important}
+.pubbrand{align-items:center;gap:10px;font-weight:800;min-width:0}
+.pubbrand .pb-logo{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,#C15A2E,#E8A46F);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex:0 0 30px}
+.pubbrand .pb-name{font-size:14px;white-space:nowrap}
+.pubbrand .pb-tabs{display:flex;gap:6px;margin-left:12px}
+.pubbrand .pb-tabs button{padding:7px 14px;border-radius:100px;border:1px solid var(--line);background:var(--card);font-weight:650;font-size:12.5px;color:var(--muted);cursor:pointer}
+.pubbrand .pb-tabs button.on{background:var(--brand-tint);border-color:var(--brand);color:var(--brand-d)}
+.browse-link{display:block;width:100%;margin-top:12px;padding:11px;border-radius:11px;border:1.5px dashed var(--brand-soft);background:transparent;color:var(--brand-d);font-weight:650;font-size:13px;cursor:pointer;text-align:center;transition:.15s}
+.browse-link:hover{background:var(--brand-tint)}
+.pubsign{padding:8px 16px;align-items:center}
+@media (max-width:700px){.pubbrand .pb-name{display:none}.pubbrand{gap:7px}.pubbrand .pb-tabs{margin-left:0}.pubbrand .pb-tabs button{padding:6px 10px;font-size:11.5px}body.pub .topbar{gap:7px;padding:0 10px}.pubbrand .pb-tabs button{white-space:nowrap;padding:5px 9px;font-size:11px}body.pub .topbar .btn.primary{padding:6px 9px;font-size:11.5px}body.pub .pubbrand .pb-logo{width:26px;height:26px;flex-basis:26px;border-radius:8px}body.pub .lang-tog button{padding:4px 7px;font-size:11px}body.pub .lang-tog{padding:2px}}
+/* ---------- v9 : essay & reading studio ---------- */
+.hl{padding:0 2px;border-radius:4px}
+.hl.y{background:#F6E7B8;box-shadow:inset 0 -2px 0 #C4872B}
+.hl.b{background:#DCE8F0;box-shadow:inset 0 -2px 0 #4C6E86}
+.hl.r{background:#F3D9CE;box-shadow:inset 0 -2px 0 #C15A2E}
+.essay-p{font-size:13.5px;line-height:2.0;margin:0 0 10px}
+.struct{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 14px}
+.struct span{padding:5px 11px;border-radius:100px;font-size:11.5px;font-weight:700;border:1px solid var(--line);background:var(--card)}
+.struct .ok{color:var(--good);border-color:rgba(78,124,89,.4);background:rgba(78,124,89,.08)}
+.struct .mid{color:#C4872B;border-color:rgba(196,135,43,.45);background:rgba(196,135,43,.09)}
+.struct .bad{color:#C15A2E;border-color:rgba(193,90,46,.4);background:rgba(193,90,46,.08)}
+.rchip{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:100px;background:var(--panel);font-size:11px;font-weight:700;color:var(--muted);white-space:nowrap}
+.hl-legend{display:flex;gap:12px;flex-wrap:wrap;font-size:11.5px;color:var(--muted);margin-top:10px}
+.hl-legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:4px;vertical-align:-1px}
+/* ---------- v9 : guided learning ---------- */
+.stepstrip{display:flex;align-items:center;flex-wrap:wrap;gap:4px;margin:0 0 18px}
+.stepstrip .st{display:flex;align-items:center;gap:7px;padding:8px 14px;border-radius:100px;border:1px solid var(--line);background:var(--card);font-size:12.5px;font-weight:650;color:var(--muted)}
+.stepstrip .st b{width:18px;height:18px;border-radius:50%;background:var(--panel);display:inline-flex;align-items:center;justify-content:center;font-size:11px}
+.stepstrip .st.on{background:var(--brand-tint);border-color:var(--brand);color:var(--brand-d)}
+.stepstrip .st.on b{background:var(--brand);color:#fff}
+.stepstrip .arr{margin:0 6px;color:var(--muted);opacity:.6}
+.qz-opt{display:block;width:100%;text-align:left;padding:10px 13px;border-radius:10px;border:1px solid var(--line);background:var(--card);font-size:13px;font-weight:550;margin-bottom:7px;cursor:pointer;transition:.12s}
+.qz-opt:hover{border-color:var(--brand)}
+.qz-opt.ok{border-color:var(--good);background:rgba(78,124,89,.09);font-weight:700}
+.qz-opt.bad{border-color:#C15A2E;background:rgba(193,90,46,.08)}
+.qz-ex{display:none;font-size:12px;color:var(--muted);background:var(--panel);border-radius:9px;padding:9px 11px;margin:2px 0 12px;line-height:1.6}
+.cur-pill{padding:9px 15px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);font-weight:650;font-size:12.5px;cursor:pointer;transition:.12s}
+.cur-pill.on{border-color:var(--brand);background:var(--brand-tint);color:var(--brand-d)}
+.subj-chip{padding:7px 13px;border-radius:100px;border:1px solid var(--line);background:var(--card);font-size:12px;font-weight:600;cursor:pointer}
+.subj-chip.on{border-color:rgba(78,124,89,.5);background:rgba(78,124,89,.09);color:var(--good)}
+.mode-card{border:1.5px solid var(--line);border-radius:14px;padding:14px;cursor:pointer;transition:.15s;background:var(--card)}
+.mode-card:hover{transform:translateY(-1px)}
+.mode-card.on{border-color:var(--brand);background:var(--brand-tint)}
+.mode-card b{font-size:13.5px;display:flex;align-items:center;gap:7px}
+.mode-card p{font-size:12px;color:var(--muted);margin:6px 0 0;line-height:1.55}
+.bubwrap.mprev{display:none}
+.bub{max-width:88%;padding:10px 13px;border-radius:13px;font-size:12.5px;line-height:1.65;margin-bottom:8px}
+.bub.me{background:var(--brand);color:#fff;margin-left:auto;border-bottom-right-radius:4px}
+.bub.ai{background:var(--panel);border:1px solid var(--line);border-bottom-left-radius:4px}
+.bubwrap{display:flex;flex-direction:column;margin-top:10px}
 </style>
 </head>
 <body>
@@ -642,6 +705,7 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
           <button onclick="enterAs('admin')" data-en="Admin" data-zh="管理">Admin</button>
         </div>
       </div>
+      <button class="browse-link" onclick="enterPublic()"><span data-en="Browse the tutor marketplace first — no sign-in needed →" data-zh="先逛逛导师撮合市场，无需登录 →">Browse the tutor marketplace first — no sign-in needed →</span></button>
       <p class="fine" data-en="Demo environment · sample data only. No student records are real." data-zh="演示环境 · 仅示例数据，学生记录均非真实。">Demo environment · sample data only. No student records are real.</p>
     </div>
   </div>
@@ -658,6 +722,7 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
       <a data-mod="brief" onclick="go('brief')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="M9 13h6M9 17h4"/></svg><span data-en="AI Brief" data-zh="AI 简报">AI Brief</span><span class="badge-n" style="background:var(--good)">NEW</span></a>
       <a data-mod="sched" onclick="go('sched')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="17" rx="2"/><path d="M8 2.5v4M16 2.5v4M3 10h18"/></svg><span data-en="Schedule" data-zh="日程">Schedule</span></a>
       <a data-mod="grading" onclick="go('grading')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h2a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg><span data-en="AI Grading" data-zh="AI 评分">AI Grading</span><span class="badge-n">18</span></a>
+      <a data-mod="t-essay" onclick="go('t-essay')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z"/></svg><span data-en="Essay &amp; Reading" data-zh="作文·阅读批改">Essay &amp; Reading</span><span class="badge-n" style="background:var(--good)">NEW</span></a>
       <a data-mod="learn" onclick="go('learn')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span data-en="Learn · Tutoring" data-zh="Learn 辅导">Learn · Tutoring</span></a>
       <a data-mod="pinpoint" onclick="go('pinpoint')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4"/></svg><span data-en="Pinpoint · Diagnosis" data-zh="知点诊断">Pinpoint · Diagnosis</span></a>
       <a data-mod="t-studio" onclick="go('t-studio')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="m22 8-6 4 6 4z"/></svg><span data-en="AI Teaching Studio" data-zh="AI 教学工作室">AI Teaching Studio</span></a>
@@ -684,6 +749,7 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
       <a data-mod="brief" onclick="go('brief')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="M9 13h6M9 17h4"/></svg><span data-en="AI Brief" data-zh="AI 简报">AI Brief</span><span class="badge-n" style="background:var(--good)">NEW</span></a>
       <a data-mod="sched" onclick="go('sched')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="17" rx="2"/><path d="M8 2.5v4M16 2.5v4M3 10h18"/></svg><span data-en="Schedule" data-zh="日程">Schedule</span></a>
       <a data-mod="s-tutor" onclick="go('s-tutor')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span data-en="AI Tutor" data-zh="AI 辅导">AI Tutor</span></a>
+      <a data-mod="s-learn" onclick="go('s-learn')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg><span data-en="Guided Learning" data-zh="AI 引导学习">Guided Learning</span><span class="badge-n" style="background:var(--good)">NEW</span></a>
       <a data-mod="s-class" onclick="go('s-class')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4.5 20 12 7 19.5z"/></svg><span data-en="Live Class" data-zh="上课模式">Live Class</span><span class="badge-n" style="background:var(--danger)">•</span></a>
     </nav>
     <div class="sb-sec role-nav" data-role="admin" data-en="Institution" data-zh="机构管理">Institution</div>
@@ -716,10 +782,14 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
   <header class="topbar">
     <button class="icon-btn menu-btn" aria-label="Menu" onclick="document.getElementById('sidebar').classList.toggle('open')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
     <div class="tb-crumb"><b data-en="Raffles Academy" data-zh="莱佛士书院">Raffles Academy</b> <span id="crumb" data-en="· Dashboard" data-zh="· 总览">· Dashboard</span></div>
+    <div class="pubbrand pubonly"><span class="pb-logo">JE</span><span class="pb-name">Juris &amp; Edu <span class="pb-sub" style="color:var(--muted);font-weight:600" data-en="· Tutor marketplace" data-zh="· 导师撮合市场">· Tutor marketplace</span></span>
+      <span class="pb-tabs"><button class="on" id="pbTabM" onclick="pubGo('market',this)" data-en="Marketplace" data-zh="导师市场">Marketplace</button><button id="pbTabE" onclick="pubGo('events',this)" data-en="Events" data-zh="公开活动">Events</button></span>
+    </div>
     <div class="search" onclick="openCmdk()" style="cursor:pointer"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><input readonly placeholder="Search students, assignments, tutors…" data-en-ph="Search students, assignments, tutors…" data-zh-ph="搜索学生、作业、师资…"></div>
     <div class="tb-right">
       <button class="icon-btn" id="tourBtn" onclick="startTour()" aria-label="Pitch tour" title="Pitch tour · 演示导览"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4.5 20 12 7 19.5z"/></svg></button>
       <button class="role-chip" onclick="toggleRoleMenu()"><span class="rc-dot"></span><span class="rc-lab" id="roleLabel" data-en="Teacher · Ms Tan" data-zh="教师 · 陈老师">Teacher · Ms Tan</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+      <button class="btn primary pubonly pubsign" onclick="exitPublic()"><span data-en="Sign in · free" data-zh="登录 / 注册">Sign in · free</span></button>
       <div class="lang-tog"><button data-lang="en" class="on">EN</button><button data-lang="zh">中</button></div>
       <button class="icon-btn" id="bellBtn" onclick="toggleNotif()" aria-label="Notifications"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg><span class="dot" id="bellDot"></span></button>
       <button class="icon-btn"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.2 9a3 3 0 0 1 5.6 1c0 2-3 2.5-3 4"/><path d="M12 17h.01"/></svg></button>
@@ -807,6 +877,7 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
       </div>
       <div class="ph-actions">
         <button class="btn ghost"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg><span data-en="Rubric & threshold" data-zh="标准与阈值">Rubric & threshold</span></button>
+        <button class="btn ghost" onclick="go('t-essay')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z"/></svg><span data-en="Essay &amp; Reading studio" data-zh="作文·阅读批改 →">Essay &amp; Reading studio</span></button>
         <button class="btn primary" onclick="nextStudent()"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span data-en="Approve & next" data-zh="通过并下一份">Approve & next</span></button>
       </div>
     </div>
@@ -975,10 +1046,10 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
         <h1 data-en="Matching families to tutors they can trust" data-zh="智能撮合 · 把家庭交给可信的老师">Matching families to tutors they can trust</h1>
         <p class="lead" data-en="Every match is explained — subject, distance, schedule and budget. Every booking is escrow-protected and insured, with vetted tutors only." data-zh="每一次匹配都讲清理由——科目、距离、时段、预算；每一笔预约都有担保托管与保险，且只对接通过审查的老师。">Every match is explained — subject, distance, schedule and budget. Every booking is escrow-protected and insured, with vetted tutors only.</p>
       </div>
-      <div class="ph-actions"><button class="btn ghost"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18l-7 8v6l-4 2v-8z"/></svg><span data-en="Filters" data-zh="筛选">Filters</span></button><button class="btn primary" onclick="toast('en:14 requests auto-matched · parents notified','zh:已自动撮合 14 条请求 · 已通知家长')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z"/></svg><span data-en="Auto-match 14 requests" data-zh="自动撮合 14 条请求">Auto-match 14 requests</span></button></div>
+      <div class="ph-actions pub-hide"><button class="btn ghost"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18l-7 8v6l-4 2v-8z"/></svg><span data-en="Filters" data-zh="筛选">Filters</span></button><button class="btn primary" onclick="toast('en:14 requests auto-matched · parents notified','zh:已自动撮合 14 条请求 · 已通知家长')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z"/></svg><span data-en="Auto-match 14 requests" data-zh="自动撮合 14 条请求">Auto-match 14 requests</span></button></div>
     </div>
 
-    <div class="grid g4" style="margin-bottom:18px">
+    <div class="grid g4 pub-hide" style="margin-bottom:18px">
       <div class="card stat"><div class="top"><div class="lab" data-en="GMV · this month" data-zh="本月成交额">GMV · this month</div><div class="ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="5.5"/><path d="M18.1 6.6a5.5 5.5 0 0 1 0 10.8M8 21a5.5 5.5 0 0 0 5.4-6.6"/></svg></div></div><div class="num"><small>S$</small>20.6k</div><div class="delta up"><span data-en="+22% MoM" data-zh="环比 +22%">+22% MoM</span></div></div>
       <div class="card stat"><div class="top"><div class="lab" data-en="Platform take (12%)" data-zh="平台抽成（12%）">Platform take (12%)</div><div class="ico g"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 9 1.3-5h14.4L20.5 9"/><path d="M5 9v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9"/><path d="M3.5 9h17"/><path d="M9.5 20v-5.5h5V20"/></svg></div></div><div class="num"><small>S$</small>2,480</div><div class="delta up"><span data-en="Blended margin 84%" data-zh="综合毛利 84%">Blended margin 84%</span></div></div>
       <div class="card stat"><div class="top"><div class="lab" data-en="Match rate" data-zh="撮合成功率">Match rate</div><div class="ico a"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z"/></svg></div></div><div class="num">91<small>%</small></div><div class="delta up"><span data-en="&lt; 2 min median" data-zh="中位 &lt; 2 分钟">&lt; 2 min median</span></div></div>
@@ -1020,7 +1091,7 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
       </div>
 
       <div style="display:flex;flex-direction:column;gap:16px">
-        <div class="card pad">
+        <div class="card pad pub-hide">
           <div class="fw6" style="margin-bottom:3px" data-en="Auto-match queue" data-zh="自动撮合队列">Auto-match queue</div>
           <p class="small muted" data-en="Parent requests, ranked by fit." data-zh="家长请求，按匹配度排序。">Parent requests, ranked by fit.</p>
           <div style="margin-top:14px;display:flex;flex-direction:column;gap:12px">
@@ -1968,6 +2039,213 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
     </div>
   </section>
 
+
+  <!-- ========== ESSAY & READING STUDIO ========== -->
+  <section class="module" id="m-t-essay">
+    <div class="page-head">
+      <div>
+        <span class="patent-tag"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="M9.5 12.5 11 14l3.5-3.5"/></svg> <span data-en="Master-rules engine · teacher experience, codified" data-zh="名师规则引擎 · 把经验写成规则">Master-rules engine · teacher experience, codified</span></span>
+        <h1 style="margin-top:9px" data-en="Essays &amp; comprehension — scan, annotate, score" data-zh="作文与阅读理解 · 扫描即批注、即评分">Essays &amp; comprehension — scan, annotate, score</h1>
+        <p class="lead" data-en="Handwriting is OCR'd, structure is mapped, and every mark is anchored to a line of the script and a rule a master teacher wrote. The AI applies the rules; the teacher keeps the signature." data-zh="手写卷 OCR 转文本，结构自动成图；每一处批注都锚定到原文行号与某位名师写下的规则。AI 负责执行规则，签发权始终在老师手上。">Handwriting is OCR'd, structure is mapped, and every mark is anchored to a line of the script and a rule a master teacher wrote. The AI applies the rules; the teacher keeps the signature.</p>
+      </div>
+      <div class="ph-actions">
+        <button class="btn ghost" onclick="toast('en:Scanner connected — drop 24 scripts to batch-grade (demo)','zh:扫描仪已连接——拖入 24 份即可批量批改（演示）')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V5a2 2 0 0 1 2-2h2M16 3h2a2 2 0 0 1 2 2v2M20 17v2a2 2 0 0 1-2 2h-2M8 21H6a2 2 0 0 1-2-2v-2"/><path d="M7 12h10"/></svg><span data-en="Scan / import" data-zh="上传扫描件">Scan / import</span></button>
+        <button class="btn primary" onclick="toast('en:Batch queued · 24 scripts · rules of 3 master teachers applied','zh:已排队批改 24 份 · 应用 3 位名师的规则库')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span data-en="Batch-grade 24" data-zh="批量批改 24 份">Batch-grade 24</span></button>
+      </div>
+    </div>
+
+    <div class="grid g4" style="margin-bottom:18px">
+      <div class="card stat"><div class="top"><div class="lab" data-en="Graded today" data-zh="今日已批">Graded today</div><div class="ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></div></div><div class="num">38</div><div class="delta up"><span data-en="essays + comprehension" data-zh="作文 + 阅读理解">essays + comprehension</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Avg per script" data-zh="平均每份用时">Avg per script</div><div class="ico i"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div></div><div class="num">45<small>s</small></div><div class="delta up"><span data-en="was ~6 min by hand" data-zh="人工约需 6 分钟">was ~6 min by hand</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Master-rule hits" data-zh="名师规则命中">Master-rule hits</div><div class="ico g"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="M9.5 12.5 11 14l3.5-3.5"/></svg></div></div><div class="num">214</div><div class="delta up"><span data-en="today · 28 rules live" data-zh="今日 · 28 条规则在用">today · 28 rules live</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Abstained to teacher" data-zh="存疑转人工">Abstained to teacher</div><div class="ico w"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></div></div><div class="num">9<small>%</small></div><div class="delta"><span data-en="low-confidence · never guessed" data-zh="低置信 · 绝不硬猜">low-confidence · never guessed</span></div></div>
+    </div>
+
+    <div class="grid g2" style="margin-bottom:18px">
+      <div class="card">
+        <div class="card-head"><h3 data-en="Scanned script · P5 English · “The Day I Got Lost”" data-zh="扫描卷 · 小五英文作文 · “The Day I Got Lost”">Scanned script · P5 English · “The Day I Got Lost”</h3><span class="rchip"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> <span data-en="OCR 98.2%" data-zh="手写识别 98.2%">OCR 98.2%</span></span></div>
+        <div style="padding:16px 18px 18px">
+          <div class="small muted fw6" data-en="Structure map — detected automatically" data-zh="结构图 · 自动识别">Structure map — detected automatically</div>
+          <div class="struct">
+            <span class="ok" data-en="Opening ✓ sets scene" data-zh="开头 ✓ 点题">Opening ✓ sets scene</span>
+            <span class="ok" data-en="Build-up ✓" data-zh="铺垫 ✓">Build-up ✓</span>
+            <span class="mid" data-en="Climax △ thin" data-zh="高潮 △ 单薄">Climax △ thin</span>
+            <span class="bad" data-en="Ending ✗ drifts off-topic" data-zh="结尾 ✗ 偏题">Ending ✗ drifts off-topic</span>
+          </div>
+          <p class="essay-p" data-en="The MRT doors closed before I could reach my mother. <span class='hl b'>My heart was beating.</span><sup class='small muted'> R2</sup> I pressed my face to the glass and watched her scarf disappear down the platform." data-zh="地铁门在我够到妈妈之前关上了。<span class='hl b'>我的心跳着。</span><sup class='small muted'> R2</sup> 我把脸贴在玻璃上，看着她的围巾在站台尽头消失。">The MRT doors closed before I could reach my mother. <span class='hl b'>My heart was beating.</span><sup class='small muted'> R2</sup> I pressed my face to the glass and watched her scarf disappear down the platform.</p>
+          <p class="essay-p" data-en="A kind auntie asked me where I was going. <span class='hl y'>I sayed</span> I did not know the station name, but I remembered the big red bridge near my block." data-zh="一位好心的阿姨问我要去哪里。<span class='hl y'>我“说到”</span>不知道站名，但我记得家附近那座红色大桥。">A kind auntie asked me where I was going. <span class='hl y'>I sayed</span> I did not know the station name, but I remembered the big red bridge near my block.</p>
+          <p class="essay-p" data-en="<span class='hl r'>In conclusion, MRT trains are very fast and convenient for Singapore.</span><sup class='small muted'> R1</sup>" data-zh="<span class='hl r'>总而言之，地铁很快，对新加坡来说非常方便。</span><sup class='small muted'> R1</sup>"><span class='hl r'>In conclusion, MRT trains are very fast and convenient for Singapore.</span><sup class='small muted'> R1</sup></p>
+          <div class="hl-legend">
+            <span><i style="background:#F6E7B8"></i><span data-en="Language — grammar/spelling" data-zh="语言 · 语法拼写">Language — grammar/spelling</span></span>
+            <span><i style="background:#DCE8F0"></i><span data-en="Craft — show, don't tell" data-zh="写法 · 要“演”不要“说”">Craft — show, don't tell</span></span>
+            <span><i style="background:#F3D9CE"></i><span data-en="Content — off-topic" data-zh="内容 · 偏题">Content — off-topic</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3 data-en="Score &amp; suggestions — every line cites its rule" data-zh="评分与建议 · 每条都注明规则出处">Score &amp; suggestions — every line cites its rule</h3><span class="rchip" data-en="Band B+ · 24/32" data-zh="等级 B+ · 24/32">Band B+ · 24/32</span></div>
+        <div style="padding:16px 18px 18px">
+          <div style="display:grid;gap:10px;margin-bottom:14px">
+            <div><div class="small" style="display:flex;justify-content:space-between"><span class="fw6" data-en="Content" data-zh="内容">Content</span><span class="muted">7/8</span></div><div class="pbar"><i style="width:88%"></i></div></div>
+            <div><div class="small" style="display:flex;justify-content:space-between"><span class="fw6" data-en="Language" data-zh="语言">Language</span><span class="muted">6/8</span></div><div class="pbar"><i class="a" style="width:75%"></i></div></div>
+            <div><div class="small" style="display:flex;justify-content:space-between"><span class="fw6" data-en="Organisation" data-zh="组织结构">Organisation</span><span class="muted">6/8</span></div><div class="pbar"><i class="a" style="width:75%"></i></div></div>
+            <div><div class="small" style="display:flex;justify-content:space-between"><span class="fw6" data-en="Voice &amp; craft" data-zh="表达与文风">Voice &amp; craft</span><span class="muted">5/8</span></div><div class="pbar"><i style="width:63%;background:#C4872B"></i></div></div>
+          </div>
+          <div class="list-row"><span class="rchip" style="background:rgba(193,90,46,.1);color:var(--brand-d)">R1</span><div style="flex:1"><div class="small fw6" data-en="Ending must echo the title — rewrite, don't moralise" data-zh="结尾必须回扣题目——重写，不要喊口号">Ending must echo the title — rewrite, don't moralise</div><div class="small muted" data-en="Rule by Mdm Tan · 32 yrs · hit on line 14" data-zh="规则来自 陈老师 · 32 年教龄 · 命中第 14 行">Rule by Mdm Tan · 32 yrs · hit on line 14</div></div></div>
+          <div class="list-row"><span class="rchip" style="background:rgba(76,110,134,.12);color:#4C6E86">R2</span><div style="flex:1"><div class="small fw6" data-en="“My heart was beating” → show it: pounding, palms, breath" data-zh="“心跳着”太平——写手心出汗、呼吸、腿软，让读者看见">“My heart was beating” → show it: pounding, palms, breath</div><div class="small muted" data-en="Rule by Mr Koh · climax needs one interior beat" data-zh="规则来自 许老师 · 高潮段需至少一处心理描写">Rule by Mr Koh · climax needs one interior beat</div></div></div>
+          <div class="list-row" style="border-bottom:none"><span class="rchip">✎</span><div style="flex:1"><div class="small fw6" data-en="“sayed” → “said” · 2 more spelling slips auto-listed" data-zh="“sayed”→“said” · 另有 2 处拼写已自动列出">“sayed” → “said” · 2 more spelling slips auto-listed</div><div class="small muted" data-en="Language pass · anchored to lines 6, 9, 11" data-zh="语言检查 · 锚定第 6、9、11 行">Language pass · anchored to lines 6, 9, 11</div></div></div>
+          <div class="callout" style="margin:12px 0 14px"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg></div><div><b class="small" data-en="2 suggestions withheld — evidence too weak" data-zh="2 条建议已隐藏——证据不足">2 suggestions withheld — evidence too weak</b><p data-en="Where the engine can't cite a line or a rule, it abstains and flags for you instead of guessing." data-zh="引擎无法引用原文行号或规则时，不硬给建议，直接标记转人工。">Where the engine can't cite a line or a rule, it abstains and flags for you instead of guessing.</p></div></div>
+          <div style="display:flex;gap:9px;flex-wrap:wrap">
+            <button class="btn primary" onclick="toast('en:Comment drafted from accepted marks — sent to your review queue','zh:已按采纳的批注生成评语——进入你的签发队列')"><span data-en="Accept all &amp; draft comment" data-zh="采纳全部并生成评语">Accept all &amp; draft comment</span></button>
+            <button class="btn ghost" onclick="toast('en:Opened side-by-side with the original scan','zh:已与原扫描件左右对照打开')"><span data-en="Compare with scan" data-zh="对照原卷">Compare with scan</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid g2" style="margin-bottom:18px">
+      <div class="card">
+        <div class="card-head"><h3 data-en="Reading comprehension — answers checked against the passage" data-zh="阅读理解 · 逐题对照原文核对">Reading comprehension — answers checked against the passage</h3><span class="rchip" data-en="Sec 3 · Passage B" data-zh="中三 · B 篇">Sec 3 · Passage B</span></div>
+        <div style="padding:16px 18px 18px">
+          <div class="list-row"><span class="rchip" style="color:var(--good)">✓</span><div style="flex:1"><div class="small fw6" data-en="Q1 · Why did the narrator hesitate? — student: “He feared the sea.”" data-zh="Q1 · 叙述者为何犹豫？——学生答：“他害怕大海。”">Q1 · Why did the narrator hesitate? — student: “He feared the sea.”</div><div class="small muted" data-en="Supported · evidence line 4: “the waves had taken his brother's boat”" data-zh="成立 · 证据第 4 行：“海浪曾卷走他哥哥的船”">Supported · evidence line 4: “the waves had taken his brother's boat”</div></div></div>
+          <div class="list-row"><span class="rchip" style="color:#C4872B">△</span><div style="flex:1"><div class="small fw6" data-en="Q2 · Inference — student answer restates the text, no inference made" data-zh="Q2 · 推断题——学生只是复述原文，没有推断">Q2 · Inference — student answer restates the text, no inference made</div><div class="small muted" data-en="Rule R7 (Mr Koh): inference answers must cite line + add the unstated link · partial credit 1/2" data-zh="规则 R7（许老师）：推断题必须“引原文行号 + 补出未言明的联系” · 得一半分 1/2">Rule R7 (Mr Koh): inference answers must cite line + add the unstated link · partial credit 1/2</div></div></div>
+          <div class="list-row" style="border-bottom:none"><span class="rchip">?</span><div style="flex:1"><div class="small fw6" data-en="Q3 · Ambiguous handwriting — “tide” or “time”? Sent to you" data-zh="Q3 · 字迹存疑——“tide”还是“time”？已转人工">Q3 · Ambiguous handwriting — “tide” or “time”? Sent to you</div><div class="small muted" data-en="OCR confidence 61% &lt; your 80% bar · abstained" data-zh="OCR 置信 61% 低于你设的 80% 阈值 · 弃答转交">OCR confidence 61% &lt; your 80% bar · abstained</div></div></div>
+          <div class="small muted" style="margin-top:10px" data-en="Class pattern: inference questions 54% correct vs details 86% — pushed to Pinpoint &amp; each student's path." data-zh="班级规律：推断题正确率 54%，细节题 86%——已同步到知点诊断与每个学生的学习路径。">Class pattern: inference questions 54% correct vs details 86% — pushed to Pinpoint &amp; each student's path.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3 data-en="Master-teacher rulebook — experience, versioned" data-zh="名师规则库 · 经验有版本、可追溯">Master-teacher rulebook — experience, versioned</h3><button class="btn ghost" style="padding:7px 13px" onclick="addRule()"><span data-en="+ New rule" data-zh="+ 新增规则">+ New rule</span></button></div>
+        <div style="padding:6px 18px 18px">
+          <div class="list-row"><div style="flex:1"><div class="small fw6" data-en="R1 · Ending must echo the title, no moral slogans" data-zh="R1 · 结尾必须回扣题目，不得喊口号">R1 · Ending must echo the title, no moral slogans</div><div class="small muted" data-en="Mdm Tan · 32 yrs · hit 86×/mo · −1 Content when triggered" data-zh="陈老师 · 32 年教龄 · 月命中 86 次 · 触发扣内容分 1 分">Mdm Tan · 32 yrs · hit 86×/mo · −1 Content when triggered</div></div><div class="tog" onclick="this.classList.toggle('off');toast('en:Rule updated (demo)','zh:规则状态已更新（演示）')"></div></div>
+          <div class="list-row"><div style="flex:1"><div class="small fw6" data-en="R2 · Climax needs ≥1 interior beat (thought/feeling shown)" data-zh="R2 · 高潮段至少 1 处心理描写（要“演”出来）">R2 · Climax needs ≥1 interior beat (thought/feeling shown)</div><div class="small muted" data-en="Mr Koh · hit 63×/mo · suggestion only, no deduction" data-zh="许老师 · 月命中 63 次 · 仅建议，不扣分">Mr Koh · hit 63×/mo · suggestion only, no deduction</div></div><div class="tog" onclick="this.classList.toggle('off');toast('en:Rule updated (demo)','zh:规则状态已更新（演示）')"></div></div>
+          <div class="list-row"><div style="flex:1"><div class="small fw6" data-en="R7 · Inference answers: cite the line + state the unstated link" data-zh="R7 · 推断题：引原文行号 + 补出未言明的联系">R7 · Inference answers: cite the line + state the unstated link</div><div class="small muted" data-en="Mr Koh · reading rules · hit 41×/mo" data-zh="许老师 · 阅读理解规则 · 月命中 41 次">Mr Koh · reading rules · hit 41×/mo</div></div><div class="tog" onclick="this.classList.toggle('off');toast('en:Rule updated (demo)','zh:规则状态已更新（演示）')"></div></div>
+          <div class="list-row" id="newRule" style="display:none"><div style="flex:1"><div class="small fw6" data-en="R29 · Argumentative: each point needs 1 example + 1 figure" data-zh="R29 · 议论文：每个论点需 1 个例证 + 1 个数据">R29 · Argumentative: each point needs 1 example + 1 figure</div><div class="small muted" data-en="You · pilot mode: suggests only, no marks moved for 2 weeks" data-zh="你 · 灰度试运行：前两周只提示、不动分数">You · pilot mode: suggests only, no marks moved for 2 weeks</div></div><div class="tog" onclick="this.classList.toggle('off')"></div></div>
+          <div class="callout" style="margin-top:12px"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="M9.5 12.5 11 14l3.5-3.5"/></svg></div><div><b class="small" data-en="28 rules · 6 master teachers · 1,204 hits this month" data-zh="28 条规则 · 来自 6 位名师 · 本月命中 1,204 次">28 rules · 6 master teachers · 1,204 hits this month</b><p data-en="New rules pilot in “suggest-only” mode and are audited against teacher overrides before they can move a single mark. Retiring teachers' rulebooks stay — experience compounds." data-zh="新规则先以“只建议”灰度上线，对照教师改判记录审计合格后，才允许动分。名师退休，规则库仍在——经验在平台上复利。">New rules pilot in “suggest-only” mode and are audited against teacher overrides before they can move a single mark. Retiring teachers' rulebooks stay — experience compounds.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== GUIDED LEARNING ========== -->
+  <section class="module" id="m-s-learn">
+    <div class="page-head">
+      <div>
+        <div class="eyebrow" data-en="Student · AI guided learning" data-zh="学生 · AI 引导学习">Student · AI guided learning</div>
+        <h1 data-en="Your path, your rules — the AI guides, never does it for you" data-zh="你的路径你做主 · AI 只引导，从不代劳">Your path, your rules — the AI guides, never does it for you</h1>
+        <p class="lead" data-en="Take a short placement test, pick your syllabus and subjects, choose how you want to be coached — then learn 15 focused minutes a day." data-zh="先做一次小自测，选好课程体系和科目，再挑一种你喜欢的引导方式——每天专注学 15 分钟。">Take a short placement test, pick your syllabus and subjects, choose how you want to be coached — then learn 15 focused minutes a day.</p>
+      </div>
+      <div class="ph-actions">
+        <button class="btn primary" onclick="go('s-tutor')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4.5 20 12 7 19.5z"/></svg><span data-en="Continue yesterday · step 3" data-zh="继续昨天的学习 · 第 3 步">Continue yesterday · step 3</span></button>
+      </div>
+    </div>
+
+    <div class="stepstrip">
+      <span class="st on"><b>1</b><span data-en="Placement test" data-zh="入学自测">Placement test</span></span><span class="arr">→</span>
+      <span class="st on"><b>2</b><span data-en="Syllabus &amp; subjects" data-zh="选体系与科目">Syllabus &amp; subjects</span></span><span class="arr">→</span>
+      <span class="st on"><b>3</b><span data-en="Coaching mode" data-zh="选引导模式">Coaching mode</span></span><span class="arr">→</span>
+      <span class="st"><b>4</b><span data-en="Learn daily" data-zh="每天 15 分钟">Learn daily</span></span>
+    </div>
+
+    <div class="grid g2" style="margin-bottom:18px">
+      <div class="card">
+        <div class="card-head"><h3 data-en="Placement — find the real gaps first" data-zh="入学自测 · 先找到真正的薄弱点">Placement — find the real gaps first</h3><span class="rchip" data-en="≈20 min · adaptive" data-zh="约 20 分钟 · 自适应">≈20 min · adaptive</span></div>
+        <div style="padding:14px 18px 18px">
+          <div class="list-row"><span class="rchip" style="color:var(--good)">✓</span><div style="flex:1"><div class="small fw6" data-en="Maths — Level 5 · fractions solid, speed OK" data-zh="数学 · L5 · 分数运算扎实，速度达标">Maths — Level 5 · fractions solid, speed OK</div></div><span class="small muted" data-en="done" data-zh="已测">done</span></div>
+          <div class="list-row"><span class="rchip" style="color:var(--good)">✓</span><div style="flex:1"><div class="small fw6" data-en="Chinese — Level 4 · comprehension steady" data-zh="华文 · L4 · 理解题稳定">Chinese — Level 4 · comprehension steady</div></div><span class="small muted" data-en="done" data-zh="已测">done</span></div>
+          <div class="list-row" style="border-bottom:none"><span class="rchip" style="background:var(--brand-tint);color:var(--brand-d)">▶</span><div style="flex:1"><div class="small fw6" data-en="English reading — try 2 sample questions now →" data-zh="英文阅读理解 · 现在就试 2 道样题 →">English reading — try 2 sample questions now →</div></div><span class="small muted" data-en="2 min" data-zh="2 分钟">2 min</span></div>
+          <div class="callout" style="margin-top:10px"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4"/></svg></div><div><b class="small" data-en="Why it matters" data-zh="为什么要自测">Why it matters</b><p data-en="The test adapts as you answer — it stops the moment it's confident, and your path starts from what you actually need, not from page one." data-zh="题目会随你的作答自适应——一旦判断足够就停止。你的学习路径从真正需要的地方开始，而不是从第一页开始。">The test adapts as you answer — it stops the moment it's confident, and your path starts from what you actually need, not from page one.</p></div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3 data-en="Mini sample — reading comprehension" data-zh="迷你样题 · 英文阅读理解">Mini sample — reading comprehension</h3><span class="rchip" data-en="answers cite the passage" data-zh="判分引用原文">answers cite the passage</span></div>
+        <div style="padding:14px 18px 18px">
+          <p class="essay-p" style="background:var(--panel);border-radius:10px;padding:11px 13px;font-size:12.5px" data-en="“By dusk, the volunteers had carried the last turtle past the breakwater, pausing whenever the foam rushed their ankles — none of them once let go.”" data-zh="“黄昏时分，志愿者们把最后一只海龟抬过防波堤。浪沫涌上脚踝时他们就停一停——但没有一个人松过手。”">“By dusk, the volunteers had carried the last turtle past the breakwater, pausing whenever the foam rushed their ankles — none of them once let go.”</p>
+          <div class="small fw6" style="margin:8px 0 7px" data-en="Q1 · Detail: when was the last turtle released?" data-zh="Q1 · 细节题：最后一只海龟是什么时候被送回大海的？">Q1 · Detail: when was the last turtle released?</div>
+          <div data-qz="1">
+            <button class="qz-opt" onclick="qzPick(this,0,'qzx1')" data-en="A · At dawn" data-zh="A · 清晨">A · At dawn</button>
+            <button class="qz-opt" data-ok="1" onclick="qzPick(this,1,'qzx1')" data-en="B · By dusk" data-zh="B · 黄昏">B · By dusk</button>
+            <button class="qz-opt" onclick="qzPick(this,0,'qzx1')" data-en="C · At noon" data-zh="C · 中午">C · At noon</button>
+          </div>
+          <div class="qz-ex" id="qzx1" data-en="Evidence, line 1: “By dusk…” — detail questions are answered word-for-word from the text." data-zh="证据在第 1 行：“黄昏时分……”——细节题的答案要逐字回到原文找。">Evidence, line 1: “By dusk…” — detail questions are answered word-for-word from the text.</div>
+          <div class="small fw6" style="margin:2px 0 7px" data-en="Q2 · Inference: what can we tell about the volunteers?" data-zh="Q2 · 推断题：可以推断志愿者是怎样的人？">Q2 · Inference: what can we tell about the volunteers?</div>
+          <div data-qz="2">
+            <button class="qz-opt" onclick="qzPick(this,0,'qzx2')" data-en="A · They were paid for the work" data-zh="A · 他们是有偿工作">A · They were paid for the work</button>
+            <button class="qz-opt" onclick="qzPick(this,0,'qzx2')" data-en="B · They were afraid of the sea" data-zh="B · 他们害怕大海">B · They were afraid of the sea</button>
+            <button class="qz-opt" data-ok="1" onclick="qzPick(this,1,'qzx2')" data-en="C · They cared more about the turtle than their comfort" data-zh="C · 他们在乎海龟胜过自己的舒适">C · They cared more about the turtle than their comfort</button>
+          </div>
+          <div class="qz-ex" id="qzx2" data-en="Not stated directly — you connect “foam rushed their ankles” with “none once let go”. That link is the inference." data-zh="原文没有明说——要把“浪沫涌上脚踝”和“没有一个人松手”连起来，补出这层联系才是推断。">Not stated directly — you connect “foam rushed their ankles” with “none once let go”. That link is the inference.</div>
+          <div class="callout" id="qzDiag" style="display:none"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.7 4.8L18.5 9l-4.8 1.2L12 15l-1.7-4.8L5.5 9l4.8-1.2z"/></svg></div><div><b class="small" data-en="Instant diagnosis" data-zh="即时诊断">Instant diagnosis</b><p data-en="Details: solid. Inference: this is the 46% of Sec 3 students' gap — added to your path as this week's focus." data-zh="细节题：稳。推断题：全级 46% 学生的共同短板——已加入你的路径，作为本周重点。">Details: solid. Inference: this is the 46% of Sec 3 students' gap — added to your path as this week's focus.</p><button class="btn primary" style="margin-top:9px" onclick="genPath(this)"><span data-en="Generate my path" data-zh="生成我的学习路径">Generate my path</span></button></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid g2" style="margin-bottom:18px">
+      <div class="card">
+        <div class="card-head"><h3 data-en="Syllabus &amp; subjects — your choice, mapped by the engine" data-zh="课程体系与科目 · 你来选，引擎对考纲">Syllabus &amp; subjects — your choice, mapped by the engine</h3></div>
+        <div style="padding:14px 18px 18px">
+          <div class="small muted fw6" style="margin-bottom:9px" data-en="Syllabus" data-zh="课程体系">Syllabus</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">
+            <button class="cur-pill" onclick="curSel(this)" data-en="MOE · PSLE" data-zh="新加坡 MOE · PSLE">MOE · PSLE</button>
+            <button class="cur-pill on" onclick="curSel(this)" data-en="MOE · O-Level" data-zh="新加坡 MOE · O-Level">MOE · O-Level</button>
+            <button class="cur-pill" onclick="curSel(this)" data-en="IB · MYP" data-zh="IB · MYP">IB · MYP</button>
+            <button class="cur-pill" onclick="curSel(this)" data-en="Cambridge IGCSE" data-zh="剑桥 IGCSE">Cambridge IGCSE</button>
+            <button class="cur-pill" onclick="curSel(this)" data-en="AEIS prep" data-zh="AEIS 备考">AEIS prep</button>
+          </div>
+          <div class="small muted fw6" style="margin-bottom:9px" data-en="Subjects — pick any" data-zh="科目 · 任选">Subjects — pick any</div>
+          <div style="display:flex;gap:7px;flex-wrap:wrap">
+            <button class="subj-chip on" onclick="subjTog(this)" data-en="English · Reading" data-zh="英文 · 阅读理解">English · Reading</button>
+            <button class="subj-chip on" onclick="subjTog(this)" data-en="English · Writing" data-zh="英文 · 写作">English · Writing</button>
+            <button class="subj-chip on" onclick="subjTog(this)" data-en="Maths" data-zh="数学">Maths</button>
+            <button class="subj-chip" onclick="subjTog(this)" data-en="Science" data-zh="科学">Science</button>
+            <button class="subj-chip" onclick="subjTog(this)" data-en="Chinese" data-zh="华文">Chinese</button>
+          </div>
+          <div class="small muted" style="margin-top:12px" data-en="Switching syllabus never wipes progress — the engine re-maps what you've mastered onto the new exam's outline (demo)." data-zh="更换体系不会清空进度——引擎会把你已掌握的知识点重新映射到新考纲上（演示）。">Switching syllabus never wipes progress — the engine re-maps what you've mastered onto the new exam's outline (demo).</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3 data-en="Coaching modes — same engine, four personalities" data-zh="AI 引导模式 · 一套引擎，四种带法">Coaching modes — same engine, four personalities</h3></div>
+        <div style="padding:14px 18px 18px">
+          <div class="grid g2" style="gap:10px;margin-bottom:4px">
+            <div class="mode-card on" onclick="modeSel(this,'mp1')"><b><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.2 9a3 3 0 0 1 5.6 1c0 2-3 2.5-3 4"/><path d="M12 17h.01"/></svg><span data-en="Socratic" data-zh="苏格拉底式">Socratic</span></b><p data-en="Only questions, never answers — you arrive yourself." data-zh="只提问，不给答案——答案由你自己抵达。">Only questions, never answers — you arrive yourself.</p></div>
+            <div class="mode-card" onclick="modeSel(this,'mp2')"><b><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span data-en="Explain-first" data-zh="精讲模式">Explain-first</span></b><p data-en="A 60-second concept card, then 3 check questions." data-zh="先 60 秒讲透概念，再做 3 道检验题。">A 60-second concept card, then 3 check questions.</p></div>
+            <div class="mode-card" onclick="modeSel(this,'mp3')"><b><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9z"/></svg><span data-en="Drill &amp; spar" data-zh="闯关刷题">Drill &amp; spar</span></b><p data-en="Adaptive difficulty; wrong answers return, spaced." data-zh="难度自适应；错题按间隔重复自动回炉。">Adaptive difficulty; wrong answers return, spaced.</p></div>
+            <div class="mode-card" onclick="modeSel(this,'mp4')"><b><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-en="Exam sprint" data-zh="考前冲刺">Exam sprint</span></b><p data-en="Timed past papers + a rescue pack for weak spots." data-zh="真题限时模考 + 弱项急救包。">Timed past papers + a rescue pack for weak spots.</p></div>
+          </div>
+          <div class="bubwrap mprev" id="mp1" style="display:flex">
+            <div class="bub me" data-en="Is the answer B?" data-zh="这题是选 B 吗？">Is the answer B?</div>
+            <div class="bub ai" data-en="Before I say — which sentence in paragraph 2 tells you how the author feels? (hint 1 of 3)" data-zh="先别急——第 2 段里哪一句话透露了作者的态度？（提示 1/3）">Before I say — which sentence in paragraph 2 tells you how the author feels? (hint 1 of 3)</div>
+            <div class="small muted" data-en="Never hands over the answer · your parents see the path, not just the score" data-zh="绝不直接给答案 · 家长周报看到的是路径，不只是分数">Never hands over the answer · your parents see the path, not just the score</div>
+          </div>
+          <div class="bubwrap mprev" id="mp2">
+            <div class="bub ai" data-en="Concept card · 60s — “Inference = evidence + the unstated link.” Example: foam at their ankles + never let go → they cared more than they feared. Now 3 quick checks." data-zh="概念卡 · 60 秒——“推断 = 原文证据 + 未言明的联系”。例：浪沫涌上脚踝 + 始终没松手 → 在乎胜过害怕。现在做 3 道检验题。">Concept card · 60s — “Inference = evidence + the unstated link.” Example: foam at their ankles + never let go → they cared more than they feared. Now 3 quick checks.</div>
+            <div class="small muted" data-en="Explains once, checks three times — mastery, not familiarity" data-zh="讲一遍、验三遍——要的是掌握，不是眼熟">Explains once, checks three times — mastery, not familiarity</div>
+          </div>
+          <div class="bubwrap mprev" id="mp3">
+            <div class="bub ai" data-en="Q7 · inference · difficulty ↑ (you got 2 in a row). Your missed Q3 returns tomorrow, then in 4 days." data-zh="第 7 题 · 推断题 · 难度上调（你已连对 2 题）。你错过的第 3 题明天回炉，4 天后再来一次。">Q7 · inference · difficulty ↑ (you got 2 in a row). Your missed Q3 returns tomorrow, then in 4 days.</div>
+            <div class="small muted" data-en="Spaced repetition runs itself — the streak is yours to keep" data-zh="间隔重复自动安排——连胜纪录由你来守">Spaced repetition runs itself — the streak is yours to keep</div>
+          </div>
+          <div class="bubwrap mprev" id="mp4">
+            <div class="bub ai" data-en="Past paper 2024 · 40:00 on the clock. After submission: instant marking, then a 10-min rescue pack on your two weakest question types." data-zh="2024 年真题 · 限时 40:00。交卷即批改，随后给你两个最弱题型的 10 分钟急救包。">Past paper 2024 · 40:00 on the clock. After submission: instant marking, then a 10-min rescue pack on your two weakest question types.</div>
+            <div class="small muted" data-en="Exam conditions, honest timing, zero surprises on the day" data-zh="全真考试条件、诚实计时——考试当天没有意外">Exam conditions, honest timing, zero surprises on the day</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" id="pathCard" style="display:none;margin-bottom:18px">
+      <div class="card-head"><h3 data-en="Your path — today's 15 minutes" data-zh="你的学习路径 · 今天的 15 分钟">Your path — today's 15 minutes</h3><span class="rchip" data-en="O-Level · English Reading · Socratic" data-zh="O-Level · 英文阅读 · 苏格拉底式">O-Level · English Reading · Socratic</span></div>
+      <div style="padding:14px 18px 18px">
+        <div class="list-row"><span class="rchip">5'</span><div style="flex:1"><div class="small fw6" data-en="Inference micro-lesson — video auto-built by AI Teaching Studio, teacher-approved" data-zh="推断题微课——由 AI 教学工作室自动生成、教师签发">Inference micro-lesson — video auto-built by AI Teaching Studio, teacher-approved</div></div></div>
+        <div class="list-row"><span class="rchip">8'</span><div style="flex:1"><div class="small fw6" data-en="4 Socratic questions on a fresh passage — hints in steps, answers cited" data-zh="新语篇 4 道苏格拉底引导题——阶梯提示，判分引用原文">4 Socratic questions on a fresh passage — hints in steps, answers cited</div></div></div>
+        <div class="list-row" style="border-bottom:none"><span class="rchip">2'</span><div style="flex:1"><div class="small fw6" data-en="Review yesterday's one miss · then done — streak +1" data-zh="回顾昨天错的那 1 题 · 完成——连胜 +1">Review yesterday's one miss · then done — streak +1</div></div></div>
+        <div class="small muted" style="margin-top:8px" data-en="Every Sunday the AI sends your parents a path report — what you worked on, not just scores." data-zh="每周日 AI 给家长发路径周报——汇报你练了什么，而不只是分数。">Every Sunday the AI sends your parents a path report — what you worked on, not just scores.</div>
+      </div>
+    </div>
+  </section>
   </main>
 </div>
 
@@ -2030,6 +2308,7 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
   <a onclick="go('sched')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="17" rx="2"/><path d="M8 2.5v4M16 2.5v4M3 10h18"/></svg><span data-en="Schedule" data-zh="日程">Schedule</span></a>
   <a onclick="go('t-studio')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="m22 8-6 4 6 4z"/></svg><span data-en="AI Teaching Studio" data-zh="AI 教学工作室">AI Teaching Studio</span></a>
   <a onclick="go('t-qbank')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="2.8"/><path d="M4 5v14c0 1.6 3.6 2.8 8 2.8s8-1.2 8-2.8V5"/><path d="M4 12c0 1.6 3.6 2.8 8 2.8s8-1.2 8-2.8"/></svg><span data-en="Question Bank" data-zh="题库管理">Question Bank</span></a>
+  <a onclick="go('t-essay')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z"/></svg><span data-en="Essay &amp; Reading" data-zh="作文·阅读批改">Essay &amp; Reading</span></a>
   <a onclick="go('events')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="17" rx="2"/><path d="M8 2.5v4M16 2.5v4M3 10h18"/></svg><span data-en="Live Events" data-zh="线上活动">Live Events</span><span class="badge-n" style="background:var(--danger);color:#fff;margin-left:auto;font-size:10.5px;border-radius:100px;padding:1px 7px">2</span></a>
 </div>
 
@@ -2070,6 +2349,7 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
 <nav class="bottomnav" data-role="student">
   <button class="bn-item" data-bn="s-home" onclick="go('s-home')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5-9 5-9-5z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/></svg><span data-en="Today" data-zh="今日">Today</span><span class="bd"></span></button>
   <button class="bn-item" data-bn="s-tutor" onclick="go('s-tutor')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="m9 14 2 2 4-4"/></svg><span data-en="Tutor" data-zh="辅导">Tutor</span><span class="bd"></span></button>
+  <button class="bn-item" data-bn="s-learn" onclick="go('s-learn')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg><span data-en="Learn" data-zh="学习">Learn</span><span class="bd"></span></button>
   <button class="bn-item" data-bn="s-class" onclick="go('s-class')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4.5 20 12 7 19.5z"/></svg><span data-en="Class" data-zh="上课">Class</span><span class="bd"></span></button>
   <button class="bn-item" onclick="openChat()"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13A4 4 0 0 1 16 11"/></svg><span data-en="Help" data-zh="帮助">Help</span><span class="bd"></span></button>
 </nav>
@@ -2094,6 +2374,22 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
 </div>
 <div class="tour-card" id="tourCard"></div>
 
+
+<div class="modal-bg" id="gateModal">
+  <div class="modal" style="max-width:460px">
+    <div style="padding:26px 26px 22px">
+      <div style="font-size:11.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--brand-d)" data-en="Continue with a free account" data-zh="创建免费账户以继续">Continue with a free account</div>
+      <h3 style="font-size:20px;margin:8px 0 6px" data-en="Booking &amp; payment need a quick sign-in" data-zh="预约与担保付款需要先登录">Booking &amp; payment need a quick sign-in</h3>
+      <p class="small muted" style="margin:0 0 8px" data-en="Browsing is open to everyone. To book, we need an account so escrow protection and lesson insurance can attach to you." data-zh="浏览对所有人开放。到预约这一步需要账户，担保托管与课程保险才能生效、跟着你走。">Browsing is open to everyone. To book, we need an account so escrow protection and lesson insurance can attach to you.</p>
+      <div class="list-row"><span class="rchip" style="color:var(--good)">✓</span><div style="flex:1"><div class="small fw6" data-en="Money held in escrow until you confirm each lesson" data-zh="课时费先入托管，每节课你确认后才放款">Money held in escrow until you confirm each lesson</div></div></div>
+      <div class="list-row"><span class="rchip" style="color:var(--good)">✓</span><div style="flex:1"><div class="small fw6" data-en="First lesson guarantee — full refund, no questions" data-zh="首课保障——不满意全额退款，不问原因">First lesson guarantee — full refund, no questions</div></div></div>
+      <div class="list-row" style="border-bottom:none"><span class="rchip" style="color:var(--good)">✓</span><div style="flex:1"><div class="small fw6" data-en="The JE engine keeps matching around your schedule &amp; budget" data-zh="JE 引擎按你的时段与预算持续精配">The JE engine keeps matching around your schedule &amp; budget</div></div></div>
+      <button class="btn primary" style="width:100%;justify-content:center;margin-top:12px" onclick="enterFromGate('parent')"><span data-en="Continue as Parent (demo)" data-zh="以家长身份继续（演示）">Continue as Parent (demo)</span></button>
+      <button class="btn ghost" style="width:100%;justify-content:center;margin-top:8px" onclick="closeGate()"><span data-en="Keep browsing" data-zh="继续浏览">Keep browsing</span></button>
+      <p class="fine" style="margin-top:10px" data-en="Demo environment · sample data only." data-zh="演示环境 · 仅示例数据。">Demo environment · sample data only.</p>
+    </div>
+  </div>
+</div>
 <div class="toast" id="toast"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.7 4.8L18.5 9l-4.8 1.2L12 15l-1.7-4.8L5.5 9l4.8-1.2z"/><path d="M19 13.5l.8 2.2 2.2.8-2.2.8L19 19.5l-.8-2.2-2.2-.8 2.2-.8z"/></svg><span id="toastMsg"></span></div>
 
 
@@ -2447,9 +2743,9 @@ Object.assign(CRUMB,{
 (function(){
   function T(en,zh){return LANG==='zh'?zh:en;}
   var MODS={brief:['AI Brief','AI 简报','*'],sched:['Schedule','日程','*'],
-    dashboard:['Dashboard','总览','teacher'],grading:['AI Grading','AI 评分','teacher'],learn:['Learn · Tutoring','Learn 辅导','teacher'],pinpoint:['Pinpoint · Diagnosis','知点诊断','teacher'],'t-studio':['AI Teaching Studio','AI 教学工作室','teacher'],'t-qbank':['Question Bank','题库管理','teacher'],market:['Marketplace','撮合市场','teacher'],events:['Live Events','线上活动','teacher'],payments:['Payments · Escrow','支付与担保','teacher'],
+    dashboard:['Dashboard','总览','teacher'],grading:['AI Grading','AI 评分','teacher'],'t-essay':['Essay & Reading','作文·阅读批改','teacher'],learn:['Learn · Tutoring','Learn 辅导','teacher'],pinpoint:['Pinpoint · Diagnosis','知点诊断','teacher'],'t-studio':['AI Teaching Studio','AI 教学工作室','teacher'],'t-qbank':['Question Bank','题库管理','teacher'],market:['Marketplace','撮合市场','teacher'],events:['Live Events','线上活动','teacher'],payments:['Payments · Escrow','支付与担保','teacher'],
     'p-home':['Overview','总览','parent'],'p-book':['Bookings · Matching','预约与撮合','parent'],'p-pay':['Billing · Protection','账单与保障','parent'],
-    's-home':['Today','今日学习','student'],'s-tutor':['AI Tutor','AI 辅导','student'],'s-class':['Live Class','上课模式','student'],
+    's-home':['Today','今日学习','student'],'s-tutor':['AI Tutor','AI 辅导','student'],'s-learn':['Guided Learning','AI 引导学习','student'],'s-class':['Live Class','上课模式','student'],
     'a-ops':['Command · AI ops','指挥台 · AI 运营','admin'],'a-students':['Student records','学生档案','admin'],'a-academics':['Academics · Reports','成绩与证书','admin'],'a-members':['Members · Fees','会员与会费','admin'],'a-plan':['Plan · Modules','订阅与模块','admin'],'a-match':['Matching engine','自动撮合引擎','admin'],'a-risk':['Risk · Compliance','风控与合规','admin']
   };
   var RECENTS=[];
@@ -2593,10 +2889,12 @@ Object.assign(CRUMB,{
   var TOUR=[
     {r:'teacher',m:'dashboard',t:['One engine, four surfaces','一套引擎 · 四端一体'],d:['This is the teacher’s day: everything the AI does here is cited, calibrated and reversible.','这是教师的一天：AI 做的每一步都有出处、经校准、可回退。']},
     {r:'teacher',m:'grading',t:['Grading that abstains','会「存疑」的评分'],d:['Below the confidence bar, the AI hands the essay to the teacher instead of guessing — that discipline is the product.','置信不足时，AI 不猜测，直接转交教师——这份纪律就是产品本身。']},
+    {r:'teacher',m:'t-essay',t:['Master rules, machine speed','名师经验 · 机器速度'],d:['Essays and comprehension are scanned, annotated and scored under rules master teachers wrote — experience compounds on the platform, and teachers keep the signature.','作文与阅读理解扫描即批注：名师把经验写成规则，AI 按规则执行——经验在平台上复利，签发权始终在老师手上。']},
     {r:'teacher',m:'t-studio',t:['A lesson in 6 minutes','6 分钟做出一堂课'],d:['Cited scripts, bilingual presenter, checkpoints from the bank — S$4.20 per video, teacher signs off.','有据脚本、双语讲师、题库检查点——单条 S$4.20，教师签发才上线。']},
     {r:'teacher',m:'market',t:['Matching, explained','说得清理由的撮合'],d:['The JE engine ranks tutors on a map with reasons — subject, distance, schedule, budget. No black box.','JE 引擎在地图上按科目、距离、时段、预算给出推荐理由——不是黑箱。']},
     {r:'teacher',m:'payments',t:['Escrow-grade money flow','担保级的资金流'],d:['Parents pay into escrow; tutors are paid after confirmation; the platform never touches funds in transit.','家长先付入托管，确认后老师才收款，平台不触碰在途资金。']},
     {r:'student',m:'s-class',t:['Guided, never given away','引导，而不代劳'],d:['Hints in steps, never answers; focus analytics run on-device with nothing recorded.','阶梯提示、绝不给答案；专注力分析在设备端完成，不录制任何画面。']},
+    {r:'student',m:'s-learn',t:['Learning that starts with you','从你出发的学习'],d:['A placement test finds the real gaps; the student picks the syllabus, the subjects and the coaching style — Socratic, explain-first, drill or sprint.','入学自测先找出真实薄弱点；体系、科目、引导方式都由学生自己选——苏格拉底、精讲、闯关、冲刺。']},
     {r:'parent',m:'p-home',t:['Trust converts to renewals','信任转化为续费'],d:['Parents see what teachers see — every claim cited, every dollar protected.','家长看到的与老师一致——每个结论有出处，每一分钱有保障。']},
     {r:'admin',m:'a-ops',t:['2 people run 1,240 students','2 个人运营 1,240 名学生'],d:['Agents draft comments, schedules, reminders and invoices; humans approve a queue of 12, not a school of 1,240.','智能体起草评语、排期、提醒与账单；人只审 12 条队列，而不是 1,240 人的学校。']},
     {r:'admin',m:'a-plan',t:['Modular monetisation','模块化商业变现'],d:['Schools pay per student and flip modules on like switches — Studio add-on, marketplace take-rate, membership dues. This page is the revenue engine.','机构按学生数付费，模块像开关一样随需开启——工作室附加、撮合抽成、会员会费。这一页就是收入引擎。']},
@@ -2807,5 +3105,88 @@ Object.assign(CRUMB,{
 })();
 </script>
 
+
+<script>
+/* ---------- v9: public marketplace + essay studio + guided learning ---------- */
+Object.assign(CRUMB,{'t-essay':['· Essay & Reading','· 作文·阅读批改'],'s-learn':['· Guided Learning','· AI 引导学习']});
+
+/* public browse mode */
+window.enterPublic=function(){
+  document.body.classList.add('pub');
+  document.getElementById('login').style.display='none';
+  document.getElementById('app').classList.add('show');
+  go('market');
+  toast('en:Browsing as guest — book any tutor to see the sign-in gate','zh:游客浏览中——点任意导师的预约即可看到登录门');
+};
+window.exitPublic=function(){
+  document.body.classList.remove('pub');
+  document.getElementById('app').classList.remove('show');
+  document.getElementById('login').style.display='';
+  window.scrollTo(0,0);
+};
+window.pubGo=function(m,btn){
+  go(m);
+  document.querySelectorAll('.pb-tabs button').forEach(function(b){b.classList.remove('on');});
+  if(btn)btn.classList.add('on');
+};
+window.openGate=function(){document.getElementById('gateModal').classList.add('show');};
+window.closeGate=function(){document.getElementById('gateModal').classList.remove('show');};
+document.getElementById('gateModal').addEventListener('click',function(e){if(e.target===this)closeGate();});
+window.enterFromGate=function(role){
+  closeGate();
+  document.body.classList.remove('pub');
+  enterAs(role);
+  setTimeout(function(){go('p-book');if(typeof window.__gateBook==='number'){openBook(window.__gateBook);}
+    toast('en:Signed in — continuing your booking under escrow protection','zh:已登录——继续刚才的预约，担保托管已生效');},700);
+};
+(function(){
+  var ob=window.openBook;
+  window.openBook=function(ix){
+    if(document.body.classList.contains('pub')){window.__gateBook=ix;openGate();return;}
+    ob(ix);
+  };
+  var oc=window.openCmdk;
+  window.openCmdk=function(){
+    if(document.body.classList.contains('pub'))return;
+    oc();
+  };
+})();
+
+/* guided learning interactions */
+window.qzPick=function(el,ok,ex){
+  var box=el.parentElement;
+  if(box.dataset.done)return;
+  box.dataset.done=1;
+  el.classList.add(ok?'ok':'bad');
+  if(!ok){var c=box.querySelector('[data-ok]');if(c)c.classList.add('ok');}
+  var e=document.getElementById(ex);if(e)e.style.display='block';
+  window.__qz=(window.__qz||0)+1;
+  if(window.__qz>=2){var d=document.getElementById('qzDiag');if(d)d.style.display='flex';}
+  if(ok)toast('en:Correct — see the evidence line below','zh:答对了——证据见下方原文');
+  else toast('en:Not quite — check the evidence line below','zh:再想想——看看下方的原文证据');
+};
+window.genPath=function(btn){
+  var p=document.getElementById('pathCard');
+  if(p){p.style.display='block';p.scrollIntoView({behavior:'smooth',block:'center'});}
+  toast('en:Path generated — 15 min/day, parents get the Sunday report','zh:路径已生成——每天 15 分钟，家长每周日收到路径周报');
+};
+window.curSel=function(el){
+  el.parentElement.querySelectorAll('.cur-pill').forEach(function(b){b.classList.remove('on');});
+  el.classList.add('on');
+  toast('en:Syllabus switched — progress re-mapped, nothing lost (demo)','zh:已切换体系——进度自动重映射，不会丢失（演示）');
+};
+window.subjTog=function(el){el.classList.toggle('on');};
+window.modeSel=function(el,id){
+  document.querySelectorAll('#m-s-learn .mode-card').forEach(function(c){c.classList.remove('on');});
+  el.classList.add('on');
+  document.querySelectorAll('#m-s-learn .mprev').forEach(function(p){p.style.display='none';});
+  var t=document.getElementById(id);if(t)t.style.display='flex';
+};
+window.addRule=function(){
+  var r=document.getElementById('newRule');
+  if(r){r.style.display='flex';r.scrollIntoView({behavior:'smooth',block:'center'});}
+  toast('en:Rule R29 added in pilot mode — suggests only for 2 weeks, then audited','zh:规则 R29 已灰度上线——前两周只提示不动分，审计通过才生效');
+};
+</script>
 </body>
 </html>
