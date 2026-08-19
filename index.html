@@ -834,11 +834,12 @@ body.pub .pub-hide{display:none!important}
       <div class="field"><label data-en="Work email" data-zh="工作邮箱">Work email</label><input type="email" value="mei.tan@rafflesacademy.edu.sg"></div>
       <div class="field"><label data-en="Password" data-zh="密码">Password</label><input type="password" value="••••••••••••"></div>
       <div class="row"><span><input type="checkbox" checked style="vertical-align:-1px"> <span data-en="Remember me" data-zh="记住我">Remember me</span></span><a data-en="Forgot password?" data-zh="忘记密码？">Forgot password?</a></div>
-      <button class="btn-lg" onclick="enterApp()" data-en="Sign in" data-zh="登录">Sign in</button>
-      <button class="sso" onclick="enterApp()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span data-en="Continue with SSO" data-zh="使用 SSO 继续">Continue with SSO</span></button>
+      <button class="btn-lg" onclick="enterAs('teacher')" data-en="Sign in" data-zh="登录">Sign in</button>
+      <button class="sso" onclick="enterAs('teacher')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span data-en="Continue with SSO" data-zh="使用 SSO 继续">Continue with SSO</span></button>
       <div class="demo-as"><span data-en="Or explore the demo as" data-zh="或以不同角色进入演示">Or explore the demo as</span>
         <div class="da-row">
-          <button onclick="enterAs('teacher')" data-en="Teacher" data-zh="教师">Teacher</button>
+          <button onclick="enterAs('teacher')" data-en="Teacher" data-zh="机构教师">Teacher</button>
+          <button onclick="enterAs('tutor')" data-en="Tutor" data-zh="独立老师">Tutor</button>
           <button onclick="enterAs('parent')" data-en="Parent" data-zh="家长">Parent</button>
           <button onclick="enterAs('student')" data-en="Student" data-zh="学生">Student</button>
           <button onclick="enterAs('admin')" data-en="Admin" data-zh="管理">Admin</button>
@@ -866,12 +867,12 @@ body.pub .pub-hide{display:none!important}
       <a data-mod="pinpoint" onclick="go('pinpoint')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4"/></svg><span data-en="Pinpoint · Diagnosis" data-zh="知点诊断">Pinpoint · Diagnosis</span></a>
       <a data-mod="t-studio" onclick="go('t-studio')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="m22 8-6 4 6 4z"/></svg><span data-en="AI Teaching Studio" data-zh="AI 教学工作室">AI Teaching Studio</span></a>
       <a data-mod="t-qbank" onclick="go('t-qbank')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="2.8"/><path d="M4 5v14c0 1.6 3.6 2.8 8 2.8s8-1.2 8-2.8V5"/><path d="M4 12c0 1.6 3.6 2.8 8 2.8s8-1.2 8-2.8"/></svg><span data-en="Question Bank" data-zh="题库管理">Question Bank</span><span class="badge-n" style="background:var(--warn)">45</span></a>
+      <a data-mod="events" onclick="go('events')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="17" rx="2"/><path d="M8 2.5v4M16 2.5v4M3 10h18"/></svg><span data-en="Live Events" data-zh="线上活动">Live Events</span><span class="badge-n" style="background:var(--danger)">2</span></a>
     </nav>
 
-    <div class="sb-sec" data-en="Grow" data-zh="增长">Grow</div>
-    <nav class="nav">
+    <div class="sb-sec role-nav" data-role="tutor" data-en="Grow" data-zh="增长">Grow</div>
+    <nav class="nav role-nav" data-role="tutor">
       <a data-mod="market" onclick="go('market')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 9 1.3-5h14.4L20.5 9"/><path d="M5 9v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9"/><path d="M3.5 9h17"/><path d="M9.5 20v-5.5h5V20"/></svg><span data-en="Marketplace" data-zh="撮合市场">Marketplace</span></a>
-      <a data-mod="events" onclick="go('events')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="17" rx="2"/><path d="M8 2.5v4M16 2.5v4M3 10h18"/></svg><span data-en="Live Events" data-zh="线上活动">Live Events</span><span class="badge-n" style="background:var(--danger)">2</span></a>
       <a data-mod="payments" onclick="go('payments')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 7H6a2.5 2.5 0 0 1 0-5h11v5"/><path d="M19 7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2.5 2.5 0 0 1-2.5-2.5V4.5"/><circle cx="16.5" cy="13.8" r="1.3"/></svg><span data-en="Payments · Escrow" data-zh="支付与担保">Payments · Escrow</span></a>
     </nav>
     <div class="sb-sec role-nav" data-role="parent" data-en="My child" data-zh="我的孩子">My child</div>
@@ -901,8 +902,8 @@ body.pub .pub-hide{display:none!important}
       <a data-mod="a-members" onclick="go('a-members')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13A4 4 0 0 1 16 11"/></svg><span data-en="Members · Fees" data-zh="会员与会费">Members · Fees</span></a>
       <a data-mod="a-plan" onclick="go('a-plan')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h12V21l-2-1.4L14 21l-2-1.4L10 21l-2-1.4L6 21z"/><path d="M9 7.5h6M9 11h6M9 14.5h4"/></svg><span data-en="Plan · Modules" data-zh="订阅与模块">Plan · Modules</span></a>
     </nav>
-    <div class="sb-sec role-nav" data-role="admin" data-en="Platform" data-zh="平台">Platform</div>
-    <nav class="nav role-nav" data-role="admin">
+    <div class="sb-sec role-nav" data-role="tutor" data-en="Marketplace" data-zh="撮合平台">Marketplace</div>
+    <nav class="nav role-nav" data-role="tutor">
       <a data-mod="a-match" onclick="go('a-match')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9.5" y="9.5" width="5" height="5"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg><span data-en="Matching engine" data-zh="自动撮合引擎">Matching engine</span></a>
       <a data-mod="a-risk" onclick="go('a-risk')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 4l9 5.5"/><path d="M5 10v7M9.5 10v7M14.5 10v7M19 10v7"/><path d="M3 20h18"/></svg><span data-en="Risk · Compliance" data-zh="风控与合规">Risk · Compliance</span><span class="badge-n" style="background:var(--warn)">3</span></a>
     </nav>
@@ -920,14 +921,14 @@ body.pub .pub-hide{display:none!important}
 
   <header class="topbar">
     <button class="icon-btn menu-btn" aria-label="Menu" onclick="document.getElementById('sidebar').classList.toggle('open')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
-    <div class="tb-crumb"><b data-en="Raffles Academy" data-zh="莱佛士书院">Raffles Academy</b> <span id="crumb" data-en="· Dashboard" data-zh="· 总览">· Dashboard</span></div>
+    <div class="tb-crumb"><b id="crumbOrg" data-en="Raffles Academy" data-zh="莱佛士书院">Raffles Academy</b> <span id="crumb" data-en="· Dashboard" data-zh="· 总览">· Dashboard</span></div>
     <div class="pubbrand pubonly"><span class="pb-logo">JE</span><span class="pb-name">Juris &amp; Edu <span class="pb-sub" style="color:var(--muted);font-weight:600" data-en="· Tutor marketplace" data-zh="· 导师撮合市场">· Tutor marketplace</span></span>
       <span class="pb-tabs"><button class="on" id="pbTabM" onclick="pubGo('pub-market',this)" data-en="Marketplace" data-zh="导师市场">Marketplace</button><button id="pbTabE" onclick="pubGo('events',this)" data-en="Events" data-zh="公开活动">Events</button></span>
     </div>
     <div class="search" onclick="openCmdk()" style="cursor:pointer"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><input readonly placeholder="Search students, assignments, tutors…" data-en-ph="Search students, assignments, tutors…" data-zh-ph="搜索学生、作业、师资…"></div>
     <div class="tb-right">
       <button class="icon-btn" id="tourBtn" onclick="startTour()" aria-label="Pitch tour" title="Pitch tour · 演示导览"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4.5 20 12 7 19.5z"/></svg></button>
-      <button class="role-chip" onclick="toggleRoleMenu()"><span class="rc-dot"></span><span class="rc-lab" id="roleLabel" data-en="Teacher · Ms Tan" data-zh="教师 · 陈老师">Teacher · Ms Tan</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+      <button class="role-chip" onclick="toggleRoleMenu()"><span class="rc-dot"></span><span class="rc-lab" id="roleLabel" data-en="Institution teacher · Ms Tan" data-zh="机构教师 · 陈老师">Institution teacher · Ms Tan</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
       <button class="btn primary pubonly pubsign" onclick="exitPublic()"><span data-en="Sign in · free" data-zh="登录 / 注册">Sign in · free</span></button>
       <div class="lang-tog"><button data-lang="en" class="on">EN</button><button data-lang="zh">中</button></div>
       <button class="icon-btn" id="bellBtn" onclick="toggleNotif()" aria-label="Notifications"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg><span class="dot" id="bellDot"></span></button>
@@ -966,8 +967,8 @@ body.pub .pub-hide{display:none!important}
         <div class="num">7</div><div class="delta down"><span data-en="Low-confidence · abstained" data-zh="低置信 · 已存疑">Low-confidence · abstained</span></div>
       </div>
       <div class="card stat">
-        <div class="top"><div class="lab" data-en="Marketplace revenue" data-zh="撮合收入">Marketplace revenue</div><div class="ico i"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 9 1.3-5h14.4L20.5 9"/><path d="M5 9v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9"/><path d="M3.5 9h17"/><path d="M9.5 20v-5.5h5V20"/></svg></div></div>
-        <div class="num"><small>S$</small>2,480</div><div class="delta up"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg><span data-en="12% platform take" data-zh="平台抽成 12%">12% platform take</span></div>
+        <div class="top"><div class="lab" data-en="Hours saved · term" data-zh="本学期已省工时">Hours saved · term</div><div class="ico i"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div></div>
+        <div class="num">142<small> hrs</small></div><div class="delta up"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg><span data-en="+18 this week · AI-assisted" data-zh="本周 +18 · AI 辅助">+18 this week · AI-assisted</span></div>
       </div>
     </div>
 
@@ -988,7 +989,7 @@ body.pub .pub-hide{display:none!important}
         <div style="padding:6px 18px 12px">
           <div class="list-row"><span class="dotb" style="background:var(--warn)"></span><div style="flex:1"><div class="fw6" data-en="7 essays abstained — confidence below your 85% bar" data-zh="7 篇作文已存疑——置信度低于你设定的 85% 阈值">7 essays abstained — confidence below your 85% bar</div><div class="small muted" data-en="Argumentative essay · 3B · AI deferred to you" data-zh="议论文 · 3B 班 · AI 已转交你">Argumentative essay · 3B · AI deferred to you</div></div><button class="btn ghost" onclick="go('grading')" data-en="Review" data-zh="复核">Review</button></div>
           <div class="list-row"><span class="dotb" style="background:var(--danger)"></span><div style="flex:1"><div class="fw6" data-en="Rui Feng — mastery dropped in ‘thesis & evidence’" data-zh="睿峰——「论点与论据」掌握度下滑">Rui Feng — mastery dropped in ‘thesis & evidence’</div><div class="small muted" data-en="Pinpoint suggests a 3-step remediation path" data-zh="知点已给出 3 步强化路径">Pinpoint suggests a 3-step remediation path</div></div><button class="btn ghost" onclick="go('pinpoint')" data-en="View" data-zh="查看">View</button></div>
-          <div class="list-row"><span class="dotb" style="background:var(--info)"></span><div style="flex:1"><div class="fw6" data-en="14 parents requested 1:1 tutor matches" data-zh="14 位家长申请 1 对 1 师资撮合">14 parents requested 1:1 tutor matches</div><div class="small muted" data-en="Marketplace · auto-matched by subject & availability" data-zh="撮合市场 · 已按科目与时段自动匹配">Marketplace · auto-matched by subject & availability</div></div><button class="btn ghost" onclick="go('market')" data-en="Match" data-zh="撮合">Match</button></div>
+          <div class="list-row"><span class="dotb" style="background:var(--info)"></span><div style="flex:1"><div class="fw6" data-en="12 weekly parent reports drafted — awaiting your sign-off" data-zh="12 份家长周报已起草——待你签发">12 weekly parent reports drafted — awaiting your sign-off</div><div class="small muted" data-en="Cited from graded work · nothing ships without you" data-zh="取自批改证据 · 未经你签发不发出">Cited from graded work · nothing ships without you</div></div><button class="btn ghost" onclick="go('brief')" data-en="Review" data-zh="查看">Review</button></div>
           <div class="list-row"><span class="dotb" style="background:var(--brand)"></span><div style="flex:1"><div class="fw6" data-en="‘Exam Skills’ live workshop starts in 2 days" data-zh="「应试技巧」线上工作坊 2 天后开始">‘Exam Skills’ live workshop starts in 2 days</div><div class="small muted" data-en="86 registered · 40 seats left" data-zh="已报名 86 人 · 余 40 席">86 registered · 40 seats left</div></div><button class="btn ghost" onclick="go('events')" data-en="Manage" data-zh="管理">Manage</button></div>
         </div>
       </div>
@@ -2269,7 +2270,7 @@ body.pub .pub-hide{display:none!important}
       <div class="card stat"><div class="top"><div class="lab" data-en="Current plan" data-zh="当前方案">Current plan</div><div class="ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5-9 5-9-5z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/></svg></div></div><div class="num">Pro</div><div class="delta up"><span data-en="Institution edition" data-zh="机构版">Institution edition</span></div></div>
       <div class="card stat"><div class="top"><div class="lab" data-en="This month’s bill" data-zh="本月账单">This month’s bill</div><div class="ico i"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h12V21l-2-1.4L14 21l-2-1.4L10 21l-2-1.4L6 21z"/><path d="M9 7.5h6M9 11h6M9 14.5h4"/></svg></div></div><div class="num"><small>S$</small>1,537</div><div class="delta" style="color:var(--muted)"><span data-en="Base S$1,488 + Studio S$49" data-zh="基础 S$1,488 + 工作室 S$49">Base S$1,488 + Studio S$49</span></div></div>
       <div class="card stat"><div class="top"><div class="lab" data-en="Seat price" data-zh="座席单价">Seat price</div><div class="ico g"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="5.5"/><path d="M18.1 6.6a5.5 5.5 0 0 1 0 10.8M8 21a5.5 5.5 0 0 0 5.4-6.6"/></svg></div></div><div class="num"><small>S$</small>1.20</div><div class="delta up"><span data-en="per student / month · 1,240 students" data-zh="每学生／月 · 1,240 人">per student / month · 1,240 students</span></div></div>
-      <div class="card stat"><div class="top"><div class="lab" data-en="Marketplace take" data-zh="撮合抽成">Marketplace take</div><div class="ico a"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z"/></svg></div></div><div class="num">12<small>%</small></div><div class="delta up"><span data-en="S$2,480 this month · you keep 88%" data-zh="本月 S$2,480 · 机构留 88%">S$2,480 this month · you keep 88%</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Membership dues · MTD" data-zh="本月会员会费">Membership dues · MTD</div><div class="ico a"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13A4 4 0 0 1 16 11"/></svg></div></div><div class="num"><small>S$</small>4,120</div><div class="delta up"><span data-en="98% on-time · AI dues assistant" data-zh="98% 按时 · AI 会费助理">98% on-time · AI dues assistant</span></div></div>
     </div>
     <div class="split2">
       <div class="card">
@@ -2277,7 +2278,7 @@ body.pub .pub-hide{display:none!important}
         <div style="padding:6px 18px 10px">
           <div class="list-row"><div style="flex:1"><div class="fw6 small" data-en="Core — grading · tutoring · diagnosis · question bank" data-zh="核心包——评分 · 辅导 · 知点 · 题库">Core — grading · tutoring · diagnosis · question bank</div><div class="small muted" data-en="Included in base" data-zh="基础版已含">Included in base</div></div><div class="tog" onclick="toast('en:Core cannot be disabled','zh:核心包不可关闭')"></div></div>
           <div class="list-row"><div style="flex:1"><div class="fw6 small" data-en="AI Teaching Studio" data-zh="AI 教学工作室">AI Teaching Studio</div><div class="small muted" data-en="+S$49/mo or S$3–6 per video" data-zh="+S$49／月，或按条 S$3–6">+S$49/mo or S$3–6 per video</div></div><div class="tog" onclick="this.classList.toggle('off');toast('en:Studio module toggled (demo)','zh:工作室模块已切换（演示）')"></div></div>
-          <div class="list-row"><div style="flex:1"><div class="fw6 small" data-en="Marketplace & escrow payments" data-zh="撮合市场与担保支付">Marketplace & escrow payments</div><div class="small muted" data-en="No fixed fee · 12% take on matched GMV" data-zh="无固定费 · 按撮合成交额抽 12%">No fixed fee · 12% take on matched GMV</div></div><div class="tog" onclick="this.classList.toggle('off');toast('en:Marketplace toggled (demo)','zh:撮合模块已切换（演示）')"></div></div>
+          <div class="list-row"><div style="flex:1"><div class="fw6 small" data-en="Advanced reports & analytics" data-zh="进阶报告与分析">Advanced reports & analytics</div><div class="small muted" data-en="+S$29/mo · cohort trends, certificates, exports" data-zh="+S$29／月 · 群体趋势、证书、导出">+S$29/mo · cohort trends, certificates, exports</div></div><div class="tog" onclick="this.classList.toggle('off');toast('en:Reports module toggled (demo)','zh:报告模块已切换（演示）')"></div></div>
           <div class="list-row"><div style="flex:1"><div class="fw6 small" data-en="Membership & dues (associations)" data-zh="会员与会费（协会）">Membership & dues (associations)</div><div class="small muted" data-en="Included · payment rails at cost" data-zh="已含 · 支付通道按成本价">Included · payment rails at cost</div></div><div class="tog" onclick="this.classList.toggle('off');toast('en:Membership toggled (demo)','zh:会员模块已切换（演示）')"></div></div>
           <div class="list-row"><div style="flex:1"><div class="fw6 small" data-en="Live class · focus analytics (on-device)" data-zh="上课模式 · 端侧专注力分析">Live class · focus analytics (on-device)</div><div class="small muted" data-en="Included · requires student & parent opt-in" data-zh="已含 · 需学生与家长同意">Included · requires student & parent opt-in</div></div><div class="tog" onclick="this.classList.toggle('off');toast('en:Focus analytics toggled (demo)','zh:专注力模块已切换（演示）')"></div></div>
           <div class="hr" style="margin:8px 0"></div>
@@ -2773,7 +2774,13 @@ body.pub .pub-hide{display:none!important}
 <nav class="bottomnav bn-active" data-role="teacher">
   <button class="bn-item on" data-bn="home" onclick="go('dashboard')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span data-en="Home" data-zh="总览">Home</span><span class="bd"></span></button>
   <button class="bn-item" data-bn="grade" onclick="go('grading')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h2a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg><span data-en="Grade" data-zh="评分">Grade</span><span class="bd"></span></button>
-  <button class="bn-item" data-bn="market" onclick="go('market')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 9 1.3-5h14.4L20.5 9"/><path d="M5 9v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9"/><path d="M3.5 9h17"/><path d="M9.5 20v-5.5h5V20"/></svg><span data-en="Market" data-zh="撮合">Market</span><span class="bd"></span></button>
+  <button class="bn-item" data-bn="learn" onclick="go('learn')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span data-en="Learn" data-zh="辅导">Learn</span><span class="bd"></span></button>
+  <button class="bn-item" data-bn="t-studio" onclick="go('t-studio')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="m22 8-6 4 6 4z"/></svg><span data-en="Studio" data-zh="工作室">Studio</span><span class="bd"></span></button>
+  <button class="bn-item" data-bn="more" onclick="toggleSheet()"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="19" cy="12" r="1.7"/></svg><span data-en="More" data-zh="更多">More</span><span class="bd"></span></button>
+</nav>
+<nav class="bottomnav" data-role="tutor">
+  <button class="bn-item on" data-bn="market" onclick="go('market')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 9 1.3-5h14.4L20.5 9"/><path d="M5 9v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9"/><path d="M3.5 9h17"/><path d="M9.5 20v-5.5h5V20"/></svg><span data-en="Market" data-zh="撮合">Market</span><span class="bd"></span></button>
+  <button class="bn-item" data-bn="grade" onclick="go('grading')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h2a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg><span data-en="Grade" data-zh="评分">Grade</span><span class="bd"></span></button>
   <button class="bn-item" data-bn="wallet" onclick="go('payments')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 7H6a2.5 2.5 0 0 1 0-5h11v5"/><path d="M19 7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2.5 2.5 0 0 1-2.5-2.5V4.5"/><circle cx="16.5" cy="13.8" r="1.3"/></svg><span data-en="Wallet" data-zh="支付">Wallet</span><span class="bd"></span></button>
   <button class="bn-item" data-bn="more" onclick="toggleSheet()"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="19" cy="12" r="1.7"/></svg><span data-en="More" data-zh="更多">More</span><span class="bd"></span></button>
 </nav>
@@ -2791,7 +2798,8 @@ body.pub .pub-hide{display:none!important}
 
 
 <div class="role-menu" id="roleMenu">
-  <a data-role-opt="teacher" onclick="setRole('teacher')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h2a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg><span><span data-en="Teacher" data-zh="教师">Teacher</span><span class="rm-sub" data-en="Ms Tan · grading & classes" data-zh="陈老师 · 批改与班级">Ms Tan · grading & classes</span></span></a>
+  <a data-role-opt="teacher" onclick="setRole('teacher')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h2a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg><span><span data-en="Institution teacher" data-zh="机构教师">Institution teacher</span><span class="rm-sub" data-en="Ms Tan · grading & classes" data-zh="陈老师 · 批改与班级">Ms Tan · grading & classes</span></span></a>
+  <a data-role-opt="tutor" onclick="setRole('tutor')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M5.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/></svg><span><span data-en="Independent tutor" data-zh="独立补习老师">Independent tutor</span><span class="rm-sub" data-en="Adeline · marketplace & bookings" data-zh="Adeline · 撮合与预约">Adeline · marketplace &amp; bookings</span></span></a>
   <a data-role-opt="parent" onclick="setRole('parent')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13A4 4 0 0 1 16 11"/></svg><span><span data-en="Parent" data-zh="家长">Parent</span><span class="rm-sub" data-en="Mdm Lee · Rui Feng’s progress" data-zh="李女士 · 睿峰的学习">Mdm Lee · Rui Feng’s progress</span></span></a>
   <a data-role-opt="student" onclick="setRole('student')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span><span data-en="Student" data-zh="学生">Student</span><span class="rm-sub" data-en="Rui Feng · Sec 3B" data-zh="睿峰 · 中三 B 班">Rui Feng · Sec 3B</span></span></a>
   <a data-role-opt="admin" onclick="setRole('admin')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg><span><span data-en="Admin" data-zh="管理">Admin</span><span class="rm-sub" data-en="Principal · records, fees & AI ops" data-zh="校长/机构负责人 · 档案会费 · AI 运营">Principal · records, fees & AI ops</span></span></a>
@@ -2835,7 +2843,7 @@ body.pub .pub-hide{display:none!important}
   <button class="bn-item" data-bn="a-students" onclick="go('a-students')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><circle cx="8.5" cy="11" r="2.2"/><path d="M5.5 16.5c.6-1.6 1.7-2.4 3-2.4s2.4.8 3 2.4"/><path d="M14.5 9.5H19M14.5 13h4.5M14.5 16.5h3"/></svg><span data-en="Students" data-zh="学生">Students</span><span class="bd"></span></button>
   <button class="bn-item" data-bn="a-academics" onclick="go('a-academics')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m2.5 9.5 9.5-5 9.5 5-9.5 5z"/><path d="M6.5 11.8V16c0 1.4 2.5 3 5.5 3s5.5-1.6 5.5-3v-4.2"/><path d="M21.5 9.5V15"/></svg><span data-en="Academics" data-zh="教务">Academics</span><span class="bd"></span></button>
   <button class="bn-item" data-bn="a-members" onclick="go('a-members')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13A4 4 0 0 1 16 11"/></svg><span data-en="Members" data-zh="会员">Members</span><span class="bd"></span></button>
-  <button class="bn-item" data-bn="a-risk" onclick="go('a-risk')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 4l9 5.5"/><path d="M5 10v7M9.5 10v7M14.5 10v7M19 10v7"/><path d="M3 20h18"/></svg><span data-en="Risk" data-zh="风控">Risk</span><span class="bd"></span></button>
+  <button class="bn-item" data-bn="a-plan" onclick="go('a-plan')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h12V21l-2-1.4L14 21l-2-1.4L10 21l-2-1.4L6 21z"/><path d="M9 7.5h6M9 11h6M9 14.5h4"/></svg><span data-en="Plan" data-zh="订阅">Plan</span><span class="bd"></span></button>
 </nav>
 
 
@@ -3124,10 +3132,11 @@ applyLang('en');
     'a-ops':['· Admin · Command','· 管理 · 指挥台'],'a-students':['· Admin · Student records','· 管理 · 学生档案'],'a-academics':['· Admin · Academics','· 管理 · 教务成绩'],'a-members':['· Admin · Members & fees','· 管理 · 会员会费'],'a-match':['· Admin · Matching engine','· 管理 · 自动撮合'],'a-risk':['· Admin · Risk & compliance','· 管理 · 风控合规']
   });
   var ROLES={
-    teacher:{def:'dashboard',av:'MT',label:['Teacher · Ms Tan','教师 · 陈老师']},
-    parent:{def:'p-home',av:'ML',label:['Parent · Mdm Lee','家长 · 李女士']},
-    student:{def:'s-home',av:'RF',label:['Student · Rui Feng','学生 · 睿峰']},
-    admin:{def:'a-ops',av:'AD',label:['Admin · Institution','管理 · 机构']}
+    teacher:{def:'dashboard',av:'MT',label:['Institution teacher · Ms Tan','机构教师 · 陈老师'],org:['Raffles Academy','莱佛士书院']},
+    tutor:{def:'market',av:'AL',label:['Independent tutor · Adeline','独立补习老师 · Adeline'],org:['Adeline · Independent studio','Adeline · 独立工作室']},
+    parent:{def:'p-home',av:'ML',label:['Parent · Mdm Lee','家长 · 李女士'],org:['Raffles Academy','莱佛士书院']},
+    student:{def:'s-home',av:'RF',label:['Student · Rui Feng','学生 · 睿峰'],org:['Raffles Academy','莱佛士书院']},
+    admin:{def:'a-ops',av:'AD',label:['Admin · Institution','管理 · 机构'],org:['Raffles Academy','莱佛士书院']}
   };
   window.ROLE='teacher';
   var teacherBits=Array.prototype.slice.call(document.querySelectorAll('.sidebar .sb-sec:not(.role-nav), .sidebar .nav:not(.role-nav)'));
@@ -3140,13 +3149,15 @@ applyLang('en');
 
   window.setRole=function(r){
     ROLE=r;
-    teacherBits.forEach(function(el){el.style.display=(r==='teacher')?'':'none';});
-    if(sbFoot)sbFoot.style.display=(r==='teacher')?'':'none';
+    var teach=(r==='teacher'||r==='tutor');
+    teacherBits.forEach(function(el){el.style.display=teach?'':'none';});
+    if(sbFoot)sbFoot.style.display=teach?'':'none';
     document.querySelectorAll('.role-nav').forEach(function(el){el.style.display=(el.dataset.role===r)?'block':'none';});
     document.querySelectorAll('.bottomnav').forEach(function(n){n.classList.toggle('bn-active',n.dataset.role===r);});
     document.querySelectorAll('.role-menu a').forEach(function(a){a.classList.toggle('on',a.dataset.roleOpt===r);});
     var av=document.querySelector('.topbar .avatar'); if(av)av.textContent=ROLES[r].av;
     var lab=document.getElementById('roleLabel'); lab.dataset.en=ROLES[r].label[0]; lab.dataset.zh=ROLES[r].label[1]; setText(lab);
+    var org=document.getElementById('crumbOrg'); if(org&&ROLES[r].org){org.dataset.en=ROLES[r].org[0]; org.dataset.zh=ROLES[r].org[1]; setText(org);}
     document.getElementById('roleMenu').classList.remove('show');
     go(ROLES[r].def);
   };
@@ -3322,14 +3333,15 @@ Object.assign(CRUMB,{
   var ckSel=0;
   var ENT=[
     {en:'Rui Feng',zh:'睿峰',sub:['Student · S3B-012','学生 · S3B-012'],go:function(){go(ROLE==='admin'?'a-students':ROLE==='parent'?'p-home':ROLE==='student'?'s-home':'grading');},kw:'ruifeng student 学生 睿峰'},
-    {en:'Adeline Lim',zh:'Adeline Lim',sub:['Tutor · ★4.9','老师 · ★4.9'],go:function(){go(ROLE==='parent'?'p-book':ROLE==='admin'?'a-match':'market');},kw:'adeline tutor 老师 撮合'},
-    {en:'Mdm Lee',zh:'李女士',sub:['Parent · Family member','家长 · 家庭会员'],go:function(){go(ROLE==='admin'?'a-members':ROLE==='parent'?'p-pay':'payments');},kw:'lee parent 家长 李 会员'}
+    {en:'Adeline Lim',zh:'Adeline Lim',sub:['Tutor · ★4.9','老师 · ★4.9'],go:function(){go(ROLE==='parent'?'p-book':ROLE==='tutor'?'market':'grading');},kw:'adeline tutor 老师 撮合'},
+    {en:'Mdm Lee',zh:'李女士',sub:['Parent · Family member','家长 · 家庭会员'],go:function(){go(ROLE==='admin'?'a-members':ROLE==='parent'?'p-pay':ROLE==='tutor'?'payments':'grading');},kw:'lee parent 家长 李 会员'}
   ];
   function ACT(){return [
     {en:'Start pitch tour',zh:'开始演示导览',fn:startTour,kw:'tour demo 导览 演示'},
     {en:'Ask JE support',zh:'打开 JE 智能客服',fn:function(){openChat();},kw:'support chat 客服 帮助'},
     {en:'Switch language · EN ⇄ 中文',zh:'切换语言 · EN ⇄ 中文',fn:function(){applyLang(LANG==='en'?'zh':'en');},kw:'language 语言 english chinese'},
-    {en:'View as Teacher',zh:'切换到教师视角',fn:function(){setRole('teacher');},kw:'teacher role 教师'},
+    {en:'View as Institution teacher',zh:'切换到机构教师视角',fn:function(){setRole('teacher');},kw:'teacher role 机构教师'},
+    {en:'View as Independent tutor',zh:'切换到独立补习老师视角',fn:function(){setRole('tutor');},kw:'tutor role 独立 补习老师 撮合'},
     {en:'View as Parent',zh:'切换到家长视角',fn:function(){setRole('parent');},kw:'parent role 家长'},
     {en:'View as Student',zh:'切换到学生视角',fn:function(){setRole('student');},kw:'student role 学生'},
     {en:'View as Admin',zh:'切换到机构管理视角',fn:function(){setRole('admin');},kw:'admin role 管理 机构'}
@@ -3391,14 +3403,14 @@ Object.assign(CRUMB,{
     {r:'teacher',m:'grading',t:['Grading that abstains','会「存疑」的评分'],d:['Below the confidence bar, the AI hands the essay to the teacher instead of guessing — that discipline is the product.','置信不足时，AI 不猜测，直接转交教师——这份纪律就是产品本身。']},
     {r:'teacher',m:'t-essay',t:['Master rules, machine speed','名师经验 · 机器速度'],d:['Essays and comprehension are scanned, annotated and scored under rules master teachers wrote — experience compounds on the platform, and teachers keep the signature.','作文与阅读理解扫描即批注：名师把经验写成规则，AI 按规则执行——经验在平台上复利，签发权始终在老师手上。']},
     {r:'teacher',m:'t-studio',t:['A lesson in 6 minutes','6 分钟做出一堂课'],d:['Cited scripts, bilingual presenter, checkpoints from the bank — S$4.20 per video, teacher signs off.','有据脚本、双语讲师、题库检查点——单条 S$4.20，教师签发才上线。']},
-    {r:'teacher',m:'market',t:['Matching, explained','说得清理由的撮合'],d:['The JE engine ranks tutors on a map with reasons — subject, distance, schedule, budget. No black box.','JE 引擎在地图上按科目、距离、时段、预算给出推荐理由——不是黑箱。']},
-    {r:'teacher',m:'payments',t:['Escrow-grade money flow','担保级的资金流'],d:['Parents pay into escrow; tutors are paid after confirmation; the platform never touches funds in transit.','家长先付入托管，确认后老师才收款，平台不触碰在途资金。']},
+    {r:'tutor',m:'market',t:['Matching, explained','说得清理由的撮合'],d:['For independent tutors only: the JE engine ranks you to families on a map with reasons — subject, distance, schedule, budget. No black box.','仅面向独立补习老师：JE 引擎在地图上按科目、距离、时段、预算把你推荐给家庭，理由逐条可见——不是黑箱。']},
+    {r:'tutor',m:'payments',t:['Escrow-grade money flow','担保级的资金流'],d:['Parents pay into escrow; the independent tutor is paid after confirmation; the platform never touches funds in transit.','家长先付入托管，确认后独立补习老师才收款，平台不触碰在途资金。']},
     {r:'student',m:'s-class',t:['Guided, never given away','引导，而不代劳'],d:['Hints in steps, never answers; focus analytics run on-device with nothing recorded.','阶梯提示、绝不给答案；专注力分析在设备端完成，不录制任何画面。']},
     {r:'student',m:'s-learn',t:['Learning that starts with you','从你出发的学习'],d:['A placement test finds the real gaps; the student picks the syllabus, the subjects and the coaching style — Socratic, explain-first, drill or sprint.','入学自测先找出真实薄弱点；体系、科目、引导方式都由学生自己选——苏格拉底、精讲、闯关、冲刺。']},
     {r:'parent',m:'p-home',t:['Trust converts to renewals','信任转化为续费'],d:['Parents see what teachers see — every claim cited, every dollar protected.','家长看到的与老师一致——每个结论有出处，每一分钱有保障。']},
     {r:'admin',m:'a-ops',t:['2 people run 1,240 students','2 个人运营 1,240 名学生'],d:['Agents draft comments, schedules, reminders and invoices; humans approve a queue of 12, not a school of 1,240.','智能体起草评语、排期、提醒与账单；人只审 12 条队列，而不是 1,240 人的学校。']},
-    {r:'admin',m:'a-plan',t:['Modular monetisation','模块化商业变现'],d:['Schools pay per student and flip modules on like switches — Studio add-on, marketplace take-rate, membership dues. This page is the revenue engine.','机构按学生数付费，模块像开关一样随需开启——工作室附加、撮合抽成、会员会费。这一页就是收入引擎。']},
-    {r:'admin',m:'a-risk',t:['Financial-grade backbone','金融级底座'],d:['Segregated funds, daily reconciliation to the cent, dual approvals, hash-chained audit — regulator-ready.','资金隔离、逐分对账、双人复核、哈希链审计——随时面对监管。']}
+    {r:'admin',m:'a-plan',t:['Modular monetisation','模块化商业变现'],d:['Schools pay per student and flip modules on like switches — Studio add-on, advanced reports, membership dues. This page is the revenue engine.','机构按学生数付费，模块像开关一样随需开启——工作室附加、进阶报告、会员会费。这一页就是收入引擎。']},
+    {r:'tutor',m:'a-risk',t:['Financial-grade backbone','金融级底座'],d:['Marketplace money runs like a regulated fintech: segregated funds, daily reconciliation to the cent, dual approvals, hash-chained audit — regulator-ready.','撮合资金按受监管金融机构运转：资金隔离、逐分对账、双人复核、哈希链审计——随时面对监管。']}
   ];
   var ti=-1;
   function renderTour(){
@@ -3420,7 +3432,7 @@ Object.assign(CRUMB,{
     if(s.m)go(s.m);
     renderTour();
   }
-  window.startTour=function(){ti=0;gotoStep();toast('en:Pitch tour started · 9 stops','zh:演示导览开始 · 共 9 站');};
+  window.startTour=function(){ti=0;gotoStep();toast('en:Pitch tour started · 12 stops','zh:演示导览开始 · 共 12 站');};
   window.nextTour=function(){if(ti>=TOUR.length-1){endTour();toast('en:Tour complete — explore freely','zh:导览结束——欢迎自由探索');return;}ti++;gotoStep();};
   window.prevTour=function(){if(ti>0){ti--;gotoStep();}};
   window.endTour=function(silent){ti=-1;var c=document.getElementById('tourCard');if(c)c.classList.remove('show');};
