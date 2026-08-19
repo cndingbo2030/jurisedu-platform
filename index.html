@@ -872,7 +872,7 @@ body.pub .pub-hide{display:none!important}
 
     <div class="sb-sec role-nav" data-role="tutor" data-en="Grow" data-zh="增长">Grow</div>
     <nav class="nav role-nav" data-role="tutor">
-      <a data-mod="market" onclick="go('market')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 9 1.3-5h14.4L20.5 9"/><path d="M5 9v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9"/><path d="M3.5 9h17"/><path d="M9.5 20v-5.5h5V20"/></svg><span data-en="Marketplace" data-zh="撮合市场">Marketplace</span></a>
+      <a data-mod="findstudents" onclick="go('findstudents')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg><span data-en="Find students" data-zh="找学生">Find students</span></a>
       <a data-mod="payments" onclick="go('payments')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 7H6a2.5 2.5 0 0 1 0-5h11v5"/><path d="M19 7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2.5 2.5 0 0 1-2.5-2.5V4.5"/><circle cx="16.5" cy="13.8" r="1.3"/></svg><span data-en="Payments · Escrow" data-zh="支付与担保">Payments · Escrow</span></a>
     </nav>
     <div class="sb-sec role-nav" data-role="parent" data-en="My child" data-zh="我的孩子">My child</div>
@@ -1259,6 +1259,96 @@ body.pub .pub-hide{display:none!important}
     </div>
   </section>
 
+  <!-- ========== TUTOR: FIND STUDENTS (supply side · 找学生 / 接单派单) ========== -->
+  <section class="module" id="m-findstudents">
+    <div class="page-head">
+      <div>
+        <div class="eyebrow" data-en="Grow · Find students" data-zh="增长 · 找学生">Grow · Find students</div>
+        <h1 data-en="Find students who fit you — every order is explained" data-zh="按需找学生 · 每一单都讲清理由">Find students who fit you — every order is explained</h1>
+        <p class="lead" data-en="Three ways an order reaches you, each with one clear status — never double-booked, never a free-for-all. You always accept or decline; money moves only after the parent confirms and funds enter escrow." data-zh="需求以三种方式到你手上、各自单一状态——不会重复派单，也不是抢单混战。是否接单永远由你决定；家长确认且资金进入担保后才结算。">Three ways an order reaches you, each with one clear status — never double-booked, never a free-for-all. You always accept or decline; money moves only after the parent confirms and funds enter escrow.</p>
+      </div>
+      <div class="ph-actions"><button class="btn ghost"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18l-7 8v6l-4 2v-8z"/></svg><span data-en="Filter · subject / level / time" data-zh="筛选 · 科目/能力/时段">Filter · subject / level / time</span></button><button class="btn primary" onclick="toast('en:2 best-fit orders accepted · escrow bookings created','zh:已接 2 单最高匹配 · 担保预约已创建')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-en="Accept best-fit" data-zh="接最高匹配单">Accept best-fit</span></button></div>
+    </div>
+
+    <div class="grid g4" style="margin-bottom:18px">
+      <div class="card stat"><div class="top"><div class="lab" data-en="Earnings · this month" data-zh="本月收入">Earnings · this month</div><div class="ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="5.5"/><path d="M18.1 6.6a5.5 5.5 0 0 1 0 10.8M8 21a5.5 5.5 0 0 0 5.4-6.6"/></svg></div></div><div class="num"><small>S$</small>4,120</div><div class="delta up"><span data-en="you keep 88% · no agency cut" data-zh="你留 88% · 无中介佣金">you keep 88% · no agency cut</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Platform service fee" data-zh="平台服务费">Platform service fee</div><div class="ico g"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11.5 11 13.5 15.5 9"/><circle cx="12" cy="12" r="9"/></svg></div></div><div class="num">12<small>%</small></div><div class="delta up"><span data-en="all-in · escrow + insurance" data-zh="综合价 · 含担保与保险">all-in · escrow + insurance</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="Your accept rate" data-zh="你的接单率">Your accept rate</div><div class="ico a"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div></div><div class="num">86<small>%</small></div><div class="delta up"><span data-en="within 12h SLA" data-zh="12 小时内响应">within 12h SLA</span></div></div>
+      <div class="card stat"><div class="top"><div class="lab" data-en="New-tutor exposure" data-zh="新人曝光配额">New-tutor exposure</div><div class="ico i"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M4 8l8-5 8 5"/></svg></div></div><div class="num">15<small>%</small></div><div class="delta up"><span data-en="reserved · no incumbent lock-in" data-zh="保留配额 · 头部不垄断">reserved · no incumbent lock-in</span></div></div>
+    </div>
+
+    <div class="split" style="margin-bottom:18px">
+      <div class="card">
+        <div class="card-h"><h3 data-en="Student demand near you" data-zh="地图找学生">Student demand near you</h3><span class="badge i"><span class="d"></span><span data-en="Location blurred to precinct · PDPA" data-zh="位置模糊至街区 · PDPA">Location blurred to precinct · PDPA</span></span></div>
+        <div class="pad">
+          <div class="map-wrap">
+            <svg class="map-svg" viewBox="0 0 620 300">
+              <path d="M60,170 C70,140 100,120 140,110 C180,100 220,78 260,72 C300,66 340,70 380,80 C410,86 430,78 455,88 C490,100 530,108 560,128 C575,138 570,150 552,156 C520,168 480,180 440,192 C400,204 360,210 320,212 C280,214 240,210 200,204 C160,198 100,196 60,170 Z" fill="#FBF6EA" stroke="#DFD1B6" stroke-width="1.6"/>
+              <text x="245" y="84" text-anchor="middle" font-size="10" fill="#A79A86" data-en="Woodlands" data-zh="兀兰">Woodlands</text>
+              <text x="432" y="94" text-anchor="middle" font-size="10" fill="#A79A86" data-en="Punggol" data-zh="榜鹅">Punggol</text>
+              <text x="470" y="177" text-anchor="middle" font-size="10" fill="#A79A86" data-en="Tampines" data-zh="淡滨尼">Tampines</text>
+              <text x="302" y="170" text-anchor="middle" font-size="10" fill="#A79A86" data-en="Orchard" data-zh="乌节">Orchard</text>
+              <text x="352" y="209" text-anchor="middle" font-size="10" fill="#A79A86" data-en="Marina Bay" data-zh="滨海湾">Marina Bay</text>
+              <circle cx="330" cy="140" r="58" fill="none" stroke="#3E6B54" stroke-width="1.3" stroke-dasharray="4 5" opacity=".55"/>
+              <text x="384" y="103" font-size="9" fill="#3E6B54" opacity=".85">5 km</text>
+              <g transform="translate(330,140)"><circle class="pulse" r="11" fill="#3E6B54" opacity=".4"/><circle r="5.5" fill="#3E6B54" stroke="#fff" stroke-width="2"/></g>
+              <text x="330" y="120" text-anchor="middle" font-size="10" font-weight="700" fill="#241E17" data-en="You · Adeline" data-zh="你 · Adeline">You · Adeline</text>
+              <g class="mpin sel" transform="translate(300,158)"><circle class="ring" r="16" fill="#FFFFFF" stroke="#C7A24E" stroke-width="1.5"/><circle r="12.5" fill="#C15A2E"/><text y="3.5" text-anchor="middle" font-size="8" font-weight="700" fill="#fff" data-en="S3 EN" data-zh="中三英">S3 EN</text></g>
+              <g class="mpin" transform="translate(258,120)"><circle class="ring" r="15" fill="#FFFFFF" stroke="#E3D6BF" stroke-width="1.5"/><circle r="11.5" fill="#4E3E63"/><text y="3.5" text-anchor="middle" font-size="8" font-weight="700" fill="#fff" data-en="P6 CN" data-zh="小六华">P6 CN</text></g>
+              <g class="mpin" transform="translate(372,168)"><circle class="ring" r="15" fill="#FFFFFF" stroke="#E3D6BF" stroke-width="1.5"/><circle r="11.5" fill="#4C6E86"/><text y="3.5" text-anchor="middle" font-size="8" font-weight="700" fill="#fff" data-en="S2 MA" data-zh="中二数">S2 MA</text></g>
+              <g class="mpin" transform="translate(410,120)"><circle class="ring" r="15" fill="#FFFFFF" stroke="#E3D6BF" stroke-width="1.5"/><circle r="11.5" fill="#B89230"/><text y="3.5" text-anchor="middle" font-size="8" font-weight="700" fill="#fff" data-en="JC PH" data-zh="高物">JC PH</text></g>
+            </svg>
+            <div class="map-legend"><span style="display:inline-flex;align-items:center;gap:5px"><span class="dotb" style="background:#3E6B54"></span><span data-en="You" data-zh="你">You</span></span><span style="display:inline-flex;align-items:center;gap:5px"><span class="dotb" style="background:var(--brand)"></span><span data-en="Student requests" data-zh="学生需求">Student requests</span></span><span data-en="Dashed = 5 km radius" data-zh="虚线 = 5 公里半径">Dashed = 5 km radius</span></div>
+          </div>
+          <div class="pad" style="padding:12px 2px 0"><div class="small muted" data-en="Filter the map by subject, level (P1–JC), schedule and mode (online / in-person). Only requests that match what you teach are shown." data-zh="按科目、能力（小一至高中）、时段与授课方式（线上/线下）筛选地图；只显示与你所教匹配的需求。">Filter the map by subject, level (P1–JC), schedule and mode (online / in-person). Only requests that match what you teach are shown.</div></div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div class="card pad">
+          <div class="fw6" style="margin-bottom:3px" data-en="Your inbox · orders to accept" data-zh="待接单收件箱">Your inbox · orders to accept</div>
+          <p class="small muted" data-en="Two ways an order lands here — you accept or decline within 12h." data-zh="订单以两种方式进入这里——12 小时内接单或婉拒。">Two ways an order lands here — you accept or decline within 12h.</p>
+          <div style="margin-top:12px;display:flex;flex-direction:column;gap:12px">
+            <div class="list-row" style="padding:0"><div class="mini-av" style="background:var(--slate)">L</div><div style="flex:1"><div class="fw6 small">Sec 3 · <span data-en="Essay coaching" data-zh="作文辅导">Essay coaching</span> <span class="badge b" style="margin-left:2px" data-en="Picked you" data-zh="家长点名">Picked you</span></div><div class="small muted" data-en="Parent chose you directly · Bishan 2.1 km · S$68/h" data-zh="家长直接点名你 · 碧山 2.1 km · S$68/时">Parent chose you directly · Bishan 2.1 km · S$68/h</div></div><button class="btn primary" style="padding:6px 11px" onclick="toast('en:Accepted · escrow booking created · parent notified','zh:已接单 · 担保预约已创建 · 已通知家长')" data-en="Accept" data-zh="接单">Accept</button></div>
+            <div class="list-row" style="padding:0"><div class="mini-av" style="background:var(--brand)">AI</div><div style="flex:1"><div class="fw6 small">Sec 2 · <span data-en="Maths" data-zh="数学">Maths</span> <span class="badge g" style="margin-left:2px"><span class="d"></span><span data-en="Dispatched · 94% fit" data-zh="智能派单 · 匹配 94%">Dispatched · 94% fit</span></span></div><div class="small muted" data-en="Engine dispatched to you first · exclusive window 3h 12m left" data-zh="引擎优先派给你 · 独占窗口剩 3 时 12 分">Engine dispatched to you first · exclusive window 3h 12m left</div></div><button class="btn primary" style="padding:6px 11px" onclick="toast('en:Accepted · you were the top-ranked fit','zh:已接单 · 你是最高匹配')" data-en="Accept" data-zh="接单">Accept</button></div>
+            <div class="list-row" style="padding:0"><div class="mini-av" style="background:#8A8172">JC</div><div style="flex:1"><div class="fw6 small">JC · <span data-en="Physics" data-zh="物理">Physics</span> <span class="badge a" style="margin-left:2px"><span class="d"></span><span data-en="Human review" data-zh="转人工">Human review</span></span></div><div class="small muted" data-en="Special-needs note → routed to a human, not auto-dispatched" data-zh="含特殊需求备注 → 转人工，不自动派单">Special-needs note → routed to a human, not auto-dispatched</div></div><button class="btn ghost" style="padding:6px 11px" data-en="View" data-zh="查看">View</button></div>
+          </div>
+          <div class="small muted" style="margin-top:10px;line-height:1.5" data-en="Decline is free and never counts against you for a valid reason. A declined dispatch cascades to the next-best tutor — it is never sent to two tutors at once." data-zh="正当理由婉拒不计负分。被婉拒的派单顺延给下一位最匹配的老师——绝不会同时派给两个人。">Decline is free and never counts against you for a valid reason. A declined dispatch cascades to the next-best tutor — it is never sent to two tutors at once.</div>
+        </div>
+        <div class="card pad">
+          <div class="fw6" style="margin-bottom:3px" data-en="Open pool · you reach out" data-zh="开放需求池 · 你主动接单">Open pool · you reach out</div>
+          <p class="small muted" data-en="Requests where the parent asked to be discoverable. Send an offer; the parent confirms." data-zh="家长选择公开可见的需求；你发接单邀约，家长确认。">Requests where the parent asked to be discoverable. Send an offer; the parent confirms.</p>
+          <div style="margin-top:12px;display:flex;flex-direction:column;gap:10px">
+            <div class="list-row" style="padding:0"><div style="flex:1"><div class="fw6 small">P6 · <span data-en="Chinese oral" data-zh="华文口语">Chinese oral</span></div><div class="small muted" data-en="Ang Mo Kio · evenings · budget S$45–60" data-zh="宏茂桥 · 晚间 · 预算 S$45–60">Ang Mo Kio · evenings · budget S$45–60</div></div><button class="btn ghost" style="padding:6px 11px" onclick="toast('en:Offer sent · parent will confirm','zh:已发接单邀约 · 待家长确认')" data-en="Send offer" data-zh="发邀约">Send offer</button></div>
+            <div class="list-row" style="padding:0"><div style="flex:1"><div class="fw6 small">Sec 1 · <span data-en="English" data-zh="英文">English</span></div><div class="small muted" data-en="Online · weekends · budget S$50–70" data-zh="线上 · 周末 · 预算 S$50–70">Online · weekends · budget S$50–70</div></div><button class="btn ghost" style="padding:6px 11px" onclick="toast('en:Offer sent · parent will confirm','zh:已发接单邀约 · 待家长确认')" data-en="Send offer" data-zh="发邀约">Send offer</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:6px">
+      <div class="card-h"><h3 data-en="How matching, dispatch & accepting work" data-zh="撮合 · 派单 · 接单：怎么运作">How matching, dispatch &amp; accepting work</h3><span class="badge g"><span class="d"></span><span data-en="One status per order · no chaos" data-zh="每单单一状态 · 不混乱">One status per order · no chaos</span></span></div>
+      <div class="pad" style="padding-top:8px">
+        <div class="grid g3">
+          <div class="card pad" style="box-shadow:none;border:1px solid var(--line)"><div class="fw6" style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><span class="badge b">1</span><span data-en="Parent picks → you accept" data-zh="家长直选 → 你接单">Parent picks → you accept</span></div><div class="small muted" data-en="A parent browses tutors, chooses you, and sends a request. It lands in your inbox; you accept or decline. Pull by the parent, with your consent." data-zh="家长浏览老师、点名你、发来请求，进你的收件箱；你接单或婉拒。由家长发起、你同意成单。">A parent browses tutors, chooses you, and sends a request. It lands in your inbox; you accept or decline. Pull by the parent, with your consent.</div></div>
+          <div class="card pad" style="box-shadow:none;border:1px solid var(--line)"><div class="fw6" style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><span class="badge g">2</span><span data-en="Engine dispatches → you accept" data-zh="智能派单 → 你接单">Engine dispatches → you accept</span></div><div class="small muted" data-en="If the parent asks JE to match, the engine ranks eligible tutors (cited reasons, abstains below 85%, humans for sensitive cases) and dispatches to the top fit first, with an exclusive window before cascading." data-zh="家长选择由 JE 匹配时，引擎给合格老师排序（理由可见、低于 85% 存疑、敏感场景转人工），先派给最匹配的一位并给独占窗口，超时再顺延。">If the parent asks JE to match, the engine ranks eligible tutors (cited reasons, abstains below 85%, humans for sensitive cases) and dispatches to the top fit first, with an exclusive window before cascading.</div></div>
+          <div class="card pad" style="box-shadow:none;border:1px solid var(--line)"><div class="fw6" style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><span class="badge a">3</span><span data-en="You find students → parent confirms" data-zh="你找学生 → 家长确认">You find students → parent confirms</span></div><div class="small muted" data-en="You browse the open pool by subject, level, time and area, and send an offer. The parent confirms. Pull by you, with the parent's consent." data-zh="你在开放需求池按科目、能力、时段、区域找学生并发邀约，家长确认。由你发起、家长同意成单。">You browse the open pool by subject, level, time and area, and send an offer. The parent confirms. Pull by you, with the parent's consent.</div></div>
+        </div>
+        <div class="pad" style="padding:14px 2px 2px"><div class="fw6 small" style="margin-bottom:8px" data-en="Rules that keep it fair and un-confusing" data-zh="保证公平、不混乱的规则">Rules that keep it fair and un-confusing</div>
+          <div class="grid g2" style="gap:8px 22px">
+            <div class="list-row" style="padding:5px 0"><span class="dotb" style="background:var(--good)"></span><div class="small" data-en="One status per order — pending / dispatched / accepted / booked. Never in two places at once." data-zh="每单单一状态——待接/已派/已接/已约；绝不同时出现在两处。">One status per order — pending / dispatched / accepted / booked. Never in two places at once.</div></div>
+            <div class="list-row" style="padding:5px 0"><span class="dotb" style="background:var(--good)"></span><div class="small" data-en="No double dispatch — an exclusive window before an order cascades to the next tutor." data-zh="不重复派单——独占窗口结束才顺延给下一位老师。">No double dispatch — an exclusive window before an order cascades to the next tutor.</div></div>
+            <div class="list-row" style="padding:5px 0"><span class="dotb" style="background:var(--good)"></span><div class="small" data-en="Fair exposure — 15% quota for new tutors so incumbents can't lock the market." data-zh="公平曝光——新老师 15% 配额，头部不垄断。">Fair exposure — 15% quota for new tutors so incumbents can't lock the market.</div></div>
+            <div class="list-row" style="padding:5px 0"><span class="dotb" style="background:var(--warn)"></span><div class="small" data-en="Abstain to a human — fit below 85% or a sensitive case is never auto-dispatched." data-zh="存疑转人工——匹配低于 85% 或敏感场景绝不自动派单。">Abstain to a human — fit below 85% or a sensitive case is never auto-dispatched.</div></div>
+            <div class="list-row" style="padding:5px 0"><span class="dotb" style="background:var(--info)"></span><div class="small" data-en="Money last — parent confirms, funds enter escrow, you're paid after the lesson." data-zh="资金最后——家长确认、资金进担保，课后你才收款。">Money last — parent confirms, funds enter escrow, you're paid after the lesson.</div></div>
+            <div class="list-row" style="padding:5px 0"><span class="dotb" style="background:var(--info)"></span><div class="small" data-en="Every match cited — subject, level, distance, schedule and budget fit shown in full." data-zh="匹配可解释——科目、能力、距离、时段、预算的匹配理由逐条可见。">Every match cited — subject, level, distance, schedule and budget fit shown in full.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
   <!-- ========== EVENTS ========== -->
   <section class="module" id="m-events">
     <div class="page-head">
@@ -1482,7 +1572,7 @@ body.pub .pub-hide{display:none!important}
         <h1 data-en="Matching, done for you" data-zh="撮合，由 JE 引擎替你完成">Matching, done for you</h1>
         <p class="lead" data-en="Tell us the need once. The JE engine screens candidates, explains each recommendation, and only escalates to a human when it isn’t sure." data-zh="只需提交一次需求。JE 引擎自动筛选候选、逐条解释推荐理由，拿不准才转人工。">Tell us the need once. The JE engine screens candidates, explains each recommendation, and only escalates to a human when it isn’t sure.</p>
       </div>
-      <div class="ph-actions"><button class="btn primary" onclick="toast('en:New request submitted · JE engine is screening','zh:新需求已提交 · JE 引擎筛选中')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z"/></svg><span data-en="New request" data-zh="发起新需求">New request</span></button></div>
+      <div class="ph-actions"><button class="btn ghost" onclick="toast('en:Course packs — bundled lessons or a course package at a fixed price (demo)','zh:课程包——固定价打包课程或系列课（演示）')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.3 7 12 12l8.7-5M12 12v9.5M21 7.5v9L12 21.5 3 16.5v-9L12 2.5z"/></svg><span data-en="Course packs" data-zh="课程包">Course packs</span></button><button class="btn primary" onclick="toast('en:New request submitted · JE engine is screening','zh:新需求已提交 · JE 引擎筛选中')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z"/></svg><span data-en="New request" data-zh="发起新需求">New request</span></button></div>
     </div>
     <div class="card" style="margin-bottom:16px">
       <div class="card-h"><h3 data-en="Your request · live status" data-zh="你的需求 · 实时进度">Your request · live status</h3><span class="badge g"><span class="d"></span><span data-en="Automated by the JE engine" data-zh="JE 引擎自动执行">Automated by the JE engine</span></span></div>
@@ -1575,6 +1665,21 @@ body.pub .pub-hide{display:none!important}
         <p class="lead" data-en="Built from your last essay, spaced so you remember. Finish all three to keep your streak." data-zh="根据你上一篇作文生成，按遗忘曲线安排。完成三项就能保住连续纪录。">Built from your last essay, spaced so you remember. Finish all three to keep your streak.</p>
       </div>
       <div class="ph-actions"><button class="btn primary" onclick="go('s-tutor')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z"/></svg><span data-en="Start now" data-zh="开始学习">Start now</span></button></div>
+    </div>
+    <div class="card pad" style="margin-bottom:16px">
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;justify-content:space-between">
+        <div class="fw6" style="display:flex;align-items:center;gap:8px"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg><span data-en="How you access JE — same engine, different provisioning" data-zh="你的接入方式 · 同一套引擎、不同开通方式">How you access JE — same engine, different provisioning</span></div>
+        <div class="tabs" style="margin:0">
+          <button class="on" onclick="setLearnerMode(0,this)" data-en="Via your school" data-zh="经学校（机构）">Via your school</button>
+          <button onclick="setLearnerMode(1,this)" data-en="Independent self-learner" data-zh="独立自学">Independent self-learner</button>
+          <button onclick="setLearnerMode(2,this)" data-en="Parent-purchased" data-zh="家长订购">Parent-purchased</button>
+        </div>
+      </div>
+      <div style="margin-top:10px">
+        <div class="lm-ctx" data-lm="0"><div class="list-row" style="padding:0"><span class="dotb" style="background:var(--brand)"></span><div class="small" data-en="Enrolled through Raffles Academy. The school opens your seat and your records live in the school's tenant; AI self-study, AI tutor and live classes are included in the school's plan, and your teacher can see your progress." data-zh="通过莱佛士书院接入。学校为你开通席位，学习记录归属学校租户；AI 自学、AI 辅导与直播课含在学校套餐里，老师可看到你的进度。">Enrolled through Raffles Academy.</div></div></div>
+        <div class="lm-ctx" data-lm="1" style="display:none"><div class="list-row" style="padding:0"><span class="dotb" style="background:var(--good)"></span><div class="small" data-en="You subscribe on your own — no school needed. Full AI self-study: a placement test finds your gaps, then a personalised path you control (Socratic, explain-first, drill or sprint). Your data is yours; no institution sees it." data-zh="你自己订阅、无需学校。完整 AI 自学：入学自测找出薄弱点，再走你自己掌控的个性化路径（苏格拉底 / 精讲 / 闯关 / 冲刺）。数据归你自己，机构看不到。">You subscribe on your own.</div></div></div>
+        <div class="lm-ctx" data-lm="2" style="display:none"><div class="list-row" style="padding:0"><span class="dotb" style="background:var(--info)"></span><div class="small" data-en="A parent bought your lessons or a course pack — an independent tutor booked via the marketplace, or a packaged course. Billing sits with your parent; AI self-study is included and your parent can follow along." data-zh="家长为你订购了课程或课程包——可来自撮合市场的独立老师，或打包课程。账单在家长端；AI 自学包含在内，家长可跟进。">A parent bought your lessons or a course pack.</div></div></div>
+      </div>
     </div>
     <div class="grid g4" style="margin-bottom:16px">
       <div class="card stat"><div class="top"><div class="lab" data-en="Streak" data-zh="连续学习">Streak</div><div class="ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4.4 0 7-2.8 7-6.5 0-4-3.2-6-4.5-9.5-2 1.5-2.7 3.4-2.5 5.5-1.2-.6-2-1.7-2.3-3.2C7.6 10 5 12 5 15.5 5 19.2 7.6 22 12 22z"/></svg></div></div><div class="num">6 <small data-en="days" data-zh="天">days</small></div><div class="streak"><i class="on"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4.4 0 7-2.8 7-6.5 0-4-3.2-6-4.5-9.5-2 1.5-2.7 3.4-2.5 5.5-1.2-.6-2-1.7-2.3-3.2C7.6 10 5 12 5 15.5 5 19.2 7.6 22 12 22z"/></svg></i><i class="on"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4.4 0 7-2.8 7-6.5 0-4-3.2-6-4.5-9.5-2 1.5-2.7 3.4-2.5 5.5-1.2-.6-2-1.7-2.3-3.2C7.6 10 5 12 5 15.5 5 19.2 7.6 22 12 22z"/></svg></i><i class="on"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4.4 0 7-2.8 7-6.5 0-4-3.2-6-4.5-9.5-2 1.5-2.7 3.4-2.5 5.5-1.2-.6-2-1.7-2.3-3.2C7.6 10 5 12 5 15.5 5 19.2 7.6 22 12 22z"/></svg></i><i class="on"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4.4 0 7-2.8 7-6.5 0-4-3.2-6-4.5-9.5-2 1.5-2.7 3.4-2.5 5.5-1.2-.6-2-1.7-2.3-3.2C7.6 10 5 12 5 15.5 5 19.2 7.6 22 12 22z"/></svg></i><i class="on"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4.4 0 7-2.8 7-6.5 0-4-3.2-6-4.5-9.5-2 1.5-2.7 3.4-2.5 5.5-1.2-.6-2-1.7-2.3-3.2C7.6 10 5 12 5 15.5 5 19.2 7.6 22 12 22z"/></svg></i><i class="on"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4.4 0 7-2.8 7-6.5 0-4-3.2-6-4.5-9.5-2 1.5-2.7 3.4-2.5 5.5-1.2-.6-2-1.7-2.3-3.2C7.6 10 5 12 5 15.5 5 19.2 7.6 22 12 22z"/></svg></i><i><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4.4 0 7-2.8 7-6.5 0-4-3.2-6-4.5-9.5-2 1.5-2.7 3.4-2.5 5.5-1.2-.6-2-1.7-2.3-3.2C7.6 10 5 12 5 15.5 5 19.2 7.6 22 12 22z"/></svg></i></div></div>
@@ -1916,8 +2021,8 @@ body.pub .pub-hide{display:none!important}
     <div class="page-head">
       <div>
         <span class="patent-tag"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg> <span data-en="JEanchor applied to matching" data-zh="JEanchor 五步管线 · 应用于撮合">JEanchor applied to matching</span></span>
-        <h1 style="margin-top:9px" data-en="JE engine · auto-matching console" data-zh="JE 引擎 · 自动撮合控制台">JE engine · auto-matching console</h1>
-        <p class="lead" data-en="Every match follows the same pipeline as grading: retrieve candidates, rank with cited reasons, abstain when unsure, human approves edge cases, record everything." data-zh="撮合与评分走同一套管线：检索候选 → 有据排序 → 拿不准就存疑 → 人工只审边界案例 → 全程留痕。">Every match follows the same pipeline as grading: retrieve candidates, rank with cited reasons, abstain when unsure, human approves edge cases, record everything.</p>
+        <h1 style="margin-top:9px" data-en="The engine behind your orders — full transparency" data-zh="你订单背后的撮合引擎 · 全程透明">The engine behind your orders — full transparency</h1>
+        <p class="lead" data-en="See exactly why an order was dispatched to you or to someone else. Matching follows the same pipeline as grading: retrieve candidates, rank with cited reasons, abstain when unsure, human approves edge cases, record everything." data-zh="看清每一单为什么派给你、或派给别人。撮合与评分走同一套管线：检索候选 → 有据排序 → 拿不准就存疑 → 人工只审边界案例 → 全程留痕。">Every match follows the same pipeline as grading: retrieve candidates, rank with cited reasons, abstain when unsure, human approves edge cases, record everything.</p>
       </div>
       <div class="ph-actions"><button class="btn primary" onclick="toast('en:2 abstained requests sent to review queue','zh:2 条存疑请求已进入人工复核队列')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15V4h12l-2 3.5L16 11H4z"/><path d="M4 21v-6"/></svg><span data-en="Review queue · 2" data-zh="人工复核队列 · 2">Review queue · 2</span></button></div>
     </div>
@@ -2401,6 +2506,7 @@ body.pub .pub-hide{display:none!important}
         <div class="eyebrow" data-en="Student · AI guided learning" data-zh="学生 · AI 引导学习">Student · AI guided learning</div>
         <h1 data-en="Your path, your rules — the AI guides, never does it for you" data-zh="你的路径你做主 · AI 只引导，从不代劳">Your path, your rules — the AI guides, never does it for you</h1>
         <p class="lead" data-en="Take a short placement test, pick your syllabus and subjects, choose how you want to be coached — then learn 15 focused minutes a day." data-zh="先做一次小自测，选好课程体系和科目，再挑一种你喜欢的引导方式——每天专注学 15 分钟。">Take a short placement test, pick your syllabus and subjects, choose how you want to be coached — then learn 15 focused minutes a day.</p>
+        <div class="small muted" style="margin-top:8px" data-en="Open to every learner — school students (via your school), independent self-learners (self-subscribed), and students whose parent purchased a plan. Same engine; your records are scoped to whoever provisioned you." data-zh="面向所有学习者——学校学生（经学校）、独立自学用户（自订阅）、以及家长为其订购的学生。同一套引擎；学习记录按开通方归属。">Open to every learner.</div>
       </div>
       <div class="ph-actions">
         <button class="btn primary" onclick="go('s-tutor')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4.5 20 12 7 19.5z"/></svg><span data-en="Continue yesterday · step 3" data-zh="继续昨天的学习 · 第 3 步">Continue yesterday · step 3</span></button>
@@ -2779,7 +2885,7 @@ body.pub .pub-hide{display:none!important}
   <button class="bn-item" data-bn="more" onclick="toggleSheet()"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="19" cy="12" r="1.7"/></svg><span data-en="More" data-zh="更多">More</span><span class="bd"></span></button>
 </nav>
 <nav class="bottomnav" data-role="tutor">
-  <button class="bn-item on" data-bn="market" onclick="go('market')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 9 1.3-5h14.4L20.5 9"/><path d="M5 9v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9"/><path d="M3.5 9h17"/><path d="M9.5 20v-5.5h5V20"/></svg><span data-en="Market" data-zh="撮合">Market</span><span class="bd"></span></button>
+  <button class="bn-item on" data-bn="findstudents" onclick="go('findstudents')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg><span data-en="Students" data-zh="找学生">Students</span><span class="bd"></span></button>
   <button class="bn-item" data-bn="grade" onclick="go('grading')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h2a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg><span data-en="Grade" data-zh="评分">Grade</span><span class="bd"></span></button>
   <button class="bn-item" data-bn="wallet" onclick="go('payments')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 7H6a2.5 2.5 0 0 1 0-5h11v5"/><path d="M19 7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2.5 2.5 0 0 1-2.5-2.5V4.5"/><circle cx="16.5" cy="13.8" r="1.3"/></svg><span data-en="Wallet" data-zh="支付">Wallet</span><span class="bd"></span></button>
   <button class="bn-item" data-bn="more" onclick="toggleSheet()"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="19" cy="12" r="1.7"/></svg><span data-en="More" data-zh="更多">More</span><span class="bd"></span></button>
@@ -2923,7 +3029,7 @@ function enterApp(){
   setTimeout(drawCharts,60);
   animateBars();
 }
-var CRUMB={dashboard:['· Dashboard','· 总览'],grading:['· AI Grading','· AI 评分'],learn:['· Learn','· 辅导'],pinpoint:['· Pinpoint','· 知点'],market:['· Marketplace','· 撮合市场'],events:['· Live Events','· 线上活动']};
+var CRUMB={dashboard:['· Dashboard','· 总览'],grading:['· AI Grading','· AI 评分'],learn:['· Learn','· 辅导'],pinpoint:['· Pinpoint','· 知点'],market:['· Marketplace','· 撮合市场'],findstudents:['· Find students','· 找学生'],events:['· Live Events','· 线上活动']};
 function go(mod){
   document.querySelectorAll('.module').forEach(function(m){m.classList.remove('show');});
   document.getElementById('m-'+mod).classList.add('show');
@@ -3133,7 +3239,7 @@ applyLang('en');
   });
   var ROLES={
     teacher:{def:'dashboard',av:'MT',label:['Institution teacher · Ms Tan','机构教师 · 陈老师'],org:['Raffles Academy','莱佛士书院']},
-    tutor:{def:'market',av:'AL',label:['Independent tutor · Adeline','独立补习老师 · Adeline'],org:['Adeline · Independent studio','Adeline · 独立工作室']},
+    tutor:{def:'findstudents',av:'AL',label:['Independent tutor · Adeline','独立补习老师 · Adeline'],org:['Adeline · Independent studio','Adeline · 独立工作室']},
     parent:{def:'p-home',av:'ML',label:['Parent · Mdm Lee','家长 · 李女士'],org:['Raffles Academy','莱佛士书院']},
     student:{def:'s-home',av:'RF',label:['Student · Rui Feng','学生 · 睿峰'],org:['Raffles Academy','莱佛士书院']},
     admin:{def:'a-ops',av:'AD',label:['Admin · Institution','管理 · 机构'],org:['Raffles Academy','莱佛士书院']}
@@ -3162,6 +3268,7 @@ applyLang('en');
     go(ROLES[r].def);
   };
   window.enterAs=function(r){enterApp();setRole(r);};
+  window.setLearnerMode=function(i,btn){var w=btn.parentNode;w.querySelectorAll("button").forEach(function(b){b.classList.remove("on");});btn.classList.add("on");document.querySelectorAll(".lm-ctx").forEach(function(c){c.style.display=(parseInt(c.dataset.lm)===i)?"":"none";});};
 
   var _go3=window.go;
   window.go=function(m){
@@ -3254,10 +3361,10 @@ Object.assign(CRUMB,{
 (function(){
   function T(en,zh){return LANG==='zh'?zh:en;}
   var MODS={brief:['AI Brief','AI 简报','*'],sched:['Schedule','日程','*'],
-    dashboard:['Dashboard','总览','teacher'],grading:['AI Grading','AI 评分','teacher'],'t-essay':['Essay & Reading','作文·阅读批改','teacher'],learn:['Learn · Tutoring','Learn 辅导','teacher'],pinpoint:['Pinpoint · Diagnosis','知点诊断','teacher'],'t-studio':['AI Teaching Studio','AI 教学工作室','teacher'],'t-qbank':['Question Bank','题库管理','teacher'],market:['Marketplace','撮合市场','teacher'],events:['Live Events','线上活动','teacher'],payments:['Payments · Escrow','支付与担保','teacher'],
+    dashboard:['Dashboard','总览','teacher'],grading:['AI Grading','AI 评分','teacher'],'t-essay':['Essay & Reading','作文·阅读批改','teacher'],learn:['Learn · Tutoring','Learn 辅导','teacher'],pinpoint:['Pinpoint · Diagnosis','知点诊断','teacher'],'t-studio':['AI Teaching Studio','AI 教学工作室','teacher'],'t-qbank':['Question Bank','题库管理','teacher'],market:['Marketplace','撮合市场','public'],findstudents:['Find students','找学生','tutor'],events:['Live Events','线上活动','teacher'],payments:['Payments · Escrow','支付与担保','tutor'],
     'p-home':['Overview','总览','parent'],'p-book':['Bookings · Matching','预约与撮合','parent'],'p-pay':['Billing · Protection','账单与保障','parent'],
     's-home':['Today','今日学习','student'],'s-tutor':['AI Tutor','AI 辅导','student'],'s-learn':['Guided Learning','AI 引导学习','student'],'s-class':['Live Class','上课模式','student'],
-    'a-ops':['Command · AI ops','指挥台 · AI 运营','admin'],'a-students':['Student records','学生档案','admin'],'a-academics':['Academics · Reports','成绩与证书','admin'],'a-members':['Members · Fees','会员与会费','admin'],'a-plan':['Plan · Modules','订阅与模块','admin'],'a-match':['Matching engine','自动撮合引擎','admin'],'a-risk':['Risk · Compliance','风控与合规','admin']
+    'a-ops':['Command · AI ops','指挥台 · AI 运营','admin'],'a-students':['Student records','学生档案','admin'],'a-academics':['Academics · Reports','成绩与证书','admin'],'a-members':['Members · Fees','会员与会费','admin'],'a-plan':['Plan · Modules','订阅与模块','admin'],'a-match':['Matching engine','自动撮合引擎','tutor'],'a-risk':['Risk · Compliance','风控与合规','tutor']
   };
   var RECENTS=[];
 
@@ -3333,7 +3440,7 @@ Object.assign(CRUMB,{
   var ckSel=0;
   var ENT=[
     {en:'Rui Feng',zh:'睿峰',sub:['Student · S3B-012','学生 · S3B-012'],go:function(){go(ROLE==='admin'?'a-students':ROLE==='parent'?'p-home':ROLE==='student'?'s-home':'grading');},kw:'ruifeng student 学生 睿峰'},
-    {en:'Adeline Lim',zh:'Adeline Lim',sub:['Tutor · ★4.9','老师 · ★4.9'],go:function(){go(ROLE==='parent'?'p-book':ROLE==='tutor'?'market':'grading');},kw:'adeline tutor 老师 撮合'},
+    {en:'Adeline Lim',zh:'Adeline Lim',sub:['Tutor · ★4.9','老师 · ★4.9'],go:function(){go(ROLE==='parent'?'p-book':ROLE==='tutor'?'findstudents':'grading');},kw:'adeline tutor 老师 撮合 找学生'},
     {en:'Mdm Lee',zh:'李女士',sub:['Parent · Family member','家长 · 家庭会员'],go:function(){go(ROLE==='admin'?'a-members':ROLE==='parent'?'p-pay':ROLE==='tutor'?'payments':'grading');},kw:'lee parent 家长 李 会员'}
   ];
   function ACT(){return [
@@ -3403,7 +3510,7 @@ Object.assign(CRUMB,{
     {r:'teacher',m:'grading',t:['Grading that abstains','会「存疑」的评分'],d:['Below the confidence bar, the AI hands the essay to the teacher instead of guessing — that discipline is the product.','置信不足时，AI 不猜测，直接转交教师——这份纪律就是产品本身。']},
     {r:'teacher',m:'t-essay',t:['Master rules, machine speed','名师经验 · 机器速度'],d:['Essays and comprehension are scanned, annotated and scored under rules master teachers wrote — experience compounds on the platform, and teachers keep the signature.','作文与阅读理解扫描即批注：名师把经验写成规则，AI 按规则执行——经验在平台上复利，签发权始终在老师手上。']},
     {r:'teacher',m:'t-studio',t:['A lesson in 6 minutes','6 分钟做出一堂课'],d:['Cited scripts, bilingual presenter, checkpoints from the bank — S$4.20 per video, teacher signs off.','有据脚本、双语讲师、题库检查点——单条 S$4.20，教师签发才上线。']},
-    {r:'tutor',m:'market',t:['Matching, explained','说得清理由的撮合'],d:['For independent tutors only: the JE engine ranks you to families on a map with reasons — subject, distance, schedule, budget. No black box.','仅面向独立补习老师：JE 引擎在地图上按科目、距离、时段、预算把你推荐给家庭，理由逐条可见——不是黑箱。']},
+    {r:'tutor',m:'findstudents',t:['Find students, three clear ways','找学生 · 三条清晰路径'],d:['Independent tutors only: parents pick you, the engine dispatches high-fit orders to you, or you find students on the map — one status per order, you always accept or decline, money last.','仅面向独立补习老师：家长点名你、引擎把高匹配单派给你、或你在地图上找学生——每单单一状态、接单与否你说了算、资金最后结算。']},
     {r:'tutor',m:'payments',t:['Escrow-grade money flow','担保级的资金流'],d:['Parents pay into escrow; the independent tutor is paid after confirmation; the platform never touches funds in transit.','家长先付入托管，确认后独立补习老师才收款，平台不触碰在途资金。']},
     {r:'student',m:'s-class',t:['Guided, never given away','引导，而不代劳'],d:['Hints in steps, never answers; focus analytics run on-device with nothing recorded.','阶梯提示、绝不给答案；专注力分析在设备端完成，不录制任何画面。']},
     {r:'student',m:'s-learn',t:['Learning that starts with you','从你出发的学习'],d:['A placement test finds the real gaps; the student picks the syllabus, the subjects and the coaching style — Socratic, explain-first, drill or sprint.','入学自测先找出真实薄弱点；体系、科目、引导方式都由学生自己选——苏格拉底、精讲、闯关、冲刺。']},
