@@ -1,7 +1,7 @@
-# Juris & Edu Intelligence — 文档库 / Documentation
+# Juris & Edu AI Technology — 文档库 / Documentation
 
 > 教育 AI SaaS 平台的**工程文档规范目录**。中文为主，术语保留英文。
-> 品牌统一为 **Juris & Edu Intelligence**；对外域名 `jurisedu.com`。
+> 品牌统一为 **Juris & Edu AI Technology**；对外域名 `jurisedu.com`。
 
 ## 目录规范 / Canonical taxonomy
 
@@ -22,7 +22,7 @@
 
 ## 关键工程约束（摘自工程文档 §0.2）
 
-- 品牌只用 **Juris & Edu Intelligence**；不出现任何内部代号。
+- 品牌只用 **Juris & Edu AI Technology**；不出现任何内部代号。
 - **TIDAR-KAG 域中立**：不含任何特定行业专属内容；教育为主要落地实例。
 - **机构教师无撮合**；仅**独立补习老师**有撮合 / 找学生。
 - 学习者**单角色 + 三接入方式**（机构 / 独立自学 / 家长订购）。
@@ -33,7 +33,7 @@
 
 | 制品 | 位置 / 标识 |
 |---|---|
-| 交互 Demo（本平台演示） | 本仓库 `index.html`（部署于 `jurisedu.com`） |
+| 交互 Demo（本平台演示） | 本仓库 `index.html`（部署于 `app-staging.jurisedu.com`） |
 | 论文：AI 教学形式化底座 —— *A Decision-Theoretic Framework for Adaptive Tutoring: Grounded Content Generation, Risk-Controlled Delivery, and Formal Guarantees* | SSRN Abstract ID **7313338**（重投·审核中）· 永久 DOI（Zenodo, concept）**10.5281/zenodo.22012570** |
 | 论文：TIDAR-KAG（可问责生成形式化底座） | SSRN Abstract ID **7311378** |
 | AI 教学论文 Zenodo 记录（Preprint · CC BY-NC-ND · Open） | https://zenodo.org/records/22012571 （本版本 DOI **10.5281/zenodo.22012571**） |
